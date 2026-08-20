@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Insert</title>
+  <meta name="description" content="Insert privacy policy — how we handle your data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8e4;
+      --text-muted: #9a9a96;
+      --text-faint: rgba(255,255,255,0.3);
+      --accent: #ffffff;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .wordmark-square {
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    /* Main content */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 24px 120px;
+    }
+
+    /* Header */
+    .page-header {
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .page-intro {
+      margin-top: 24px;
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0;
+    }
+
+    .section ul li {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .section ul li:last-child {
+      border-bottom: none;
+    }
+
+    .section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+
+    /* Info card */
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+
+    .info-card p {
+      margin-bottom: 0;
+    }
+
+    /* Third party table */
+    .third-party-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .third-party-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .third-party-item:last-child {
+      border-bottom: none;
+    }
+
+    .tpi-name {
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .tpi-desc {
+      padding: 14px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Contact block */
+    .contact-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .contact-block p {
+      margin-bottom: 12px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 12px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-email:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .third-party-item {
+        grid-template-columns: 1fr;
+      }
+      .tpi-name {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+      }
+      .tpi-desc {
+        padding-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="wordmark">
+        <div class="wordmark-square"></div>
+        Insert
+      </a>
+      <a href="/" class="nav-back">← Back to site</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <span class="page-label">Legal</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <div class="page-meta">Last updated: August 2026</div>
+      <p class="page-intro">
+        We keep this short and plain. Here's what we collect, why we collect it, and what we don't do with it.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Who We Are</h2>
+      <p>
+        Insert is an AI consulting business. We help companies build and deploy AI-powered workflows that replace repetitive manual work. Our website is <strong style="color: var(--text);">useinsert.com</strong>.
+      </p>
+      <p>
+        If you have questions about this policy, reach us at <a href="mailto:hello@useinsert.com" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border);">hello@useinsert.com</a>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>What We Collect</h2>
+      <p>We only collect information you provide directly to us through our contact form or scheduling link. That may include:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>Your company name and role</li>
+        <li>A description of your use case or business challenge</li>
+        <li>Any other details you choose to include in the message field</li>
+      </ul>
+      <p>
+        We do not use tracking pixels, behavioral analytics, fingerprinting, or advertising cookies. We don't know who visits this site unless you tell us.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>How We Use It</h2>
+      <div class="info-card">
+        <p>We use what you send us solely to respond to your inquiry and assess whether we can help you. Nothing else.</p>
+      </div>
+      <p>
+        Specifically, we use your information to:
+      </p>
+      <ul>
+        <li>Follow up on your consultation request</li>
+        <li>Schedule an introductory call if you book one via Calendly</li>
+        <li>Answer questions you've asked us</li>
+      </ul>
+      <p>
+        We do not use your information for marketing lists, cold outreach to third parties, or automated marketing sequences unless you explicitly opt in to future updates from us.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Third-Party Services</h2>
+      <p>Our site relies on a small number of external services to function. Here's what each one does and what data it touches:</p>
+
+      <div class="third-party-list">
+        <div class="third-party-item">
+          <div class="tpi-name">Formspree</div>
+          <div class="tpi-desc">Processes contact form submissions. Your form data passes through their servers to reach us. Formspree's own privacy policy applies to data they handle.</div>
+        </div>
+        <div class="third-party-item">
+          <div class="tpi-name">Calendly</div>
+          <div class="tpi-desc">Handles meeting scheduling if you choose to book a call. Calendly collects your name and email to create a calendar event. Their privacy policy governs their use of that data.</div>
+        </div>
+        <div class="third-party-item">
+          <div class="tpi-name">Google Fonts</div>
+          <div class="tpi-desc">Loads the Inter typeface from Google's CDN. Your browser makes a request to Google's servers to download the font. Google may log this request per their standard terms.</div>
+        </div>
+      </div>
+
+      <p>We have no other third-party integrations on this site. No Google Analytics, no Meta Pixel, no ad networks.</p>
+    </div>
+
+    <div class="section">
+      <h2>Cookies</h2>
+      <p>
+        We do not set any first-party cookies. We do not use cookies for tracking, advertising, or analytics purposes.
+      </p>
+      <p>
+        Google Fonts may cache font files in your browser's standard cache as part of normal browser behavior. This is not a tracking cookie — it's just how browsers store resources locally so pages load faster.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Data Sharing &amp; Selling</h2>
+      <div class="info-card">
+        <p><strong style="color: var(--text);">We do not sell, rent, or trade your personal information.</strong> Full stop. Your contact details are used only to respond to you.</p>
+      </div>
+      <p>
+        We may share your information only if required by law (e.g., a valid legal order), and in that case, we would attempt to notify you first to the extent permitted.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Data Retention</h2>
+      <p>
+        We keep your contact information for as long as there is an active or potential business relationship. If you ask us to delete your information, we'll do so within 30 days and confirm when it's done.
+      </p>
+      <p>
+        Formspree and Calendly retain data according to their own policies, which we do not control. You can contact them directly to request deletion of your data from their systems.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Ask what information we hold about you</li>
+        <li>Request a copy of your data</li>
+        <li>Ask us to correct inaccurate information</li>
+        <li>Ask us to delete your information</li>
+        <li>Withdraw consent at any time (if you've opted in to anything)</li>
+      </ul>
+      <p>
+        To exercise any of these rights, just email us. We don't have a complicated process for this.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Security</h2>
+      <p>
+        We take reasonable measures to protect information you share with us. Form submissions are transmitted over HTTPS. We don't store payment information (we don't accept payments through this site).
+      </p>
+      <p>
+        No system is perfectly secure, and we can't guarantee absolute security — but we treat your data with care.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Changes to This Policy</h2>
+      <p>
+        If we make material changes to this policy, we'll update the "last updated" date at the top of this page. We won't change how we handle data you've already submitted without notifying you directly.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Contact Us</h2>
+      <div class="contact-block">
+        <p>Questions, requests, or concerns about privacy:</p>
+        <a href="mailto:hello@useinsert.com" class="contact-email">hello@useinsert.com</a>
+        <p style="margin-top: 14px;">We'll respond within 2 business days.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Insert. All rights reserved.</span>
+      <a href="/" class="footer-link">← Back to useinsert.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
