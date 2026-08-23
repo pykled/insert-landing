@@ -952,8 +952,7 @@
         <!-- Option B: Send a message -->
         <div class="contact-col">
           <p class="contact-label">OR SEND A MESSAGE</p>
-          <!-- Replace YOUR_FORMSPREE_ID after creating a free account at formspree.io -->
-          <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <form class="contact-form" id="contact-form">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -970,11 +969,10 @@
               <label for="message">What's taking up most of your team's time?</label>
               <textarea id="message" name="message" rows="4" placeholder="Describe the repetitive work you'd love to eliminate..."></textarea>
             </div>
-            <input type="hidden" name="_subject" value="New consultation request — Insert">
-            <input type="text" name="_gotcha" style="display:none">
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message
+            <button type="submit" class="btn btn-primary" id="contact-submit" style="width:100%;justify-content:center;">Send Message
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
             </button>
+            <p id="contact-status" style="margin-top:0.75rem;font-size:0.85rem;display:none;"></p>
           </form>
         </div>
 
@@ -1031,6 +1029,43 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Contact form
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit');
+      const status = document.getElementById('contact-status');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.style.display = 'none';
+
+      const data = Object.fromEntries(new FormData(form));
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          status.textContent = "Message sent. We'll be in touch shortly.";
+          status.style.color = 'var(--text)';
+          form.reset();
+        } else {
+          const err = await res.json();
+          status.textContent = err.error || 'Something went wrong. Please try again.';
+          status.style.color = '#ff6b6b';
+        }
+      } catch {
+        status.textContent = 'Network error. Please try again.';
+        status.style.color = '#ff6b6b';
+      }
+      status.style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>';
+    });
+  }
 </script>
 
 </body>
