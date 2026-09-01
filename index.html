@@ -636,16 +636,25 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
 
   /* ---------- responsive ---------- */
+
+  /* Tablet — 960px */
   @media (max-width: 960px) {
     .hero-grid-visual { display: none; }
-    .services-grid, .why-grid, .serve-layout { grid-template-columns: 1fr; }
-    .quotes { grid-template-columns: 1fr; }
-    .step { grid-template-columns: 72px 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .serve-layout { grid-template-columns: 1fr; }
+    .quotes { grid-template-columns: 1fr 1fr; }
+    .step { grid-template-columns: 72px 1fr; gap: 24px; }
     .step p { grid-column: 2; }
   }
+
+  /* Large mobile — 720px */
   @media (max-width: 720px) {
-    section { padding: 80px 0; }
-    .hero { padding: 90px 0 80px; }
+    section { padding: 72px 0; }
+    .hero { padding: 80px 0 64px; }
+    .final-cta { padding: 100px 0; }
+
+    /* Nav */
     .nav-links {
       display: none;
       position: absolute;
@@ -664,10 +673,59 @@
     .nav-links a { display: block; padding: 14px 24px; font-size: 15px; }
     .menu-toggle { display: flex; }
     .nav-cta .btn { display: none; }
+
+    /* Hero */
     .hero-stats { grid-template-columns: 1fr; }
     .hero-stat { border-right: none; border-bottom: 1px solid var(--line); }
     .hero-stat:last-child { border-bottom: none; }
+
+    /* Grids */
     .problem-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .quotes { grid-template-columns: 1fr; }
+
+    /* Padding reductions */
+    .service-card { padding: 28px 24px; }
+    .serve-primary, .serve-secondary { padding: 32px 28px; }
+    .why-cell { padding: 32px 28px; }
+    .quote-card { padding: 28px 24px; }
+    .problem-statement { padding-left: 0; }
+  }
+
+  /* Small mobile — 480px */
+  @media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .hero { padding: 64px 0 52px; }
+    .final-cta { padding: 72px 0; }
+
+    /* Hero */
+    .hero h1 { font-size: 36px; }
+    .hero p.lede { font-size: 16px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .hero-stat .num { font-size: 24px; }
+
+    /* Step: full single column on small phones */
+    .step { grid-template-columns: 1fr; gap: 10px; padding: 32px 0; }
+    .step p { grid-column: 1; }
+    .step-num { margin-bottom: 4px; }
+
+    /* Padding reductions */
+    .service-card { padding: 24px 20px; }
+    .service-card .index { top: 24px; right: 20px; }
+    .serve-primary, .serve-secondary { padding: 28px 20px; }
+    .why-cell { padding: 28px 20px; }
+    .quote-card { padding: 24px 20px; }
+    .contact-grid { gap: 32px; }
+
+    /* Footer */
+    .footer-top { flex-direction: column; gap: 28px; }
+    .footer-links { gap: 20px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+
+    /* CTA section */
+    .final-cta h2 { font-size: 28px; }
+    .final-cta p { font-size: 15px; }
   }
 </style>
 </head>
