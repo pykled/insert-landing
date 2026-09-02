@@ -499,19 +499,56 @@
     border: 1px solid var(--line-strong);
     padding: 3px 8px;
   }
+  .work-card { position: relative; overflow: hidden; }
+  .work-num {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-family: var(--mono);
+    font-size: 108px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.028);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
   .work-card h3 { font-size: 20px; margin-bottom: 14px; }
   .work-card > p { font-size: 14.5px; color: var(--text-dim); line-height: 1.65; flex: 1; }
   .work-capability {
     margin-top: 28px;
     padding-top: 20px;
     border-top: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-faint);
-    letter-spacing: 0.04em;
-    line-height: 1.6;
   }
-  .work-capability strong { color: var(--accent); font-weight: 500; font-family: inherit; }
+  .flow-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 10px;
+  }
+  .flow-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .flow-step {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid var(--line-strong);
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+  .flow-arrow {
+    color: var(--text-faint);
+    font-size: 11px;
+    font-family: var(--mono);
+    flex-shrink: 0;
+  }
 
   /* ---------- final CTA ---------- */
   .final-cta {
@@ -922,6 +959,7 @@
 
       <div class="work-grid">
         <div class="work-card reveal">
+          <span class="work-num">001</span>
           <div class="work-tags">
             <span class="work-tag">Real Estate</span>
             <span class="work-tag">SaaS</span>
@@ -929,9 +967,21 @@
           </div>
           <h3>Centract</h3>
           <p>Full-stack deal management platform for real estate teams. 13-stage transaction pipeline, built-in CRM with automated drip sequences, AI document assistant, and integrations with Slack and Gmail — replacing four separate tools with one unified workspace.</p>
-          <div class="work-capability"><strong>Key automation:</strong> Document intake, compliance checklists, and agent notifications run automatically at each deal stage. Zero manual triggering.</div>
+          <div class="work-capability">
+            <div class="flow-label">Key automation</div>
+            <div class="flow-steps">
+              <span class="flow-step">Document intake</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Compliance check</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Agent notified</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Stage advanced</span>
+            </div>
+          </div>
         </div>
         <div class="work-card reveal reveal-delay-1">
+          <span class="work-num">002</span>
           <div class="work-tags">
             <span class="work-tag">Mobile</span>
             <span class="work-tag">AI</span>
@@ -939,9 +989,23 @@
           </div>
           <h3>Stagewell</h3>
           <p>AI-powered virtual staging app for real estate agents. Buyers photograph an empty room and receive a fully staged version in seconds. Built-in lead pipeline automatically routes qualified prospects from staging request to agent follow-up — no manual handoff required.</p>
-          <div class="work-capability"><strong>Key automation:</strong> Staging request → AI render → lead capture → agent notification → follow-up sequence. End-to-end with no manual steps.</div>
+          <div class="work-capability">
+            <div class="flow-label">Key automation</div>
+            <div class="flow-steps">
+              <span class="flow-step">Photo uploaded</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">AI renders</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Lead captured</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Agent pinged</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Sequence starts</span>
+            </div>
+          </div>
         </div>
         <div class="work-card reveal reveal-delay-2">
+          <span class="work-num">003</span>
           <div class="work-tags">
             <span class="work-tag">Finance</span>
             <span class="work-tag">Automation</span>
@@ -949,7 +1013,18 @@
           </div>
           <h3>Meter</h3>
           <p>Resale income tracking platform with automatic bank sync via Plaid. Transactions are pulled from linked accounts, auto-categorized by merchant rules, and surfaced in a real-time profit/loss dashboard — built for operators running multiple income streams simultaneously.</p>
-          <div class="work-capability"><strong>Key automation:</strong> Bank sync → rule-based categorization → dashboard update. No manual entry, no spreadsheets.</div>
+          <div class="work-capability">
+            <div class="flow-label">Key automation</div>
+            <div class="flow-steps">
+              <span class="flow-step">Bank sync</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Rule matches</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Auto-categorized</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">Dashboard updates</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
