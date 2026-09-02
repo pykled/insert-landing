@@ -481,9 +481,28 @@
     padding: 40px 36px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
     transition: background 0.25s ease;
   }
+  .work-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent 70%);
+    pointer-events: none;
+  }
   .work-card:hover { background: var(--bg-raised); }
+  .work-card.featured {
+    background: #111111;
+  }
+  .work-card.featured::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.38), rgba(255,255,255,0.12) 50%, transparent);
+    height: 1px;
+  }
+  .work-card.featured .work-num { color: rgba(255,255,255,0.055); }
+  .work-card.featured h3 { font-size: 22px; }
   .work-tags {
     display: flex;
     gap: 8px;
@@ -499,7 +518,10 @@
     border: 1px solid var(--line-strong);
     padding: 3px 8px;
   }
-  .work-card { position: relative; overflow: hidden; }
+  .work-card.featured .work-tag {
+    color: var(--accent);
+    border-color: rgba(255,255,255,0.18);
+  }
   .work-num {
     position: absolute;
     top: -10px;
@@ -958,7 +980,7 @@
       <p class="section-sub reveal">We build for our own operations the same way we build for clients — end-to-end, production-grade, no shortcuts. Here's a sample.</p>
 
       <div class="work-grid">
-        <div class="work-card reveal">
+        <div class="work-card featured reveal">
           <span class="work-num">001</span>
           <div class="work-tags">
             <span class="work-tag">Real Estate</span>
