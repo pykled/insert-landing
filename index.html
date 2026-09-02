@@ -467,38 +467,51 @@
   .why-cell h3 { font-size: 19px; margin-bottom: 12px; }
   .why-cell p { font-size: 15px; color: var(--text-dim); }
 
-  /* ---------- testimonials ---------- */
-  .quotes {
+  /* ---------- selected work ---------- */
+  .work-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
     margin-top: 64px;
   }
-  .quote-card {
-    border: 1px solid var(--line);
+  .work-card {
     background: var(--bg-card);
-    padding: 36px 32px;
+    padding: 40px 36px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 28px;
+    transition: background 0.25s ease;
   }
-  .quote-card blockquote {
-    font-size: 15.5px;
-    line-height: 1.65;
-    color: var(--accent);
-    font-weight: 300;
+  .work-card:hover { background: var(--bg-raised); }
+  .work-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
   }
-  .quote-card blockquote::before { content: "“"; color: var(--text-faint); }
-  .quote-card blockquote::after { content: "”"; color: var(--text-faint); }
-  .quote-attr { border-top: 1px solid var(--line); padding-top: 20px; }
-  .quote-attr .name { font-size: 14px; font-weight: 500; }
-  .quote-attr .role {
+  .work-tag {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-faint);
-    margin-top: 4px;
+    border: 1px solid var(--line-strong);
+    padding: 3px 8px;
   }
+  .work-card h3 { font-size: 20px; margin-bottom: 14px; }
+  .work-card > p { font-size: 14.5px; color: var(--text-dim); line-height: 1.65; flex: 1; }
+  .work-capability {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+  .work-capability strong { color: var(--accent); font-weight: 500; font-family: inherit; }
 
   /* ---------- final CTA ---------- */
   .final-cta {
@@ -643,7 +656,7 @@
     .services-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr 1fr; }
     .serve-layout { grid-template-columns: 1fr; }
-    .quotes { grid-template-columns: 1fr 1fr; }
+    .work-grid { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 72px 1fr; gap: 24px; }
     .step p { grid-column: 2; }
   }
@@ -682,7 +695,7 @@
     /* Grids */
     .problem-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
-    .quotes { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
 
     /* Padding reductions */
     .service-card { padding: 28px 24px; }
@@ -739,7 +752,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How It Works</a></li>
-      <li><a href="#serve">Who We Serve</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
@@ -963,33 +976,43 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
+  <!-- SELECTED WORK -->
+  <section id="work">
     <div class="container">
-      <div class="kicker reveal">What Clients Say</div>
-      <h2 class="reveal">The proof is in the hours returned.</h2>
+      <div class="kicker reveal">Selected Work</div>
+      <h2 class="reveal">What we've shipped.</h2>
+      <p class="section-sub reveal">We build for our own operations the same way we build for clients — end-to-end, production-grade, no shortcuts. Here's a sample.</p>
 
-      <div class="quotes">
-        <div class="quote-card reveal">
-          <blockquote>Our transaction coordinator was drowning in paperwork for eleven agents. Insert automated the document intake and filing, and she now supports twenty agents — with less stress than before.</blockquote>
-          <div class="quote-attr">
-            <div class="name">Marisol Vega</div>
-            <div class="role">Broker/Owner · Vega Realty Group</div>
+      <div class="work-grid">
+        <div class="work-card reveal">
+          <div class="work-tags">
+            <span class="work-tag">Real Estate</span>
+            <span class="work-tag">SaaS</span>
+            <span class="work-tag">AI</span>
           </div>
+          <h3>Centract</h3>
+          <p>Full-stack deal management platform for real estate teams. 13-stage transaction pipeline, built-in CRM with automated drip sequences, AI document assistant, and integrations with Slack and Gmail — replacing four separate tools with one unified workspace.</p>
+          <div class="work-capability"><strong>Key automation:</strong> Document intake, compliance checklists, and agent notifications run automatically at each deal stage. Zero manual triggering.</div>
         </div>
-        <div class="quote-card reveal reveal-delay-1">
-          <blockquote>Leads used to wait hours for a response. Now every inquiry gets a thoughtful reply in under two minutes, day or night. Our conversion rate moved within the first month.</blockquote>
-          <div class="quote-attr">
-            <div class="name">Daniel Okafor</div>
-            <div class="role">Team Lead · Okafor Residential Partners</div>
+        <div class="work-card reveal reveal-delay-1">
+          <div class="work-tags">
+            <span class="work-tag">Mobile</span>
+            <span class="work-tag">AI</span>
+            <span class="work-tag">Lead Gen</span>
           </div>
+          <h3>Stagewell</h3>
+          <p>AI-powered virtual staging app for real estate agents. Buyers photograph an empty room and receive a fully staged version in seconds. Built-in lead pipeline automatically routes qualified prospects from staging request to agent follow-up — no manual handoff required.</p>
+          <div class="work-capability"><strong>Key automation:</strong> Staging request → AI render → lead capture → agent notification → follow-up sequence. End-to-end with no manual steps.</div>
         </div>
-        <div class="quote-card reveal reveal-delay-2">
-          <blockquote>I was skeptical of anything with "AI" in the name. Insert didn't sell us a demo — they sat in our office, found the bottlenecks, and fixed them. It just works.</blockquote>
-          <div class="quote-attr">
-            <div class="name">Ruth Anhalt</div>
-            <div class="role">Principal · Anhalt Property Management</div>
+        <div class="work-card reveal reveal-delay-2">
+          <div class="work-tags">
+            <span class="work-tag">Finance</span>
+            <span class="work-tag">Automation</span>
+            <span class="work-tag">Data</span>
           </div>
+          <h3>Meter</h3>
+          <p>Resale income tracking platform with automatic bank sync via Plaid. Transactions are pulled from linked accounts, auto-categorized by merchant rules, and surfaced in a real-time profit/loss dashboard — built for operators running multiple income streams simultaneously.</p>
+          <div class="work-capability"><strong>Key automation:</strong> Bank sync → rule-based categorization → dashboard update. No manual entry, no spreadsheets.</div>
         </div>
       </div>
     </div>
