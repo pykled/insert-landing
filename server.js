@@ -160,6 +160,11 @@ app.get('/analytics', async (req, res) => {
 </body></html>`);
 });
 
+// --- Venue Ops Stack landing page ---
+app.get(['/venues', '/venues/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'venues.html'));
+});
+
 app.use(express.static(path.join(__dirname), { maxAge: '1d', etag: true }));
 
 app.get('*', (req, res) => {

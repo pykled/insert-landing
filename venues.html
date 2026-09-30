@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venue Ops Stack — Insert for Wedding Venues</title>
+<meta name="description" content="The Venue Ops Stack: four automations that answer every wedding inquiry in under 60 seconds, book tours, collect deposits, and gather reviews. Founding partner spots open.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Venue Ops Stack — Insert for Wedding Venues">
+<meta property="og:description" content="You're losing bookings to venues that respond faster. Four automations that cover the full booking lifecycle, from inquiry to review.">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:url" content="https://useinsert.com/venues">
+<meta property="og:site_name" content="Insert">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Venue Ops Stack — Insert for Wedding Venues">
+<meta name="twitter:description" content="Answer every wedding inquiry in under 60 seconds, even at 10pm on a Sunday.">
+<meta name="twitter:image" content="/og-image.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><rect x='6' y='6' width='20' height='20' fill='none' stroke='%23f2f2f0' stroke-width='1.5'/><rect x='13' y='10' width='6' height='12' fill='%23f2f2f0'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-raised: #101010;
+    --bg-card: #0e0e0e;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.14);
+    --text: #f2f2f0;
+    --text-dim: #9a9a96;
+    --text-faint: #6b6b67;
+    --accent: #d8d8d2;
+    --glow: rgba(255, 255, 255, 0.04);
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --max: 1180px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
+  }
+
+  main, header.site-nav, footer { position: relative; z-index: 1; }
+
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- type helpers ---------- */
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .kicker::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--line-strong);
+  }
+
+  h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; max-width: 640px; }
+
+  .section-sub { color: var(--text-dim); max-width: 560px; margin-top: 16px; font-size: 17px; }
+
+  section { padding: 110px 0; border-top: 1px solid var(--line); }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 13px 26px;
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    background: transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:hover { border-color: rgba(255,255,255,0.32); background: var(--glow); }
+  .btn-primary { background: var(--text); color: #0a0a0a; border-color: var(--text); }
+  .btn-primary:hover { background: #fff; border-color: #fff; box-shadow: 0 0 32px rgba(255,255,255,0.12); }
+  .btn svg { transition: transform 0.25s ease; }
+  .btn:hover svg { transform: translateX(3px); }
+
+  /* ---------- nav ---------- */
+  header.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10,10,10,0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo {
+    font-family: var(--mono);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark { width: 10px; height: 10px; background: var(--text); display: inline-block; }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-home {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-right .btn { padding: 9px 20px; font-size: 14px; }
+
+  /* ---------- hero ---------- */
+  .hero { border-top: none; padding: 130px 0 120px; position: relative; }
+  .hero-inner { max-width: 720px; }
+  .hero h1 {
+    font-size: clamp(40px, 6.5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+  }
+  .hero p.lede {
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--text-dim);
+    max-width: 580px;
+    margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .hero-note { font-family: var(--mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.06em; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line);
+    margin-top: 88px;
+    max-width: 780px;
+  }
+  .hero-stat { padding: 28px 28px 24px; border-right: 1px solid var(--line); }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num { font-family: var(--mono); font-size: 30px; font-weight: 500; letter-spacing: -0.02em; }
+  .hero-stat .label { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  /* ---------- problem ---------- */
+  .problem-statement {
+    margin-top: 48px;
+    padding-left: 28px;
+    border-left: 1px solid var(--line-strong);
+    max-width: 680px;
+  }
+  .problem-statement p {
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.5;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .problem-statement p + p { margin-top: 18px; }
+  .problem-statement strong { color: var(--text); font-weight: 500; }
+
+  /* ---------- automations ---------- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 64px;
+  }
+  .stack-card {
+    background: var(--bg-card);
+    padding: 44px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.25s ease;
+  }
+  .stack-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .stack-card:hover { background: var(--bg-raised); }
+  .stack-card.featured { background: #111111; }
+  .stack-card.featured::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.38), rgba(255,255,255,0.12) 50%, transparent);
+  }
+  .stack-num {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-family: var(--mono);
+    font-size: 108px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.028);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  .stack-card.featured .stack-num { color: rgba(255,255,255,0.055); }
+  .stack-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .stack-card h3 { font-size: 21px; margin-bottom: 12px; }
+  .stack-card > p { font-size: 15px; color: var(--text-dim); line-height: 1.65; flex: 1; }
+  .stack-outcome {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+    color: var(--accent);
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .stack-outcome::before {
+    content: "→";
+    font-family: var(--mono);
+    color: var(--text-faint);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  /* ---------- flow ---------- */
+  .flow-wrap {
+    margin-top: 56px;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    padding: 40px;
+  }
+  .flow-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+  }
+  .flow-steps { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .flow-step {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+  .flow-arrow { color: var(--text-faint); font-size: 14px; font-family: var(--mono); flex-shrink: 0; }
+  .flow-foot {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- offer ---------- */
+  .offer-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 24px;
+    margin-top: 64px;
+  }
+  .offer-primary {
+    border: 1px solid var(--line-strong);
+    background: linear-gradient(160deg, var(--bg-raised), var(--bg-card));
+    padding: 44px 40px;
+    position: relative;
+  }
+  .offer-secondary {
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .offer-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .spots {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 3px 8px;
+  }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .price { font-family: var(--mono); font-size: 44px; font-weight: 500; letter-spacing: -0.03em; }
+  .price-unit { font-family: var(--mono); font-size: 14px; color: var(--text-faint); }
+  .price-note { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; }
+  .offer-layout h3 { font-size: 22px; margin-bottom: 12px; }
+  .offer-list { list-style: none; margin-top: 8px; }
+  .offer-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .offer-list li:last-child { border-bottom: none; }
+  .offer-list li strong { color: var(--text); font-weight: 500; }
+  .offer-list li::before {
+    content: "→";
+    font-family: var(--mono);
+    color: var(--text-faint);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .offer-later {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .offer-later p { font-size: 14px; color: var(--text-faint); }
+  .offer-later .mono { font-family: var(--mono); color: var(--text-dim); font-size: 13px; }
+  .offer-actions { margin-top: 32px; }
+
+  /* ---------- final CTA ---------- */
+  .final-cta { text-align: center; padding: 140px 0; position: relative; overflow: hidden; }
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .final-cta h2 { max-width: 720px; margin: 0 auto 24px; font-size: clamp(32px, 5vw, 54px); }
+  .final-cta > .container > p {
+    color: var(--text-dim);
+    max-width: 500px;
+    margin: 0 auto 44px;
+    font-size: 17px;
+  }
+  .final-cta .kicker { justify-content: center; }
+  .final-cta .kicker::before { display: none; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 56px;
+    text-align: left;
+  }
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 12px; font-family: var(--mono); color: var(--text-dim); letter-spacing: 0.04em; }
+  .form-group input,
+  .form-group textarea {
+    background: var(--bg-raised);
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    padding: 12px 16px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--text-faint); }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: rgba(255,255,255,0.3); }
+  @media (max-width: 780px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .calendly-inline-widget { height: 500px !important; }
+  }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--line); padding: 64px 0 40px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+  .footer-brand p { color: var(--text-faint); font-size: 14px; margin-top: 14px; max-width: 280px; }
+  .footer-links { display: flex; gap: 48px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ---------- responsive ---------- */
+
+  /* Tablet — 960px */
+  @media (max-width: 960px) {
+    .offer-layout { grid-template-columns: 1fr; }
+  }
+
+  /* Large mobile — 720px */
+  @media (max-width: 720px) {
+    section { padding: 72px 0; }
+    .hero { padding: 80px 0 64px; }
+    .final-cta { padding: 100px 0; }
+
+    .nav-right .btn { display: none; }
+
+    .hero-stats { grid-template-columns: 1fr; }
+    .hero-stat { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-stat:last-child { border-bottom: none; }
+
+    .stack-grid { grid-template-columns: 1fr; }
+    .stack-card { padding: 32px 28px; }
+    .flow-wrap { padding: 28px 24px; }
+    .offer-primary, .offer-secondary { padding: 32px 28px; }
+    .spots { position: static; display: inline-block; margin-bottom: 18px; }
+    .problem-statement { padding-left: 0; border-left: none; }
+  }
+
+  /* Small mobile — 480px */
+  @media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .hero { padding: 64px 0 52px; }
+    .final-cta { padding: 72px 0; }
+
+    .hero h1 { font-size: 36px; }
+    .hero p.lede { font-size: 16px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .hero-stat .num { font-size: 24px; }
+
+    .stack-card { padding: 28px 20px; }
+    .offer-primary, .offer-secondary { padding: 28px 20px; }
+    .price { font-size: 36px; }
+    .offer-actions .btn { width: 100%; justify-content: center; }
+    .flow-steps { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); margin-left: 14px; }
+    .contact-grid { gap: 32px; }
+
+    .footer-top { flex-direction: column; gap: 28px; }
+    .footer-links { gap: 20px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+
+    .final-cta h2 { font-size: 28px; }
+    .final-cta > .container > p { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo"><span class="logo-mark"></span>Insert</a>
+    <div class="nav-right">
+      <a href="/" class="nav-home">&larr; Home</a>
+      <a href="#book" class="btn btn-primary">Book a Call</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="kicker reveal">Venue Ops Stack · For Wedding Venues</div>
+        <h1 class="reveal reveal-delay-1">You're losing bookings to venues that respond faster.</h1>
+        <p class="lede reveal reveal-delay-2">Couples inquire with three to five venues at once, and most book with whoever answers first. The Venue Ops Stack replies to every inquiry in under 60 seconds, books the tour, sends the contract, collects the deposit, and asks for the review, without you touching a keyboard.</p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#offer" class="btn btn-primary">See the Founding Partner Offer
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
+          <span class="hero-note">2 FOUNDING SPOTS · SETUP AT NO COST</span>
+        </div>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat"><div class="num">&lt; 60s</div><div class="label">From a couple's inquiry to a personalized reply</div></div>
+        <div class="hero-stat"><div class="num">24/7</div><div class="label">Including 10pm on a Sunday, when couples actually plan</div></div>
+        <div class="hero-stat"><div class="num">0</div><div class="label">Manual steps from first inquiry to paid deposit</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="kicker reveal">The Problem</div>
+      <h2 class="reveal">The booking goes to whoever answers first.</h2>
+      <div class="problem-statement reveal">
+        <p>Couples do their venue research at night and on weekends. They send the same inquiry to several venues and book tours with the ones that write back while they're still excited.</p>
+        <p>Most venues reply hours later, after the couple has already scheduled a tour somewhere else. <strong>You didn't lose on price or on your space. You lost on response time.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STACK -->
+  <section id="stack">
+    <div class="container">
+      <div class="kicker reveal">The Venue Ops Stack</div>
+      <h2 class="reveal">Four automations. The whole booking lifecycle.</h2>
+      <p class="section-sub reveal">Built around how your venue already works and connected to the tools you use. Set up once, then it just runs.</p>
+
+      <div class="stack-grid">
+        <div class="stack-card featured reveal">
+          <span class="stack-num">01</span>
+          <span class="stack-tag">01 / Inquiry</span>
+          <h3>Inquiry auto-response</h3>
+          <p>An instant reply to every inquiry, personalized to the couple's date and guest count, with a link to book a tour.</p>
+          <div class="stack-outcome">You're the first venue they hear back from, every time.</div>
+        </div>
+        <div class="stack-card reveal reveal-delay-1">
+          <span class="stack-num">02</span>
+          <span class="stack-tag">02 / Tour</span>
+          <h3>Tour scheduling</h3>
+          <p>Self-serve booking link, instant confirmation, reminders 24 hours and 2 hours out, and a reschedule text if they no-show.</p>
+          <div class="stack-outcome">More tours on the calendar, fewer no-shows, no email back-and-forth.</div>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-num">03</span>
+          <span class="stack-tag">03 / Contract</span>
+          <h3>Contract + deposit</h3>
+          <p>The DocuSign contract goes out automatically after the tour, with a Stripe payment link for the deposit. You're notified when it's signed and paid.</p>
+          <div class="stack-outcome">The date is locked while the couple is still excited, with zero manual steps.</div>
+        </div>
+        <div class="stack-card reveal reveal-delay-1">
+          <span class="stack-num">04</span>
+          <span class="stack-tag">04 / Review</span>
+          <h3>Review collection</h3>
+          <p>An automated text seven days after the wedding with direct links to leave a review on Google and The Knot.</p>
+          <div class="stack-outcome">A steady stream of fresh reviews that pushes you up local rankings.</div>
+        </div>
+      </div>
+
+      <div class="flow-wrap reveal">
+        <div class="flow-label">How a booking moves through the stack</div>
+        <div class="flow-steps">
+          <span class="flow-step">Inquiry</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Tour</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Contract + Deposit</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Review</span>
+        </div>
+        <p class="flow-foot">Each stage kicks off the next one on its own. You step in for the parts that need you: the tour itself and the wedding day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDING PARTNER OFFER -->
+  <section id="offer">
+    <div class="container">
+      <div class="kicker reveal">Founding Partner Offer</div>
+      <h2 class="reveal">We're looking for two founding venues.</h2>
+      <p class="section-sub reveal">We're launching the Venue Ops Stack with a small group of partners. You get the full build at no cost and a locked rate. In return, we get your honest feedback.</p>
+
+      <div class="offer-layout">
+        <div class="offer-primary reveal">
+          <span class="spots">2 spots</span>
+          <span class="offer-label">What you get</span>
+          <div class="price-row">
+            <span class="price">$250</span>
+            <span class="price-unit">/ month, locked</span>
+          </div>
+          <p class="price-note">Plus a 1% platform fee on deposits processed through the stack.</p>
+          <ul class="offer-list">
+            <li><span><strong>Setup at no cost.</strong> All four automations built, connected, and tested for your venue.</span></li>
+            <li><span><strong>$250/month, locked.</strong> Your rate doesn't change when our pricing does.</span></li>
+            <li><span><strong>1% on deposits.</strong> $20 on a $2,000 deposit. We only earn more when you book more.</span></li>
+            <li><span><strong>Direct line to the builder.</strong> Changes and fixes handled by the people who built it.</span></li>
+          </ul>
+          <div class="offer-actions">
+            <a href="#book" class="btn btn-primary">Claim a Founding Spot
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="offer-secondary reveal reveal-delay-1">
+          <span class="offer-label">What we ask</span>
+          <h3>Your feedback and a testimonial.</h3>
+          <ul class="offer-list">
+            <li><span><strong>Honest feedback</strong> on what's working and what isn't during the first few months.</span></li>
+            <li><span><strong>A short testimonial</strong> once the stack is booking tours for you.</span></li>
+          </ul>
+          <div class="offer-later">
+            <span class="offer-label">After the founding period</span>
+            <p class="mono">$3,000–$4,500 build · $400–$500/mo · 1% on deposits</p>
+            <p style="margin-top:8px;">Founding partners keep their $250/month rate and skip the build fee entirely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A CALL -->
+  <section class="final-cta" id="book">
+    <div class="container">
+      <div class="kicker reveal">Book a Call</div>
+      <h2 class="reveal">Be the venue that answers first.</h2>
+      <p class="reveal reveal-delay-1">A 30-minute call. We'll walk through how inquiries reach you today, show you what the stack would look like at your venue, and tell you honestly whether it's a fit.</p>
+
+      <div class="contact-grid reveal reveal-delay-2">
+        <div class="contact-col">
+          <p class="contact-label">BOOK A TIME</p>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/dilldjie/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0a&text_color=f2f2f0&primary_color=f2f2f0" style="min-width:280px;height:620px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+        <div class="contact-col">
+          <p class="contact-label">OR SEND A MESSAGE</p>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@yourvenue.com" required>
+            </div>
+            <div class="form-group">
+              <label for="business">Venue name</label>
+              <input type="text" id="business" name="business" placeholder="e.g. Oak Hollow Estate">
+            </div>
+            <div class="form-group">
+              <label for="message">How do inquiries reach you today?</label>
+              <textarea id="message" name="message" rows="4" placeholder="Website form, The Knot, WeddingWire, email... and roughly how fast you reply."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="contact-submit" style="width:100%;justify-content:center;">Send Message
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+            </button>
+            <p id="contact-status" style="margin-top:0.75rem;font-size:0.85rem;display:none;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mark"></span>Insert</a>
+        <p>AI workflows for serious businesses. Less busywork, more business.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#stack">The Stack</a></li>
+        <li><a href="#offer">Founding Offer</a></li>
+        <li><a href="#book">Book a Call</a></li>
+        <li><a href="/">Insert Home</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Insert. All rights reserved.</span>
+      <a href="/privacy.html" style="color:var(--text-faint);font-size:0.75rem;text-decoration:none;letter-spacing:0.05em;">PRIVACY POLICY</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Analytics
+  fetch('/api/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      page: location.pathname,
+      referrer: document.referrer,
+      device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+    }),
+  }).catch(() => {});
+
+  // Contact form
+  const form = document.getElementById('contact-form');
+  const arrow = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>';
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('contact-submit');
+    const status = document.getElementById('contact-status');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.style.display = 'none';
+
+    const data = Object.fromEntries(new FormData(form));
+    data.business = 'Wedding venue (/venues)' + (data.business ? ' — ' + data.business : '');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        status.textContent = "Message sent. We'll be in touch shortly.";
+        status.style.color = 'var(--text)';
+        form.reset();
+      } else {
+        const err = await res.json().catch(() => ({}));
+        status.textContent = err.error || 'Something went wrong. Please try again.';
+        status.style.color = '#ff6b6b';
+      }
+    } catch {
+      status.textContent = 'Network error. Please try again.';
+      status.style.color = '#ff6b6b';
+    }
+    status.style.display = 'block';
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message ' + arrow;
+  });
+</script>
+
+</body>
+</html>
