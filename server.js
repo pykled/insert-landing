@@ -165,7 +165,12 @@ app.get(['/venues', '/venues/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'venues.html'));
 });
 
-app.use(express.static(path.join(__dirname), { maxAge: '1d', etag: true }));
+// --- Never serve internal folders (outreach mocks in /previews, scripts, git) ---
+app.use(['/previews', '/scripts', '/node_modules'], (req, res) => {
+  res.status(404).type('text').send('Not found');
+});
+
+app.use(express.static(path.join(__dirname), { maxAge: '1d', etag: true, dotfiles: 'ignore' }));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
