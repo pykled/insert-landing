@@ -441,7 +441,7 @@
     margin-left: auto;
   }
   .stack-card h3 { font-size: 28px; margin-bottom: 16px; line-height: 1.2; }
-  .stack-card > p { font-size: 15.5px; color: var(--text-dim); line-height: 1.7; flex: 1; }
+  .stack-card > p { font-size: 15px; color: var(--text-dim); line-height: 1.7; flex: 1; }
   .stack-outcome {
     margin-top: 32px;
     padding-top: 22px;
@@ -752,41 +752,41 @@
   .hero-grid .hero h1, .hero-grid h1 { font-size: clamp(44px, 5.6vw, 74px); }
   .hero-visual { position: relative; padding: 0 0 36px 0; }
   .hero-visual .photo {
-    aspect-ratio: 4 / 4.1;
+    aspect-ratio: 4 / 4.5;
     width: calc(100% + clamp(0px, (100vw - var(--max)) / 2, 90px));
   }
-  .hero-visual .photo-caption { left: 180px; text-align: right; }
+  .hero-visual .photo-caption { left: 270px; text-align: right; }
   .hero-visual .phone {
     position: absolute;
-    left: -44px;
+    left: -56px;
     bottom: 0;
-    width: 212px;
+    width: 292px;
     padding: 10px;
-    border-radius: 32px;
+    border-radius: 40px;
     box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,169,110,0.08);
   }
-  .hero-visual .phone-screen { min-height: 380px; padding: 30px 11px 14px; border-radius: 24px; }
-  .hero-visual .bubble { font-size: 11.5px; padding: 8px 10px; max-width: 90%; }
-  .hero-visual .phone-status { font-size: 10px; }
+  .hero-visual .phone-screen { padding: 34px 13px 16px; border-radius: 31px; }
 
   /* ---------- phone mockup ---------- */
+  /* Realistic handset proportions: 9:18 screen, ~300px wide, comfortable bubble line length */
   .phone {
-    width: 256px;
+    width: 300px;
+    max-width: 100%;
     background: #0b0906;
     border: 1px solid rgba(201,169,110,0.35);
-    border-radius: 36px;
-    padding: 12px;
+    border-radius: 42px;
+    padding: 10px;
     position: relative;
     font-family: var(--sans);
     font-weight: 400;
   }
   .phone-screen {
     background: linear-gradient(180deg, #17120c 0%, #120e09 100%);
-    border-radius: 26px;
-    padding: 34px 14px 18px;
+    border-radius: 33px;
+    padding: 36px 13px 18px;
     position: relative;
     overflow: hidden;
-    min-height: 420px;
+    aspect-ratio: 9 / 18;
   }
   .phone-notch {
     position: absolute;
@@ -823,12 +823,12 @@
     font-family: var(--mono);
   }
   .bubble {
-    max-width: 86%;
-    font-size: 12.5px;
+    max-width: 88%;
+    font-size: 13px;
     line-height: 1.45;
-    padding: 9px 12px;
-    border-radius: 16px;
-    margin-bottom: 6px;
+    padding: 10px 13px;
+    border-radius: 18px;
+    margin-bottom: 8px;
     color: var(--text);
   }
   .bubble.them { background: #26201a; border-bottom-left-radius: 4px; margin-right: auto; color: var(--text-dim); }
@@ -949,7 +949,7 @@
     border-radius: 3px;
     padding: 56px 48px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 320px;
     gap: 56px;
     align-items: center;
     position: relative;
@@ -1064,9 +1064,7 @@
     .hero-visual { padding-bottom: 0; max-width: none; }
     .hero-visual .photo { aspect-ratio: 4 / 3; width: 100%; }
     .hero-visual .photo-caption { display: none; }
-    .hero-visual .phone { position: relative; left: auto; bottom: auto; margin: -70px auto 0; width: 240px; padding: 12px; border-radius: 36px; }
-    .hero-visual .phone-screen { padding: 34px 14px 18px; border-radius: 26px; }
-    .hero-visual .bubble { font-size: 12.5px; padding: 9px 12px; }
+    .hero-visual .phone { position: relative; left: auto; bottom: auto; margin: -90px auto 0; width: 300px; }
     .journey { padding: 28px 22px; gap: 32px; }
     .journey .phone { justify-self: center; }
     .refresh { padding: 22px 20px; }
@@ -1105,8 +1103,7 @@
     .final-cta h2 { font-size: 32px; }
     .final-cta > .container > p { font-size: 15px; }
 
-    .hero-visual .phone { width: 228px; margin-top: -60px; }
-    .phone-screen { min-height: 380px; padding-top: 32px; }
+    .hero-visual .phone { margin-top: -70px; }
     .journey-steps li { grid-template-columns: 84px 1fr; gap: 12px; font-size: 14px; }
     .mock { padding: 14px 14px; }
   }
@@ -1135,7 +1132,7 @@
         <div class="hero-inner">
           <div class="kicker reveal">The Venue Ops Stack</div>
           <h1 class="reveal reveal-delay-1">You're losing bookings to venues that <em>answer first.</em></h1>
-          <p class="lede reveal reveal-delay-2">Couples inquire with three to five venues at once, and most book with whoever writes back first. The Venue Ops Stack replies to every inquiry in under 60 seconds, books the tour, sends the contract, collects the deposit, and asks for the review, without you touching a keyboard.</p>
+          <p class="lede reveal reveal-delay-2">Couples inquire with several venues at once and book with whoever replies first. The Venue Ops Stack answers in under 60 seconds, books the tour, collects the deposit, and asks for the review. No keyboard required.</p>
           <div class="hero-actions reveal reveal-delay-3">
             <a href="#charter" class="btn btn-primary">View the Charter Partner Invitation
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
@@ -1160,15 +1157,15 @@
               <div class="bubble us">Hi Maya and Jordan! Congratulations. October 17 is open, and 120 fits our garden ceremony and barn reception beautifully. Pick a tour time that works for you:
                 <span class="link">willowcreek.co/tour</span>
               </div>
-              <div class="msg-meta">Delivered · <b>40 seconds</b> after their text</div>
+              <div class="msg-meta">Delivered in <b>40 seconds</b></div>
             </div>
           </div>
         </div>
       </div>
       <div class="hero-stats reveal">
-        <div class="hero-stat"><div class="num">&lt;60<small>sec</small></div><div class="label">From a couple's inquiry to a personalized reply with a tour link</div></div>
-        <div class="hero-stat"><div class="num">24<small>/7</small></div><div class="label">Including 10pm on a Sunday, when couples actually plan</div></div>
-        <div class="hero-stat"><div class="num">0</div><div class="label">Manual steps from first inquiry to paid deposit</div></div>
+        <div class="hero-stat"><div class="num">&lt;60<small>sec</small></div><div class="label">Inquiry to personal reply with a tour link</div></div>
+        <div class="hero-stat"><div class="num">24<small>/7</small></div><div class="label">Even 10pm on a Sunday, when couples plan</div></div>
+        <div class="hero-stat"><div class="num">0</div><div class="label">Manual steps from inquiry to paid deposit</div></div>
       </div>
     </div>
   </section>
@@ -1180,10 +1177,9 @@
         <div>
           <div class="kicker reveal">The Problem</div>
           <h2 class="reveal">The booking goes to whoever <em>answers first.</em></h2>
-          <p class="section-sub reveal">Not the prettiest barn. Not the best price. The venue that was in the couple's inbox while they were still excited.</p>
           <div class="problem-statement reveal reveal-delay-1" style="margin-top:40px">
-            <p class="drop">Couples do their venue research at night and on weekends. They send the same inquiry to several venues and book tours with the ones that write back while they're still dreaming about it.</p>
-            <p>Most venues reply hours later, after the couple has already scheduled a tour somewhere else. <strong>You didn't lose on price or on your space. You lost on response time.</strong></p>
+            <p class="drop">Couples research venues at night and on weekends, send the same inquiry to several, and tour with the ones that reply while they're still excited.</p>
+            <p>Most venues answer hours later. <strong>You didn't lose on price or on your space. You lost on response time.</strong></p>
           </div>
         </div>
         <div class="problem-visual reveal reveal-delay-1">
@@ -1202,13 +1198,12 @@
             <span class="day-tag">Without the stack</span>
           </div>
           <ol class="timeline">
-            <li><time>9:40am</time><span>Four new inquiries from The Knot overnight. You're setting up for a 2pm ceremony and don't see them yet.</span></li>
-            <li><time>2:00pm</time><span>Ceremony. Phone on silent. A couple who inquired at 11pm <span class="lost">books a tour at the venue down the road.</span></span></li>
-            <li><time>6:15pm</time><span>Dinner service. Another couple follows up: <em>"Just checking if you got our message?"</em></span></li>
-            <li><time>11:30pm</time><span>Home. You open the inbox and reply to all four. <span class="lost">Two have already toured elsewhere.</span></span></li>
-            <li><time>Mon.</time><span>Reschedule a tour by email, chase a signed contract, remember to ask last month's couple for a review. You don't.</span></li>
+            <li><time>9:40am</time><span>Four new inquiries overnight. You're setting up for a 2pm ceremony.</span></li>
+            <li><time>2:00pm</time><span>Phone on silent. A couple who inquired at 11pm <span class="lost">books a tour down the road.</span></span></li>
+            <li><time>11:30pm</time><span>Home. You reply to all four. <span class="lost">Two have already toured elsewhere.</span></span></li>
+            <li><time>Mon.</time><span>Chase a signed contract. Mean to ask last month's couple for a review. Don't.</span></li>
           </ol>
-          <p class="day-foot">Four inquiries. One tour booked. A full day of work, done twice.</p>
+          <p class="day-foot">Four inquiries. One tour booked.</p>
         </div>
         <div class="day-col with reveal reveal-delay-1">
           <div class="day-head">
@@ -1216,11 +1211,10 @@
             <span class="day-tag">With the stack</span>
           </div>
           <ol class="timeline">
-            <li><time>11:02pm</time><span>A couple inquires for an October date, 120 guests. <strong>Forty seconds later</strong> they have a personal reply, your availability, and a tour link.</span></li>
-            <li><time>11:06pm</time><span>They book a Thursday tour. Confirmation sent. Reminders scheduled for 24 hours and 2 hours out.</span></li>
-            <li><time>Sat.</time><span>You run the ceremony and dinner service with your phone on silent. Every inquiry that arrives is answered.</span></li>
-            <li><time>Thu.</time><span>Tour. You pour the coffee and tell the story of the property. That part stays yours.</span></li>
-            <li><time>Thu. 5pm</time><span>Contract and deposit link go out on their own. <strong>Signed and paid by Friday morning.</strong> Seven days after the wedding, a review request lands in their texts.</span></li>
+            <li><time>11:02pm</time><span>A couple inquires. <strong>Forty seconds later</strong> they have a personal reply and a tour link.</span></li>
+            <li><time>11:06pm</time><span>Tour booked for Thursday. Confirmation and reminders sent.</span></li>
+            <li><time>Thu.</time><span>You give the tour. Contract and deposit link go out an hour later.</span></li>
+            <li><time>Fri.</time><span><strong>Signed and paid.</strong> A week after the wedding, a review request lands in their texts.</span></li>
           </ol>
           <p class="day-foot">Every couple answered in under a minute. You never opened a laptop.</p>
         </div>
@@ -1233,17 +1227,17 @@
     <div class="container">
       <div class="kicker reveal">The Venue Ops Stack</div>
       <h2 class="reveal">Four automations. The whole booking lifecycle, <em>handled.</em></h2>
-      <p class="section-sub reveal">Built around how your venue already works and connected to the tools you already use. Set up once, then it quietly runs.</p>
+      <p class="section-sub reveal">Connected to the tools you already use. Set up once, then it quietly runs.</p>
 
       <div class="stack-grid">
         <div class="stack-card featured reveal">
           <div class="stack-num">I <span class="stack-tag">Inquiry</span></div>
           <h3>Inquiry auto-response</h3>
-          <p>An instant reply to every inquiry, by text or email, written in your voice and personalized to the couple's date and guest count, with a link to book a tour.</p>
+          <p>Instant personal reply to every inquiry, with a tour link.</p>
           <div class="mock" aria-label="Example auto-reply email">
             <div class="mock-head"><span class="app mail">✉</span>Email · to Maya &amp; Jordan<span class="when">Sun 11:02 PM</span></div>
             <div class="mock-title">Re: October 17 at Willow Creek</div>
-            <p>Hi Maya and Jordan, congratulations! October 17, 2027 is open, and 120 guests fits our garden ceremony and barn reception with room to spare. I've attached our wedding guide. The easiest next step is a tour:</p>
+            <p>Hi Maya and Jordan, congratulations! October 17 is open, and 120 guests fits our garden ceremony and barn reception beautifully. The easiest next step is a tour:</p>
             <span class="mock-btn">Book a tour</span><span class="mock-btn ghost">View the guide</span>
           </div>
           <div class="stack-outcome">You're the first venue they hear back from, every time.</div>
@@ -1251,38 +1245,38 @@
         <div class="stack-card reveal reveal-delay-1">
           <div class="stack-num">II <span class="stack-tag">Tour</span></div>
           <h3>Tour scheduling</h3>
-          <p>Self-serve booking link, instant confirmation, reminders 24 hours and 2 hours out, and a gentle reschedule text if they no-show.</p>
+          <p>Self-serve booking, reminders, and no-show follow-up.</p>
           <div class="mock" aria-label="Example tour confirmation">
             <div class="mock-head"><span class="app cal">▦</span>Tour confirmed<span class="when">Sun 11:06 PM</span></div>
             <div class="mock-title">Thursday, June 11 · 4:00 PM</div>
-            <p>Willow Creek Estate · 1480 Willow Creek Rd. Park by the barn; Elena will meet you at the garden gate. Plan on about 45 minutes.</p>
+            <p>Willow Creek Estate · Park by the barn; Elena will meet you at the garden gate.</p>
             <div class="mock-chips"><span class="mock-chip">Added to calendar</span><span class="mock-chip">Reminder · 24 h</span><span class="mock-chip">Reminder · 2 h</span></div>
           </div>
-          <div class="stack-outcome">More tours on the calendar, fewer no-shows, no email back-and-forth.</div>
+          <div class="stack-outcome">More tours, fewer no-shows, no back-and-forth.</div>
         </div>
         <div class="stack-card reveal">
           <div class="stack-num">III <span class="stack-tag">Contract</span></div>
           <h3>Contract + deposit</h3>
-          <p>The DocuSign contract goes out automatically after the tour, with a Stripe payment link for the deposit. You're notified the moment it's signed and paid.</p>
+          <p>Contract and deposit link sent after the tour. Notified when paid.</p>
           <div class="mock" aria-label="Example deposit receipt">
             <div class="mock-head"><span class="app">$</span>Receipt · Willow Creek Estate<span class="when">Fri 9:12 AM</span></div>
             <div class="mock-row"><span>Venue deposit · Oct 17, 2027</span><span>$2,000.00</span></div>
             <div class="mock-row"><span>Contract</span><span>Signed Thu 9:48 PM</span></div>
             <div class="mock-row" style="align-items:center"><span class="mock-total">$2,000.00</span><span class="mock-paid">Paid</span></div>
           </div>
-          <div class="stack-outcome">The date is locked while the couple is still excited, with zero manual steps.</div>
+          <div class="stack-outcome">The date is locked while the couple is still excited.</div>
         </div>
         <div class="stack-card reveal reveal-delay-1">
           <div class="stack-num">IV <span class="stack-tag">Review</span></div>
           <h3>Review collection</h3>
-          <p>A warm text seven days after the wedding with direct links to leave a review on Google and The Knot.</p>
+          <p>A warm text a week after the wedding, with review links.</p>
           <div class="mock" aria-label="Example review request text">
             <div class="mock-head"><span class="app">W</span>Text · to Maya &amp; Jordan<span class="when">7 days after</span></div>
-            <p>Hi Maya and Jordan, it's Elena at Willow Creek. Still smiling about last Saturday. If you have two minutes, a few words about your day would mean the world to us.</p>
+            <p>Hi Maya and Jordan, it's Elena at Willow Creek. Still smiling about Saturday. A few words about your day would mean the world to us.</p>
             <div class="mock-stars" aria-hidden="true">★★★★★</div>
             <div class="mock-chips"><span class="mock-chip">Review on Google</span><span class="mock-chip">Review on The Knot</span></div>
           </div>
-          <div class="stack-outcome">A steady stream of fresh reviews that lifts you in local rankings.</div>
+          <div class="stack-outcome">Fresh reviews that lift you in local rankings.</div>
         </div>
       </div>
 
@@ -1290,13 +1284,13 @@
         <div>
           <div class="kicker" style="margin-bottom:0">Your side of it</div>
           <h3>The whole booking, seen from <em>your phone.</em></h3>
-          <p>Each stage kicks off the next one on its own. What you see is a handful of notifications. You step in for the parts that need you: the tour itself and the wedding day.</p>
+          <p>Each stage kicks off the next on its own. You see a handful of notifications and step in only for the tour and the wedding day.</p>
           <ol class="journey-steps">
-            <li><time>Sun 11:02p</time><span><strong>Inquiry answered</strong> in 40 seconds, while you were asleep.</span></li>
-            <li><time>Sun 11:06p</time><span><strong>Tour booked</strong> for Thursday at 4. Reminders scheduled.</span></li>
-            <li><time>Thu 5:00p</time><span><strong>Contract and deposit link</strong> sent the hour after the tour.</span></li>
+            <li><time>Sun 11:02p</time><span><strong>Inquiry answered</strong> while you slept.</span></li>
+            <li><time>Sun 11:06p</time><span><strong>Tour booked</strong> for Thursday at 4.</span></li>
+            <li><time>Thu 5:00p</time><span><strong>Contract and deposit link</strong> sent.</span></li>
             <li><time>Fri 9:12a</time><span><strong>Deposit paid.</strong> The date is theirs.</span></li>
-            <li><time>+7 days</time><span><strong>Review requested</strong> a week after the wedding.</span></li>
+            <li><time>+7 days</time><span><strong>Review requested.</strong></span></li>
           </ol>
         </div>
         <div class="phone" aria-label="Example of the notifications a venue owner receives">
@@ -1332,7 +1326,7 @@
         <span class="invite-label">Separately · Optional</span>
         <div>
           <h4>Site refresh</h4>
-          <p>If your website is working against the stack (slow, dated, or hiding the inquiry form), we also take on venue website redesigns as a stand-alone project. It is scoped and quoted on its own and is not part of the Charter offer.</p>
+          <p>Slow or dated website? We redesign venue sites as a separate project, quoted on its own.</p>
         </div>
         <a href="#book" class="more">Ask about it on the call</a>
       </div>
@@ -1346,7 +1340,7 @@
         <div class="ornament reveal" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="currentColor"/></svg></div>
         <div class="kicker reveal">An Invitation</div>
         <h2 class="reveal">We're reserving two seats for <em>Charter Venue Partners.</em></h2>
-        <p class="section-sub reveal">We're launching the Venue Ops Stack with a small circle of venues we'd be proud to be associated with. Charter Partners receive the full build at no cost and a rate that never changes. In return, we ask for your honest feedback.</p>
+        <p class="section-sub reveal">Two founding venues get the full build at no cost and a rate that never changes. In return, we ask for honest feedback.</p>
       </div>
 
       <div class="charter-layout">
@@ -1355,17 +1349,17 @@
             <span class="invite-label">Charter Venue Partner</span>
             <span class="seats"><i></i>Two seats remaining</span>
           </div>
-          <h3>The full stack, built for your venue, at a rate reserved for the first two.</h3>
+          <h3>The full stack, built for your venue, at a founding rate.</h3>
           <div class="price-row">
             <span class="price">$250</span>
             <span class="price-unit">per month, locked for life</span>
           </div>
-          <p class="price-note">Plus a 1% platform fee on deposits processed through the stack.</p>
+          <p class="price-note">Plus 1% on deposits processed through the stack.</p>
           <ul class="offer-list">
-            <li><span><strong>Setup at no cost.</strong> All four automations built, connected, and tested for your venue.</span></li>
-            <li><span><strong>$250 per month, locked.</strong> Your rate stays exactly where it is when our pricing changes.</span></li>
-            <li><span><strong>1% on deposits.</strong> $20 on a $2,000 deposit. We only earn more when you book more.</span></li>
-            <li><span><strong>A direct line to the builder.</strong> Changes and fixes handled by the people who built it.</span></li>
+            <li><span><strong>Setup at no cost.</strong> All four automations built and tested for your venue.</span></li>
+            <li><span><strong>$250 per month, locked.</strong> Your rate never changes.</span></li>
+            <li><span><strong>1% on deposits.</strong> $20 on a $2,000 deposit.</span></li>
+            <li><span><strong>A direct line to the builder.</strong> Changes handled by the people who built it.</span></li>
           </ul>
           <div class="offer-actions">
             <a href="#book" class="btn btn-primary">Request a Charter Seat
@@ -1378,13 +1372,13 @@
           <span class="invite-label">What we ask in return</span>
           <h3>Your honesty, and eventually, a few kind words.</h3>
           <ul class="offer-list">
-            <li><span><strong>Candid feedback</strong> on what's working and what isn't during the first few months.</span></li>
-            <li><span><strong>A short testimonial</strong> once the stack is booking tours for you.</span></li>
+            <li><span><strong>Candid feedback</strong> during the first few months.</span></li>
+            <li><span><strong>A short testimonial</strong> once the stack is booking tours.</span></li>
           </ul>
           <div class="offer-later">
             <span class="invite-label">After the charter period</span>
             <p class="rate">$3,000–$4,500 build<span>·</span>$400–$500 / mo<span>·</span>1% on deposits</p>
-            <p class="keep">Charter Partners keep their <em>$250 per month</em> rate and skip the build fee entirely.</p>
+            <p class="keep">Charter Partners keep <em>$250 per month</em> and skip the build fee.</p>
           </div>
         </div>
       </div>
@@ -1397,7 +1391,7 @@
       <div class="ornament reveal" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="currentColor"/></svg></div>
       <div class="kicker reveal">Book a Call</div>
       <h2 class="reveal">Be the venue that <em>answers first.</em></h2>
-      <p class="reveal reveal-delay-1">A 30-minute call. We'll walk through how inquiries reach you today, show you what the stack would look like at your venue, and tell you honestly whether it's a fit.</p>
+      <p class="reveal reveal-delay-1">A 30-minute call. We'll show you what the stack looks like at your venue and tell you honestly whether it's a fit.</p>
 
       <div class="contact-grid reveal reveal-delay-2">
         <div class="contact-col">
