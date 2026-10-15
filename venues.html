@@ -329,7 +329,7 @@
   /* interlude photo band */
   .interlude { margin-top: 112px; }
   .interlude .photo { aspect-ratio: 21 / 7; }
-  .interlude .photo img { object-position: 50% 42%; }
+  .interlude .photo img { object-position: 50% 30%; }
   .interlude .photo-caption { font-size: 15px; }
 
   /* ---------- imagery ---------- */
@@ -878,7 +878,10 @@
     .hero-visual { max-width: 560px; }
     .yours { grid-template-columns: 1fr; padding: 48px 32px; gap: 40px; }
     .yours .phone { justify-self: start; }
-    .interlude .photo { aspect-ratio: 16 / 7; }
+    .interlude .photo { aspect-ratio: auto; }
+    .interlude .photo img { height: auto; aspect-ratio: 16 / 7; }
+    .interlude .photo::after { display: none; }
+    .interlude .photo-caption { position: static; display: block; padding: 14px 18px 16px; background: var(--bg-deep); font-size: 14px; line-height: 1.5; }
     .offer-list { grid-template-columns: 1fr; gap: 0; }
     .offer-list li { padding: 16px 0; }
     .offer-list li:last-child { border-bottom: 1px solid var(--line); }
@@ -905,7 +908,8 @@
     .hero-visual .photo-caption { display: none; }
     .hero-visual .phone { position: relative; left: auto; bottom: auto; margin: -88px auto 0; width: 300px; }
     .interlude { margin-top: 80px; }
-    .interlude .photo { aspect-ratio: 16 / 9; }
+    .interlude .photo { aspect-ratio: auto; }
+    .interlude .photo img { aspect-ratio: 16 / 9; }
     .yours { padding: 32px 24px; gap: 32px; }
     .yours .phone { justify-self: center; }
     .refresh { padding: 24px; gap: 16px; }
@@ -1005,7 +1009,7 @@
 
       <div class="interlude reveal">
         <div class="photo">
-          <img src="/assets/venues-florals.webp" srcset="/assets/venues-florals-800.webp 800w, /assets/venues-florals.webp 1000w" sizes="(max-width: 1180px) 100vw, 1180px" width="1000" height="1255" alt="Cream garden roses and dried wheat in a brass vessel beside a lit taper candle and gold-rimmed glassware, in late afternoon light" loading="lazy" decoding="async">
+          <img src="/assets/venues-banner-1800.webp" srcset="/assets/venues-banner-1200.webp 1200w, /assets/venues-banner-1800.webp 1800w, /assets/venues-banner-2400.webp 2400w" sizes="(max-width: 1180px) 100vw, 1180px" width="2400" height="1018" alt="A lit taper candle beside cream and blush garden roses, dried wheat and gold-rimmed glassware on dark linen, in late afternoon window light" loading="lazy" decoding="async">
           <span class="photo-caption">The part that stays yours: the room, the light, the story of the property.</span>
         </div>
       </div>
