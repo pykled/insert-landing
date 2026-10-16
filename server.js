@@ -165,6 +165,17 @@ app.get(['/venues', '/venues/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'venues.html'));
 });
 
+// --- Unlisted, tokenised previews (spec mocks shared by private link only) ---
+app.get('/robots.txt', (req, res) => {
+  res.type('text').send('User-agent: *\nDisallow: /private-previews/\n');
+});
+app.use('/private-previews', (req, res, next) => {
+  res.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+  res.set('Cache-Control', 'no-store');
+  if (!/^\/[a-f0-9]{24}\//.test(req.path)) return res.status(404).type('text').send('Not found');
+  next();
+});
+
 // --- Never serve internal folders (outreach mocks in /previews, scripts, git) ---
 app.use(['/previews', '/scripts', '/node_modules'], (req, res) => {
   res.status(404).type('text').send('Not found');
