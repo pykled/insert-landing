@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Stonehurst — Garden Wedding Estate in Shadow Hills (Concept)</title>
+<meta name="description" content="Concept homepage redesign for The Stonehurst, a 9-acre garden wedding and event venue in Shadow Hills, Los Angeles County. Prepared by Insert as an unsolicited design preview. Not affiliated with the venue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-1800.webp" imagesrcset="img/hero-1200.webp 1200w, img/hero-1800.webp 1800w" imagesizes="100vw">
+<style>
+  :root {
+    --paper: #f6f2ec;
+    --paper-2: #efe9e0;
+    --paper-3: #e6ded2;
+    --ink: #1f1c19;
+    --ink-soft: #524b44;
+    --ink-faint: #8a8176;
+    --clay: #9a5039;        /* venue accent rgb(160,88,65), deepened for text contrast */
+    --clay-bright: #a05841;
+    --clay-tint: #f0dcd4;
+    --blush: #d0b0a6;
+    --teal: #123132;        /* venue theme deep teal */
+    --teal-2: #1a4344;
+    --line: rgba(31,28,25,0.12);
+    --line-strong: rgba(31,28,25,0.28);
+    --serif: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+    --sans: 'Jost', 'Avenir Next', 'Helvetica Neue', sans-serif;
+    --max: 1180px;
+    --gutter: clamp(20px, 4vw, 48px);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 400; line-height: 1.05; letter-spacing: 0.005em; text-wrap: balance; }
+  h2 { font-size: clamp(36px, 4.6vw, 58px); }
+  h3 { font-size: clamp(24px, 2.4vw, 30px); }
+  em { font-style: italic; }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .kicker { font-size: 11.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .kicker::before { content: ""; width: 26px; height: 1px; background: var(--clay); }
+  .lede { font-size: clamp(17px, 1.4vw, 20px); color: var(--ink-soft); max-width: 58ch; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :focus-visible { outline: 2px solid var(--clay-bright); outline-offset: 3px; border-radius: 2px; }
+  .skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 100; transition: top .2s; text-decoration: none; }
+  .skip:focus { top: 12px; }
+
+  /* buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1px solid var(--ink); color: var(--ink); background: transparent; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s; }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn-solid { background: var(--ink); color: var(--paper); }
+  .btn-solid:hover { background: var(--clay); border-color: var(--clay); }
+  .btn-clay { background: var(--clay); border-color: var(--clay); color: #fff; }
+  .btn-clay:hover { background: var(--ink); border-color: var(--ink); }
+  .btn-light { border-color: rgba(255,255,255,.55); color: #fff; }
+  .btn-light:hover { background: #fff; color: var(--ink); }
+  .link { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; transition: border-color .3s, color .3s; }
+  .link:hover { color: var(--clay); border-color: var(--clay); }
+
+  /* header */
+  header { position: sticky; top: 0; z-index: 30; background: rgba(246,242,236,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; flex: none; }
+  .brand-mark span { width: 11px; height: 14px; background: var(--ink); border-radius: 48% 52% 55% 45% / 60% 60% 40% 40%; display: block; transform: rotate(-12deg); }
+  .brand-word { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1; }
+  .brand-word small { display: block; font-family: var(--sans); font-size: 9.5px; letter-spacing: 0.3em; color: var(--ink-faint); font-weight: 500; margin-top: 5px; }
+  .nav-links { display: flex; gap: 34px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 13.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; color: var(--ink-soft); transition: color .25s; }
+  .nav-links a:hover { color: var(--clay); }
+  .nav .btn { padding: 11px 18px; font-size: 12px; }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--line-strong); border-radius: 2px; width: 42px; height: 42px; cursor: pointer; place-items: center; }
+  .nav-toggle span { display: block; width: 18px; height: 1.5px; background: var(--ink); box-shadow: 0 -6px 0 var(--ink), 0 6px 0 var(--ink); }
+
+  /* hero */
+  .hero { position: relative; min-height: min(92vh, 860px); display: grid; align-items: end; color: #fff; isolation: isolate; }
+  .hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: #2b2a24; }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 60%; transform: scale(1.04); animation: heroZoom 9s var(--ease) forwards; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,18,15,0.22) 0%, rgba(20,18,15,0.06) 35%, rgba(20,18,15,0.62) 78%, rgba(20,18,15,0.78) 100%); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 440px); gap: clamp(28px, 5vw, 80px); align-items: end; padding-top: 110px; padding-bottom: clamp(40px, 6vw, 72px); width: 100%; }
+  .hero-copy .kicker { color: #e9cfc4; }
+  .hero-copy .kicker::before { background: #e9cfc4; }
+  .hero h1 { font-size: clamp(44px, 6.4vw, 88px); color: #fff; margin-bottom: 20px; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
+  .hero h1 em { font-weight: 400; color: #f3ddd2; }
+  .hero .promise { font-size: clamp(17px, 1.5vw, 21px); color: rgba(255,255,255,.88); max-width: 50ch; font-weight: 300; }
+  .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 30px; font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+  .hero-meta span::before { content: "·"; margin-right: 12px; color: #e9cfc4; }
+  .hero-meta span:first-child::before { content: none; }
+  .img-note { position: absolute; left: var(--gutter); bottom: 14px; z-index: 2; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+
+  /* date card */
+  .card { background: var(--paper); color: var(--ink); border-radius: 4px; padding: 28px 28px 26px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.55); position: relative; }
+  .card h2 { font-size: 28px; margin-bottom: 4px; }
+  .card .sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 20px; }
+  .field { display: grid; gap: 7px; margin-bottom: 14px; }
+  .field label { font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--ink-soft); }
+  .field input, .field select { width: 100%; font: inherit; font-size: 16px; font-weight: 300; color: var(--ink); background: #fff; border: 1px solid var(--line-strong); border-radius: 2px; padding: 12px 14px; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
+  .field input:focus { outline: none; border-color: var(--clay); box-shadow: 0 0 0 3px rgba(160,88,65,.15); }
+  .field input::placeholder { color: #a39b90; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card .btn { width: 100%; margin-top: 6px; }
+  .fine { font-size: 12px; color: var(--ink-faint); margin-top: 12px; line-height: 1.5; }
+  .confirm { display: none; }
+  .confirm[data-on] { display: block; animation: fadeUp .5s var(--ease); }
+  .form-wrap[data-done] form { display: none; }
+  .check { width: 44px; height: 44px; border-radius: 50%; background: var(--clay-tint); color: var(--clay); display: grid; place-items: center; margin-bottom: 16px; }
+  .confirm h3 { font-size: 26px; margin-bottom: 8px; }
+  .confirm p { font-size: 15px; color: var(--ink-soft); }
+  .confirm .hold { margin: 16px 0; padding: 14px 16px; border: 1px solid var(--line); border-left: 2px solid var(--clay); font-size: 14px; background: #fff; }
+  .confirm .hold b { font-weight: 500; }
+  .confirm .again { margin-top: 14px; display: inline-block; }
+
+  /* featured */
+  .featured { border-bottom: 1px solid var(--line); padding: 22px 0; }
+  .featured .container { display: flex; align-items: center; gap: 18px 30px; flex-wrap: wrap; justify-content: center; }
+  .featured small { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); font-weight: 500; }
+  .featured ul { display: flex; gap: 10px 26px; flex-wrap: wrap; list-style: none; justify-content: center; }
+  .featured li { font-family: var(--serif); font-size: 17px; color: var(--ink-soft); letter-spacing: 0.02em; }
+
+  /* sections */
+  section { padding: clamp(72px, 9vw, 130px) 0; }
+  .section-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 64px); }
+  .section-head .lede { margin-top: 18px; }
+
+  /* story */
+  .story { padding-bottom: 0; }
+  .story-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .story-text p { margin-bottom: 18px; font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-soft); }
+  .story-text p:first-of-type { font-family: var(--serif); font-size: clamp(24px, 2.4vw, 32px); line-height: 1.3; color: var(--ink); }
+  .story-text cite { display: block; font-style: normal; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
+  .story-media { position: relative; }
+  .story-media img { border-radius: 3px; aspect-ratio: 3/2; object-fit: cover; }
+  .story-media::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--line-strong); border-radius: 3px; z-index: -1; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: clamp(48px, 6vw, 80px); padding-top: 36px; border-top: 1px solid var(--line); }
+  .fact b { display: block; font-family: var(--serif); font-size: clamp(40px, 4vw, 56px); font-weight: 400; line-height: 1; color: var(--ink); }
+  .fact span { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); font-weight: 500; display: block; margin-top: 8px; }
+
+  /* spaces */
+  .spaces-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(18px, 2.5vw, 32px); }
+  .space { display: flex; flex-direction: column; grid-column: span 6; }
+  .space.w7 { grid-column: span 7; }
+  .space.w5 { grid-column: span 5; }
+  .space-media { position: relative; overflow: hidden; border-radius: 3px; background: var(--paper-3); }
+  .space-media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .space:hover .space-media img { transform: scale(1.035); }
+  .space-cap { position: absolute; top: 14px; left: 14px; background: rgba(246,242,236,.92); backdrop-filter: blur(6px); padding: 7px 12px; border-radius: 2px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--ink); }
+  .space-body { padding: 20px 4px 0; }
+  .space-body .num { font-family: var(--serif); font-size: 13px; color: var(--clay); letter-spacing: 0.1em; margin-bottom: 6px; }
+  .space-body h3 { margin-bottom: 8px; }
+  .space-body .for { color: var(--ink-soft); font-size: 15.5px; }
+  .space-body ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .space-body li { font-size: 12.5px; color: var(--ink-soft); border: 1px solid var(--line); padding: 5px 10px; border-radius: 999px; }
+
+  /* plan band */
+  .plan { background: var(--teal); color: #f1ebe3; position: relative; overflow: hidden; }
+  .plan::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1200px 600px at 85% 110%, rgba(160,88,65,.32), transparent 60%), radial-gradient(800px 500px at 0% -20%, rgba(255,255,255,.06), transparent 60%); pointer-events: none; }
+  .plan .container { position: relative; }
+  .plan .kicker { color: var(--blush); } .plan .kicker::before { background: var(--blush); }
+  .plan h2 { color: #fff; }
+  .plan .lede { color: rgba(241,235,227,.78); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 5vw, 64px); counter-reset: step; }
+  .step { position: relative; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.18); }
+  .step::before { counter-increment: step; content: "0" counter(step); position: absolute; top: -13px; left: 0; background: var(--teal); padding-right: 14px; font-family: var(--serif); font-size: 20px; color: var(--blush); }
+  .step h3 { color: #fff; margin-bottom: 10px; }
+  .step p { color: rgba(241,235,227,.78); font-size: 15.5px; }
+  .step .tag { display: inline-block; margin-top: 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blush); font-weight: 500; }
+
+  /* scheduler */
+  .sched-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .sched-grid .section-head { margin-bottom: 28px; }
+  .sched-notes { list-style: none; display: grid; gap: 14px; margin-top: 28px; }
+  .sched-notes li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 15px; color: var(--ink-soft); }
+  .sched-notes svg { margin-top: 4px; color: var(--clay); }
+  .scheduler { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: clamp(20px, 3vw, 32px); box-shadow: 0 30px 70px -40px rgba(31,28,25,.35); }
+  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cal-head h3 { font-size: 22px; }
+  .cal-nav { display: flex; gap: 6px; }
+  .cal-nav button { width: 38px; height: 38px; border: 1px solid var(--line-strong); background: transparent; border-radius: 2px; cursor: pointer; display: grid; place-items: center; color: var(--ink); transition: background .2s; }
+  .cal-nav button:hover:not(:disabled) { background: var(--paper-2); }
+  .cal-nav button:disabled { opacity: .35; cursor: default; }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal .dow { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); text-align: center; padding: 6px 0 10px; font-weight: 500; }
+  .cal button { aspect-ratio: 1; border: 0; background: transparent; border-radius: 2px; font: inherit; font-size: 15px; color: var(--ink); cursor: pointer; position: relative; transition: background .2s, color .2s; }
+  .cal button:hover:not(:disabled) { background: var(--paper-2); }
+  .cal button:disabled { color: #c3bbb0; cursor: default; text-decoration: line-through; text-decoration-color: rgba(0,0,0,.18); }
+  .cal button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .cal button.today::after { content: ""; position: absolute; bottom: 6px; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--clay-bright); transform: translateX(-50%); }
+  .cal button[aria-pressed="true"].today::after { background: var(--blush); }
+  .slots { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .slots-title { font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-bottom: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .slots-title span { color: var(--ink-faint); font-weight: 400; letter-spacing: 0.04em; text-transform: none; font-size: 13px; }
+  .slot-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+  .slot-list button { font: inherit; font-size: 14px; padding: 11px 8px; border: 1px solid var(--line-strong); background: transparent; border-radius: 2px; cursor: pointer; color: var(--ink); transition: background .2s, color .2s, border-color .2s; }
+  .slot-list button:hover { border-color: var(--ink); }
+  .slot-list button[aria-pressed="true"] { background: var(--clay); border-color: var(--clay); color: #fff; }
+  .slot-empty { font-size: 14px; color: var(--ink-faint); padding: 10px 0; grid-column: 1 / -1; }
+  .sched-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+  .sched-foot .picked { font-size: 15px; color: var(--ink-soft); }
+  .sched-foot .picked b { font-weight: 500; color: var(--ink); }
+  .scheduler[data-done] .cal-head, .scheduler[data-done] .cal, .scheduler[data-done] .slots, .scheduler[data-done] .sched-foot { display: none; }
+  .scheduler .confirm { padding: 8px 0 4px; }
+
+  /* guide */
+  .guide { background: var(--paper-2); }
+  .guide-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+  .guide-media img { border-radius: 3px; aspect-ratio: 4/3; object-fit: cover; }
+  .guide-form { display: flex; gap: 10px; margin-top: 28px; max-width: 520px; }
+  .guide-form .field { flex: 1; margin: 0; }
+  .guide-form .btn { white-space: nowrap; }
+  .guide .fine { max-width: 520px; }
+  .guide-form-wrap[data-done] .guide-form { display: none; }
+
+  /* at a glance */
+  .glance { padding-top: 0; }
+  .glance-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+  .glance-item { padding: 26px 24px; border-right: 1px solid var(--line); }
+  .glance-item:last-child { border-right: 0; }
+  .glance-item small { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 10px; }
+  .glance-item b { font-family: var(--serif); font-size: 24px; font-weight: 400; display: block; margin-bottom: 6px; line-height: 1.15; }
+  .glance-item p { font-size: 14px; color: var(--ink-soft); }
+
+  /* faq */
+  .faq-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .faq-list { border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; cursor: pointer; padding: 22px 44px 22px 0; font-family: var(--serif); font-size: clamp(20px, 1.8vw, 24px); position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 12px; height: 12px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform: translateY(-70%) rotate(45deg); transition: transform .3s var(--ease); }
+  details[open] summary::after { transform: translateY(-30%) rotate(225deg); }
+  details p { padding: 0 0 24px; color: var(--ink-soft); font-size: 16px; max-width: 62ch; }
+  .faq-aside p { margin-top: 18px; color: var(--ink-soft); }
+  .faq-aside .btn { margin-top: 24px; }
+
+  /* filming */
+  .filming { padding: 0 0 clamp(72px, 9vw, 130px); }
+  .filming-band { background: var(--ink); color: var(--paper); border-radius: 4px; padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; }
+  .filming-band h2 { font-size: clamp(28px, 3vw, 40px); color: #fff; margin-bottom: 10px; }
+  .filming-band p { color: rgba(246,242,236,.72); max-width: 56ch; }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 56px 0 32px; background: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+  .foot-grid h4 { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); font-weight: 500; margin-bottom: 14px; }
+  .foot-grid p, .foot-grid li { font-size: 15px; color: var(--ink-soft); }
+  .foot-grid ul { list-style: none; display: grid; gap: 8px; }
+  .foot-grid a { text-decoration: none; }
+  .foot-grid a:hover { color: var(--clay); }
+  .foot-brand .brand-word { font-size: 26px; }
+  .foot-brand p { margin-top: 14px; max-width: 34ch; }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-faint); }
+  .chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; font-size: 11.5px; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--clay-bright); }
+
+  /* motion */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; } .reveal.d5 { transition-delay: .5s; }
+  .hero-copy > * { animation: fadeUp 1s var(--ease) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .12s; } .hero-copy > :nth-child(3) { animation-delay: .24s; } .hero-copy > :nth-child(4) { animation-delay: .36s; }
+  .hero .card { animation: fadeUp 1s var(--ease) .4s both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-copy > *, .hero .card, .hero-media img { animation: none; }
+    .hero-media img { transform: none; }
+    .space:hover .space-media img { transform: none; }
+    * { transition-duration: .01ms !important; }
+  }
+
+  /* responsive */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); }
+    .spaces-grid .space, .spaces-grid .space.w7, .spaces-grid .space.w5 { grid-column: span 6; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: grid; }
+    .nav .btn { display: none; }
+    header[data-open] .nav-links { display: flex; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 0; }
+    header[data-open] .nav-links li { border-top: 1px solid var(--line); }
+    header[data-open] .nav-links a { display: block; padding: 16px var(--gutter); }
+    .hero { min-height: 0; }
+    .hero-inner { grid-template-columns: 1fr; padding-top: 96px; }
+    .hero h1 { font-size: clamp(40px, 11vw, 60px); }
+    .story-grid, .sched-grid, .guide-grid, .faq-grid { grid-template-columns: 1fr; }
+    .story-media { margin-top: 10px; }
+    .story-media::before { inset: 12px -12px -12px 12px; }
+    .steps { grid-template-columns: 1fr; gap: 36px; }
+    .glance-grid { grid-template-columns: 1fr 1fr; }
+    .glance-item:nth-child(2) { border-right: 0; }
+    .glance-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .filming-band { grid-template-columns: 1fr; }
+    .guide-form { flex-direction: column; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .spaces-grid .space, .spaces-grid .space.w7, .spaces-grid .space.w5 { grid-column: span 12; }
+    .facts { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .fact b { font-size: 34px; }
+    .fact span { font-size: 11px; }
+    .glance-grid { grid-template-columns: 1fr; }
+    .glance-item { border-right: 0; border-bottom: 1px solid var(--line); }
+    .glance-item:last-child { border-bottom: 0; }
+    .foot-grid { grid-template-columns: 1fr; gap: 26px; }
+    .card { padding: 22px 20px 20px; }
+    .row2 { grid-template-columns: 1fr; }
+    .hero-copy .kicker { font-size: 10.5px; letter-spacing: 0.2em; }
+    .hero-meta { gap: 8px 18px; margin-top: 24px; font-size: 11.5px; }
+    .hero-meta span::before { content: none; margin: 0; }
+    .featured ul { gap: 8px 18px; }
+    .featured li { font-size: 15px; }
+    .img-note { bottom: 8px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="top">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="The Stonehurst, home">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span class="brand-word">Stonehurst<small>Shadow Hills · Los Angeles</small></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#property">The property</a></li>
+      <li><a href="#spaces">Spaces</a></li>
+      <li><a href="#tour">Tours</a></li>
+      <li><a href="#guide">Pricing guide</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-solid" href="#check">Check your date</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="img/hero-1800.webp" srcset="img/hero-1200.webp 1200w, img/hero-1800.webp 1800w" sizes="100vw" width="1800" height="764" alt="Golden-hour view across a garden estate: a hand-laid stone path winding past agave and mature trees toward a dark wood barn, with café lights strung above and foothills behind." fetchpriority="high" decoding="async">
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="kicker">Shadow Hills · Los Angeles County</p>
+      <h1>Nine acres of garden. <em>One wedding a day.</em></h1>
+      <p class="promise">A private estate of greenhouse, barn, bamboo and flower gardens, a grand terrace and a mid-century bungalow, yours alone for the day.</p>
+      <div class="hero-meta"><span>Weddings</span><span>Filming</span><span>Private events</span><span>Up to 200 guests</span></div>
+    </div>
+    <div class="card form-wrap" id="check">
+      <form id="date-form" novalidate>
+        <h2 class="serif">Check your date</h2>
+        <p class="sub">Three fields. A reply in under a minute.</p>
+        <div class="field">
+          <label for="f-date">Event date</label>
+          <input id="f-date" name="date" type="date" required autocomplete="off">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-guests">Guest count</label>
+            <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" max="200" placeholder="120" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Email or mobile</label>
+            <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <button class="btn btn-clay" type="submit">See if it's open</button>
+        <p class="fine">We host one event a day, so dates go quickly. Checking is free and holds nothing until you ask us to.</p>
+        <p class="fine" id="date-error" role="alert" hidden style="color:var(--clay)"></p>
+      </form>
+      <div class="confirm" id="date-confirm" aria-live="polite">
+        <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3><span id="c-date">Your date</span> is open.</h3>
+        <p>We've placed a courtesy hold for <b id="c-guests">120</b> guests.</p>
+        <div class="hold"><b>Held for 24 hours.</b> We'll text you in under a minute with next steps and tour times, and the hold releases on its own if we don't hear back.</div>
+        <p>Sent to <b id="c-contact">you@email.com</b>.</p>
+        <a href="#check" class="link again" id="date-again">Check another date</a>
+      </div>
+    </div>
+  </div>
+  <p class="img-note">Illustrative imagery</p>
+</section>
+
+<!-- FEATURED -->
+<div class="featured" aria-label="As featured in">
+  <div class="container">
+    <small>As featured in</small>
+    <ul>
+      <li>Junebug Weddings</li><li>Loverly</li><li>Style Me Pretty</li><li>Vogue India</li><li>The Knot</li><li>Zola</li><li>Wedding Chicks</li><li>PartySlate</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="property" aria-labelledby="property-title">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <p class="kicker reveal">The property</p>
+        <h2 id="property-title" class="reveal d1">A garden planted <em>by hand</em>, on the corner of Sunland and Stonehurst.</h2>
+        <div class="reveal d2" style="margin-top:26px">
+          <p>The name comes from the street and from the hand-laid stone work that dances across the main pathways.</p>
+          <p>The barn is one of the oldest structures in this part of Los Angeles County and hosted some of the area's original Boy Scout meetings in 1907; its doors were reclaimed from the original horse stalls. Most of the vegetation, from the towering South American fig over the flower garden to a cactus garden that fruits every spring and fall, was planted by hand by Joe Stromei, whose name is still carved into a beam of the greenhouse.</p>
+          <cite>History as recorded by the Shadow Hills Property Owners Association</cite>
+        </div>
+      </div>
+      <figure class="story-media reveal d2">
+        <img src="img/detail-1200.webp" srcset="img/detail-800.webp 800w, img/detail-1200.webp 1200w, img/detail-1800.webp 1800w" sizes="(min-width: 861px) 40vw, 100vw" width="1200" height="805" loading="lazy" decoding="async" alt="Close detail of a garden tablescape at golden hour: cream roses and dried grasses in a stone vessel, brass taper candles, a stone path softly out of focus behind.">
+      </figure>
+    </div>
+    <div class="facts reveal">
+      <div class="fact"><b>9</b><span>Acres of garden</span></div>
+      <div class="fact"><b>6</b><span>Distinct spaces</span></div>
+      <div class="fact"><b>1</b><span>Event per day</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section id="spaces" aria-labelledby="spaces-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">The spaces</p>
+      <h2 id="spaces-title" class="reveal d1">Six rooms without walls.</h2>
+      <p class="lede reveal d2">Ceremony under the fig, cocktails in the bamboo, dinner under glass or chandeliers. Private events use three or four of the six, unless otherwise approved.</p>
+    </div>
+    <div class="spaces-grid">
+      <article class="space w7 reveal">
+        <div class="space-media">
+          <img src="img/greenhouse-1200.webp" srcset="img/greenhouse-800.webp 800w, img/greenhouse-1200.webp 1200w, img/greenhouse-1800.webp 1800w" sizes="(min-width: 1025px) 56vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="Inside a bright greenhouse set for a reception: floor-to-ceiling glass, dark timber beams hung with greenery and white florals, long tables with linen runners and taper candles.">
+          <span class="space-cap">Up to 200</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 1</p>
+          <h3>The Greenhouse</h3>
+          <p class="for">Bright and open, for an indoor ceremony or reception. Floor-to-ceiling glass, where industry meets nature.</p>
+          <ul><li>Existing beams for decor and floral hanging</li><li>HVAC climate controlled</li><li>Original beams</li></ul>
+        </div>
+      </article>
+      <article class="space w5 reveal d1">
+        <div class="space-media">
+          <img src="img/barn-1200.webp" srcset="img/barn-800.webp 800w, img/barn-1200.webp 1200w, img/barn-1800.webp 1800w" sizes="(min-width: 1025px) 40vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="Interior of a historic wooden barn with three crystal chandeliers in a row, round tables in cream linen, and daylight through the open barn door.">
+          <span class="space-cap">Up to 150</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 2</p>
+          <h3>The Barn</h3>
+          <p class="for">One of the oldest structures in this part of Los Angeles County. It greets you at the gate and anchors any event or shoot.</p>
+          <ul><li>Original wood</li><li>Three cascading chandeliers</li><li>Natural lighting</li></ul>
+        </div>
+      </article>
+      <article class="space w5 reveal">
+        <div class="space-media">
+          <img src="img/flower-garden-1200.webp" srcset="img/flower-garden-800.webp 800w, img/flower-garden-1200.webp 1200w" sizes="(min-width: 1025px) 40vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="Outdoor ceremony beneath one enormous fig tree: rows of wooden cross-back chairs on stone paving, flowering beds all around, two low floral arrangements at the aisle.">
+          <span class="space-cap">Up to 175</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 3</p>
+          <h3>The Flower Garden</h3>
+          <p class="for">Home to the towering South American fig. A lush setting for a ceremony, cocktail hour or private party.</p>
+          <ul><li>Greenery on every side</li><li>Ceremony or cocktail</li></ul>
+        </div>
+      </article>
+      <article class="space w7 reveal d1">
+        <div class="space-media">
+          <img src="img/bamboo-1200.webp" srcset="img/bamboo-800.webp 800w, img/bamboo-1200.webp 1200w" sizes="(min-width: 1025px) 56vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="A hidden bamboo garden: tall bamboo on every side, a mossy stone path leading to a few rows of wooden chairs, a single woven lantern overhead.">
+          <span class="space-cap">60 ceremony · 120 cocktail</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 4</p>
+          <h3>The Bamboo Garden</h3>
+          <p class="for">The secret garden. For a small, intimate ceremony, an unexpected cocktail hour, or the photos before the aisle.</p>
+          <ul><li>Three types of bamboo</li><li>Private and intimate</li></ul>
+        </div>
+      </article>
+      <article class="space reveal">
+        <div class="space-media">
+          <img src="img/terrace-1200.webp" srcset="img/terrace-800.webp 800w, img/terrace-1200.webp 1200w, img/terrace-1800.webp 1800w" sizes="(min-width: 1025px) 48vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="A stone terrace at dusk with café lights overhead, looking over a small desert garden of cacti and agave toward the foothills.">
+          <span class="space-cap">Capacity on request</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 5</p>
+          <h3>The Terrace</h3>
+          <p class="for">A grand terrace with endless views over the mini desert garden and its cactus beds.</p>
+          <ul><li>Desert garden views</li><li>Cactus garden adjoining</li></ul>
+        </div>
+      </article>
+      <article class="space reveal d1">
+        <div class="space-media">
+          <img src="img/bungalow-1200.webp" srcset="img/bungalow-800.webp 800w, img/bungalow-1200.webp 1200w" sizes="(min-width: 1025px) 48vw, (min-width: 601px) 50vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="A small mid-century bungalow tucked into a garden, with a dark low-pitched roof, stone porch base and a single wooden chair in morning light.">
+          <span class="space-cap">1 – 15</span>
+        </div>
+        <div class="space-body">
+          <p class="num">No. 6</p>
+          <h3>The Bungalow</h3>
+          <p class="for">Original to the property: two rooms and a large open communal room, reserved for the couple, a green room, or pre-approved special events.</p>
+          <ul><li>Getting ready</li><li>Green room</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN YOUR DAY -->
+<section class="plan" id="plan" aria-labelledby="plan-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">Plan your day</p>
+      <h2 id="plan-title" class="reveal d1">Three steps from <em>“is it open?”</em> to <em>“it's ours.”</em></h2>
+      <p class="lede reveal d2">No waiting on an inbox. Every step answers itself, and a real person follows up.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>Inquire</h3>
+        <p>Check your date above. If it's open, it's held for 24 hours while you decide what's next, and you get a text with tour times inside a minute.</p>
+        <span class="tag">Instant answer</span>
+      </div>
+      <div class="step reveal d1">
+        <h3>Tour</h3>
+        <p>Pick a day and a time slot below. Tours are by appointment, so you'll have the gardens to yourselves and a confirmation on your phone before you've closed the tab.</p>
+        <span class="tag">Self-scheduled</span>
+      </div>
+      <div class="step reveal d2">
+        <h3>Hold the date</h3>
+        <p>Walked it, loved it? Say the word and your 24-hour hold becomes a confirmed date. One event a day means it's yours alone.</p>
+        <span class="tag">One event per day</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR SCHEDULER -->
+<section id="tour" aria-labelledby="tour-title">
+  <div class="container sched-grid">
+    <div>
+      <div class="section-head">
+        <p class="kicker reveal">Schedule a tour</p>
+        <h2 id="tour-title" class="reveal d1">Walk the gardens <em>by appointment.</em></h2>
+        <p class="lede reveal d2">Choose a day and a time. You'll get a text confirmation right away and a reminder the day before.</p>
+      </div>
+      <ul class="sched-notes reveal d3">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Walk all six spaces, from the barn at the gate to the bungalow.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg><span>Corner of Sunland and Stonehurst Ave, Shadow Hills. Directions arrive with your confirmation.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg><span>Bring your planner if you have one. A partial-service planner is required for every event.</span></li>
+      </ul>
+    </div>
+    <div class="scheduler reveal d2" id="scheduler">
+      <div class="cal-head">
+        <h3 id="cal-month" aria-live="polite">October 2026</h3>
+        <div class="cal-nav">
+          <button type="button" id="cal-prev" aria-label="Previous month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <button type="button" id="cal-next" aria-label="Next month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="cal" id="cal" aria-label="Choose a tour day"></div>
+      <div class="slots">
+        <div class="slots-title">Available times <span id="slots-for">Pick a day first</span></div>
+        <div class="slot-list" id="slots"><p class="slot-empty">Select a day on the calendar to see open times.</p></div>
+      </div>
+      <div class="sched-foot">
+        <p class="picked" id="picked">Nothing selected yet.</p>
+        <button class="btn btn-clay" type="button" id="book" disabled>Book this tour</button>
+      </div>
+      <div class="confirm" id="tour-confirm" aria-live="polite">
+        <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>You're on the calendar.</h3>
+        <p>Your tour is <b id="t-when">Thursday, October 22 at 1:00 PM</b>.</p>
+        <div class="hold"><b>Confirmation sent by text.</b> Directions to the gate, what to bring, and a one-tap reschedule link. A reminder follows the day before.</div>
+        <a href="#tour" class="link again" id="tour-again">Choose a different time</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING GUIDE -->
+<section class="guide" id="guide" aria-labelledby="guide-title">
+  <div class="container guide-grid">
+    <figure class="guide-media reveal">
+      <img src="img/greenhouse-1200.webp" srcset="img/greenhouse-800.webp 800w, img/greenhouse-1200.webp 1200w, img/greenhouse-1800.webp 1800w" sizes="(min-width: 861px) 46vw, 100vw" width="1200" height="896" loading="lazy" decoding="async" alt="Long reception tables under the glass roof of the greenhouse, beams dressed with greenery, candlelight along the runners.">
+    </figure>
+    <div class="guide-form-wrap" id="guide-wrap">
+      <p class="kicker reveal">Pricing guide</p>
+      <h2 id="guide-title" class="reveal d1">Know the numbers <em>before</em> the tour.</h2>
+      <p class="lede reveal d2">What's included, how the 12-hour day runs, and how dates are held. Sent the moment you ask.</p>
+      <form class="guide-form reveal d3" id="guide-form" novalidate>
+        <div class="field">
+          <label for="g-email" class="sr-only">Email address</label>
+          <input id="g-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+        </div>
+        <button class="btn btn-solid" type="submit">Send the guide</button>
+      </form>
+      <p class="fine reveal d4" id="guide-fine">One email, no drip sequence. A short note about dates and tours follows only if you ask.</p>
+      <p class="fine" id="guide-error" role="alert" hidden style="color:var(--clay)"></p>
+      <div class="confirm" id="guide-confirm" aria-live="polite">
+        <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Guide sent.</h3>
+        <p>It's on its way to <b id="g-sent">you@email.com</b>. Check your inbox in the next minute, and the spam folder if it's shy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="glance" aria-label="Your day at a glance" style="padding-top: clamp(72px, 9vw, 130px)">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">Your day at a glance</p>
+      <h2 class="reveal d1">Twelve hours, the whole estate.</h2>
+    </div>
+    <div class="glance-grid reveal d2">
+      <div class="glance-item"><small>Rental</small><b>12 hours</b><p>Standard rental including breakdown.</p></div>
+      <div class="glance-item"><small>Timeline</small><b>12 PM – 10 PM</b><p>Gates open at noon; events end at 10 PM, with breakdown until midnight.</p></div>
+      <div class="glance-item"><small>Included</small><b>Valet · Site manager</b><p>Plus luxe restrooms and security, every event.</p></div>
+      <div class="glance-item"><small>Planning</small><b>Planner required</b><p>A partial-service planner at minimum, for every event.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="container faq-grid">
+    <div class="faq-aside">
+      <p class="kicker reveal">Questions</p>
+      <h2 id="faq-title" class="reveal d1">Before you ask.</h2>
+      <p class="reveal d2">The answers couples ask for first. Anything else, send a note and a person replies.</p>
+      <a class="btn reveal d3" href="#check">Check your date</a>
+    </div>
+    <div class="faq-list reveal d2">
+      <details open>
+        <summary>What is the maximum capacity?</summary>
+        <p>We can host up to 200 guests.</p>
+      </details>
+      <details>
+        <summary>Are there multiple events in one day?</summary>
+        <p>No. The venue is private and we host only one event a day.</p>
+      </details>
+      <details>
+        <summary>Can all six spaces be used?</summary>
+        <p>For private events we allow three to four spaces to be used, unless otherwise approved.</p>
+      </details>
+      <details>
+        <summary>What is the rental time for events?</summary>
+        <p>Our standard is a 12-hour rental including breakdown. On event days the gates open at 12 PM, the event ends at 10 PM, and there are two hours for breakdown (10 PM to midnight). For additional hours or shorter time frames, send us a note.</p>
+      </details>
+      <details>
+        <summary>Is a wedding or event planner required?</summary>
+        <p>Yes. We require, at minimum, a partial-service planner for your event.</p>
+      </details>
+      <details>
+        <summary>What is included in the rental?</summary>
+        <p>Valet, a site manager, luxe restrooms and security are included in the rental.</p>
+      </details>
+      <details>
+        <summary>How do I inquire about filming and photoshoots?</summary>
+        <p>For filming and photoshoots, email us and we'll come back with availability and rates for your dates.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FILMING -->
+<section class="filming" aria-label="Filming and private events">
+  <div class="container">
+    <div class="filming-band reveal">
+      <div>
+        <h2>Filming and private events.</h2>
+        <p>Six distinct looks on one private property: glass, old wood, bamboo, desert, garden and a mid-century bungalow. Tell us about the shoot or the celebration and we'll come back with dates.</p>
+      </div>
+      <a class="btn btn-light" href="mailto:hello@thestonehurst.com?subject=Filming%20or%20private%20event">Email about a shoot or event</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-word">Stonehurst</span>
+        <p>A 9-acre garden wedding and event estate in Shadow Hills, Los Angeles County. Weddings, filming and private events.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>Corner of Sunland &amp; Stonehurst Ave</li>
+          <li>Shadow Hills, CA</li>
+          <li>Tours by appointment</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@thestonehurst.com">hello@thestonehurst.com</a></li>
+          <li><a href="#check">Check your date</a></li>
+          <li><a href="#tour">Schedule a tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#spaces">The spaces</a></li>
+          <li><a href="#guide">Pricing guide</a></li>
+          <li><a href="#faq">Booking FAQ</a></li>
+          <li><a href="#">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Stonehurst, LLC</span>
+      <span class="chip"><i aria-hidden="true"></i>Concept preview by Insert · illustrative imagery · not affiliated with the venue</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Everything below is client-side only. No network calls are made anywhere on this page.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- reveal on scroll ---
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  // --- mobile nav ---
+  var header = document.querySelector('header');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.hasAttribute('data-open');
+    if (open) { header.removeAttribute('data-open'); } else { header.setAttribute('data-open', ''); }
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { header.removeAttribute('data-open'); toggle.setAttribute('aria-expanded', 'false'); });
+  });
+
+  // --- helpers ---
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function isoDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function longDate(d) { return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate(); }
+  function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var dateInput = document.getElementById('f-date');
+  dateInput.min = isoDate(today);
+
+  // --- check your date (client-side mock) ---
+  var dateForm = document.getElementById('date-form');
+  var dateWrap = document.getElementById('check');
+  var dateErr = document.getElementById('date-error');
+  dateForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = dateInput.value, g = document.getElementById('f-guests').value, c = document.getElementById('f-contact').value.trim();
+    var msg = '';
+    if (!d) msg = 'Pick a date to check.';
+    else if (parseISO(d) < today) msg = 'That date has already passed.';
+    else if (!g || +g < 1) msg = 'Add an estimated guest count.';
+    else if (+g > 200) msg = 'We host up to 200 guests. Try a smaller number.';
+    else if (!/@|\d{7,}/.test(c)) msg = 'Add an email address or mobile number so we can reply.';
+    if (msg) { dateErr.textContent = msg; dateErr.hidden = false; return; }
+    dateErr.hidden = true;
+    document.getElementById('c-date').textContent = longDate(parseISO(d));
+    document.getElementById('c-guests').textContent = g;
+    document.getElementById('c-contact').textContent = c;
+    dateWrap.setAttribute('data-done', '');
+    document.getElementById('date-confirm').setAttribute('data-on', '');
+    document.getElementById('date-again').focus({ preventScroll: true });
+  });
+  document.getElementById('date-again').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    dateWrap.removeAttribute('data-done');
+    document.getElementById('date-confirm').removeAttribute('data-on');
+    dateForm.reset();
+    dateInput.focus({ preventScroll: true });
+  });
+
+  // --- tour scheduler (static mock; availability is illustrative) ---
+  var SLOTS = ['10:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
+  var view = new Date(today.getFullYear(), today.getMonth(), 1);
+  var maxView = new Date(today.getFullYear(), today.getMonth() + 3, 1);
+  var selDay = null, selSlot = null;
+  var calEl = document.getElementById('cal'), monthEl = document.getElementById('cal-month');
+  var prevBtn = document.getElementById('cal-prev'), nextBtn = document.getElementById('cal-next');
+  var slotsEl = document.getElementById('slots'), slotsFor = document.getElementById('slots-for');
+  var pickedEl = document.getElementById('picked'), bookBtn = document.getElementById('book');
+  var sched = document.getElementById('scheduler');
+
+  // deterministic "unavailable" pattern: Sundays, plus a scatter of booked days.
+  function available(d) {
+    if (d < today) return false;
+    if (d.getDay() === 0) return false;
+    var n = d.getDate() + d.getMonth() * 3;
+    return !(n % 7 === 3 || n % 11 === 5);
+  }
+  function slotsFor_(d) {
+    var n = d.getDate() + d.getDay();
+    return SLOTS.filter(function (s, i) { return (n + i) % 4 !== 1; });
+  }
+
+  function renderCal() {
+    monthEl.textContent = MONTHS[view.getMonth()] + ' ' + view.getFullYear();
+    prevBtn.disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    nextBtn.disabled = view >= maxView;
+    var html = ['S','M','T','W','T','F','S'].map(function (d, i) { return '<div class="dow" aria-hidden="true">' + d + '</div>'; }).join('');
+    var first = new Date(view.getFullYear(), view.getMonth(), 1);
+    var days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    for (var i = 0; i < first.getDay(); i++) html += '<div aria-hidden="true"></div>';
+    for (var d = 1; d <= days; d++) {
+      var date = new Date(view.getFullYear(), view.getMonth(), d);
+      var ok = available(date);
+      var sel = selDay && isoDate(selDay) === isoDate(date);
+      var cls = isoDate(date) === isoDate(today) ? ' class="today"' : '';
+      html += '<button type="button"' + cls + ' data-date="' + isoDate(date) + '"' + (ok ? '' : ' disabled') + ' aria-pressed="' + (sel ? 'true' : 'false') + '" aria-label="' + longDate(date) + (ok ? '' : ', unavailable') + '">' + d + '</button>';
+    }
+    calEl.innerHTML = html;
+  }
+  function renderSlots() {
+    if (!selDay) { slotsFor.textContent = 'Pick a day first'; slotsEl.innerHTML = '<p class="slot-empty">Select a day on the calendar to see open times.</p>'; return; }
+    slotsFor.textContent = longDate(selDay);
+    var list = slotsFor_(selDay);
+    slotsEl.innerHTML = list.map(function (s) {
+      return '<button type="button" data-slot="' + s + '" aria-pressed="' + (s === selSlot ? 'true' : 'false') + '">' + s + '</button>';
+    }).join('');
+  }
+  function renderPicked() {
+    if (selDay && selSlot) { pickedEl.innerHTML = '<b>' + longDate(selDay) + '</b> at <b>' + selSlot + '</b>'; bookBtn.disabled = false; }
+    else if (selDay) { pickedEl.textContent = longDate(selDay) + '. Now pick a time.'; bookBtn.disabled = true; }
+    else { pickedEl.textContent = 'Nothing selected yet.'; bookBtn.disabled = true; }
+  }
+  calEl.addEventListener('click', function (ev) {
+    var b = ev.target.closest('button[data-date]'); if (!b || b.disabled) return;
+    selDay = parseISO(b.getAttribute('data-date')); selSlot = null;
+    renderCal(); renderSlots(); renderPicked();
+  });
+  slotsEl.addEventListener('click', function (ev) {
+    var b = ev.target.closest('button[data-slot]'); if (!b) return;
+    selSlot = b.getAttribute('data-slot');
+    renderSlots(); renderPicked();
+  });
+  prevBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
+  nextBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
+  bookBtn.addEventListener('click', function () {
+    if (!selDay || !selSlot) return;
+    document.getElementById('t-when').textContent = longDate(selDay) + ' at ' + selSlot;
+    sched.setAttribute('data-done', '');
+    document.getElementById('tour-confirm').setAttribute('data-on', '');
+    document.getElementById('tour-again').focus({ preventScroll: true });
+  });
+  document.getElementById('tour-again').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    sched.removeAttribute('data-done');
+    document.getElementById('tour-confirm').removeAttribute('data-on');
+    selSlot = null; renderSlots(); renderPicked();
+  });
+  renderCal(); renderSlots(); renderPicked();
+
+  // --- pricing guide (client-side mock) ---
+  var guideForm = document.getElementById('guide-form'), guideWrap = document.getElementById('guide-wrap'), guideErr = document.getElementById('guide-error');
+  guideForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var e = document.getElementById('g-email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { guideErr.textContent = 'Enter a valid email address.'; guideErr.hidden = false; return; }
+    guideErr.hidden = true;
+    document.getElementById('g-sent').textContent = e;
+    guideWrap.setAttribute('data-done', '');
+    document.getElementById('guide-fine').hidden = true;
+    document.getElementById('guide-confirm').setAttribute('data-on', '');
+  });
+})();
+</script>
+</body>
+</html>
