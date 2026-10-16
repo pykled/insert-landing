@@ -1,0 +1,353 @@
+[
+ {
+  "name": "hero",
+  "wix_id": "41b656_c53749f9cc334a58bca20dc46128b8ca~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_c53749f9cc334a58bca20dc46128b8ca~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/copy-of-bamboo-garden",
+  "native": [
+   11648,
+   8736
+  ],
+  "crop": [
+   11648,
+   8736
+  ],
+  "variants": [
+   [
+    1200,
+    900,
+    272130,
+    82
+   ],
+   [
+    1800,
+    1350,
+    325550,
+    58
+   ],
+   [
+    2400,
+    1800,
+    534344,
+    58
+   ]
+  ],
+  "kept_copy": "img/real/hero.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "greenhouse",
+  "wix_id": "41b656_faf7efa119644297a7e9df7107b7a1e9~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_faf7efa119644297a7e9df7107b7a1e9~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/greenhouse-los-angeles",
+  "native": [
+   11648,
+   8736
+  ],
+  "crop": [
+   11648,
+   8736
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    61358,
+    82
+   ],
+   [
+    1200,
+    900,
+    112692,
+    82
+   ],
+   [
+    1800,
+    1350,
+    204040,
+    82
+   ]
+  ],
+  "kept_copy": "img/real/greenhouse.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "barn",
+  "wix_id": "41b656_93561ad4073f4c769a70ce03e4aa63c5~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_93561ad4073f4c769a70ce03e4aa63c5~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/",
+  "native": [
+   5685,
+   3790
+  ],
+  "crop": [
+   5053,
+   3790
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    94660,
+    82
+   ],
+   [
+    1200,
+    900,
+    195202,
+    82
+   ],
+   [
+    1800,
+    1350,
+    279946,
+    70
+   ]
+  ],
+  "kept_copy": "img/real/barn.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "flower",
+  "wix_id": "41b656_1fbdb1ce5c8d4febab7d0a4987605e06~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_1fbdb1ce5c8d4febab7d0a4987605e06~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/copy-of-bamboo-garden",
+  "native": [
+   5097,
+   6596
+  ],
+  "crop": [
+   5097,
+   3823
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    113448,
+    82
+   ],
+   [
+    1200,
+    900,
+    226924,
+    82
+   ],
+   [
+    1800,
+    1350,
+    298568,
+    70
+   ]
+  ],
+  "kept_copy": "img/real/flower.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "bamboo",
+  "wix_id": "41b656_dda286a194e34c70addb74f1575a8432~mv2.png",
+  "source_url": "https://static.wixstatic.com/media/41b656_dda286a194e34c70addb74f1575a8432~mv2.png",
+  "source_page": "https://www.thestonehurst.com/the-gardens-gallery",
+  "native": [
+   4636,
+   6000
+  ],
+  "crop": [
+   4636,
+   3477
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    189892,
+    82
+   ],
+   [
+    1200,
+    900,
+    288990,
+    70
+   ],
+   [
+    1800,
+    1350,
+    483776,
+    58
+   ]
+  ],
+  "kept_copy": "img/real/bamboo.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "terrace",
+  "wix_id": "41b656_13d8c023d33b4bdba5aa9ff0d7a4d612~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_13d8c023d33b4bdba5aa9ff0d7a4d612~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/grand-terrace-gallery",
+  "native": [
+   1600,
+   1200
+  ],
+  "crop": [
+   1600,
+   1200
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    72498,
+    82
+   ],
+   [
+    1200,
+    900,
+    151868,
+    82
+   ],
+   [
+    1600,
+    1200,
+    238552,
+    82
+   ]
+  ],
+  "kept_copy": "img/real/terrace.jpg",
+  "kept_copy_size": [
+   1600,
+   1200
+  ]
+ },
+ {
+  "name": "bungalow",
+  "wix_id": "41b656_3c0747cbc41349d580c09bae9a3b173a~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_3c0747cbc41349d580c09bae9a3b173a~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/",
+  "native": [
+   5246,
+   3497
+  ],
+  "crop": [
+   4663,
+   3497
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    79472,
+    82
+   ],
+   [
+    1200,
+    900,
+    160014,
+    82
+   ],
+   [
+    1800,
+    1350,
+    244322,
+    76
+   ]
+  ],
+  "kept_copy": "img/real/bungalow.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "reception",
+  "wix_id": "41b656_3d58f3b1103849e888d99cc30eae9cfa~mv2.jpg",
+  "source_url": "https://static.wixstatic.com/media/41b656_3d58f3b1103849e888d99cc30eae9cfa~mv2.jpg",
+  "source_page": "https://www.thestonehurst.com/greenhouse-los-angeles",
+  "native": [
+   3755,
+   5644
+  ],
+  "crop": [
+   3755,
+   2816
+  ],
+  "variants": [
+   [
+    800,
+    600,
+    79888,
+    82
+   ],
+   [
+    1200,
+    900,
+    146254,
+    82
+   ],
+   [
+    1800,
+    1350,
+    213042,
+    76
+   ]
+  ],
+  "kept_copy": "img/real/reception.jpg",
+  "kept_copy_size": [
+   2400,
+   1800
+  ]
+ },
+ {
+  "name": "stonepath",
+  "wix_id": "41b656_fad86b73f0eb42b5a660be4a9f5604eb~mv2.jpeg",
+  "source_url": "https://static.wixstatic.com/media/41b656_fad86b73f0eb42b5a660be4a9f5604eb~mv2.jpeg",
+  "source_page": "https://www.thestonehurst.com/our-history",
+  "native": [
+   1152,
+   1618
+  ],
+  "crop": [
+   1152,
+   1536
+  ],
+  "variants": [
+   [
+    600,
+    800,
+    95114,
+    82
+   ],
+   [
+    900,
+    1200,
+    171556,
+    82
+   ],
+   [
+    1152,
+    1536,
+    234880,
+    82
+   ]
+  ],
+  "kept_copy": "img/real/stonepath.jpg",
+  "kept_copy_size": [
+   1152,
+   1536
+  ]
+ }
+]

@@ -2,7 +2,8 @@
 
 Private spec mock. Built 2026-10-16 by Insert as an unsolicited "here's what your site could be" preview. Nothing has been sent to the venue. Nobody at the venue has been contacted.
 
-- Mock: `previews/stonehurst/index.html` (+ `img/` WebP assets, `shots/` screenshots)
+- Mock: `previews/stonehurst/index.html` (+ `img/` WebP assets, `img/real/` source copies + manifest, `shots/` screenshots)
+- Deployed copy (unlisted, noindex, `X-Robots-Tag`, `robots.txt` disallow): `private-previews/2d32be7dda6d361dd89ffdfd/stonehurst/` → https://insert-landing-production.up.railway.app/private-previews/2d32be7dda6d361dd89ffdfd/stonehurst/
 - Containment: `<meta name="robots" content="noindex, nofollow">`, `previews/` is listed in `.railwayignore` so it never uploads to Railway, and `server.js` returns a 404 for every `/previews/*` path even if it did. Not pushed to GitHub. Local only.
 - Preview locally: `cd ~/projects/insert && python3 -m http.server 4821` then open `http://localhost:4821/previews/stonehurst/index.html`.
 
@@ -65,40 +66,75 @@ Platform: Wix (meta generator "Wix.com Website Builder"). Homepage HTML alone is
 - **Tour scheduler**: a static calendar + time-slot picker with a confirmation state. Slots are illustrative; the venue's real availability would drive it.
 - **Pricing guide capture**: email field, instant "guide sent" state, no price shown.
 - **FAQ** with the seven real answers and a "what's included / hours at a glance" strip pulled from the same answers.
-- **Footer** with Shadow Hills, "Corner of Sunland & Stonehurst Ave" (from Our History; the site does not print a street number), the placeholder domain email above, and no phone (the site has none). Discreet "Concept preview by Insert · illustrative imagery · not affiliated with the venue" chip.
+- **Footer** with Shadow Hills, "Corner of Sunland & Stonehurst Ave" (from Our History; the site does not print a street number), the placeholder domain email above, and no phone (the site has none). Discreet "Concept preview by Insert · photography © The Stonehurst · not affiliated with the venue" chip.
 
-## Verification (2026-10-16)
+## Revision 2 (2026-10-16, afternoon): readability + real imagery
 
-`scripts/verify-stonehurst-preview.py` (Playwright, Chromium) against `python3 -m http.server 4821`:
+Dillon's notes on v1: "the font against the background is a bit hard to read" and "make sure you are using real imagery from their site if possible."
 
-- 1440×900 desktop at 1x and 390×844 mobile at 2x: no horizontal overflow (scrollWidth equals innerWidth on both).
-- Both web fonts load; every image has alt text, loads, and the chosen srcset candidate is at least 90% of the rendered width × DPR.
-- Check-your-date: empty submit shows a validation error; a valid submit shows the 24-hour-hold confirmation with the formatted date, guest count and contact; "Check another date" resets.
-- Scheduler: next month → first available day → first slot → "Book this tour" shows the confirmation; "Choose a different time" resets.
-- Pricing guide: invalid email is rejected; valid email shows "Guide sent".
-- No console errors or page errors; the only off-localhost requests are Google Fonts. No form posts anywhere.
-- Screenshots in `shots/`: `desktop.png`, `mobile.png` (full page), plus `-hero`, `-spaces`, `-tour`, `-date-confirm`, `-tour-confirm` crops for each.
+### Readability
 
-## Placeholders for the venue to fill (marked here, not on the page)
+Measured with the contrast walker in `scripts/verify-stonehurst-preview.py` (see Verification). v1 numbers were measured by re-running the same walker against commit 48c0015.
 
-The page's FAQ contains only answers that exist on the live site. These questions are *not* answered anywhere on the site and are left out of the page rather than guessed; the venue should supply them:
+| Text | v1 min ratio (worst pixel, either viewport) | v2 min ratio | Change |
+|---|---|---|---|
+| Hero kicker (white on photo) | 1.00 | 7.26 | two-layer scrim (vertical + left-anchored), kicker pure white, 11.5→12.5px |
+| Hero headline (Bodoni, 43–88px) | 1.00 | 6.85 | scrim; mobile copy pushed lower into the dark band |
+| Hero sub-copy / meta | 1.59 | ≥ 7.3 | weight 300→400, full white instead of 72–88% white, scrim |
+| Captions / fine print (`--ink-faint`) | 3.43 (#8a8176) | ≥ 7.5 (#4f4740) | darker token, 12→13.5px |
+| Clay kicker / labels (`--clay`) | 4.86 (#9a5039) | ≥ 7.7 (#733425) | darker text clay; original clay kept for dots, focus rings, button fills |
+| Input placeholders | 2.75 (#a39b90) | 7.3 (#5c544c) | darker, opacity 1 |
+| Calendar unavailable days | 1.24 (#c3bbb0 + strike-through) | ≥ 7.5 | muted weight on a paper-2 tile, no strike |
+| Plan band small copy (78% white on teal) | 6.2 | ≥ 10 | solid #ece5dc / #e9cfc5 instead of alpha text |
+| Filming band copy (72% paper on ink) | ≈ 8 | ≥ 11 | solid #e9e3db |
 
-- Pricing or starting rates (the page offers a guide capture instead).
-- Catering: preferred/required vendors, outside catering, bar policy.
-- Parking capacity and valet details beyond "valet included".
-- Noise / amplified music cutoff beyond the 10 PM event end.
-- Rain plan (the greenhouse is implied as the indoor option but not stated as such).
-- Accessibility of the gardens and restrooms.
-- Terrace and cactus garden capacities.
-- A public phone number.
+v1 numbers come from running the same walker against `git archive 48c0015` (the 1.00s are white text over white sky / white chair cushions with a 6–22% scrim). 
 
-## Illustrative imagery
+Also: body 17px/300 → 17.5px/400 (17px on mobile, was 16), nav links 500 weight, chips/labels +1px, story frame line moved onto a wrapper so it no longer crosses the caption, header backdrop 86%→94%.
 
-Every photo on the mock is AI-generated (Gemini `gemini-3.1-flash-image-preview`, native 2K, no people/faces/text) from `scripts/generate-stonehurst-images.mjs`, then converted to WebP at 1200/1800/2400 widths (never upscaled, each file under 250 KB) by `scripts/convert-stonehurst-images.py`. None of the venue's own photos were downloaded, hotlinked or copied. The page carries an unobtrusive "Illustrative imagery" caption chip; a real build would use the venue's photography.
+Result: 621 text nodes measured across both viewports and all states (default, hover, open mobile menu, validation errors, three confirmations). Lowest small-text ratio 7.26:1, lowest large-text ratio 6.85:1. WCAG AA floor is 4.5 / 3.
+
+### Real imagery
+
+Every photo on the page is now the venue's own, pulled from the untransformed Wix originals (`https://static.wixstatic.com/media/<id>` with no `/v1/fill/` transform returns the uploaded file). Crawl: all 12 pages in `pages-sitemap.xml` fetched with curl; 86 unique media ids found (78 photos ≥ 800px after dropping logos and press badges). Originals were reviewed on contact sheets and the best per section picked; originals live in `/tmp/sh/orig` (not committed, ~380 MB). `img/real/` keeps a ≤2400px JPEG of each chosen crop plus `manifest.json`.
+
+| Use | Source (original) | Native px | Crop px | WebP widths served | Found on |
+|---|---|---|---|---|---|
+| `hero` | https://static.wixstatic.com/media/41b656_c53749f9cc334a58bca20dc46128b8ca~mv2.jpg | 11648x8736 | 11648x8736 | 1200, 1800, 2400 | /copy-of-bamboo-garden (Flower Garden page) |
+| `greenhouse` | https://static.wixstatic.com/media/41b656_faf7efa119644297a7e9df7107b7a1e9~mv2.jpg | 11648x8736 | 11648x8736 | 800, 1200, 1800 | /greenhouse-los-angeles |
+| `barn` | https://static.wixstatic.com/media/41b656_93561ad4073f4c769a70ce03e4aa63c5~mv2.jpg | 5685x3790 | 5053x3790 | 800, 1200, 1800 | / (home) |
+| `flower` | https://static.wixstatic.com/media/41b656_1fbdb1ce5c8d4febab7d0a4987605e06~mv2.jpg | 5097x6596 | 5097x3823 | 800, 1200, 1800 | /copy-of-bamboo-garden (Flower Garden page) |
+| `bamboo` | https://static.wixstatic.com/media/41b656_dda286a194e34c70addb74f1575a8432~mv2.png | 4636x6000 | 4636x3477 | 800, 1200, 1800 | /the-gardens-gallery (Bamboo Garden page) |
+| `terrace` | https://static.wixstatic.com/media/41b656_13d8c023d33b4bdba5aa9ff0d7a4d612~mv2.jpg | 1600x1200 | 1600x1200 | 800, 1200, 1600 | /grand-terrace-gallery |
+| `bungalow` | https://static.wixstatic.com/media/41b656_3c0747cbc41349d580c09bae9a3b173a~mv2.jpg | 5246x3497 | 4663x3497 | 800, 1200, 1800 | / (home) |
+| `reception` | https://static.wixstatic.com/media/41b656_3d58f3b1103849e888d99cc30eae9cfa~mv2.jpg | 3755x5644 | 3755x2816 | 800, 1200, 1800 | /greenhouse-los-angeles |
+| `stonepath` | https://static.wixstatic.com/media/41b656_fad86b73f0eb42b5a660be4a9f5604eb~mv2.jpeg | 1152x1618 | 1152x1536 | 600, 900, 1152 | /our-history |
+
+Pipeline: `scripts/convert-stonehurst-real.py` (Pillow, LANCZOS, WebP q82 stepping down to stay near 300 KB per file; the 2400px hero is 520 KB). Nothing is upscaled: a width is only written when it is ≤ the crop width, and the verifier checks each rendered image against the manifest (served width ≥ CSS width × DPR, capped at 1.5× on desktop; CSS width × that factor ≤ native width).
+
+Limited-resolution sources and how the layout handles them:
+- **Terrace** (1600×1200): the only wide view of the terrace; the 4:3 card is ≤ 566 CSS px on desktop (≤ 849 device px at 1.5×) and 350 px on mobile (700 at 2×).
+- **Stone path** (1152×1618): the one photo of the hand-laid stone work; moved to a portrait 3:4 frame capped at 440 px (660 device px at 1.5×; 780 at mobile 2×) and given a caption. The `detail` tablescape it replaced was generated.
+
+Sections with no real photo: none. All eight generated images (`hero`, `detail`, `greenhouse`, `barn`, `flower-garden`, `bamboo`, `terrace`, `bungalow`) and the "Illustrative imagery" chip are gone. The page footer now reads "photography © The Stonehurst".
+
+Note on sourcing: `copy-of-bamboo-garden` is the Flower Garden gallery and `the-gardens-gallery` is the Bamboo Garden gallery on the live site (the URL slugs are swapped); the picks above follow what each photo actually shows.
+
+## Verification (2026-10-16, revision 2)
+
+`scripts/verify-stonehurst-preview.py` (Playwright Chromium, numpy, Pillow) against `python3 -m http.server 4821`:
+
+- 1440×900 and 390×844, both at 2× device pixel ratio: no horizontal overflow; no console errors, page errors or failed requests; only off-origin requests are Google Fonts.
+- Both web fonts load; every `<img>` has alt text, loads, is sharp for its rendered size and is never displayed beyond its native source width (manifest-checked).
+- Contrast walker: every visible text node (plus `::placeholder`) is paired with a screenshot taken with all text made transparent (transitions frozen), so the real background under each glyph line (photo + scrim, gradients, translucent header, tinted tiles) is sampled per pixel; the minimum ratio per node is checked against 4.5:1 (3:1 for ≥24px). States covered: default, ten hover targets (forced via CDP `CSS.forcePseudoState`), open mobile menu, both validation errors, and all three confirmations. Bodies of closed `<details>` are skipped (not rendered). Result: 0 failures, 0 nodes under 7:1 for small text.
+- Check-your-date, scheduler and pricing-guide flows: validation error → valid submit → confirmation text checked → reset, as in v1.
+- Screenshots in `shots/`: `desktop.png` (2880×18342), `mobile.png` (780×25330), plus `-hero`, `-spaces`, `-tour`, `-date-confirm`, `-tour-confirm` crops; `contrast.json` has every measured node.
 
 ## Caveats
 
 - Terrace capacity, phone number and a street number are unknown; the mock does not invent them.
 - "Featured in" names are reproduced as text from the live homepage's logo row; verify each placement before any public use.
 - Tour slots, the 24-hour hold and the one-minute text are product promises for the Insert automation, not current venue policy.
+- The photos are the venue's own, used only on this private unlisted preview so the venue can see its own property; they must not be reused on any public Insert page.
+- The hero scrim is deep (up to 92% at the foot of the photo, heavier on mobile where the copy stacks over the image) because the verifier takes the darkest pixel under each line; a lighter treatment would need the copy moved off the photo.
 - Zola's public "from $11,500" and review counts are deliberately absent.
