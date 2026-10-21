@@ -14,7 +14,7 @@
       <path class="mo-crest-laurel" d="M58 140c14 12 28 16 42 16s28-4 42-16M70 148c-6-2-10-7-11-13 6 1 10 6 11 13zm60 0c6-2 10-7 11-13-6 1-10 6-11 13z" />
       <text class="mo-crest-mono" x="100" y="100" text-anchor="middle" dominant-baseline="central">{{ initials }}</text>
     </svg>
-    <h2 id="crest-title" class="mo-crest-name">{{ v.name }}</h2>
+    <h2 id="crest-title" class="mo-crest-name h-label">{{ v.name }}</h2>
     <span class="mo-crest-rule" aria-hidden="true"></span>
     {% if v.story and v.story.lead %}<p class="mo-crest-line">{{ v.story.lead }}</p>{% endif %}
     {% if place %}<p class="mo-crest-place">{{ place }}{% if tf.state %}, {{ tf.state }}{% endif %}</p>{% endif %}

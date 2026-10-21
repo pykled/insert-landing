@@ -1,5 +1,6 @@
   .uses { padding-top: 0; }
   .uses-band { border-radius: var(--radius-card); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; }
   .uses-band h2 { font-size: clamp(28px, 3vw, 40px); margin-bottom: 10px; }
-  .uses-band p { max-width: 56ch; }
+{% if dialect %}  .uses-band h2 { font-size: clamp(var(--h2-floor), 3vw, max(40px, var(--h2-floor))); }{# 2C: never below the pairing minimum (deco Big Shoulders 48px) #}
+{% endif %}  .uses-band p { max-width: 56ch; }
   @media (max-width: 860px) { .uses-band { grid-template-columns: 1fr; } }

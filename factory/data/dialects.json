@@ -1,5 +1,6 @@
 {
  "_notes": [
+  "Stage 2C (2026-10-21): candlelit-forum removed from candlelit.pairings. Forum 400 hairline share (qa.py stroke probe, ink<160, 1 css px opening): 0.35/0.38 at 40px (1x/2x), 0.17/0.26 at 48px, 0.06/0.14 at 56px. The 2x h1 limit is 0.25, so Forum needs >= 56px on phones, above the baseline's 30-44px mobile display range, and candlelit's tracked-caps band tops out at 40px. The probe stays; the pairing goes (contract 3.2). The record stays in pairings.json with dialects [] and a dropped note.",
   "Eight luxury dialects from docs/research/05-luxury-dialects-spec.md (sections 1-4). A dialect is a bounded region of the six-axis personality space plus a curated sub-library. lib/personality.py scores them (photo signals + content vibe + type prior), clamps the axes to the winner, and selects only ids listed here.",
   "Every id carries status: exists (template/data present now), planned-2B (owed by stage 2B, see factory/STAGE-2B-CONTRACT.md) or deferred (named in the spec but not in the phase-2 inventory). Statuses are a snapshot; build.py checks the filesystem (lib/templates.py) and `python3 lib/templates.py --refresh` rewrites them.",
   "Colour values are OKLCH (L 0-1, C, H degrees). Ranges are [min, max]; H is a list of [min, max] ranges. paper.mode = light | dark; paper_dark is an alternate charcoal ground chosen from the photos. contrast_pairs name pairs that must pass 7:1 (lib/palette.py walks them).",
@@ -1277,10 +1278,6 @@
     },
     {
      "id": "candlelit-cormorant-sc",
-     "status": "exists"
-    },
-    {
-     "id": "candlelit-forum",
      "status": "exists"
     }
    ],

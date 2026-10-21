@@ -190,7 +190,8 @@
     {
       "id": "candlelit-forum",
       "mood": "candlelit",
-      "dialects": ["candlelit"],
+      "dialects": [],
+      "dropped": "2026-10-21 stage 2C: Forum 400 fails the qa.py hairline probe below 56px (2x: 0.38 @40, 0.26 @48, 0.14 @56; limit 0.25) and candlelit sets caps at <= 40px, so no candlelit size passes both the baseline and the probe. Not in any dialect's allowed list (data/dialects.json); kept for the record.",
       "axes": {"formality": 80, "era": 35, "density": 60, "voice": 60, "temperature": 30},
       "display": {"family": "Forum", "class": "inscriptional", "weight": 400, "italic_weight": 400, "min_px": 40, "vars": null, "has_opsz": false, "tracking": "0.02em", "line_height": 1.08, "fallback": "'Trajan Pro', Georgia, serif", "case": "sentence", "name_and_one_headline_only": true},
       "body": {"family": "DM Sans", "class": "geometric-sans", "weight": 400, "medium": 500, "size_px": 17, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif", "vars": "\"opsz\" 14"},
