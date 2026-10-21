@@ -1,5 +1,6 @@
 {
  "_notes": [
+  "Stage 2C (2026-10-21): candlelit.type.headline_case was [caps]; spec 2.3 sets candlelit headings in sentence case (Marcellus >= 36px, Cormorant Garamond 500 >= 32px) with caps only for the name and kickers, so it is now [sentence]. Measured in page context (antialiased, qa.py probe): Marcellus as a caps h1 fails at every size <= 40px (1x 0.26 @40, 2x 0.39 @30), in sentence case it passes at the base floors (56px desktop: 1x 0.12; 48px mobile: 2x 0.20). candlelit-cormorant-sc removed from candlelit.pairings: its sentence h1 face (Cormorant Garamond 500) passes with no margin (1x 0.21 @56, 2x 0.24 @48). candlelit keeps one pairing (inscriptional-marcellus); spec 4.3 wants 2-3, so stage 3 owes a vetted second face.",
   "Stage 2C (2026-10-21): candlelit-forum removed from candlelit.pairings. Forum 400 hairline share (qa.py stroke probe, ink<160, 1 css px opening): 0.35/0.38 at 40px (1x/2x), 0.17/0.26 at 48px, 0.06/0.14 at 56px. The 2x h1 limit is 0.25, so Forum needs >= 56px on phones, above the baseline's 30-44px mobile display range, and candlelit's tracked-caps band tops out at 40px. The probe stays; the pairing goes (contract 3.2). The record stays in pairings.json with dialects [] and a dropped note.",
   "Eight luxury dialects from docs/research/05-luxury-dialects-spec.md (sections 1-4). A dialect is a bounded region of the six-axis personality space plus a curated sub-library. lib/personality.py scores them (photo signals + content vibe + type prior), clamps the axes to the winner, and selects only ids listed here.",
   "Every id carries status: exists (template/data present now), planned-2B (owed by stage 2B, see factory/STAGE-2B-CONTRACT.md) or deferred (named in the spec but not in the phase-2 inventory). Statuses are a snapshot; build.py checks the filesystem (lib/templates.py) and `python3 lib/templates.py --refresh` rewrites them.",
@@ -1261,9 +1262,7 @@
     "ink-soft on paper-2"
    ],
    "type": {
-    "headline_case": [
-     "caps"
-    ],
+    "headline_case": ["sentence"],
     "body_px": [
      17
     ],
@@ -1274,10 +1273,6 @@
    "pairings": [
     {
      "id": "inscriptional-marcellus",
-     "status": "exists"
-    },
-    {
-     "id": "candlelit-cormorant-sc",
      "status": "exists"
     }
    ],

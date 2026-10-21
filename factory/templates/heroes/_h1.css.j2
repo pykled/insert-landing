@@ -13,7 +13,11 @@
   {% set w = sec.weight if sec else pair.display.weight %}
   {% set mn = [(sec.min_px if sec else pair.display.min_px), 40]|max %}
   {% set thin = (w <= 400) and (mn >= 36) %}
-  {{ sel }} { font-family: {{ fam|safe }}; font-weight: {{ w }}; letter-spacing: {{ sec.tracking if sec else 'var(--display-track)' }}; line-height: {{ sec.line_height if sec else 'var(--display-lh)' }}; text-transform: none; font-size: clamp({{ mn }}px, {{ vw|default(5.4) }}vw, {{ maxpx|default(80) }}px); {% if sec %}font-variation-settings: normal; font-optical-sizing: auto;{% endif %} }
+  {# 2C: a thin primary face never renders below its measured hairline floor on desktop (base.css.j2 --h1-floor uses the
+     same numbers); the silent hero's 40 px cap set Marcellus at 40 px = 26% hairline at 1x #}
+  {% set dfloor = (pair.display.hairline_floor_px|default(56 if pair.display.family in ('Forum', 'Libre Caslon Display', 'Italiana', 'Instrument Serif') else 48)) if (thin and not sec) else mn %}
+  {% set mn_d = [mn, dfloor]|max %}
+  {{ sel }} { font-family: {{ fam|safe }}; font-weight: {{ w }}; letter-spacing: {{ sec.tracking if sec else 'var(--display-track)' }}; line-height: {{ sec.line_height if sec else 'var(--display-lh)' }}; text-transform: none; font-size: clamp({{ mn_d }}px, {{ vw|default(5.4) }}vw, {{ [maxpx|default(80), mn_d]|max }}px); {% if sec %}font-variation-settings: normal; font-optical-sizing: auto;{% endif %} }
   {% if sec %}{{ sel }} em { font-weight: {{ sec.italic_weight }}; }{% endif %}
   @media (max-width: 600px) {
     {{ sel }} { --h1-size: clamp({{ 48 if thin else mn }}px, 10.5vw, 60px); font-size: var(--h1-size); }

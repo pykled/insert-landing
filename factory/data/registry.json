@@ -401,6 +401,63 @@
      "voice": 62.5
     }
    }
+  },
+  {
+   "id": "stonehurst-proof-candlelit",
+   "fingerprint": {
+    "display_family": "Marcellus",
+    "display_class": "inscriptional",
+    "body_family": "Work Sans",
+    "accent_hue": 96.6,
+    "paper_temperature": "warm",
+    "hero": "silent",
+    "hero_family": "photo-bleed",
+    "spaces": "index",
+    "story": "split",
+    "faq": "plain-list",
+    "tour": "band-cta",
+    "section_order": [
+     "hero",
+     "facts-strip",
+     "spaces",
+     "story",
+     "featured",
+     "daylight-band",
+     "candle-count",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "candle-count",
+    "button_style": "square-outline-caps",
+    "radius": 0,
+    "lead_photo": "greenhouse",
+    "dialect": "candlelit",
+    "pairing": "inscriptional-marcellus",
+    "voice": "evening",
+    "paper_tone": "dark-warm",
+    "hero_framing": "silent",
+    "display_case": "sentence",
+    "ornament": "double-line-frame",
+    "body_px": 17,
+    "photo_edge": "keyline",
+    "motion_device": "draw-in",
+    "nav_style": "bar",
+    "ornament_wanted": "double-line-frame"
+   },
+   "meta": {
+    "path": ".factory-check/proof/candlelit",
+    "built": "2026-10-21T02:18:40",
+    "personality": {
+     "formality": 80.0,
+     "scale": 75.0,
+     "era": 42.5,
+     "density": 57.5,
+     "temperature": 25.0,
+     "voice": 57.5
+    }
+   }
   }
  ],
  "schema_version": 2

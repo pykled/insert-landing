@@ -100,7 +100,7 @@
       "id": "inscriptional-marcellus",
       "mood": "mediterranean-heritage",
       "axes": {"formality": 80, "era": 20, "density": 55, "voice": 50, "temperature": 30},
-      "display": {"family": "Marcellus", "class": "inscriptional", "weight": 400, "italic_weight": 400, "min_px": 24, "vars": null, "has_opsz": false, "tracking": "0.02em", "line_height": 1.1, "fallback": "'Trajan Pro', Georgia, serif", "case": "caps"},
+      "display": {"family": "Marcellus", "class": "inscriptional", "weight": 400, "italic_weight": 400, "hairline_floor_px": 56, "hairline_note": "2C probe in page context (antialiased): Marcellus 400 sentence case 1x 0.26 @40, 0.20 @48, 0.12 @56; 2x 0.25 @40, 0.20 @48. Desktop h1 >= 56, mobile >= 48 (base floor). Tracked caps <= 40px fails (1x 0.26 @40), so Marcellus caps stay for the name and kickers, as spec 2.3 says.", "min_px": 24, "vars": null, "has_opsz": false, "tracking": "0.02em", "line_height": 1.1, "fallback": "'Trajan Pro', Georgia, serif", "case": "caps"},
       "body": {"family": "Work Sans", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.62, "fallback": "'Helvetica Neue', Arial, sans-serif"},
       "import": "family=Marcellus&family=Work+Sans:wght@400;500",
       "risk": "Single weight, no italic; use small caps/tracking for emphasis instead of italics.",
@@ -176,7 +176,8 @@
     {
       "id": "candlelit-cormorant-sc",
       "mood": "candlelit",
-      "dialects": ["candlelit"],
+      "dialects": [],
+      "dropped": "2026-10-21 stage 2C: the h1 lands in the secondary, Cormorant Garamond 500, which the qa.py hairline probe (page context, antialiased) passes only with no margin: 1x 0.25 @48, 0.21 @56 (limit 0.20 at >= 36px), 2x 0.24 @48 (limit 0.25). Cormorant SC 600 as a caps headline fails at every caps size (2x 0.27 @40). A heavier pin breaks the 400-600 baseline. Not in any dialect's allowed list; revisit with a measured hairline floor in stage 3.",
       "axes": {"formality": 85, "era": 30, "density": 55, "voice": 55, "temperature": 25},
       "display": {"family": "Cormorant SC", "class": "garalde", "weight": 600, "italic_weight": 600, "min_px": 18, "vars": null, "has_opsz": false, "tracking": "0.08em", "line_height": 1.1, "fallback": "Garamond, Georgia, serif", "case": "caps", "caps_only": true},
       "secondary": {"family": "Cormorant Garamond", "class": "garalde", "weight": 500, "italic_weight": 500, "min_px": 32, "vars": null, "has_opsz": false, "tracking": "-0.005em", "line_height": 1.1, "fallback": "Garamond, Georgia, serif", "case": "sentence"},
