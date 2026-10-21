@@ -1,0 +1,6305 @@
+[
+ {
+  "id": "san-ysidro-ranch",
+  "type": "estate",
+  "place": "SoCal Montecito",
+  "url": "https://www.sanysidroranch.com/weddings-and-events",
+  "status_d": 200,
+  "final_d": "https://www.sanysidroranch.com/weddings-and-events",
+  "facts": {
+   "title": "Montecito Wedding Venues | Meetings & Events | San Ysidro Ranch",
+   "h1": {
+    "family": "Jost",
+    "weight": "400",
+    "size": 30,
+    "ls": "1px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(89, 127, 90)",
+    "lh": "32px",
+    "text": "STORYBOOK SETTINGS"
+   },
+   "h2": {
+    "family": "Jost",
+    "weight": "400",
+    "size": 30,
+    "ls": "1px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(65, 102, 66)",
+    "lh": "32px",
+    "text": "THE GARDENS"
+   },
+   "p": {
+    "family": "Jost",
+    "weight": "300",
+    "size": 18,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(16, 15, 10)",
+    "lh": "26px",
+    "text": "San Ysidro Ranch has an array of options that can accommodate large celebrations and intim"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(16, 15, 10)",
+   "bodyFont": "Jost",
+   "navLinks": [
+    "Skip to Content",
+    "CHECK ACCOMMODATIONS"
+   ],
+   "navCount": 2,
+   "imgCount": 41,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 450,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Jost",
+    "Sorts Mill Goudy"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "REQUEST INFORMATION",
+    "facebook\n(opens in new window)",
+    "Contact & Directions"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 12,
+   "capsCount": 47,
+   "docH": 7379,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 3831
+  },
+  "status_m": 200,
+  "final_m": "https://www.sanysidroranch.com/weddings-and-events",
+  "mobile": {
+   "docH": 844,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "ojai-valley-inn",
+  "type": "resort",
+  "place": "SoCal Ojai",
+  "url": "https://www.ojaivalleyinn.com/",
+  "status_d": 200,
+  "final_d": "https://www.ojaivalleyinn.com/",
+  "facts": {
+   "title": "Ojai Valley Inn | Official Site",
+   "h1": {
+    "family": "termina",
+    "weight": "400",
+    "size": 17,
+    "ls": "2.4px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(82, 85, 91)",
+    "lh": "25.5px",
+    "text": "WELCOME TO THE VALLEY"
+   },
+   "h2": {
+    "family": "termina",
+    "weight": "400",
+    "size": 14,
+    "ls": "1px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(97, 100, 106)",
+    "lh": "19.6px",
+    "text": "FIND YOUR OJAI"
+   },
+   "p": {
+    "family": "brandon-grotesque",
+    "weight": "400",
+    "size": 16,
+    "ls": "0.4px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(82, 85, 91)",
+    "lh": "24px",
+    "text": "Home to rich landscapes, artisans, adventurers, and a flourishing dining scene, the Ojai V"
+   },
+   "bodyBg": "rgb(250, 249, 245)",
+   "bodyColor": "rgb(82, 85, 91)",
+   "bodyFont": "brandon-grotesque",
+   "navLinks": [
+    "THE VALLEY",
+    "STAY",
+    "CULINARY",
+    "EXPERIENCES",
+    "GATHERINGS",
+    "BOOK NOW"
+   ],
+   "navCount": 6,
+   "imgCount": 41,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "brandon-grotesque",
+    "termina"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 1,
+   "capsCount": 73,
+   "docH": 10212,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 5315
+  },
+  "status_m": 200,
+  "final_m": "https://www.ojaivalleyinn.com/",
+  "mobile": {
+   "docH": 11268,
+   "overflow": true,
+   "h1Size": 17,
+   "burger": true
+  }
+ },
+ {
+  "id": "rosewood-miramar",
+  "type": "coastal hotel",
+  "place": "SoCal Montecito",
+  "url": "https://www.rosewoodhotels.com/en/miramar-beach-montecito/weddings",
+  "status_d": 200,
+  "final_d": "https://www.rosewoodhotels.com/en/miramar-beach-montecito",
+  "facts": {
+   "title": "Santa Barbara Hotel in Montecito CA | Rosewood Miramar Beach",
+   "h1": {
+    "family": "Engravers Gothic Bold",
+    "weight": "700",
+    "size": 48,
+    "ls": "4.8px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(250, 251, 245)",
+    "lh": "48px",
+    "text": "ROSEWOOD MIRAMAR BEACH"
+   },
+   "h2": {
+    "family": "Engravers Gothic Bold",
+    "weight": "700",
+    "size": 18,
+    "ls": "3.6px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "21px",
+    "text": "BEACH HOUSE TERRACE SUITE"
+   },
+   "p": {
+    "family": "Austin Light Web",
+    "weight": "300",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "19.2px",
+    "text": "This holiday season unfolds beneath clear skies and golden light, where every tradition is"
+   },
+   "bodyBg": "rgb(250, 251, 245)",
+   "bodyColor": "rgb(33, 37, 41)",
+   "bodyFont": "system-ui",
+   "navLinks": [
+    "ROSEWOOD GLOBAL",
+    "Discover",
+    "Overview",
+    "Offers",
+    "Accommodation",
+    "Dining",
+    "Wellness",
+    "Experiences",
+    "Events",
+    "Shop\nopens in a new tab",
+    "RESERVE"
+   ],
+   "navCount": 11,
+   "imgCount": 63,
+   "videoCount": 2,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 724,
+    "top": 204
+   },
+   "bgHero": null,
+   "fonts": [
+    "Engravers Gothic Bold",
+    "Austin Light Web",
+    "Swiss 721 Black Condensed"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "INQUIRE\nOPENS IN A NEW TAB",
+    "Global Contact Information",
+    "Make an Inquiry",
+    "Facebook \nopens in a new tab"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 36,
+   "capsCount": 50,
+   "docH": 7170,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 3529
+  },
+  "status_m": 200,
+  "final_m": "https://www.rosewoodhotels.com/en/miramar-beach-montecito",
+  "mobile": {
+   "docH": 9293,
+   "overflow": false,
+   "h1Size": 24,
+   "burger": true
+  }
+ },
+ {
+  "id": "hotel-bel-air",
+  "type": "hotel estate",
+  "place": "SoCal LA",
+  "url": "https://www.dorchestercollection.com/los-angeles/hotel-bel-air",
+  "status_d": 200,
+  "final_d": "https://www.dorchestercollection.com/los-angeles/hotel-bel-air",
+  "facts": {
+   "title": "Hotel Bel-Air, Canyon Hills | Luxury 5-Star Hotel in Los Angeles",
+   "h1": {
+    "family": "acumin-pro",
+    "weight": "400",
+    "size": 14,
+    "ls": "0.7px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(139, 108, 38)",
+    "lh": "14px",
+    "text": "HOTEL BEL-AIR"
+   },
+   "h2": {
+    "family": "acumin-pro",
+    "weight": "300",
+    "size": 36,
+    "ls": "-0.72px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "40px",
+    "text": "Discover graceful living"
+   },
+   "p": {
+    "family": "acumin-pro",
+    "weight": "300",
+    "size": 16,
+    "ls": "-0.32px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgba(0, 0, 0, 0.75)",
+    "lh": "20px",
+    "text": "Make the most of your stay with a complimentary $250 hotel credit. Enjoy breakfast on your"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "acumin-pro",
+   "navLinks": [
+    "ACCESSIBILITY",
+    "CONTACT",
+    "EXPLORE OUR HOTELS",
+    "London, UK",
+    "THE DORCHESTER",
+    "45 PARK LANE",
+    "Ascot, UK",
+    "COWORTH PARK",
+    "Paris, France",
+    "LE MEURICE",
+    "H\u00d4TEL PLAZA ATH\u00c9N\u00c9E",
+    "Milan, Italy",
+    "HOTEL PRINCIPE DI SAVOIA",
+    "Rome, Italy"
+   ],
+   "navCount": 14,
+   "imgCount": 47,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 756,
+    "top": 144
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 756,
+    "top": 144
+   },
+   "fonts": [
+    "acumin-pro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "BOOK STAY",
+    "CHECK AVAILABILITY",
+    "BOOK YOUR STAY",
+    "Contact",
+    "BOOKING TERMS"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 298,
+   "capsCount": 115,
+   "docH": 5599,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 8976
+  },
+  "status_m": 200,
+  "final_m": "https://www.dorchestercollection.com/los-angeles/hotel-bel-air",
+  "mobile": {
+   "docH": 6300,
+   "overflow": false,
+   "h1Size": 14,
+   "burger": true
+  }
+ },
+ {
+  "id": "montage-laguna",
+  "type": "coastal resort",
+  "place": "SoCal Laguna",
+  "url": "https://www.montage.com/lagunabeach/weddings/",
+  "status_d": 200,
+  "final_d": "https://www.montage.com/lagunabeach/gatherings/weddings/",
+  "facts": {
+   "title": "Laguna Beach Wedding Venues | Montage Laguna Beach",
+   "h1": {
+    "family": "Garamond-Nova-Pro",
+    "weight": "300",
+    "size": 48,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "56px",
+    "text": "Laguna Beach Weddings"
+   },
+   "h2": {
+    "family": "Garamond-Nova-Pro",
+    "weight": "400",
+    "size": 32,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "44px",
+    "text": "A Dream Oceanfront Setting"
+   },
+   "p": {
+    "family": "Spezia",
+    "weight": "200",
+    "size": 20,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(117, 117, 117)",
+    "lh": "32px",
+    "text": "Montage Laguna Beach offers a breathtaking coastal setting for weddings, where natural bea"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(20, 20, 20)",
+   "bodyFont": "Spezia",
+   "navLinks": [
+    "ACCOMMODATIONS",
+    "All",
+    "Rooms",
+    "Suites",
+    "Three Bedroom Villas",
+    "Accessible Accommodations",
+    "View All",
+    "DINE",
+    "Studio Mediterranean",
+    "The Loft",
+    "Mosaic Bar and Grille",
+    "Lobby Lounge",
+    "Bouch\u00e9e",
+    "In-Room Dining"
+   ],
+   "navCount": 14,
+   "imgCount": 39,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Above-The-Beyond-Italic",
+    "Garamond-Nova-Pro",
+    "Spezia",
+    "SpeziaWeb"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Request for Proposal",
+    "REQUEST FOR PROPOSAL",
+    "View Virtual Tours",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 12,
+   "capsCount": 32,
+   "docH": 6340,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 5505
+  },
+  "status_m": 200,
+  "final_m": "https://www.montage.com/lagunabeach/gatherings/weddings/",
+  "mobile": {
+   "docH": 7304,
+   "overflow": false,
+   "h1Size": 28,
+   "burger": true
+  }
+ },
+ {
+  "id": "pelican-hill",
+  "type": "coastal resort",
+  "place": "SoCal Newport",
+  "url": "https://www.pelicanhill.com/weddings/",
+  "status_d": 403,
+  "final_d": "https://pelicanhill.com/weddings/",
+  "facts": {
+   "title": "Checking your browser...",
+   "h1": {
+    "family": "Helvetica Neue",
+    "weight": "500",
+    "size": 32,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(17, 21, 22)",
+    "lh": "normal",
+    "text": "Confirm you are human"
+   },
+   "h2": null,
+   "p": null,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(17, 21, 22)",
+   "bodyFont": "Helvetica Neue",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 0,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 0,
+   "docH": 900,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 100
+  },
+  "status_m": 200,
+  "final_m": "https://pelicanhill.com/meetings/weddings/",
+  "mobile": {
+   "docH": 6487,
+   "overflow": false,
+   "h1Size": 23,
+   "burger": false
+  }
+ },
+ {
+  "id": "parker-palm-springs",
+  "type": "desert modern",
+  "place": "SoCal Palm Springs",
+  "url": "https://www.parkerpalmsprings.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.parkerpalmsprings.com/weddings",
+  "facts": {
+   "title": "Palm Springs Wedding Venue | Parker Palm Springs Resort",
+   "h1": {
+    "family": "essonnes-display",
+    "weight": "300",
+    "size": 80,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(42, 40, 38)",
+    "lh": "92px",
+    "text": "WEDDINGS"
+   },
+   "h2": {
+    "family": "essonnes-display",
+    "weight": "300",
+    "size": 50,
+    "ls": "-0.75px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(42, 40, 38)",
+    "lh": "60px",
+    "text": "Love, laughter, and a bit of mischief."
+   },
+   "p": {
+    "family": "Gotham SSm A",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(81, 79, 77)",
+    "lh": "24px",
+    "text": "We use cookies to improve your experience, personalize content, and analyze traffic."
+   },
+   "bodyBg": "rgb(234, 230, 225)",
+   "bodyColor": "rgb(42, 40, 38)",
+   "bodyFont": "Gotham SSm A",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 107,
+   "videoCount": 4,
+   "hero": {
+    "tag": "IMG",
+    "w": 1159,
+    "h": 580,
+    "top": 359
+   },
+   "bgHero": null,
+   "fonts": [
+    "essonnes-display",
+    "Gotham SSm A",
+    "Gotham SSm B"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "REQUEST INFORMATION",
+    "REQUEST FOR PROPOSAL",
+    "CONTACT US"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": true,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 4,
+   "capsCount": 42,
+   "docH": 5749,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 10886
+  },
+  "status_m": 200,
+  "final_m": "https://www.parkerpalmsprings.com/weddings",
+  "mobile": {
+   "docH": 5240,
+   "overflow": false,
+   "h1Size": 42,
+   "burger": true
+  }
+ },
+ {
+  "id": "korakia",
+  "type": "desert",
+  "place": "SoCal Palm Springs",
+  "url": "https://www.korakia.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.korakia.com/weddings/",
+  "facts": {
+   "title": "Weddings | Korakia Pensione",
+   "h1": {
+    "family": "Crimson Pro",
+    "weight": "300",
+    "size": 67,
+    "ls": "normal",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "73.92px",
+    "text": "Weddings At Korakia"
+   },
+   "h2": {
+    "family": "Crimson Pro",
+    "weight": "300",
+    "size": 51,
+    "ls": "normal",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(30, 41, 59)",
+    "lh": "56.32px",
+    "text": "Celebrate Your Love Amidst Timeless Elegance"
+   },
+   "p": {
+    "family": "Aileron",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(33, 33, 33)",
+    "lh": "24px",
+    "text": "We use cookies to enhance your browsing experience, serve personalised ads or content, and"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(114, 114, 114)",
+   "bodyFont": "Aileron",
+   "navLinks": [
+    "Skip to content",
+    "Menu",
+    "Reservations",
+    "Plan An Event",
+    "EVENTS",
+    "WEDDINGS",
+    "Download Brochure",
+    "Inquire Today",
+    "Inquire Today",
+    "Inquire Today",
+    "Inquire Today",
+    "1-760-864-6411",
+    "reservations@korakia.com",
+    "Contact For Event Inquiries"
+   ],
+   "navCount": 14,
+   "imgCount": 34,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1420,
+    "h": 650,
+    "top": 3594
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 738,
+    "top": 0
+   },
+   "fonts": [
+    "Aileron",
+    "Crimson Pro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Plan An Event",
+    "Download Brochure",
+    "Inquire Today",
+    "Contact For Event Inquiries",
+    "Contact For Press Inquiries",
+    "Korakia Events Brochure",
+    "Rooms Brochure",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 12,
+   "capsCount": 6,
+   "docH": 8212,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 8896
+  },
+  "status_m": 200,
+  "final_m": "https://www.korakia.com/weddings/",
+  "mobile": {
+   "docH": 14608,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": true
+  }
+ },
+ {
+  "id": "greengate",
+  "type": "vineyard ranch",
+  "place": "Central Coast SLO",
+  "url": "https://greengateweddings.com/",
+  "status_d": 200,
+  "final_d": "https://greengateweddings.com/",
+  "facts": {
+   "title": "Greengate Ranch & Vineyard",
+   "h1": {
+    "family": "Montserrat",
+    "weight": "400",
+    "size": 28,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(17, 17, 17)",
+    "lh": "30.8px",
+    "text": "Join our mailing list."
+   },
+   "h2": {
+    "family": "futura-pt",
+    "weight": "400",
+    "size": 30,
+    "ls": "4.5px",
+    "tt": "lowercase",
+    "style": "normal",
+    "color": "rgba(0, 0, 0, 0.6)",
+    "lh": "36px",
+    "text": "your luxury weekend escape."
+   },
+   "p": {
+    "family": "Montserrat",
+    "weight": "400",
+    "size": 12,
+    "ls": "0.32px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(17, 17, 17)",
+    "lh": "25.6px",
+    "text": "By using this website, you agree to our use of cookies. We use cookies to provide you with"
+   },
+   "bodyBg": "rgb(250, 250, 250)",
+   "bodyColor": "rgba(0, 0, 0, 0.6)",
+   "bodyFont": "Montserrat",
+   "navLinks": [
+    "WEDDINGS",
+    "VACATION RENTALS",
+    "PRIVATE EVENTS",
+    "OUR STORY",
+    "THE LATEST",
+    "CONTACT US",
+    "BUY GREENGATE WINES",
+    "WEDDING PRICING",
+    "OUR STORY",
+    "CONTACT US",
+    "Terms",
+    "Report a map error",
+    "Instagram",
+    "Facebook"
+   ],
+   "navCount": 14,
+   "imgCount": 35,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 960,
+    "top": 13
+   },
+   "bgHero": null,
+   "fonts": [
+    "Roboto",
+    "Montserrat",
+    "freight-big-pro",
+    "futura-pt"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT US",
+    "WEDDING PRICING",
+    "Facebook"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "squarespace",
+   "svgCount": 11,
+   "capsCount": 5,
+   "docH": 4426,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 1919
+  },
+  "status_m": 200,
+  "final_m": "https://greengateweddings.com/",
+  "mobile": {
+   "docH": 6228,
+   "overflow": false,
+   "h1Size": 21,
+   "burger": true
+  }
+ },
+ {
+  "id": "sunstone-villa",
+  "type": "villa",
+  "place": "SoCal Santa Ynez",
+  "url": "https://www.sunstonevilla.com/",
+  "status_d": 200,
+  "final_d": "https://sunstonevilla.com/",
+  "facts": {
+   "title": "Home - The Sunstone Villa",
+   "h1": {
+    "family": "Cormorant Garamond",
+    "weight": "700",
+    "size": 60,
+    "ls": "4px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "72px",
+    "text": "THE SUNSTONE VILLA"
+   },
+   "h2": {
+    "family": "Cormorant Garamond",
+    "weight": "600",
+    "size": 40,
+    "ls": "4px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "48px",
+    "text": "BOOK YOUR STAY"
+   },
+   "p": {
+    "family": "Cormorant",
+    "weight": "500",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "24px",
+    "text": "As you approach the Sunstone Villa, you\u2019re transported to the sun-drenched hills of Proven"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(64, 64, 64)",
+   "bodyFont": "Cormorant",
+   "navLinks": [
+    "a",
+    "3",
+    "Search",
+    "HISTORY OF THE VILLA",
+    "VIEW GALLERY",
+    "ALL SUITES",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE",
+    "CONTACT US",
+    "CONTACT"
+   ],
+   "navCount": 11,
+   "imgCount": 22,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1600,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "Font Awesome 5 Brands",
+    "ETmodules",
+    "FontAwesome",
+    "Cormorant",
+    "Cormorant Garamond",
+    "Lato",
+    "Montserrat"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT US",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": true,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 3,
+   "capsCount": 15,
+   "docH": 4659,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2463
+  },
+  "status_m": 200,
+  "final_m": "https://sunstonevilla.com/",
+  "mobile": {
+   "docH": 5615,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": true
+  }
+ },
+ {
+  "id": "monserate",
+  "type": "vineyard",
+  "place": "SoCal Fallbrook",
+  "url": "https://www.monseratewinery.com/weddings",
+  "status_d": 200,
+  "final_d": "https://monseratewinery.com/weddings/",
+  "facts": {
+   "title": "Monserate Winery's Vineyard Wedding Venues in San Diego",
+   "h1": {
+    "family": "Playfair Display",
+    "weight": "400",
+    "size": 65,
+    "ls": "6.5px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(158, 127, 110)",
+    "lh": "78px",
+    "text": "Monserate Weddings"
+   },
+   "h2": {
+    "family": "Playfair Display",
+    "weight": "400",
+    "size": 35,
+    "ls": "7px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(158, 127, 110)",
+    "lh": "36.05px",
+    "text": "Love Notes"
+   },
+   "p": {
+    "family": "Arial",
+    "weight": "300",
+    "size": 16,
+    "ls": "0.45px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(171, 171, 171)",
+    "lh": "27px",
+    "text": "Nestled in the scenic hills of North San Diego County, Monserate Winery offers an unparall"
+   },
+   "bodyBg": "rgb(245, 245, 245)",
+   "bodyColor": "rgb(171, 171, 171)",
+   "bodyFont": "Arial",
+   "navLinks": [
+    "HOME",
+    "ABOUT",
+    "VISIT",
+    "CLUB",
+    "SHOP",
+    "WEDDINGS",
+    "EVENTS",
+    "RESTAURANT",
+    "HOME",
+    "ABOUT",
+    "VISIT",
+    "CLUB",
+    "SHOP",
+    "WEDDINGS"
+   ],
+   "navCount": 14,
+   "imgCount": 72,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "FontAwesome",
+    "ElegantIcons",
+    "Linearicons-Free",
+    "Cinzel",
+    "Playfair Display",
+    "Roboto"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Wedding Brochure",
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 9,
+   "platform": "wordpress",
+   "svgCount": 22,
+   "capsCount": 57,
+   "docH": 8741,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 7024
+  },
+  "status_m": 200,
+  "final_m": "https://monseratewinery.com/weddings/",
+  "mobile": {
+   "docH": 11563,
+   "overflow": false,
+   "h1Size": 45,
+   "burger": true
+  }
+ },
+ {
+  "id": "ethereal",
+  "type": "garden",
+  "place": "SoCal Escondido",
+  "url": "https://etherealopenairresort.com/",
+  "error_d": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://etherealopenairresort.com/\nCall log:\n  - navigating to \"https://etherealopenairresort.com/\", waiting until \"dom",
+  "error_m": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://etherealopenairresort.com/\nCall log:\n  - navigating to \"https://etherealopenairresort.com/\", waiting until \"dom"
+ },
+ {
+  "id": "rancho-valencia",
+  "type": "estate resort",
+  "place": "SoCal Rancho Santa Fe",
+  "url": "https://www.ranchovalencia.com/weddings",
+  "status_d": 200,
+  "final_d": "https://ranchovalencia.com/blog/gallery/accommodations/weddings-meetings/",
+  "facts": {
+   "title": "Weddings & Meetings - Rancho Valencia",
+   "h1": {
+    "family": "ActaDisplay-Book",
+    "weight": "400",
+    "size": 56,
+    "ls": "5px",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(0, 45, 58)",
+    "lh": "normal",
+    "text": "Weddings & Meetings"
+   },
+   "h2": {
+    "family": "ActaDisplay-Book",
+    "weight": "400",
+    "size": 36,
+    "ls": "2.25px",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(0, 45, 58)",
+    "lh": "3.6px",
+    "text": "Never Miss A Moment"
+   },
+   "p": {
+    "family": "HCo Verlag",
+    "weight": "200",
+    "size": 16,
+    "ls": "0.5px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "30px",
+    "text": "Room Reservations: (858) 759-6240\nDirect: (858) 756-1123\nToll Free: (800) 548-3664"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 45, 58)",
+   "bodyFont": "HCo Verlag",
+   "navLinks": [
+    "EVENTS",
+    "GIFT CARDS",
+    "CAREERS",
+    "ABOUT US",
+    "MEMBERSHIP",
+    "SUSTAINABLE PRACTICES",
+    "BOOK NOW",
+    "ACCOMMODATIONS",
+    "PRIVATE RESIDENCES",
+    "SPECIALS",
+    "DINE",
+    "SPA & FITNESS",
+    "RACQUET SPORTS",
+    "ACTIVITIES"
+   ],
+   "navCount": 14,
+   "imgCount": 33,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 704,
+    "h": 470,
+    "top": 101
+   },
+   "bgHero": null,
+   "fonts": [
+    "ActaDisplay-Book",
+    "HCo Verlag",
+    "Font Awesome 5 Brands",
+    "Font Awesome 5 Pro",
+    "FontAwesome"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "Find us on\nFacebook",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 8,
+   "capsCount": 45,
+   "docH": 4966,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1143
+  },
+  "status_m": 200,
+  "final_m": "https://ranchovalencia.com/blog/gallery/accommodations/weddings-meetings/",
+  "mobile": {
+   "docH": 6521,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": false
+  }
+ },
+ {
+  "id": "villa-sjc",
+  "type": "villa",
+  "place": "SoCal San Juan Capistrano",
+  "url": "https://thevillasjc.com/",
+  "error_d": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://thevillasjc.com/\nCall log:\n  - navigating to \"https://thevillasjc.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://thevillasjc.com/\nCall log:\n  - navigating to \"https://thevillasjc.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "valentine-dtla",
+  "type": "loft modern",
+  "place": "SoCal LA",
+  "url": "https://valentinedtla.com/",
+  "error_d": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://valentinedtla.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://valentinedtla.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "cielo-farms",
+  "type": "vineyard",
+  "place": "SoCal Malibu",
+  "url": "https://www.cielofarms.com/weddings/",
+  "status_d": 200,
+  "final_d": "https://woodstockmalibu.com/",
+  "facts": {
+   "title": "Cielo Farms Vineyard & Wine Bar",
+   "h1": {
+    "family": "Crimson Text",
+    "weight": "500",
+    "size": 50,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "55px",
+    "text": "HALLOWEEN PARTY\nRODRIGUEZ JR. | BAWAB | JULEAN"
+   },
+   "h2": {
+    "family": "Crimson Text",
+    "weight": "600",
+    "size": 50,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "40px",
+    "text": "DISCOVER CIELO FARMS VINEYARD"
+   },
+   "p": {
+    "family": "Poppins",
+    "weight": "400",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "22.5px",
+    "text": "Cielo Farms is Malibu\u2019s premier vineyard\u2014a hidden gem and boutique winery estate perched i"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "sans-serif",
+   "navLinks": [
+    "Skip to content",
+    "EXPERIENCES",
+    "WEDDINGS",
+    "EVENTS & MORE",
+    "WINE CLUB",
+    "WINE & GIFT CARDS",
+    "CONTACT",
+    "GET TICKETS",
+    "RESERVE A WINE BAR PASS",
+    "VIEW EXPERIENCES",
+    "PLAN YOUR WEDDING",
+    "BUY WINE",
+    "LEARN MORE",
+    "RESERVE A WINE BAR PASS"
+   ],
+   "navCount": 14,
+   "imgCount": 10,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1440,
+    "h": 797,
+    "top": 0
+   },
+   "fonts": [
+    "jupiterx",
+    "Roboto Condensed",
+    "Crimson Text",
+    "Poppins"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "PLAN YOUR WEDDING",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 62,
+   "capsCount": 37,
+   "docH": 5979,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 3367
+  },
+  "status_m": 200,
+  "final_m": "https://woodstockmalibu.com/",
+  "mobile": {
+   "docH": 8023,
+   "overflow": false,
+   "h1Size": 45,
+   "burger": true
+  }
+ },
+ {
+  "id": "triunfo-creek",
+  "type": "vineyard",
+  "place": "SoCal Agoura",
+  "url": "https://www.triunfocreekvineyards.com/",
+  "status_d": 200,
+  "final_d": "https://www.triunfocreekvineyards.com/",
+  "facts": {
+   "title": "",
+   "h1": null,
+   "h2": null,
+   "p": {
+    "family": "GD Sherpa",
+    "weight": "400",
+    "size": 13,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "24px",
+    "text": "Disclaimer: References to any specific company, product or services on this Site are not c"
+   },
+   "bodyBg": "rgb(29, 42, 51)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Arial",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 0,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 14,
+   "capsCount": 0,
+   "docH": 1284,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 515
+  },
+  "status_m": 200,
+  "final_m": "https://www.triunfocreekvineyards.com/",
+  "mobile": {
+   "docH": 1298,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "houdini-estate",
+  "type": "estate",
+  "place": "SoCal Laurel Canyon",
+  "url": "https://www.thehoudiniestate.com/",
+  "status_d": 200,
+  "final_d": "https://www.thehoudiniestate.com/",
+  "facts": {
+   "title": "HOME | The Houdini Estate | Los Angeles",
+   "h1": null,
+   "h2": {
+    "family": "proxima-n-w01-reg",
+    "weight": "400",
+    "size": 20,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "normal",
+    "text": "\u00a9 2024"
+   },
+   "p": null,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Arial",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 4,
+   "videoCount": 1,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "proxima-n-w01-reg"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "wix",
+   "svgCount": 12,
+   "capsCount": 0,
+   "docH": 1173,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 193
+  },
+  "status_m": 200,
+  "final_m": "https://www.thehoudiniestate.com/",
+  "mobile": {
+   "docH": 2121,
+   "overflow": true,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "terranea",
+  "type": "coastal resort",
+  "place": "SoCal Palos Verdes",
+  "url": "https://www.terranea.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.terranea.com/weddings",
+  "facts": {
+   "title": "Rancho Palos Verdes Wedding Venues | Terranea Resort",
+   "h1": {
+    "family": "larken",
+    "weight": "100",
+    "size": 56,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(24, 40, 82)",
+    "lh": "67.2px",
+    "text": "Treasured Memories Begin Here"
+   },
+   "h2": {
+    "family": "larken",
+    "weight": "100",
+    "size": 48,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(24, 40, 82)",
+    "lh": "57.6px",
+    "text": "Unforgettable Venues & Signature Experiences"
+   },
+   "p": {
+    "family": "larken",
+    "weight": "100",
+    "size": 25,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "37.5px",
+    "text": "Experience the magic of your dream wedding with the stunning Pacific Ocean as your backdro"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "larken",
+   "navLinks": [
+    "STAY",
+    "DINE",
+    "SPA",
+    "EXPLORE",
+    "GATHER",
+    "OFFERS",
+    "BOOK NOW"
+   ],
+   "navCount": 7,
+   "imgCount": 49,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 842,
+    "h": 530,
+    "top": 2645
+   },
+   "bgHero": null,
+   "fonts": [
+    "terranea",
+    "neutraface_textbook",
+    "neutraface_textdemi",
+    "larken"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "PLAN YOUR WEDDING",
+    "VIRTUAL TOUR",
+    "PLAN IT",
+    "CONTACT US"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 11,
+   "capsCount": 71,
+   "docH": 5118,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 5249
+  },
+  "status_m": 200,
+  "final_m": "https://www.terranea.com/weddings",
+  "mobile": {
+   "docH": 4502,
+   "overflow": false,
+   "h1Size": 38,
+   "burger": true
+  }
+ },
+ {
+  "id": "la-venta-inn",
+  "type": "historic",
+  "place": "SoCal Palos Verdes",
+  "url": "https://laventainn.com/",
+  "error_d": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://laventainn.com/\nCall log:\n  - navigating to \"https://laventainn.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://laventainn.com/\nCall log:\n  - navigating to \"https://laventainn.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "inn-at-mission",
+  "type": "mission hotel",
+  "place": "SoCal SJC",
+  "url": "https://www.innatthemissionsjc.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.innatthemissionsjc.com/weddings",
+  "facts": {
+   "title": "San Juan Capistrano Weddings | Inn at the Mission, Autograph Collection",
+   "h1": {
+    "family": "GardaTitlingTwo",
+    "weight": "400",
+    "size": 50,
+    "ls": "8px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(65, 65, 65)",
+    "lh": "60px",
+    "text": "NEW BEGINNINGS IN HISTORIC SURROUNDINGS"
+   },
+   "h2": {
+    "family": "GardaTitlingTwo",
+    "weight": "400",
+    "size": 35,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(65, 65, 65)",
+    "lh": "42px",
+    "text": "SERVICES"
+   },
+   "p": {
+    "family": "HypatiaSansPro",
+    "weight": "400",
+    "size": 17,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(65, 65, 65)",
+    "lh": "28px",
+    "text": "Inn at the Mission offers comprehensive wedding services, including expert event planning,"
+   },
+   "bodyBg": "rgb(247, 243, 232)",
+   "bodyColor": "rgb(65, 65, 65)",
+   "bodyFont": "HypatiaSansPro",
+   "navLinks": [
+    "STAY",
+    "OFFERS",
+    "DINE & DRINK",
+    "WEDDINGS",
+    "MEETINGS",
+    "THINGS TO DO",
+    "GALLERY",
+    "HOLIDAYS",
+    "BOOK NOW"
+   ],
+   "navCount": 9,
+   "imgCount": 21,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 581,
+    "top": 130
+   },
+   "bgHero": null,
+   "fonts": [
+    "mimiconfont",
+    "GardaTitlingTwo",
+    "GardaTitlingThree",
+    "HypatiaSansPro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "Contact Us",
+    "Facebook"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 4,
+   "capsCount": 36,
+   "docH": 5593,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 4546
+  },
+  "status_m": 200,
+  "final_m": "https://www.innatthemissionsjc.com/weddings",
+  "mobile": {
+   "docH": 5833,
+   "overflow": false,
+   "h1Size": 35,
+   "burger": true
+  }
+ },
+ {
+  "id": "lodge-torrey-pines",
+  "type": "coastal lodge",
+  "place": "SoCal La Jolla",
+  "url": "https://www.lodgetorreypines.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.lodgetorreypines.com/weddings",
+  "facts": {
+   "title": "Torrey Pines Weddings | The Lodge at Torrey Pines",
+   "h1": {
+    "family": "Libre Baskerville",
+    "weight": "500",
+    "size": 35,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 73, 43)",
+    "lh": "52.5px",
+    "text": "THE PERFECT TORREY PINES WEDDING BEGINS WITH AN\nExtraordinary Location"
+   },
+   "h2": {
+    "family": "Libre Baskerville",
+    "weight": "500",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(50, 33, 16)",
+    "lh": "35.7px",
+    "text": "Real Weddings"
+   },
+   "p": {
+    "family": "Open Sans",
+    "weight": "400",
+    "size": 17,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "25.2px",
+    "text": "Situated on La Jolla\u2019s coastline with panoramic views of the world-renowned Torrey Pines G"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(51, 51, 51)",
+   "bodyFont": "Open Sans",
+   "navLinks": [
+    "(858) 539-8646",
+    "ACCOMMODATIONS",
+    "DINE",
+    "SPA",
+    "GOLF",
+    "MEETINGS",
+    "WEDDINGS",
+    "EVENTS",
+    "PLAN MY STAY"
+   ],
+   "navCount": 9,
+   "imgCount": 10,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1440,
+    "h": 722,
+    "top": 150
+   },
+   "fonts": [
+    "Libre Baskerville",
+    "Open Sans",
+    "FontAwesome"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "PLAN MY STAY",
+    "REQUEST A WEDDING QUOTE",
+    "PREFERRED RATES",
+    "FACEBOOK",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 7,
+   "capsCount": 39,
+   "docH": 4979,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 2954
+  },
+  "status_m": 200,
+  "final_m": "https://www.lodgetorreypines.com/weddings",
+  "mobile": {
+   "docH": 6967,
+   "overflow": true,
+   "h1Size": 35,
+   "burger": true
+  }
+ },
+ {
+  "id": "serra-plaza",
+  "type": "hacienda",
+  "place": "SoCal SJC",
+  "url": "https://serraplaza.com/",
+  "status_d": 200,
+  "final_d": "https://www.serraplazaevents.com/",
+  "facts": {
+   "title": "Serra Plaza: Spanish Wedding Venue in San Juan Capistrano",
+   "h1": {
+    "family": "Cormorant Garamond",
+    "weight": "600",
+    "size": 160,
+    "ls": "-3.2px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(61, 57, 53)",
+    "lh": "144px",
+    "text": "Serra Plaza"
+   },
+   "h2": {
+    "family": "Cormorant Garamond",
+    "weight": "600",
+    "size": 60,
+    "ls": "-0.6px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(61, 57, 53)",
+    "lh": "69px",
+    "text": "The Art of Celebration\nin San Juan Capistrano."
+   },
+   "p": {
+    "family": "Cormorant Garamond",
+    "weight": "400",
+    "size": 18,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(125, 121, 114)",
+    "lh": "25.2px",
+    "text": "An intimate Spanish courtyard venue, exclusively curated by the Jay's Catering family."
+   },
+   "bodyBg": "rgb(245, 243, 238)",
+   "bodyColor": "rgb(125, 121, 114)",
+   "bodyFont": "masqualero",
+   "navLinks": [
+    "SPACES",
+    "FAQS",
+    "FOOD &\u00a0DRINK",
+    "WEDDINGS",
+    "BLOG",
+    "CONTACT",
+    "SEE YOUR DATE & PRICE"
+   ],
+   "navCount": 7,
+   "imgCount": 24,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 900,
+    "top": 60
+   },
+   "bgHero": null,
+   "fonts": [
+    "Cormorant Garamond",
+    "Montserrat",
+    "Space Mono",
+    "montserrat",
+    "cormorant-garamond"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "REQUEST PRICING"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 3,
+   "platform": "webflow",
+   "svgCount": 1,
+   "capsCount": 24,
+   "docH": 5455,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 2109
+  },
+  "status_m": 200,
+  "final_m": "https://www.serraplazaevents.com/",
+  "mobile": {
+   "docH": 5318,
+   "overflow": false,
+   "h1Size": 60,
+   "burger": true
+  }
+ },
+ {
+  "id": "ebell-long-beach",
+  "type": "historic club",
+  "place": "SoCal Long Beach",
+  "url": "https://www.ebelllongbeach.com/",
+  "status_d": 200,
+  "final_d": "https://www.ebelllongbeach.com/",
+  "facts": {
+   "title": "Los Angeles Wedding & Events Venue | Ebell Long Beach",
+   "h1": {
+    "family": "futura-lt-w01-light",
+    "weight": "400",
+    "size": 18,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "normal",
+    "text": "The Ebell of Long Beach"
+   },
+   "h2": {
+    "family": "poppins-extralight",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "normal",
+    "text": "Click here to explore\u00a0Ebell's\u00a0virtual tour\u00a0by AllSeated Vision"
+   },
+   "p": {
+    "family": "futura-lt-w01-light",
+    "weight": "400",
+    "size": 17,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(48, 44, 41)",
+    "lh": "26.88px",
+    "text": "Cascading palm trees frame the entrance of this restored historic landmark.\u00a0One of three S"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Arial",
+   "navLinks": [
+    "HOME",
+    "ATMOSPHERE",
+    "DETAILS",
+    "VIRTUAL TOUR",
+    "TRES LA GROUP",
+    "PUBLICATIONS",
+    "GET IN TOUCH"
+   ],
+   "navCount": 7,
+   "imgCount": 20,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 1131,
+    "top": -62
+   },
+   "bgHero": null,
+   "fonts": [
+    "avenir-lt-w01_35-light1475496",
+    "futura-lt-w01-light",
+    "playfairdisplay-bold",
+    "poppins-extralight"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "VIRTUAL TOUR",
+    "PRICING",
+    "Book Your Weddings"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "wix",
+   "svgCount": 5,
+   "capsCount": 0,
+   "docH": 4252,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 2194
+  },
+  "status_m": 200,
+  "final_m": "https://www.ebelllongbeach.com/",
+  "mobile": {
+   "docH": 4692,
+   "overflow": false,
+   "h1Size": 14,
+   "burger": true
+  }
+ },
+ {
+  "id": "ranch-laguna",
+  "type": "coastal canyon",
+  "place": "SoCal Laguna",
+  "url": "https://www.theranchlb.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.theranchlb.com/weddings/overview",
+  "facts": {
+   "title": "Weddings at Laguna Beach Hotels | The Ranch at Laguna Beach",
+   "h1": {
+    "family": "Canela Web",
+    "weight": "400",
+    "size": 50,
+    "ls": "0.5px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(128, 101, 55)",
+    "lh": "55px",
+    "text": "Weddings"
+   },
+   "h2": {
+    "family": "DM Serif Display",
+    "weight": "400",
+    "size": 32,
+    "ls": "1.28px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "48px",
+    "text": ""
+   },
+   "p": {
+    "family": "Open Sans",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(48, 52, 61)",
+    "lh": "25.6px",
+    "text": "The Ranch at Laguna Beach's legendary nature makes this an unforgettable Laguna Beach wedd"
+   },
+   "bodyBg": "rgb(244, 243, 239)",
+   "bodyColor": "rgb(48, 52, 61)",
+   "bodyFont": "Open Sans",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 35,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 720,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "DM Serif Display",
+    "Open Sans",
+    "Canela Web",
+    "fontello"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "WEDDING INQUIRIES",
+    "WEDDING BROCHURE",
+    "START PLANNING YOUR EVENT",
+    "CONTACT US"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 12,
+   "capsCount": 57,
+   "docH": 6298,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 4337
+  },
+  "status_m": 200,
+  "final_m": "https://www.theranchlb.com/weddings/overview",
+  "mobile": {
+   "docH": 6863,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": true
+  }
+ },
+ {
+  "id": "hotel-californian",
+  "type": "hotel",
+  "place": "SoCal Santa Barbara",
+  "url": "https://www.thehotelcalifornian.com/",
+  "error_d": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.thehotelcalifornian.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.thehotelcalifornian.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "catalina-view",
+  "type": "garden",
+  "place": "SoCal Palos Verdes",
+  "url": "https://catalinaviewgardens.com/",
+  "status_d": 200,
+  "final_d": "https://catalinaviewwines.com/",
+  "facts": {
+   "title": "Home | Catalina View Wines",
+   "h1": {
+    "family": "Cinzel",
+    "weight": "400",
+    "size": 44,
+    "ls": "2px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(252, 252, 252)",
+    "lh": "55px",
+    "text": "A VINEYARD ABOVE THE SEA"
+   },
+   "h2": {
+    "family": "Cinzel",
+    "weight": "400",
+    "size": 44,
+    "ls": "2px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(226, 226, 226)",
+    "lh": "61.6px",
+    "text": "About Catalina View Wines"
+   },
+   "p": {
+    "family": "Source Sans Pro",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(226, 226, 226)",
+    "lh": "28.8px",
+    "text": "Perched on a south-facing slope overlooking the Pacific Ocean, Catalina View Wines is a ra"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Times New Roman",
+   "navLinks": [
+    "Home",
+    "Vineyard & Wines",
+    "Filming Location",
+    "Explore Our Wines"
+   ],
+   "navCount": 4,
+   "imgCount": 7,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [
+    "Cinzel",
+    "Source Sans Pro"
+   ],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 8,
+   "capsCount": 0,
+   "docH": 3374,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2337
+  },
+  "status_m": 200,
+  "final_m": "https://catalinaviewwines.com/",
+  "mobile": {
+   "docH": 4811,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": false
+  }
+ },
+ {
+  "id": "maravilla",
+  "type": "garden",
+  "place": "SoCal Camarillo",
+  "url": "https://www.maravillagardens.com/",
+  "status_d": 200,
+  "final_d": "https://mgardens.com/",
+  "facts": {
+   "title": "Stunning Ventura County Wedding Venue | Maravilla Gardens",
+   "h1": {
+    "family": "Raleway",
+    "weight": "300",
+    "size": 15,
+    "ls": "3px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "17.25px",
+    "text": "PRIVATE WEDDING VENUE | CAMARILLO, CALIFORNIA"
+   },
+   "h2": {
+    "family": "Alice",
+    "weight": "400",
+    "size": 70,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "80.5px",
+    "text": "A Hidden Garden Estate Nestled into a Southern California Hillside"
+   },
+   "p": {
+    "family": "Raleway",
+    "weight": "400",
+    "size": 17,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(38, 43, 46)",
+    "lh": "30.6px",
+    "text": "As a premier Ventura County Wedding Venue, Maravilla Gardens offers a stunning backdrop fo"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(38, 43, 46)",
+   "bodyFont": "Raleway",
+   "navLinks": [
+    "GALLERY",
+    "WEDDINGS",
+    "ABOUT",
+    "STAY",
+    "CONTACT",
+    "SCHEDULE A TOUR"
+   ],
+   "navCount": 6,
+   "imgCount": 43,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "Alice",
+    "Raleway"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "SCHEDULE A TOUR",
+    "GET MY FREE WEDDING BOOKLET",
+    "CONTACT US",
+    "Facebook"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 15,
+   "capsCount": 35,
+   "docH": 5924,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 4436
+  },
+  "status_m": 200,
+  "final_m": "https://mgardens.com/",
+  "mobile": {
+   "docH": 6962,
+   "overflow": false,
+   "h1Size": 15,
+   "burger": true
+  }
+ },
+ {
+  "id": "blackberry-farm",
+  "type": "estate",
+  "place": "TN",
+  "url": "https://www.blackberryweddings.com/",
+  "status_d": 200,
+  "final_d": "https://www.blackberryweddings.com/",
+  "facts": {
+   "title": "Blackberry Weddings | Blackberry Farm",
+   "h1": {
+    "family": "Old Standard TT",
+    "weight": "400",
+    "size": 58,
+    "ls": "-2px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "57.6px",
+    "text": "Weddings on\nthe Farm"
+   },
+   "h2": {
+    "family": "Old Standard TT",
+    "weight": "400",
+    "size": 38,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "51.03px",
+    "text": "A wedding at Blackberry means saying \u201cI do\u201d in a breathtaking natural setting."
+   },
+   "p": {
+    "family": "Open Sans",
+    "weight": "400",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "24.75px",
+    "text": "The Great Smoky Mountains and Blackberry provide the perfect backdrop for romance and cele"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Open Sans",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 4,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1386,
+    "h": 657,
+    "top": 7
+   },
+   "fonts": [
+    "Lato",
+    "Old Standard TT",
+    "Open Sans",
+    "fontello"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "INQUIRY",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": true,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 1,
+   "capsCount": 10,
+   "docH": 3013,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1654
+  },
+  "status_m": 200,
+  "final_m": "https://www.blackberryweddings.com/",
+  "mobile": {
+   "docH": 3469,
+   "overflow": false,
+   "h1Size": 45,
+   "burger": true
+  }
+ },
+ {
+  "id": "auberge-du-soleil",
+  "type": "vineyard resort",
+  "place": "Napa",
+  "url": "https://auberge.com/auberge-du-soleil/",
+  "status_d": 200,
+  "final_d": "https://auberge.com/auberge-du-soleil/",
+  "facts": {
+   "title": "Auberge du Soleil Resort in Napa Valley | Auberge Collection",
+   "h1": {
+    "family": "Financier Light",
+    "weight": "400",
+    "size": 36,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(102, 102, 102)",
+    "lh": "39.6px",
+    "text": "Exceptional outdoor dining. Luxurious residential-style accommodations."
+   },
+   "h2": {
+    "family": "CentraNo1 Bold",
+    "weight": "400",
+    "size": 14,
+    "ls": "2.5px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(54, 64, 79)",
+    "lh": "18.2px",
+    "text": "THE QUINTESSENTIAL NAPA VALLEY GETAWAY"
+   },
+   "p": {
+    "family": "CentraNo1 Book",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(102, 102, 102)",
+    "lh": "19.6px",
+    "text": "Call 800.348.5406 to book. Mercedes-Benz owners enjoy a host of special resort amenities w"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(102, 102, 102)",
+   "bodyFont": "Financier Light",
+   "navLinks": [
+    "SKIP TO MAIN CONTENT",
+    "SKIP TO FOOTER",
+    "800.348.5406",
+    "CHECK AVAILABILITY"
+   ],
+   "navCount": 4,
+   "imgCount": 172,
+   "videoCount": 3,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 814,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "aurberge-icons",
+    "CentraNo1 Bold",
+    "CentraNo1 Book",
+    "Financier Light",
+    "Financier Medium"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CHECK AVAILABILITY",
+    "BOOK NOW",
+    "Tour & Taste\nwith Mercedes-Benz",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 26,
+   "capsCount": 25,
+   "docH": 11985,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 8241
+  },
+  "status_m": 200,
+  "final_m": "https://auberge.com/auberge-du-soleil/",
+  "mobile": {
+   "docH": 9654,
+   "overflow": false,
+   "h1Size": 28,
+   "burger": true
+  }
+ },
+ {
+  "id": "beaulieu-garden",
+  "type": "garden estate",
+  "place": "Napa",
+  "url": "https://www.beaulieugarden.com/",
+  "status_d": 200,
+  "final_d": "https://www.beaulieugarden.com/",
+  "facts": {
+   "title": "Beaulieu Garden",
+   "h1": {
+    "family": "Libre Baskerville",
+    "weight": "400",
+    "size": 45,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "normal",
+    "text": ""
+   },
+   "h2": {
+    "family": "Libre Baskerville",
+    "weight": "700",
+    "size": 35,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "normal",
+    "text": "The possibilities for your event are limited only by your imagination."
+   },
+   "p": {
+    "family": "Libre Baskerville",
+    "weight": "300",
+    "size": 20,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "34px",
+    "text": "Beaulieu Garden is a private, family\u2011owned estate and one of the oldest wine\u2011producing vin"
+   },
+   "bodyBg": "rgb(242, 241, 237)",
+   "bodyColor": "rgb(51, 51, 51)",
+   "bodyFont": "Libre Baskerville",
+   "navLinks": [
+    "Home",
+    "About",
+    "Our History",
+    "The Property",
+    "Private Events",
+    "Photos",
+    "Contact Us"
+   ],
+   "navCount": 7,
+   "imgCount": 3,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [
+    "Libre Baskerville",
+    "Roboto"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 0,
+   "docH": 2568,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1174
+  },
+  "status_m": 200,
+  "final_m": "https://www.beaulieugarden.com/",
+  "mobile": {
+   "docH": 1972,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": false
+  }
+ },
+ {
+  "id": "stanly-ranch",
+  "type": "ranch resort",
+  "place": "Napa",
+  "url": "https://auberge.com/events/weddings/",
+  "status_d": 200,
+  "final_d": "https://auberge.com/events/weddings/",
+  "facts": {
+   "title": "Plan Your Wedding or Private Event | Auberge Collection",
+   "h1": {
+    "family": "CentraNo1 Bold",
+    "weight": "400",
+    "size": 14,
+    "ls": "2.5px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(89, 85, 80)",
+    "lh": "18.2px",
+    "text": "CELEBRATIONS SHAPED BY PLACE, GUIDED BY INTENTION"
+   },
+   "h2": {
+    "family": "CentraNo1 Bold",
+    "weight": "400",
+    "size": 14,
+    "ls": "2.5px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(54, 64, 79)",
+    "lh": "18.2px",
+    "text": "A FLORENTINE SETTING OF TIMELESS GRANDEUR | WEDDINGS AT COLLEGIO ALLA QUERCE"
+   },
+   "p": {
+    "family": "Financier Light",
+    "weight": "400",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(102, 102, 102)",
+    "lh": "31.2px",
+    "text": "From sunlit terraces to storied landscapes, each Auberge setting offers a distinct sense o"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(102, 102, 102)",
+   "bodyFont": "Financier Light",
+   "navLinks": [
+    "SKIP TO MAIN CONTENT",
+    "SKIP TO FOOTER",
+    "INCENTIVES AND MEETINGS",
+    "WEDDINGS",
+    "INQUIRE",
+    "EMAIL US",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE",
+    "A new chapter in Wine Country",
+    "Explore the Hotels",
+    "Request for Proposal",
+    "Explore the Hotels",
+    "Request for Proposal"
+   ],
+   "navCount": 14,
+   "imgCount": 233,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1440,
+    "h": 675,
+    "top": 79
+   },
+   "fonts": [
+    "swiper-icons",
+    "aurberge-icons",
+    "CentraNo1 Bold",
+    "CentraNo1 Book",
+    "Financier Light",
+    "Financier Medium"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "INQUIRE",
+    "Request for Proposal"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 18,
+   "capsCount": 31,
+   "docH": 15015,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 18064
+  },
+  "status_m": 200,
+  "final_m": "https://auberge.com/events/weddings/",
+  "mobile": {
+   "docH": 19534,
+   "overflow": false,
+   "h1Size": 14,
+   "burger": true
+  }
+ },
+ {
+  "id": "montage-healdsburg",
+  "type": "vineyard resort",
+  "place": "Sonoma",
+  "url": "https://www.montage.com/healdsburg/weddings/",
+  "status_d": 200,
+  "final_d": "https://www.montage.com/healdsburg/gatherings/weddings/",
+  "facts": {
+   "title": "Healdsburg Weddings | Montage Healdsburg",
+   "h1": {
+    "family": "Garamond-Nova-Pro",
+    "weight": "300",
+    "size": 48,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "56px",
+    "text": "Healdsburg Weddings"
+   },
+   "h2": {
+    "family": "Garamond-Nova-Pro",
+    "weight": "400",
+    "size": 32,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "44px",
+    "text": "A Dream Wine Country Setting"
+   },
+   "p": {
+    "family": "Spezia",
+    "weight": "200",
+    "size": 20,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(117, 117, 117)",
+    "lh": "32px",
+    "text": "With sweeping vineyard views, stunning sunset vistas and the natural beauty of Sonoma wine"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(20, 20, 20)",
+   "bodyFont": "Spezia",
+   "navLinks": [
+    "ACCOMMODATIONS",
+    "All",
+    "Rooms",
+    "Suites",
+    "Residences",
+    "Accessible Accommodations",
+    "View All",
+    "DINE",
+    "Hazel Hill",
+    "Scout Field Bar",
+    "Hudson Springs Bar and Grill",
+    "Healdsburg Country Store",
+    "In-Room Dining",
+    "Private Dining"
+   ],
+   "navCount": 14,
+   "imgCount": 44,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Above-The-Beyond-Italic",
+    "Garamond-Nova-Pro",
+    "Spezia",
+    "SpeziaWeb"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Request For Proposal",
+    "REQUEST FOR PROPOSAL",
+    "View Virtual Tours",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 12,
+   "capsCount": 32,
+   "docH": 6402,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 7215
+  },
+  "status_m": 200,
+  "final_m": "https://www.montage.com/healdsburg/gatherings/weddings/",
+  "mobile": {
+   "docH": 7532,
+   "overflow": false,
+   "h1Size": 28,
+   "burger": true
+  }
+ },
+ {
+  "id": "ventana",
+  "type": "coastal forest",
+  "place": "Big Sur",
+  "url": "https://www.ventanabigsur.com/wedding-celebration-spaces/",
+  "status_d": 200,
+  "final_d": "https://www.ventanabigsur.com/wedding-celebration-spaces/",
+  "facts": {
+   "title": "Big Sur Wedding Venues & Spaces | Alila Ventana Big Sur",
+   "h1": {
+    "family": "SangBleuSunrise",
+    "weight": "300",
+    "size": 56,
+    "ls": "normal",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "67.2px",
+    "text": "Wedding & Celebration Spaces"
+   },
+   "h2": {
+    "family": "SangBleuSunrise",
+    "weight": "300",
+    "size": 42,
+    "ls": "0.84px",
+    "tt": "capitalize",
+    "style": "normal",
+    "color": "rgb(48, 48, 48)",
+    "lh": "50px",
+    "text": "The Ultimate Place To Say \u2018I Do\u2019"
+   },
+   "p": {
+    "family": "Noto Sans",
+    "weight": "400",
+    "size": 18,
+    "ls": "0.36px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(48, 48, 48)",
+    "lh": "32px",
+    "text": "Begin your journey together at the edge of the continent, where mist drifts over the rugge"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Roobert",
+   "navLinks": [
+    "800.628.6500",
+    "RESERVE",
+    "RESORT",
+    "BIG SUR",
+    "ACTIVITIES",
+    "SPA",
+    "MEETINGS & EVENTS"
+   ],
+   "navCount": 7,
+   "imgCount": 35,
+   "videoCount": 2,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 720,
+    "h": 900,
+    "top": -900
+   },
+   "bgHero": null,
+   "fonts": [
+    "Roobert",
+    "Noto Sans",
+    "SangBleuSunrise"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "INQUIRE NOW",
+    "CHECK AVAILABILITY",
+    "CONTACT",
+    "SEND ENQUIRY",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": true,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 34,
+   "capsCount": 111,
+   "docH": 5466,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 6808
+  },
+  "status_m": 200,
+  "final_m": "https://www.ventanabigsur.com/wedding-celebration-spaces/",
+  "mobile": {
+   "docH": 8602,
+   "overflow": false,
+   "h1Size": 34,
+   "burger": true
+  }
+ },
+ {
+  "id": "sea-ranch-lodge",
+  "type": "coastal",
+  "place": "Sonoma Coast",
+  "url": "https://www.thesearanchlodge.com/",
+  "status_d": 200,
+  "final_d": "https://www.thesearanchlodge.com/",
+  "facts": {
+   "title": "Official Site | The Sea Ranch Lodge",
+   "h1": {
+    "family": "MonotypeHelveticaNowTextBold",
+    "weight": "400",
+    "size": 56,
+    "ls": "0.35px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "44.8px",
+    "text": "The Sea Ranch\nLodge"
+   },
+   "h2": {
+    "family": "MonotypeHelveticaNowTextBold",
+    "weight": "400",
+    "size": 30,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "35px",
+    "text": "Events"
+   },
+   "p": {
+    "family": "MonotypeHelveticaNowText",
+    "weight": "300",
+    "size": 14,
+    "ls": "0.35px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "18.2px",
+    "text": "This website is AudioEye enabled and is being optimized for accessibility. To open the Aud"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "MonotypeHelveticaNowText",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 33,
+   "videoCount": 1,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 835,
+    "top": 30
+   },
+   "bgHero": null,
+   "fonts": [
+    "Material Icons",
+    "MonotypeHelveticaNowTextBold",
+    "MonotypeHelveticaNowText",
+    "MonotypeHelveticaNowTextMedium",
+    "Schibsted Grotesk",
+    "launcher_icons_v2",
+    "fontello"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 9,
+   "capsCount": 2,
+   "docH": 9984,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 17559
+  },
+  "status_m": 200,
+  "final_m": "https://www.thesearanchlodge.com/",
+  "mobile": {
+   "docH": 12792,
+   "overflow": true,
+   "h1Size": 49,
+   "burger": false
+  }
+ },
+ {
+  "id": "shou-sugi-ban",
+  "type": "modern retreat",
+  "place": "Hamptons",
+  "url": "https://shousugibanhouse.com/",
+  "status_d": 200,
+  "final_d": "https://shousugibanhouse.com/",
+  "facts": {
+   "title": "Shou Sugi Ban House \u2013 Luxury Wellness Resort and Spa in the Hamptons",
+   "h1": {
+    "family": "LTCBodoni175-italic",
+    "weight": "100",
+    "size": 32,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "41.6px",
+    "text": ""
+   },
+   "h2": {
+    "family": "LTCBodoni175-italic",
+    "weight": "100",
+    "size": 28,
+    "ls": "0.1856px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "36.192px",
+    "text": "Welcome to a place where sea meets sky, and earth embraces ether"
+   },
+   "p": {
+    "family": "Fira Sans",
+    "weight": "300",
+    "size": 19,
+    "ls": "0.1856px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(64, 64, 64)",
+    "lh": "27.84px",
+    "text": "A space inspired by the principles of wabi-sabi and wellness traditions that value the sim"
+   },
+   "bodyBg": "rgb(245, 244, 242)",
+   "bodyColor": "rgb(64, 64, 64)",
+   "bodyFont": "Fira Sans",
+   "navLinks": [
+    "Skip to content"
+   ],
+   "navCount": 1,
+   "imgCount": 17,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 810,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "LTCBodoni175-Italic",
+    "Fira Sans"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CHECK AVAILABILITY",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": true,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 2,
+   "capsCount": 25,
+   "docH": 4087,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2660
+  },
+  "status_m": 200,
+  "final_m": "https://shousugibanhouse.com/",
+  "mobile": {
+   "docH": 4373,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": true
+  }
+ },
+ {
+  "id": "amangiri",
+  "type": "desert modern",
+  "place": "Utah",
+  "url": "https://www.aman.com/resorts/amangiri/weddings",
+  "status_d": 200,
+  "final_d": "https://www.aman.com/resorts/amangiri",
+  "facts": {
+   "title": "Luxury Five-Star Hotel & Resort in Utah, USA - Amangiri",
+   "h1": {
+    "family": "Lyon Text Web",
+    "weight": "400",
+    "size": 31,
+    "ls": "0.5px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(49, 49, 49)",
+    "lh": "45.066px",
+    "text": "Amangiri"
+   },
+   "h2": {
+    "family": "WhitneySSm",
+    "weight": "400",
+    "size": 10,
+    "ls": "2px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(49, 49, 49)",
+    "lh": "14.6566px",
+    "text": "CANYON POINT, UTAH, UNITED STATES"
+   },
+   "p": {
+    "family": "Lyon Display Web",
+    "weight": "400",
+    "size": 14,
+    "ls": "0.8px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(49, 49, 49)",
+    "lh": "20.3px",
+    "text": "Blending into untouched red-rock country on over 900 acres of the Colorado Plateau, Utah r"
+   },
+   "bodyBg": "rgb(243, 238, 231)",
+   "bodyColor": "rgb(49, 49, 49)",
+   "bodyFont": "Lyon Display Web",
+   "navLinks": [
+    "Skip to main content",
+    "\u7b80\u4f53\u4e2d\u6587",
+    "\u65e5\u672c\u8a9e",
+    "Fran\u00e7ais",
+    "Italiano",
+    "Espa\u00f1ol",
+    "Reserve",
+    "AMANGIRI",
+    "Gallery",
+    "Camp Sarika",
+    "Accommodation",
+    "Festive",
+    "Experiences",
+    "Wellness"
+   ],
+   "navCount": 14,
+   "imgCount": 128,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 677,
+    "h": 677,
+    "top": 1954
+   },
+   "bgHero": null,
+   "fonts": [
+    "Lyon Display Web",
+    "Lyon Text Web",
+    "WhitneySSm"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Contact Us",
+    "Book now",
+    "Check availability"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 39,
+   "capsCount": 11,
+   "docH": 8970,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 6568
+  },
+  "status_m": 200,
+  "final_m": "https://www.aman.com/resorts/amangiri",
+  "mobile": {
+   "docH": 11740,
+   "overflow": false,
+   "h1Size": 24,
+   "burger": true
+  }
+ },
+ {
+  "id": "commodore-perry",
+  "type": "estate",
+  "place": "Austin",
+  "url": "https://auberge.com/commodore-perry/",
+  "status_d": 200,
+  "final_d": "https://auberge.com/commodore-perry/",
+  "facts": {
+   "title": "Commodore Perry Estate in Austin, Texas | Auberge Collection",
+   "h1": {
+    "family": "Financier Light",
+    "weight": "400",
+    "size": 36,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(102, 102, 102)",
+    "lh": "39.6px",
+    "text": "A treasured Austin landmark, re-envisioned with modern glamour"
+   },
+   "h2": {
+    "family": "CentraNo1 Bold",
+    "weight": "400",
+    "size": 14,
+    "ls": "2.5px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(54, 64, 79)",
+    "lh": "18.2px",
+    "text": "TWO MICHELIN KEY HOTEL \u2013 MICHELIN GUIDE"
+   },
+   "p": {
+    "family": "CentraNo1 Book",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(102, 102, 102)",
+    "lh": "19.6px",
+    "text": "Call 866.976.4312 or book online. Get a head start on preparing for your next Austin getaw"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(102, 102, 102)",
+   "bodyFont": "Financier Light",
+   "navLinks": [
+    "SKIP TO MAIN CONTENT",
+    "SKIP TO FOOTER",
+    "(866) 976-4312",
+    "CHECK AVAILABILITY"
+   ],
+   "navCount": 4,
+   "imgCount": 181,
+   "videoCount": 2,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 814,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "aurberge-icons",
+    "CentraNo1 Bold",
+    "CentraNo1 Book",
+    "Financier Light",
+    "Financier Medium"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CHECK AVAILABILITY",
+    "START PLANNING",
+    "BOOK NOW",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 19,
+   "capsCount": 31,
+   "docH": 12308,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 9282
+  },
+  "status_m": 200,
+  "final_m": "https://auberge.com/commodore-perry/",
+  "mobile": {
+   "docH": 10928,
+   "overflow": false,
+   "h1Size": 28,
+   "burger": true
+  }
+ },
+ {
+  "id": "glenmere",
+  "type": "mansion",
+  "place": "NY",
+  "url": "https://www.glenmeremansion.com/",
+  "status_d": 200,
+  "final_d": "https://www.glenmeremansion.com/",
+  "facts": {
+   "title": "Glenmere Mansion | Premier Luxury Hotel in Chester, NY",
+   "h1": {
+    "family": "Montserrat",
+    "weight": "400",
+    "size": 50,
+    "ls": "2px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(80, 108, 138)",
+    "lh": "55.44px",
+    "text": "HOME"
+   },
+   "h2": {
+    "family": "Montserrat",
+    "weight": "400",
+    "size": 34,
+    "ls": "1.5px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(80, 108, 138)",
+    "lh": "37.84px",
+    "text": "DEEP IN THE ROLLING FARMLANDS OF THE LOWER-HUDSON VALLEY SITS A MAGNIFICENT 150-ACRE ESTAT"
+   },
+   "p": {
+    "family": "Red Hat Display",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(86, 51, 29)",
+    "lh": "24px",
+    "text": "This website is AudioEye enabled and is being optimized for accessibility. To open the Aud"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(86, 51, 29)",
+   "bodyFont": "Red Hat Display",
+   "navLinks": [
+    "Skip to main content",
+    "845.469.1900\nPhone number",
+    "PRIVATE EVENTS",
+    "GREEN PLEDGE",
+    "BOOK NOW",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE",
+    "INQUIRE NOW",
+    "Instagram",
+    "TripAdvisor",
+    "Email",
+    "GIFT CARDS",
+    "CAREERS"
+   ],
+   "navCount": 14,
+   "imgCount": 16,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [
+    "Montserrat",
+    "Red Hat Display",
+    "FontAwesome",
+    "Schibsted Grotesk",
+    "launcher_icons_v2"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "INQUIRE NOW",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 1,
+   "capsCount": 24,
+   "docH": 5510,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2995
+  },
+  "status_m": 200,
+  "final_m": "https://www.glenmeremansion.com/",
+  "mobile": {
+   "docH": 5933,
+   "overflow": false,
+   "h1Size": 40,
+   "burger": true
+  }
+ },
+ {
+  "id": "inness",
+  "type": "modern farm",
+  "place": "Hudson Valley",
+  "url": "https://www.inness.co/",
+  "status_d": 200,
+  "final_d": "https://www.inness.co/",
+  "facts": {
+   "title": "Inness | Upstate New York Wellness & Golf Resort",
+   "h1": {
+    "family": "ABC Arizona Flare",
+    "weight": "100",
+    "size": 73,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 249, 236)",
+    "lh": "82.2511px",
+    "text": "Our Home is Your Home"
+   },
+   "h2": null,
+   "p": {
+    "family": "ABC Arizona Flare",
+    "weight": "300",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(38, 36, 30)",
+    "lh": "34.0001px",
+    "text": "Experience a serene Hudson Valley escape at INNESS, where 28 private cabins and a 12-room "
+   },
+   "bodyBg": "rgb(223, 217, 198)",
+   "bodyColor": "rgb(38, 36, 30)",
+   "bodyFont": "ABC Arizona Flare",
+   "navLinks": [
+    "STAY",
+    "EAT & DRINK",
+    "EVENTS",
+    "GOLF",
+    "SPA",
+    "WELLNESS",
+    "CALENDAR",
+    "OFFERS",
+    "MEMBERSHIP"
+   ],
+   "navCount": 9,
+   "imgCount": 38,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "ABC Arizona Flare"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CHECK AVAILABILITY",
+    "BOOK",
+    "BOOK A TABLE",
+    "SPA ENQUIRIES",
+    "BOOK A TEE TIME",
+    "ENQUIRE",
+    "Facebook"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 17,
+   "capsCount": 46,
+   "docH": 14299,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 7626
+  },
+  "status_m": 200,
+  "final_m": "https://www.inness.co/",
+  "mobile": {
+   "docH": 20763,
+   "overflow": false,
+   "h1Size": 48,
+   "burger": false
+  }
+ },
+ {
+  "id": "six-bells",
+  "type": "country inn",
+  "place": "CT",
+  "url": "https://thesixbells.com/",
+  "status_d": 200,
+  "final_d": "https://www.thesixbells.com/",
+  "facts": {
+   "title": "The Six Bells",
+   "h1": {
+    "family": "Sandleford",
+    "weight": "400",
+    "size": 42,
+    "ls": "0.6px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(46, 46, 46)",
+    "lh": "0px",
+    "text": ""
+   },
+   "h2": {
+    "family": "Sandleford",
+    "weight": "400",
+    "size": 42,
+    "ls": "0.6px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(46, 46, 46)",
+    "lh": "54.6px",
+    "text": "Shop All"
+   },
+   "p": {
+    "family": "Sandleford",
+    "weight": "400",
+    "size": 16,
+    "ls": "0.6px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "24px",
+    "text": "Get 10% off when you sign up, along with the latest news on The Six Bells products and sho"
+   },
+   "bodyBg": "rgb(247, 241, 234)",
+   "bodyColor": "rgb(46, 46, 46)",
+   "bodyFont": "Sandleford",
+   "navLinks": [
+    "SHOP ALL",
+    "HOLIDAY",
+    "ORNAMENTS",
+    "HANUKKAH",
+    "HOLIDAY DECOR",
+    "CANDLES & HOLDERS",
+    "GIFT WRAP & STATIONERY",
+    "SHOP ALL HOLIDAY",
+    "Judaica Menorah",
+    "Austrian Egg Ornaments",
+    "NEW",
+    "BEST SELLERS",
+    "WALLACH COLLECTION",
+    "FALL FAVORITES"
+   ],
+   "navCount": 14,
+   "imgCount": 114,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 720,
+    "h": 560,
+    "top": 128
+   },
+   "bgHero": null,
+   "fonts": [
+    "Futura BT",
+    "Sandleford",
+    "Jost",
+    "Axeptio CJK Fallback"
+   ],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": true,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "shopify",
+   "svgCount": 33,
+   "capsCount": 91,
+   "docH": 9282,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 5973
+  },
+  "status_m": 200,
+  "final_m": "https://www.thesixbells.com/",
+  "mobile": {
+   "docH": 9631,
+   "overflow": false,
+   "h1Size": 24,
+   "burger": true
+  }
+ },
+ {
+  "id": "santa-lucia-preserve",
+  "type": "ranch estate",
+  "place": "Carmel",
+  "url": "https://www.santaluciapreserve.com/",
+  "status_d": 200,
+  "final_d": "https://www.santaluciapreserve.com/",
+  "facts": {
+   "title": "Santa Lucia Preserve, California\u2019s Premier Conservation Community",
+   "h1": {
+    "family": "Iskry",
+    "weight": "400",
+    "size": 56,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "67.2px",
+    "text": "An iconic ranch community"
+   },
+   "h2": {
+    "family": "Iskry",
+    "weight": "500",
+    "size": 32,
+    "ls": "1.3px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(82, 80, 76)",
+    "lh": "32px",
+    "text": "A place with a cadence all its own"
+   },
+   "p": {
+    "family": "brandon-grotesque",
+    "weight": "400",
+    "size": 20,
+    "ls": "0.1px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(82, 80, 76)",
+    "lh": "31px",
+    "text": "The sun\u2019s first rays fall upon a century-old Hacienda, a wisp of smoke curling from the ch"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(75, 75, 75)",
+   "bodyFont": "brandon-grotesque",
+   "navLinks": [
+    "LOGIN",
+    "The Preserve",
+    "Real Estate",
+    "Golf Club",
+    "Ranch Club",
+    "Membership",
+    "Weddings",
+    "Contact"
+   ],
+   "navCount": 8,
+   "imgCount": 17,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "brandon-grotesque",
+    "Optima",
+    "Iskry",
+    "Libre Baskerville",
+    "Lato"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Contact",
+    "Facebook",
+    "CONTACT US",
+    "SCHEDULE A TOUR"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 23,
+   "capsCount": 38,
+   "docH": 6785,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 5182
+  },
+  "status_m": 200,
+  "final_m": "https://www.santaluciapreserve.com/",
+  "mobile": {
+   "docH": 8637,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": true
+  }
+ },
+ {
+  "id": "cherry-hollow",
+  "type": "barn",
+  "place": "GA",
+  "url": "https://www.cherryhollowfarm.com/",
+  "status_d": 200,
+  "final_d": "https://www.cherryhollowfarm.com/",
+  "facts": {
+   "title": "Cherry Hollow Farm | Wedding & Event Venue",
+   "h1": {
+    "family": "Didot",
+    "weight": "400",
+    "size": 84,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "109.2px",
+    "text": "Cherry\u00a0Hollow Farm"
+   },
+   "h2": {
+    "family": "Didot",
+    "weight": "400",
+    "size": 28,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "45px",
+    "text": "SPACES &\u00a0GROUNDS"
+   },
+   "p": {
+    "family": "Cormorant Garamond",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(26, 26, 26)",
+    "lh": "30px",
+    "text": "C\nherry Hollow Farm commemorates a bygone era of invention and imagination, the melding of"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(51, 51, 51)",
+   "bodyFont": "Cormorant Garamond",
+   "navLinks": [
+    "ABOUT",
+    "SPACES",
+    "HISTORY",
+    "GALLERY",
+    "PRESS",
+    "CONTACT",
+    "WEDDINGS",
+    "PRIVATE PARTIES",
+    "CORPORATE EVENTS",
+    "FILM & PHOTO",
+    "PERFORMANCE"
+   ],
+   "navCount": 11,
+   "imgCount": 26,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 645,
+    "top": 169
+   },
+   "bgHero": null,
+   "fonts": [
+    "Font Awesome (Brands)",
+    "Didot",
+    "Cormorant Garamond",
+    "Lato",
+    "orpheuspro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "INQUIRE NOW",
+    "DOWNLOAD OUR EVENTS BROCHURE",
+    "INQUIRE ABOUT YOUR EVENT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "webflow",
+   "svgCount": 17,
+   "capsCount": 36,
+   "docH": 6918,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 4264
+  },
+  "status_m": 200,
+  "final_m": "https://www.cherryhollowfarm.com/",
+  "mobile": {
+   "docH": 7999,
+   "overflow": false,
+   "h1Size": 26,
+   "burger": true
+  }
+ },
+ {
+  "id": "early-mountain",
+  "type": "vineyard",
+  "place": "VA",
+  "url": "https://www.earlymountain.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.earlymountain.com/weddings",
+  "facts": {
+   "title": "Premiere wedding venue in the heart of Virginia wine country | Early Mountain Vineyards",
+   "h1": null,
+   "h2": null,
+   "p": {
+    "family": "Raleway",
+    "weight": "300",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(65, 62, 62)",
+    "lh": "25px",
+    "text": "Early Mountain offers beauty, stately modern facilities & luxurious amenities perfect for "
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "ui-sans-serif",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 66,
+   "videoCount": 1,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Raleway"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Contact Us",
+    "CONTACT US",
+    "INQUIRE",
+    "2025/2026 WEDDING BROCHURE"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 6,
+   "docH": 5645,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 4840
+  },
+  "status_m": 200,
+  "final_m": "https://www.earlymountain.com/weddings",
+  "mobile": {
+   "docH": 7062,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "castle-hill",
+  "type": "coastal inn",
+  "place": "Newport RI",
+  "url": "https://www.castlehillinn.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.castlehillinn.com/events/celebrations/weddings",
+  "facts": {
+   "title": "Weddings | Castle Hill Inn",
+   "h1": {
+    "family": "Playfair Display",
+    "weight": "400",
+    "size": 46,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(33, 32, 31)",
+    "lh": "64.4px",
+    "text": "Weddings"
+   },
+   "h2": {
+    "family": "Playfair Display",
+    "weight": "400",
+    "size": 42,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(33, 32, 31)",
+    "lh": "46.2px",
+    "text": "Main navigation"
+   },
+   "p": {
+    "family": "Literata",
+    "weight": "300",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(33, 32, 31)",
+    "lh": "22.5px",
+    "text": "Rolling lawns making way to the waving sea. A lighthouse standing at the water's edge. An "
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(33, 32, 31)",
+   "bodyFont": "Literata",
+   "navLinks": [
+    "401.849.3800"
+   ],
+   "navCount": 1,
+   "imgCount": 11,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1290,
+    "h": 692,
+    "top": 130
+   },
+   "bgHero": null,
+   "fonts": [
+    "Kumbh Sans",
+    "Literata",
+    "Playfair Display",
+    "icomoon"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "REQUEST A CUSTOM PROPOSAL",
+    "CONTACT US",
+    "Facebook\n(opens in a new window)"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 1,
+   "capsCount": 188,
+   "docH": 4189,
+   "capacityMention": true,
+   "priceMention": false,
+   "textLen": 2127
+  },
+  "status_m": 200,
+  "final_m": "https://www.castlehillinn.com/events/celebrations/weddings",
+  "mobile": {
+   "docH": 4938,
+   "overflow": false,
+   "h1Size": 33,
+   "burger": true
+  }
+ },
+ {
+  "id": "oheka",
+  "type": "castle",
+  "place": "Long Island",
+  "url": "https://www.oheka.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.oheka.com/weddings.htm",
+  "facts": {
+   "title": "Luxury Weddings in Long Island's Gold Coast at the Historic OHEKA CASTLE",
+   "h1": {
+    "family": "mrs-eaves-roman-lining",
+    "weight": "500",
+    "size": 40,
+    "ls": "4px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(24, 27, 31)",
+    "lh": "44px",
+    "text": "A ROYAL ESTATE OF AFFAIRS\nCELEBRATING THE ART OF ENTERTAINING\u00ae"
+   },
+   "h2": {
+    "family": "mrs-eaves-roman-lining",
+    "weight": "500",
+    "size": 32,
+    "ls": "3.2px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(24, 27, 31)",
+    "lh": "35px",
+    "text": "OHEKA WEDDINGS"
+   },
+   "p": {
+    "family": "mr-eaves-modern",
+    "weight": "100",
+    "size": 18,
+    "ls": "1.6px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(24, 27, 31)",
+    "lh": "35px",
+    "text": "OHEKA has been celebrating the art of entertaining since 1919, when OHEKA's first bride, M"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(24, 27, 31)",
+   "bodyFont": "mr-eaves-modern",
+   "navLinks": [
+    "BOOK A TOUR",
+    "BOOK A ROOM",
+    "WEDDINGS",
+    "EVENTS",
+    "HOTEL",
+    "OHEKA",
+    "DINING",
+    "GIFT CARDS"
+   ],
+   "navCount": 8,
+   "imgCount": 4,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "Font Awesome 6 Brands",
+    "mr-eaves-modern",
+    "mrs-eaves-roman-lining"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK A TOUR",
+    "BOOK A ROOM",
+    "REQUEST FOR APPOINTMENT",
+    "VIRTUAL TOUR",
+    "CONTACT",
+    "FACEBOOK"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "squarespace",
+   "svgCount": 0,
+   "capsCount": 70,
+   "docH": 3618,
+   "capacityMention": false,
+   "priceMention": true,
+   "textLen": 2179
+  },
+  "status_m": 200,
+  "final_m": "https://www.oheka.com/weddings.htm",
+  "mobile": {
+   "docH": 5095,
+   "overflow": false,
+   "h1Size": 30,
+   "burger": true
+  }
+ },
+ {
+  "id": "natirar",
+  "type": "estate",
+  "place": "NJ",
+  "url": "https://natirar.com/",
+  "error_d": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://natirar.com/\nCall log:\n  - navigating to \"https://natirar.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://natirar.com/\nCall log:\n  - navigating to \"https://natirar.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "weylin",
+  "type": "historic hall",
+  "place": "Brooklyn",
+  "url": "https://www.weylin.com/",
+  "status_d": 200,
+  "final_d": "https://weylin.com/",
+  "facts": {
+   "title": "Williamsburg's Most Exceptional Event Space | WEYLIN",
+   "h1": null,
+   "h2": null,
+   "p": null,
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(22, 18, 27)",
+   "bodyFont": "sf_ui_textlight",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 6,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 900,
+    "top": 81
+   },
+   "bgHero": null,
+   "fonts": [
+    "Alegreya Sans SC",
+    "sf_ui_textlight"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Inquire Here"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 0,
+   "capsCount": 0,
+   "docH": 981,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 272
+  },
+  "status_m": 200,
+  "final_m": "https://weylin.com/",
+  "mobile": {
+   "docH": 973,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "wythe",
+  "type": "loft hotel",
+  "place": "Brooklyn",
+  "url": "https://wythehotel.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.wythehotel.com/weddings",
+  "facts": {
+   "title": "Luxury Hotel Wedding Venue in Brooklyn | Wythe Hotel",
+   "h1": {
+    "family": "secondaryFont",
+    "weight": "300",
+    "size": 44,
+    "ls": "-1.32px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(252, 247, 243)",
+    "lh": "48.4px",
+    "text": "Plan a Brooklyn Wedding at Wythe Hotel"
+   },
+   "h2": {
+    "family": "secondaryFont",
+    "weight": "300",
+    "size": 36,
+    "ls": "-0.72px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(95, 80, 80)",
+    "lh": "39.6px",
+    "text": "What Makes a Wythe Hotel Wedding"
+   },
+   "p": {
+    "family": "mainFont",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(95, 80, 80)",
+    "lh": "24px",
+    "text": "Our six wedding venues at Wythe Hotel accommodate everything from intimate ceremonies to o"
+   },
+   "bodyBg": "rgb(252, 247, 243)",
+   "bodyColor": "rgb(95, 80, 80)",
+   "bodyFont": "mainFont",
+   "navLinks": [
+    "BOOK WITH US"
+   ],
+   "navCount": 1,
+   "imgCount": 21,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 540,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "mainFont",
+    "mainFont Fallback",
+    "secondaryFont",
+    "tertiaryFont"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK WITH US",
+    "SUBMIT INQUIRY",
+    "INQUIRE",
+    "TAKE A TOUR",
+    "SEE THE FLOORPLAN",
+    "BOOKING DETAILS",
+    "CHECK AVAILABILITY",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": true,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 38,
+   "capsCount": 79,
+   "docH": 12558,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 11797
+  },
+  "status_m": 200,
+  "final_m": "https://www.wythehotel.com/weddings",
+  "mobile": {
+   "docH": 13661,
+   "overflow": false,
+   "h1Size": 36,
+   "burger": false
+  }
+ },
+ {
+  "id": "hotel-emma",
+  "type": "historic brewery hotel",
+  "place": "San Antonio",
+  "url": "https://www.thehotelemma.com/weddings",
+  "status_d": 200,
+  "final_d": "https://thehotelemma.com/venues/weddings/",
+  "facts": {
+   "title": "Hotel Emma | Venues & Packages in San Antonio Texas for Weddings | Learn More",
+   "h1": null,
+   "h2": {
+    "family": "Roboto",
+    "weight": "700",
+    "size": 35,
+    "ls": "1.4px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(161, 142, 104)",
+    "lh": "45px",
+    "text": "San Antonio Wedding Venues & Packages"
+   },
+   "p": {
+    "family": "Special Elite",
+    "weight": "400",
+    "size": 14,
+    "ls": "0.56px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(165, 142, 100)",
+    "lh": "25px",
+    "text": "We use cookies to enhance your browsing experience, serve personalised ads or content, and"
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(161, 142, 104)",
+   "bodyFont": "Special Elite",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 29,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 720,
+    "h": 803,
+    "top": 97
+   },
+   "bgHero": null,
+   "fonts": [
+    "Roboto",
+    "Special Elite"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "Request for Proposal",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 0,
+   "capsCount": 24,
+   "docH": 2916,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1536
+  },
+  "status_m": 200,
+  "final_m": "https://thehotelemma.com/venues/weddings/",
+  "mobile": {
+   "docH": 3025,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "lowndes-grove",
+  "type": "plantation house",
+  "place": "Charleston",
+  "url": "https://lowndesgrove.com/",
+  "error_d": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://lowndesgrove.com/\nCall log:\n  - navigating to \"https://lowndesgrove.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://lowndesgrove.com/\nCall log:\n  - navigating to \"https://lowndesgrove.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "nestldown",
+  "type": "redwood garden",
+  "place": "Los Gatos",
+  "url": "https://www.nestldown.com/",
+  "status_d": 200,
+  "final_d": "https://www.nestldown.com/",
+  "facts": {
+   "title": "Nestldown | Connect. Inspire. Celebrate.",
+   "h1": {
+    "family": "beloved-script",
+    "weight": "300",
+    "size": 95,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "104.5px",
+    "text": "Connect. Inspire. Celebrate."
+   },
+   "h2": {
+    "family": "Muli",
+    "weight": "300",
+    "size": 42,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(33, 78, 65)",
+    "lh": "50.4px",
+    "text": ""
+   },
+   "p": null,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(33, 78, 65)",
+   "bodyFont": "Muli",
+   "navLinks": [
+    "PLAN AN EVENT",
+    "search",
+    "MENU\nmenu"
+   ],
+   "navCount": 3,
+   "imgCount": 16,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1600,
+    "h": 900,
+    "top": 39
+   },
+   "bgHero": null,
+   "fonts": [
+    "Muli",
+    "beloved-script",
+    "Material Icons"
+   ],
+   "scriptFont": [
+    "beloved-script"
+   ],
+   "ctas": [
+    "PLAN AN EVENT",
+    "Contact Nestldown",
+    "Plants and Flowers",
+    "Plan an Event"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 3,
+   "capsCount": 8,
+   "docH": 4717,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1073
+  },
+  "status_m": 200,
+  "final_m": "https://www.nestldown.com/",
+  "mobile": {
+   "docH": 5635,
+   "overflow": false,
+   "h1Size": 52,
+   "burger": true
+  }
+ },
+ {
+  "id": "holman-ranch",
+  "type": "ranch vineyard",
+  "place": "Carmel Valley",
+  "url": "https://www.holmanranch.com/weddings",
+  "status_d": 200,
+  "final_d": "https://holmanranch.com/weddings",
+  "facts": {
+   "title": "Weddings",
+   "h1": null,
+   "h2": {
+    "family": "LyonDisplay-Regular",
+    "weight": "400",
+    "size": 50,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(147, 40, 44)",
+    "lh": "55px",
+    "text": "The Celebration of a Lifetime"
+   },
+   "p": {
+    "family": "LyonText-Regular",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(77, 75, 70)",
+    "lh": "25.6px",
+    "text": "Unlike most properties in the area that sit near sea level, Holman Ranch begins at 500 fee"
+   },
+   "bodyBg": "rgb(240, 240, 240)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Open Sans",
+   "navLinks": [
+    "Inquire",
+    "FEATURED BY MARTHA STEWART",
+    "INQUIRE",
+    "FEATURED BY MARTHA STEWART",
+    "SCHEDULE A TOUR",
+    "MAKE A RESERVATION",
+    "Join Our Mailing List",
+    "Shop Wines",
+    "Wine Clubs",
+    "Contact Us",
+    "Terms of Use",
+    "Privacy Policy",
+    "Cookie Policy",
+    "Refund Policy"
+   ],
+   "navCount": 14,
+   "imgCount": 26,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1160,
+    "h": 773,
+    "top": 1340
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "AGaramondPro-Regular",
+    "LyonText-RegularItalic",
+    "LyonText-Regular",
+    "LyonDisplay-Regular",
+    "StyreneA-Medium",
+    "dm-common-icons",
+    "Font Awesome 6 Free",
+    "FontAwesome"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Inquire",
+    "INQUIRE",
+    "SCHEDULE A TOUR",
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 3,
+   "capsCount": 11,
+   "docH": 8071,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 3086
+  },
+  "status_m": 200,
+  "final_m": "https://holmanranch.com/weddings",
+  "mobile": {
+   "docH": 6230,
+   "overflow": true,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "brush-creek",
+  "type": "ranch",
+  "place": "WY",
+  "url": "https://www.brushcreekranch.com/weddings",
+  "status_d": 200,
+  "final_d": "https://www.brushcreekranch.com/group-retreats/weddings",
+  "facts": {
+   "title": "Luxury Ranch Wedding Venues | Brush Creek Ranch | Wyoming",
+   "h1": {
+    "family": "Lusitana",
+    "weight": "400",
+    "size": 40,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(38, 38, 38)",
+    "lh": "48px",
+    "text": "LUXURY WESTERN WEDDINGS"
+   },
+   "h2": {
+    "family": "Lusitana",
+    "weight": "400",
+    "size": 32,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(38, 38, 38)",
+    "lh": "40px",
+    "text": "ALL-INCLUSIVE RANCH WEDDINGS"
+   },
+   "p": {
+    "family": "Montserrat",
+    "weight": "400",
+    "size": 16,
+    "ls": "-0.16px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "24px",
+    "text": "Contact us via the Inquire or Chat buttons in the top right navigation, or call 307-327-52"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(38, 38, 38)",
+   "bodyFont": "Lusitana",
+   "navLinks": [
+    "ALL-INCLUSIVE PACKAGES",
+    "SHOP",
+    "GALLERY",
+    "CONTACT",
+    "ACCOMMODATIONS",
+    "THE FARM",
+    "EXPERIENCES",
+    "EVENTS",
+    "GROUPS",
+    "OUR STORY",
+    "BOOK NOW"
+   ],
+   "navCount": 11,
+   "imgCount": 84,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 420,
+    "top": 112
+   },
+   "bgHero": null,
+   "fonts": [
+    "Lusitana",
+    "Montserrat"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "BOOK NOW",
+    "Close Booking Widget",
+    "VIEW AVAILABILITY",
+    "INQUIRE NOW",
+    "WEDDING PRICING"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 0,
+   "capsCount": 56,
+   "docH": 10805,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 3800
+  },
+  "status_m": 200,
+  "final_m": "https://www.brushcreekranch.com/group-retreats/weddings",
+  "mobile": {
+   "docH": 20835,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": true
+  }
+ },
+ {
+  "id": "twin-farms",
+  "type": "country inn",
+  "place": "VT",
+  "url": "https://www.twinfarms.com/",
+  "status_d": 200,
+  "final_d": "https://www.twinfarms.com/",
+  "facts": {
+   "title": "Twin Farms | Vermont Luxury Resort | All Inclusive Getaway",
+   "h1": null,
+   "h2": {
+    "family": "Playfair Display",
+    "weight": "400",
+    "size": 65,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(74, 78, 105)",
+    "lh": "71.5px",
+    "text": "Welcome Home"
+   },
+   "p": {
+    "family": "Karla",
+    "weight": "600",
+    "size": 22,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(74, 78, 105)",
+    "lh": "33px",
+    "text": "Nestled in hundreds of acres of pristine Vermont countryside, Twin Farms feels like your o"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(142, 142, 142)",
+   "bodyFont": "Karla",
+   "navLinks": [
+    "EXPERIENCE",
+    "STAY",
+    "ACTIVITIES",
+    "DINE",
+    "PICNICS",
+    "WELLBEING",
+    "GATHER",
+    "EVENTS",
+    "(800) 894-6327",
+    "BOOK NOW"
+   ],
+   "navCount": 10,
+   "imgCount": 60,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1600,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "fonts": [
+    "Karla",
+    "Playfair Display",
+    "Roboto",
+    "FlaticonClose",
+    "Metropolis"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 7,
+   "capsCount": 40,
+   "docH": 5234,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2899
+  },
+  "status_m": 200,
+  "final_m": "https://www.twinfarms.com/",
+  "mobile": {
+   "docH": 8230,
+   "overflow": false,
+   "h1Size": null,
+   "burger": true
+  }
+ },
+ {
+  "id": "vizcaya",
+  "type": "historic villa",
+  "place": "Miami",
+  "url": "https://vizcaya.org/visit-2/wedding-events/",
+  "status_d": 200,
+  "final_d": "https://vizcaya.org/visit-2/wedding-events/",
+  "facts": {
+   "title": "Vizcaya Wedding Venue | Historic Garden Weddings in Miami",
+   "h1": {
+    "family": "Ranade",
+    "weight": "500",
+    "size": 48,
+    "ls": "-0.2px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "60.8px",
+    "text": "Weddings and Private Events at Vizcaya"
+   },
+   "h2": {
+    "family": "Ranade",
+    "weight": "500",
+    "size": 27,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(0, 55, 100)",
+    "lh": "35.2px",
+    "text": "MAJESTIC AND MAGICAL"
+   },
+   "p": {
+    "family": "Work Sans",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(63, 67, 69)",
+    "lh": "24px",
+    "text": "With its majestic architecture and magical gardens on Biscayne Bay, Vizcaya is a stunning "
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(63, 67, 69)",
+   "bodyFont": "Work Sans",
+   "navLinks": [
+    "TICKETS",
+    "BECOME A MEMBER",
+    "DONATE",
+    "PHOTOGRAPHY",
+    "WEDDINGS/EVENTS",
+    "PROGRAMS & EVENTS"
+   ],
+   "navCount": 6,
+   "imgCount": 15,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 648,
+    "h": 731,
+    "top": 3969
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 466,
+    "top": 79
+   },
+   "fonts": [
+    "eicons",
+    "Ranade",
+    "Font Awesome 5 Brands",
+    "Font Awesome 5 Free",
+    "Optima",
+    "Work Sans"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Facebook"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": true,
+    "flickity": true,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 8,
+   "capsCount": 34,
+   "docH": 5021,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2895
+  },
+  "status_m": 200,
+  "final_m": "https://vizcaya.org/visit-2/wedding-events/",
+  "mobile": {
+   "docH": 8268,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": true
+  }
+ },
+ {
+  "id": "bella-collina",
+  "type": "tuscan estate",
+  "place": "FL",
+  "url": "https://www.bellacollina.com/weddings-events/weddings",
+  "status_d": 200,
+  "final_d": "https://www.bellacollina.com/weddings-events/weddings",
+  "facts": {
+   "title": "Orlando Luxury Wedding Venues | Bella Collina",
+   "h1": {
+    "family": "Libre Baskerville",
+    "weight": "400",
+    "size": 64,
+    "ls": "6.4px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgba(255, 255, 255, 0.92)",
+    "lh": "60.8px",
+    "text": "ORLANDO LUXURY\nWEDDINGS"
+   },
+   "h2": {
+    "family": "Libre Baskerville",
+    "weight": "400",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "italic",
+    "color": "rgba(255, 255, 255, 0.92)",
+    "lh": "42px",
+    "text": "Your love story is unique, and your wedding should be too. Where every detail is thoughtfu"
+   },
+   "p": {
+    "family": "Raleway",
+    "weight": "300",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "28px",
+    "text": "With expertise and attention to detail, the Bella Collina wedding team works closely with "
+   },
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgba(30, 45, 61, 0.65)",
+   "bodyFont": "Raleway",
+   "navLinks": [
+    "REAL ESTATE",
+    "LIFE AT BELLA",
+    "SPA",
+    "WEDDINGS",
+    "EVENTS",
+    "GOLF",
+    "SIENA HOTEL",
+    "CONTACT",
+    "CONTACT OUR WEDDING TEAM",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE",
+    "LEARN MORE"
+   ],
+   "navCount": 14,
+   "imgCount": 24,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1000,
+    "h": 150,
+    "top": 6204
+   },
+   "bgHero": {
+    "w": 1440,
+    "h": 891,
+    "top": 0
+   },
+   "fonts": [
+    "Raleway",
+    "Libre Baskerville",
+    "Cinzel"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "CONTACT",
+    "CONTACT OUR WEDDING TEAM",
+    "Contact Us to Learn More"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": true,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 1,
+   "platform": "custom/other",
+   "svgCount": 9,
+   "capsCount": 52,
+   "docH": 10727,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 13860
+  },
+  "status_m": 200,
+  "final_m": "https://www.bellacollina.com/weddings-events/weddings",
+  "mobile": {
+   "docH": 16425,
+   "overflow": false,
+   "h1Size": 40,
+   "burger": true
+  }
+ },
+ {
+  "id": "the-clifton",
+  "type": "inn",
+  "place": "Charlottesville",
+  "url": "https://www.the-clifton.com/",
+  "status_d": 200,
+  "final_d": "https://www.the-clifton.com/",
+  "facts": {
+   "title": "The Clifton in Charlottesville, VA",
+   "h1": {
+    "family": "Lora",
+    "weight": "400",
+    "size": 60,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "italic",
+    "color": "rgb(71, 85, 99)",
+    "lh": "normal",
+    "text": "WELCOME TO THE CLIFTON"
+   },
+   "h2": {
+    "family": "Lora",
+    "weight": "400",
+    "size": 32,
+    "ls": "normal",
+    "tt": "uppercase",
+    "style": "italic",
+    "color": "rgb(71, 85, 99)",
+    "lh": "normal",
+    "text": "HISTORIC BOUTIQUE HOTEL IN CHARLOTTESVILLE, VA"
+   },
+   "p": {
+    "family": "Nunito",
+    "weight": "300",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "24px",
+    "text": "Only minutes from downtown Charlottesville, The Clifton is your home as you explore surrou"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(51, 51, 51)",
+   "bodyFont": "Nunito",
+   "navLinks": [
+    "Skip to navigation",
+    "Skip to main content",
+    "Skip to footer",
+    "(434) 971-1800",
+    "HOME",
+    "SLEEP",
+    "EAT & DRINK",
+    "WEDDINGS",
+    "PACKAGES & EVENTS",
+    "BOOK NOW",
+    "VIEW MANOR HOUSE ROOMS",
+    "VIEW GARDEN COTTAGES",
+    "VIEW LIVERY STABLES",
+    "VIEW COLLINA FARMHOUSE ROOMS"
+   ],
+   "navCount": 14,
+   "imgCount": 15,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1441,
+    "h": 811,
+    "top": 89
+   },
+   "bgHero": null,
+   "fonts": [
+    "Lora",
+    "Nunito"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW",
+    "TAKE A VIRTUAL TOUR\nOPENS IN A NEW TAB",
+    "BOOK NOW!",
+    "CONTACT US",
+    "MODIFY/CANCEL BOOKING",
+    "RESTART BOOKING"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 14,
+   "capsCount": 94,
+   "docH": 5503,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2051
+  },
+  "status_m": 200,
+  "final_m": "https://www.the-clifton.com/",
+  "mobile": {
+   "docH": 7032,
+   "overflow": false,
+   "h1Size": 26,
+   "burger": true
+  }
+ },
+ {
+  "id": "borgo-egnazia",
+  "type": "intl resort",
+  "place": "Puglia",
+  "url": "https://www.borgoegnazia.com/en/weddings",
+  "status_d": 200,
+  "final_d": "https://www.borgoegnazia.com/en/weddings/",
+  "facts": {
+   "title": "Borgo Egnazia",
+   "h1": null,
+   "h2": {
+    "family": "optima",
+    "weight": "400",
+    "size": 25,
+    "ls": "3px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "30px",
+    "text": "LOOK INSIDE"
+   },
+   "p": {
+    "family": "-apple-system",
+    "weight": "300",
+    "size": 10,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "14px",
+    "text": "We and selected third parties collect personal information as specified in the privacy pol"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(255, 255, 255)",
+   "bodyFont": "optima",
+   "navLinks": [
+    "BOOKING",
+    "ROOMS",
+    "BAR AND RESTAURANTS",
+    "BOTTEGA EGNAZIA",
+    "VAIR SPA",
+    "EVENTS & OFFERS",
+    "CHRISTMAS AT BORGO EGNAZIA",
+    "FOGLIE MAGAZINE",
+    "ACCOLADES",
+    "EGNAZIA",
+    "LHW LEADERS CLUB",
+    "ASSOCIAZIONE CLARA",
+    "MEDIA HUB",
+    "TRAVEL TRADE"
+   ],
+   "navCount": 14,
+   "imgCount": 11,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [
+    "Lato",
+    "optima"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOKING",
+    "CONTACT US",
+    "FACEBOOK"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 23,
+   "docH": 1016,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1213
+  },
+  "status_m": 200,
+  "final_m": "https://www.borgoegnazia.com/en/weddings/",
+  "mobile": {
+   "docH": 1926,
+   "overflow": false,
+   "h1Size": null,
+   "burger": false
+  }
+ },
+ {
+  "id": "villa-balbiano",
+  "type": "intl villa",
+  "place": "Lake Como",
+  "url": "https://villabalbiano.com/",
+  "error_d": "Page.goto: net::ERR_CONNECTION_REFUSED at https://villabalbiano.com/\nCall log:\n  - navigating to \"https://villabalbiano.com/\", waiting until \"domcontentloaded\"\n",
+  "error_m": "Page.goto: net::ERR_CONNECTION_REFUSED at https://villabalbiano.com/\nCall log:\n  - navigating to \"https://villabalbiano.com/\", waiting until \"domcontentloaded\"\n"
+ },
+ {
+  "id": "babington",
+  "type": "intl country house",
+  "place": "UK",
+  "url": "https://www.babingtonhouse.com/",
+  "status_d": 200,
+  "final_d": "https://babingtonhouse.com/",
+  "facts": {
+   "title": "Our size is our superpower. | Babington House",
+   "h1": {
+    "family": "helvetica-neue-lt-pro",
+    "weight": "200",
+    "size": 60,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "72px",
+    "text": "Our size is our superpower."
+   },
+   "h2": {
+    "family": "helvetica-neue-lt-pro",
+    "weight": "200",
+    "size": 60,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "72px",
+    "text": "Explore our Admissions process"
+   },
+   "p": {
+    "family": "helvetica-neue-lt-pro",
+    "weight": "300",
+    "size": 18,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "27.99px",
+    "text": "As a truly independent school, Babington is small enough to know and celebrate every child"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "helvetica-neue-lt-pro",
+   "navLinks": [
+    "REQUEST A PROSPECTUS",
+    "VISIT US",
+    "APPLY ONLINE",
+    "School Information",
+    "School Information",
+    "Headteacher\u2019s Welcome",
+    "Houses",
+    "Our Purpose",
+    "Staff",
+    "History",
+    "Old Babingtonians",
+    "Friends Association",
+    "GDPR & Privacy",
+    "Policies"
+   ],
+   "navCount": 14,
+   "imgCount": 19,
+   "videoCount": 1,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Font Awesome 6 Brands",
+    "helvetica-neue-lt-pro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "REQUEST A PROSPECTUS",
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": true,
+    "lottie": true,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 23,
+   "capsCount": 14,
+   "docH": 6752,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1715
+  },
+  "status_m": 200,
+  "final_m": "https://babingtonhouse.com/",
+  "mobile": {
+   "docH": 8862,
+   "overflow": false,
+   "h1Size": 40,
+   "burger": true
+  }
+ },
+ {
+  "id": "haiku-mill",
+  "type": "ruin garden",
+  "place": "Maui",
+  "url": "https://www.haikumill.com/",
+  "error_d": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://www.haikumill.com/\nCall log:\n  - navigating to \"https://www.haikumill.com/\", waiting until \"domcontentload",
+  "error_m": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://www.haikumill.com/\nCall log:\n  - navigating to \"https://www.haikumill.com/\", waiting until \"domcontentload"
+ },
+ {
+  "id": "greenhouse-loft",
+  "type": "loft",
+  "place": "Chicago",
+  "url": "https://greenhouseloft.com/",
+  "status_d": 200,
+  "final_d": "https://www.greenhouseloft.com/",
+  "facts": {
+   "title": "Chicago Wedding Venue - Greenhouse Loft",
+   "h1": {
+    "family": "titling-gothic-fb-wide",
+    "weight": "300",
+    "size": 63,
+    "ls": "4.41px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(60, 61, 36)",
+    "lh": "78.75px",
+    "text": "GREENHOUSE \nLOFT"
+   },
+   "h2": {
+    "family": "adobe-garamond-pro",
+    "weight": "400",
+    "size": 44,
+    "ls": "normal",
+    "tt": "lowercase",
+    "style": "italic",
+    "color": "rgb(60, 61, 36)",
+    "lh": "52.8px",
+    "text": "see"
+   },
+   "p": {
+    "family": "adobe-garamond-pro",
+    "weight": "400",
+    "size": 18,
+    "ls": "0.36px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(60, 61, 36)",
+    "lh": "23.4px",
+    "text": "seated dinner with a DJ - maximum of 175 guests\nseated dinner with a band - maximum of 150"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(60, 61, 36)",
+   "bodyFont": "adobe-garamond-pro",
+   "navLinks": [
+    "HOME",
+    "SUSTAINABILITY",
+    "AMENITIES",
+    "FAQ",
+    "GALLERY",
+    "PRICING",
+    "VIRTUAL TOUR",
+    "FLOOR PLANS",
+    "WEDDINGS",
+    "MEETINGS",
+    "CORPORATE",
+    "CONTACT",
+    "FAQ",
+    "LEARN MORE"
+   ],
+   "navCount": 14,
+   "imgCount": 23,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1580,
+    "h": 889,
+    "top": 22
+   },
+   "bgHero": null,
+   "fonts": [
+    "Roboto",
+    "adobe-garamond-pro"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "PRICING",
+    "VIRTUAL TOUR",
+    "FLOOR PLANS",
+    "FLOOR PLANS FOR 50 GUESTS & UNDER",
+    "CONTACT"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "squarespace",
+   "svgCount": 12,
+   "capsCount": 40,
+   "docH": 8280,
+   "capacityMention": true,
+   "priceMention": true,
+   "textLen": 3023
+  },
+  "status_m": 200,
+  "final_m": "https://www.greenhouseloft.com/",
+  "mobile": {
+   "docH": 8573,
+   "overflow": false,
+   "h1Size": 32,
+   "burger": true
+  }
+ },
+ {
+  "id": "the-ruins",
+  "type": "club",
+  "place": "Seattle",
+  "url": "https://www.theruins.net/",
+  "status_d": 200,
+  "final_d": "https://theruins.net/",
+  "facts": {
+   "title": "theruins.net | DNS Zone File",
+   "h1": {
+    "family": "Arial",
+    "weight": "700",
+    "size": 28,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 169, 0)",
+    "lh": "25px",
+    "text": "theruins.net"
+   },
+   "h2": {
+    "family": "Arial",
+    "weight": "700",
+    "size": 21,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "25px",
+    "text": "This domain is registered for one of our customers."
+   },
+   "p": {
+    "family": "Arial",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "25px",
+    "text": "If this is your domain name, please visit this page to see how to register it as DNS zone "
+   },
+   "bodyBg": "rgb(231, 231, 231)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Arial",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 1,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 0,
+   "docH": 1154,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1621
+  },
+  "status_m": 200,
+  "final_m": "https://theruins.net/",
+  "mobile": {
+   "docH": 1869,
+   "overflow": false,
+   "h1Size": 28,
+   "burger": false
+  }
+ },
+ {
+  "id": "babington-soho",
+  "type": "intl country house",
+  "place": "UK",
+  "url": "https://www.sohohouse.com/houses/babington-house",
+  "status_d": 200,
+  "final_d": "https://www.sohohouse.com/en-us/houses/babington-house",
+  "facts": {
+   "title": "Private Member's Club and Hotel in Somerset | Babington House",
+   "h1": {
+    "family": "Cardo",
+    "weight": "400",
+    "size": 48,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "60px",
+    "text": "Babington House"
+   },
+   "h2": {
+    "family": "Cardo",
+    "weight": "400",
+    "size": 48,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "60px",
+    "text": "Occupying a Grade II-listed manor built in 1705, Babington House is surrounded by 18 acres"
+   },
+   "p": {
+    "family": "HK Grotesk",
+    "weight": "400",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "30px",
+    "text": "The House menu focuses on British dishes made with seasonal vegetables from the Walled Gar"
+   },
+   "bodyBg": "rgb(255, 254, 247)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "HK Grotesk",
+   "navLinks": [
+    "Membership",
+    "Houses",
+    "Bedrooms",
+    "Food and Drink",
+    "News",
+    "Membership"
+   ],
+   "navCount": 6,
+   "imgCount": 44,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 792,
+    "h": 594,
+    "top": 2209
+   },
+   "bgHero": null,
+   "fonts": [
+    "HK Grotesk",
+    "Cardo"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Book a bedroom",
+    "Personal data request",
+    "Contact"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 9,
+   "capsCount": 3,
+   "docH": 4823,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2093
+  },
+  "status_m": 200,
+  "final_m": "https://www.sohohouse.com/en-us/houses/babington-house",
+  "mobile": {
+   "docH": 4878,
+   "overflow": false,
+   "h1Size": 30,
+   "burger": true
+  }
+ },
+ {
+  "id": "kestrel-park",
+  "type": "estate garden",
+  "place": "SoCal Santa Ynez",
+  "url": "https://www.kestrelpark.com/",
+  "status_d": 503,
+  "final_d": "https://www.kestrelpark.com/",
+  "facts": {
+   "title": "503 Error",
+   "h1": {
+    "family": "Georgia",
+    "weight": "700",
+    "size": 32,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(74, 74, 74)",
+    "lh": "48px",
+    "text": "Sorry, that didn\u2019t work.\nPlease try again or come back later."
+   },
+   "h2": {
+    "family": "Verdana",
+    "weight": "300",
+    "size": 24,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(125, 125, 125)",
+    "lh": "normal",
+    "text": "503 Error. Service Unavailable."
+   },
+   "p": null,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Times",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 0,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 0,
+   "capsCount": 0,
+   "docH": 900,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 93
+  },
+  "status_m": 503,
+  "final_m": "https://www.kestrelpark.com/",
+  "mobile": {
+   "docH": 844,
+   "overflow": false,
+   "h1Size": 19,
+   "burger": false
+  }
+ },
+ {
+  "id": "lake-house-canandaigua",
+  "type": "lake resort",
+  "place": "NY Finger Lakes",
+  "url": "https://www.lakehouseoncanandaigua.com/weddings",
+  "error_d": "Page.goto: net::ERR_CONNECTION_CLOSED at https://www.lakehouseoncanandaigua.com/weddings\nCall log:\n  - navigating to \"https://www.lakehouseoncanandaigua.com/wed",
+  "error_m": "Page.goto: net::ERR_CONNECTION_CLOSED at https://www.lakehouseoncanandaigua.com/weddings\nCall log:\n  - navigating to \"https://www.lakehouseoncanandaigua.com/wed"
+ },
+ {
+  "id": "wildflower-301",
+  "type": "modern garden",
+  "place": "TX",
+  "url": "https://wildflower301.com/",
+  "status_d": 200,
+  "final_d": "https://www.wildflower301.com/",
+  "facts": {
+   "title": "Atlanta Wedding Venue | Plan Your Dream Wedding Today",
+   "h1": null,
+   "h2": {
+    "family": "Libre Baskerville",
+    "weight": "400",
+    "size": 19,
+    "ls": "-0.38912px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "21.6662px",
+    "text": "I work in event planning, so my standards are sky-high \u2014 and The Wildflower 301 exceeded t"
+   },
+   "p": null,
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "sans-serif",
+   "navLinks": [
+    "Skip to Content"
+   ],
+   "navCount": 1,
+   "imgCount": 12,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 874,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Libre Baskerville",
+    "Almarai",
+    "AddingtonCF-Light",
+    "AddingtonCF-LightItalic",
+    "ArticulatCF-Regular"
+   ],
+   "scriptFont": [],
+   "ctas": [],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 0,
+   "platform": "squarespace",
+   "svgCount": 3,
+   "capsCount": 0,
+   "docH": 2615,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 977
+  },
+  "status_m": 200,
+  "final_m": "https://www.wildflower301.com/",
+  "mobile": {
+   "docH": 3248,
+   "overflow": false,
+   "h1Size": null,
+   "burger": true
+  }
+ },
+ {
+  "id": "cuixmala",
+  "type": "intl estate",
+  "place": "Mexico",
+  "url": "https://cuixmala.com/",
+  "status_d": 200,
+  "final_d": "https://cuixmala.com/",
+  "facts": {
+   "title": "Luxury eco-resort - A more than 30,000 acre nature reserve",
+   "h1": {
+    "family": "Avenir",
+    "weight": "400",
+    "size": 22,
+    "ls": "2.2px",
+    "tt": "uppercase",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "normal",
+    "text": ""
+   },
+   "h2": {
+    "family": "Avenir",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "25.1429px",
+    "text": "30,000 acres of nature reserve"
+   },
+   "p": {
+    "family": "Avenir",
+    "weight": "600",
+    "size": 23,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "30.6667px",
+    "text": "A nature reserve of more than 30,000 acres,\noriginally the private retreat for Sir James G"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(0, 0, 0)",
+   "bodyFont": "Avenir",
+   "navLinks": [
+    "BOOK NOW"
+   ],
+   "navCount": 1,
+   "imgCount": 30,
+   "videoCount": 1,
+   "hero": {
+    "tag": "VIDEO",
+    "w": 1440,
+    "h": 648,
+    "top": -30
+   },
+   "bgHero": null,
+   "fonts": [
+    "Avenir"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "BOOK NOW"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": true,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "wordpress",
+   "svgCount": 6,
+   "capsCount": 46,
+   "docH": 5682,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2253
+  },
+  "status_m": 200,
+  "final_m": "https://cuixmala.com/",
+  "mobile": {
+   "docH": 9605,
+   "overflow": false,
+   "h1Size": 22,
+   "burger": true
+  }
+ },
+ {
+  "id": "stone-manor",
+  "type": "estate",
+  "place": "SoCal Malibu",
+  "url": "https://www.stonemanormalibu.com/",
+  "error_d": "Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://www.stonemanormalibu.com/\nCall log:\n  - navigating to \"https://www.stonemanormalibu.com/\", waiting until \"domc",
+  "error_m": "Page.goto: net::ERR_CONNECTION_REFUSED at https://www.stonemanormalibu.com/\nCall log:\n  - navigating to \"https://www.stonemanormalibu.com/\", waiting until \"domc"
+ },
+ {
+  "id": "saddlerock-gardens",
+  "type": "ranch garden",
+  "place": "SoCal Malibu",
+  "url": "https://www.saddlerockgardens.com/",
+  "status_d": 200,
+  "final_d": "https://www.saddlerockgardens.com/",
+  "facts": {
+   "title": "Saddlerock Gardens | HOA in Palm Springs, CA",
+   "h1": {
+    "family": "Trebuchet MS",
+    "weight": "500",
+    "size": 25,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(25, 34, 14)",
+    "lh": "25px",
+    "text": "Welcome To SADDLEROCK GARDENS HOA"
+   },
+   "h2": null,
+   "p": {
+    "family": "Trebuchet MS",
+    "weight": "400",
+    "size": 16,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(51, 51, 51)",
+    "lh": "21px",
+    "text": "Saddlerock Gardens was designed by the well-known architect Hugh Kaptur, a leader of the M"
+   },
+   "bodyBg": "rgb(255, 255, 255)",
+   "bodyColor": "rgb(74, 74, 74)",
+   "bodyFont": "system-ui",
+   "navLinks": [],
+   "navCount": 0,
+   "imgCount": 5,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1000,
+    "h": 300,
+    "top": 110
+   },
+   "bgHero": null,
+   "fonts": [],
+   "scriptFont": [],
+   "ctas": [
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": true,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 16,
+   "capsCount": 0,
+   "docH": 1154,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 1821
+  },
+  "status_m": 200,
+  "final_m": "https://www.saddlerockgardens.com/",
+  "mobile": {
+   "docH": 1394,
+   "overflow": false,
+   "h1Size": 25,
+   "burger": true
+  }
+ },
+ {
+  "id": "belmond-caruso",
+  "type": "intl hotel",
+  "place": "Ravello",
+  "url": "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso/weddings",
+  "status_d": 404,
+  "final_d": "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso/weddings",
+  "facts": {
+   "title": "Belmond Hotels, Trains, River Cruises - Discover Belmond Luxury Travel",
+   "h1": {
+    "family": "Sebenta",
+    "weight": "400",
+    "size": 48,
+    "ls": "1px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(26, 26, 26)",
+    "lh": "55px",
+    "text": "Page not found"
+   },
+   "h2": {
+    "family": "Gotham ScreenSmart",
+    "weight": "400",
+    "size": 13,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(255, 255, 255)",
+    "lh": "21px",
+    "text": "Corporate"
+   },
+   "p": {
+    "family": "Gotham ScreenSmart",
+    "weight": "300",
+    "size": 15,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(26, 26, 26)",
+    "lh": "21px",
+    "text": "We're sorry, we are unable to locate the page you are looking for. Please try the back but"
+   },
+   "bodyBg": "rgb(244, 244, 242)",
+   "bodyColor": "rgb(26, 26, 26)",
+   "bodyFont": "Gotham ScreenSmart",
+   "navLinks": [
+    "Destinations",
+    "Hotels",
+    "Trains",
+    "Boats",
+    "Lodges",
+    "Find Booking",
+    "Contact"
+   ],
+   "navCount": 7,
+   "imgCount": 0,
+   "videoCount": 0,
+   "hero": null,
+   "bgHero": null,
+   "fonts": [
+    "Gotham ScreenSmart"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Find Booking",
+    "Contact",
+    "Contact Us",
+    "Event Planners"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": false
+   },
+   "badges": 0,
+   "platform": "custom/other",
+   "svgCount": 2,
+   "capsCount": 0,
+   "docH": 980,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 771
+  },
+  "status_m": 404,
+  "final_m": "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso/weddings",
+  "mobile": {
+   "docH": 1328,
+   "overflow": false,
+   "h1Size": 35,
+   "burger": false
+  }
+ },
+ {
+  "id": "ebell-la-events",
+  "type": "historic club",
+  "place": "SoCal LA",
+  "url": "https://ebellevents.com/",
+  "status_d": 200,
+  "final_d": "https://ebellevents.com/",
+  "facts": {
+   "title": "Ebell of LA Weddings",
+   "h1": null,
+   "h2": {
+    "family": "Manrope",
+    "weight": "500",
+    "size": 15,
+    "ls": "-0.2976px",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "17.2132px",
+    "text": "Weddings"
+   },
+   "p": {
+    "family": "Nunito Sans",
+    "weight": "400",
+    "size": 14,
+    "ls": "normal",
+    "tt": "none",
+    "style": "normal",
+    "color": "rgb(0, 0, 0)",
+    "lh": "19.6px",
+    "text": "The Ebell has always been a haven for storytellers; from our earliest days to the present."
+   },
+   "bodyBg": "rgb(237, 237, 237)",
+   "bodyColor": "rgb(73, 73, 73)",
+   "bodyFont": "sans-serif",
+   "navLinks": [
+    "SKIP TO CONTENT",
+    "Weddings",
+    "Events",
+    "Cuisine & Mixology",
+    "Contact Us",
+    "Blog",
+    "About The Ebell",
+    "SEE MORE",
+    "SEE MORE",
+    "READ OUR ARTICLES",
+    "A Match Made in Detail",
+    "Best of Weddings 2024"
+   ],
+   "navCount": 12,
+   "imgCount": 27,
+   "videoCount": 0,
+   "hero": {
+    "tag": "IMG",
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "bgHero": null,
+   "fonts": [
+    "Nunito Sans",
+    "Manrope",
+    "squarespace-ui-font"
+   ],
+   "scriptFont": [],
+   "ctas": [
+    "Contact Us"
+   ],
+   "libs": {
+    "swiper": false,
+    "slick": false,
+    "flickity": false,
+    "gsap": false,
+    "lenis": false,
+    "locomotive": false,
+    "aos": false,
+    "lottie": false,
+    "webgl": true
+   },
+   "badges": 5,
+   "platform": "squarespace",
+   "svgCount": 9,
+   "capsCount": 5,
+   "docH": 2902,
+   "capacityMention": false,
+   "priceMention": false,
+   "textLen": 2110
+  },
+  "status_m": 200,
+  "final_m": "https://ebellevents.com/",
+  "mobile": {
+   "docH": 4475,
+   "overflow": true,
+   "h1Size": null,
+   "burger": true
+  }
+ }
+]

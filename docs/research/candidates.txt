@@ -1,0 +1,68 @@
+san-ysidro-ranch|estate|SoCal Montecito|https://www.sanysidroranch.com/weddings-and-events
+ojai-valley-inn|resort|SoCal Ojai|https://www.ojaivalleyinn.com/
+rosewood-miramar|coastal hotel|SoCal Montecito|https://www.rosewoodhotels.com/en/miramar-beach-montecito/weddings
+hotel-bel-air|hotel estate|SoCal LA|https://www.dorchestercollection.com/los-angeles/hotel-bel-air
+montage-laguna|coastal resort|SoCal Laguna|https://www.montage.com/lagunabeach/weddings/
+parker-palm-springs|desert modern|SoCal Palm Springs|https://www.parkerpalmsprings.com/weddings
+korakia|desert|SoCal Palm Springs|https://www.korakia.com/weddings
+greengate|vineyard ranch|Central Coast SLO|https://greengateweddings.com/
+sunstone-villa|villa|SoCal Santa Ynez|https://www.sunstonevilla.com/
+monserate|vineyard|SoCal Fallbrook|https://www.monseratewinery.com/weddings
+ethereal|garden|SoCal Escondido|https://etherealopenairresort.com/
+rancho-valencia|estate resort|SoCal Rancho Santa Fe|https://www.ranchovalencia.com/weddings
+villa-sjc|villa|SoCal San Juan Capistrano|https://thevillasjc.com/
+valentine-dtla|loft modern|SoCal LA|https://valentinedtla.com/
+cielo-farms|vineyard|SoCal Malibu|https://www.cielofarms.com/weddings/
+houdini-estate|estate|SoCal Laurel Canyon|https://www.thehoudiniestate.com/
+terranea|coastal resort|SoCal Palos Verdes|https://www.terranea.com/weddings
+la-venta-inn|historic|SoCal Palos Verdes|https://laventainn.com/
+inn-at-mission|mission hotel|SoCal SJC|https://www.innatthemissionsjc.com/weddings
+lodge-torrey-pines|coastal lodge|SoCal La Jolla|https://www.lodgetorreypines.com/weddings
+serra-plaza|hacienda|SoCal SJC|https://serraplaza.com/
+ebell-long-beach|historic club|SoCal Long Beach|https://www.ebelllongbeach.com/
+ranch-laguna|coastal canyon|SoCal Laguna|https://www.theranchlb.com/weddings
+hotel-californian|hotel|SoCal Santa Barbara|https://www.thehotelcalifornian.com/
+catalina-view|garden|SoCal Palos Verdes|https://catalinaviewgardens.com/
+maravilla|garden|SoCal Camarillo|https://www.maravillagardens.com/
+blackberry-farm|estate|TN|https://www.blackberryweddings.com/
+auberge-du-soleil|vineyard resort|Napa|https://auberge.com/auberge-du-soleil/
+beaulieu-garden|garden estate|Napa|https://www.beaulieugarden.com/
+stanly-ranch|ranch resort|Napa|https://auberge.com/events/weddings/
+montage-healdsburg|vineyard resort|Sonoma|https://www.montage.com/healdsburg/weddings/
+ventana|coastal forest|Big Sur|https://www.ventanabigsur.com/wedding-celebration-spaces/
+sea-ranch-lodge|coastal|Sonoma Coast|https://www.thesearanchlodge.com/
+shou-sugi-ban|modern retreat|Hamptons|https://shousugibanhouse.com/
+amangiri|desert modern|Utah|https://www.aman.com/resorts/amangiri/weddings
+commodore-perry|estate|Austin|https://auberge.com/commodore-perry/
+glenmere|mansion|NY|https://www.glenmeremansion.com/
+inness|modern farm|Hudson Valley|https://www.inness.co/
+six-bells|country inn|CT|https://thesixbells.com/
+santa-lucia-preserve|ranch estate|Carmel|https://www.santaluciapreserve.com/
+cherry-hollow|barn|GA|https://www.cherryhollowfarm.com/
+early-mountain|vineyard|VA|https://www.earlymountain.com/weddings
+castle-hill|coastal inn|Newport RI|https://www.castlehillinn.com/weddings
+oheka|castle|Long Island|https://www.oheka.com/weddings
+natirar|estate|NJ|https://natirar.com/
+weylin|historic hall|Brooklyn|https://www.weylin.com/
+wythe|loft hotel|Brooklyn|https://wythehotel.com/weddings
+hotel-emma|historic brewery hotel|San Antonio|https://www.thehotelemma.com/weddings
+lowndes-grove|plantation house|Charleston|https://lowndesgrove.com/
+nestldown|redwood garden|Los Gatos|https://www.nestldown.com/
+holman-ranch|ranch vineyard|Carmel Valley|https://www.holmanranch.com/weddings
+brush-creek|ranch|WY|https://www.brushcreekranch.com/weddings
+twin-farms|country inn|VT|https://www.twinfarms.com/
+vizcaya|historic villa|Miami|https://vizcaya.org/visit-2/wedding-events/
+bella-collina|tuscan estate|FL|https://www.bellacollina.com/weddings-events/weddings
+the-clifton|inn|Charlottesville|https://www.the-clifton.com/
+villa-balbiano|intl villa|Lake Como|https://villabalbiano.com/
+haiku-mill|ruin garden|Maui|https://www.haikumill.com/
+greenhouse-loft|loft|Chicago|https://greenhouseloft.com/
+babington-soho|intl country house|UK|https://www.sohohouse.com/houses/babington-house
+kestrel-park|estate garden|SoCal Santa Ynez|https://www.kestrelpark.com/
+lake-house-canandaigua|lake resort|NY Finger Lakes|https://www.lakehouseoncanandaigua.com/weddings
+wildflower-301|modern garden|TX|https://wildflower301.com/
+cuixmala|intl estate|Mexico|https://cuixmala.com/
+stone-manor|estate|SoCal Malibu|https://www.stonemanormalibu.com/
+saddlerock-gardens|ranch garden|SoCal Malibu|https://www.saddlerockgardens.com/
+belmond-caruso|intl hotel|Ravello|https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso/weddings
+ebell-la-events|historic club|SoCal LA|https://ebellevents.com/
