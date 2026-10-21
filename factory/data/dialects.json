@@ -576,11 +576,11 @@
    "heroes": [
     {
      "id": "crest-centred",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "cinematic",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "frame",
@@ -600,7 +600,7 @@
    "story": [
     {
      "id": "split",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "timeline",
@@ -632,11 +632,11 @@
    "moments": [
     {
      "id": "crest-reveal",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "hours-dial",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "grounds-constellation",
@@ -646,19 +646,19 @@
    "ornaments": [
     {
      "id": "crest-roundel",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "double-rule",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "keyline-frame",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "small-caps-kicker",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "voices": [
@@ -696,7 +696,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -731,7 +731,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -933,7 +933,7 @@
     },
     {
      "id": "inset-caption",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "masthead",
@@ -967,7 +967,7 @@
    "gallery": [
     {
      "id": "pairs",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "none",
@@ -981,7 +981,7 @@
     },
     {
      "id": "pairs-counter",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "light-shift",
@@ -995,15 +995,15 @@
    "ornaments": [
     {
      "id": "drop-cap",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "italic-lead-in",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "vertical-label",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "hairline-rule",
@@ -1045,7 +1045,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1080,7 +1080,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1287,15 +1287,15 @@
    "heroes": [
     {
      "id": "panel",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "cinematic",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "silent",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -1311,7 +1311,7 @@
    "story": [
     {
      "id": "split",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "faq": [
@@ -1339,25 +1339,25 @@
     },
     {
      "id": "candle-count",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "hours-dial",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "ornaments": [
     {
      "id": "double-line-frame",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "botanical-engraving",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "brass-rule",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "monogram-seal",
@@ -1399,7 +1399,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1412,7 +1412,7 @@
       {
        "kind": "section",
        "id": "daylight-band",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1439,7 +1439,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1645,15 +1645,15 @@
     },
     {
      "id": "inset-wide",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "landscape-silent",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "slideshow",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -1663,7 +1663,7 @@
     },
     {
      "id": "strip",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "story": [
@@ -1697,11 +1697,11 @@
     },
     {
      "id": "slideshow-counter",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "numbers-count",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "window-reveal",
@@ -1711,11 +1711,11 @@
    "ornaments": [
     {
      "id": "hairline-grid",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "counter",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "arrow-glyph",
@@ -1757,7 +1757,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1788,7 +1788,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -1994,7 +1994,7 @@
     },
     {
      "id": "inset-caption",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "masthead",
@@ -2002,7 +2002,7 @@
     },
     {
      "id": "slideshow",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -2022,7 +2022,7 @@
     },
     {
      "id": "split",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "faq": [
@@ -2050,7 +2050,7 @@
     },
     {
      "id": "slideshow-counter",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "season-toggle",
@@ -2058,21 +2058,21 @@
     },
     {
      "id": "hours-dial",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "ornaments": [
     {
      "id": "small-caps-kicker",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "compass-rose",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "counter",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "inset-margin",
@@ -2115,7 +2115,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -2150,7 +2150,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -2350,11 +2350,11 @@
     },
     {
      "id": "cinematic",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "arch-split",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -2406,25 +2406,25 @@
     },
     {
      "id": "sprig-draw",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "ornaments": [
     {
      "id": "botanical-line",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "leaf-rule",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "watercolour-wash",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "rounded-arch",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "voices": [
@@ -2463,7 +2463,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -2498,7 +2498,7 @@
       {
        "kind": "section",
        "id": "statement",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -2697,7 +2697,7 @@
    "heroes": [
     {
      "id": "cinematic",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "frame",
@@ -2705,7 +2705,7 @@
     },
     {
      "id": "landscape-silent",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -2715,7 +2715,7 @@
     },
     {
      "id": "stack-olive",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "story": [
@@ -2725,7 +2725,7 @@
     },
     {
      "id": "split",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "faq": [
@@ -2761,25 +2761,25 @@
     },
     {
      "id": "numbers-count",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "ornaments": [
     {
      "id": "olive-band",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "rope-rule",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "wood-keyline",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "brand-mark",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "voices": [
@@ -2816,7 +2816,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -2851,7 +2851,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -3076,7 +3076,7 @@
     },
     {
      "id": "pair-split",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "spaces": [
@@ -3112,7 +3112,7 @@
    "moments": [
     {
      "id": "numbers-count",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "window-reveal",
@@ -3120,25 +3120,25 @@
     },
     {
      "id": "then-now",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "ornaments": [
     {
      "id": "underline-bar",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "stepped-frame",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "sunburst",
-     "status": "planned-2B"
+     "status": "exists"
     },
     {
      "id": "geometric-rule",
-     "status": "planned-2B"
+     "status": "exists"
     }
    ],
    "voices": [
@@ -3177,7 +3177,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",
@@ -3212,7 +3212,7 @@
       {
        "kind": "section",
        "id": "facts-strip",
-       "status": "planned-2B"
+       "status": "exists"
       },
       {
        "kind": "role",

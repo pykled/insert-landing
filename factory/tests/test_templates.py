@@ -28,13 +28,15 @@ def test_resolve_prefers_wanted_then_allowed_chain():
 
 
 def test_real_filesystem_statuses():
-    assert TPL.exists('hero', 'frame') and not TPL.exists('hero', 'crest-centred')
+    assert TPL.exists('hero', 'frame') and TPL.exists('hero', 'crest-centred') and not TPL.exists('hero', 'no-such-hero')
     assert TPL.exists('gallery', 'none') and TPL.exists('ornament', 'none')
     assert TPL.exists('pairing', 'estate-caslon') and TPL.exists('voice', 'heritage')
-    used, rec = TPL.resolve('hero', 'crest-centred', ['cinematic', 'frame'], FB)
-    assert used in ('cinematic', 'frame') and rec
+    used, rec = TPL.resolve('hero', 'silent', ['cinematic', 'frame'], FB)
+    assert used == 'silent' and rec is None   # exists since 2B-1: honoured, no fallback
     used, rec = TPL.resolve('ornament', 'crest-roundel', [], FB)
-    assert used == 'none' and rec['kind'] == 'ornament'
+    assert used == 'crest-roundel' and rec is None   # exists since 2B-4
+    used, rec = TPL.resolve('ornament', 'no-such-ornament', [], FB)
+    assert used is None and rec['kind'] == 'ornament'   # no chain: omitted (build.py renders 'none')
 
 
 def test_every_fallback_chain_ends_somewhere_buildable_or_omits():
@@ -81,9 +83,9 @@ def test_dialect_build_falls_back_and_records(tmp_path):
     meta = json.load(open(os.path.join(out, 'build-meta.json')))
     assert meta['dialect']['id'] == 'estate' and meta['dialect']['source'].startswith('human override')
     assert meta['wanted']['hero'] == 'crest-centred'
-    assert meta['choices']['hero'] in ('cinematic', 'frame')
+    assert meta['choices']['hero'] == 'crest-centred'   # exists since 2B-1: honoured, no hero fallback
     kinds = {(f['kind'], f['wanted']) for f in meta['fallbacks']}
-    assert ('hero', 'crest-centred') in kinds
+    assert ('hero', 'crest-centred') not in kinds
     assert meta['fingerprint']['dialect'] == 'estate' and meta['fingerprint']['hero'] == meta['choices']['hero']
     for k, (lo, hi) in next(d for d in DOC['dialects'] if d['id'] == 'estate')['axes'].items():
         assert lo <= meta['personality'][k] <= hi
