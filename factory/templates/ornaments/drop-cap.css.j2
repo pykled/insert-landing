@@ -1,0 +1,6 @@
+  /* ornament: drop-cap: display face, 3 lines tall, accent; initial-letter with a float fallback */
+  .orn-dropcap-marker { display: block; width: 0; height: 0; overflow: hidden; }
+  .orn-dropcap-marker + p::first-letter, .orn-dropcap-story + section#story :not(.card):not(form):not(figure) > p:first-of-type:not(.fine):not(.sub):not(.kicker)::first-letter, p[data-ornament="drop-cap"]::first-letter { font-family: var(--display); font-weight: var(--display-weight); color: var(--accent-text); float: left; font-size: 3.05em; line-height: 0.82; padding: 0.08em 0.12em 0 0; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+    .orn-dropcap-marker + p::first-letter, .orn-dropcap-story + section#story :not(.card):not(form):not(figure) > p:first-of-type:not(.fine):not(.sub):not(.kicker)::first-letter, p[data-ornament="drop-cap"]::first-letter { float: none; font-size: inherit; line-height: inherit; padding: 0 0.1em 0 0; -webkit-initial-letter: 3; initial-letter: 3; }
+  }

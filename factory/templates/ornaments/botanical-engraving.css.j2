@@ -1,0 +1,9 @@
+  /* ornament: botanical-engraving */
+  .orn-engraving { color: var(--metal, var(--accent)); opacity: .35; pointer-events: none; line-height: 0; }
+  .orn-engraving svg { width: 320px; height: 320px; display: block; }
+  .orn-engraving path, .orn-engraving circle, .orn-engraving use { fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .orn-engraving-story { position: absolute; right: -40px; top: -40px; z-index: 0; }
+  .orn-engraving-section-head, .orn-engraving-hero { margin: 0 auto 24px; }
+  .orn-engraving-footer { display: flex; justify-content: center; padding: 0 0 28px; }
+  .orn-engraving-footer svg { width: 200px; height: 200px; }
+  @media (max-width: 860px) { .orn-engraving-story { right: -80px; top: -20px; } .orn-engraving svg { width: 240px; height: 240px; } }

@@ -1,0 +1,9 @@
+  /* ornament: stepped-frame: 1 px brass edges drawn by the box, corners by four small svgs sitting on the edge */
+  .orn-step { position: absolute; inset: 10px; pointer-events: none; color: var(--metal, var(--accent)); }
+  .orn-step::before { content: ""; position: absolute; inset: 0; border: 1px solid currentColor; clip-path: polygon(24px 0, calc(100% - 24px) 0, calc(100% - 24px) 100%, 24px 100%, 24px calc(100% - 24px), 0 calc(100% - 24px), 0 24px, 24px 24px); }
+  .orn-step-c { position: absolute; width: 24px; height: 24px; overflow: visible; }
+  .orn-step-c path { fill: none; stroke: currentColor; stroke-width: 1; shape-rendering: crispEdges; }
+  .orn-step-tl { left: 0; top: 0; } .orn-step-tr { right: 0; top: 0; } .orn-step-bl { left: 0; bottom: 0; } .orn-step-br { right: 0; bottom: 0; }
+  .orn-step-top { position: relative; height: 0; inset: auto; z-index: 2; }
+  .orn-step-top::before { inset: 12px 12px auto 12px; height: 24px; border-width: 1px 0 0 0; clip-path: polygon(24px 0, calc(100% - 24px) 0, calc(100% - 24px) 2px, 24px 2px); }
+  .orn-step-top .orn-step-tl { left: 12px; top: 12px; } .orn-step-top .orn-step-tr { right: 12px; top: 12px; }

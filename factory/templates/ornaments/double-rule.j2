@@ -1,0 +1,7 @@
+{#- double-rule (estate, placed): two 1 px --line rules 6 px apart, 64 px wide. section-head: under a centred heading
+    (inner include). story / tour (base): centred divider above the section. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set here = slot in ('story', 'tour', 'facts') if from_base|default(false) else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+<div class="orn-drule{% if from_base|default(false) %} orn-slot orn-drule-divider{% endif %}{% if align|default('center') == 'center' %} orn-center{% endif %}" data-ornament="double-rule" aria-hidden="true"><i></i><i></i></div>
+{% endif %}

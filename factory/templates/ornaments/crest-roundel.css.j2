@@ -1,0 +1,15 @@
+  /* ornament: crest-roundel */
+  .orn-crest { display: flex; justify-content: center; line-height: 0; }
+  .orn-crest-svg { width: 56px; height: 56px; overflow: visible; color: var(--metal, var(--accent)); }
+  .orn-crest-ring { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 0; transform-origin: 50% 50%; transform: rotate(-90deg); }
+  .orn-crest-text { font-family: var(--display); font-weight: var(--display-weight); font-size: 22px; letter-spacing: 0.04em; fill: currentColor; {% if pair.display.vars %}font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .orn-crest-header { position: relative; z-index: 31; height: 0; pointer-events: none; }
+  .orn-crest-header .orn-crest-svg { margin-top: -28px; background: var(--paper); border-radius: 50%; }
+  .orn-crest-footer { padding: 0 0 36px; }
+  .orn-crest-footer .orn-crest-svg { width: 44px; height: 44px; }
+  .orn-crest-hero .orn-crest-svg { color: var(--on-deep, var(--metal, var(--accent))); }
+  .orn-crest-hero .orn-crest-text { fill: currentColor; }
+  @keyframes orn-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  .orn-crest-ring { animation: orn-draw {{ t.motion_device_ms|default(1200) }}ms var(--ease) both; }
+  .orn-crest-ring-in { animation-delay: 160ms; }
+  @media (prefers-reduced-motion: reduce) { .orn-crest-ring { animation: none; stroke-dashoffset: 0; } }

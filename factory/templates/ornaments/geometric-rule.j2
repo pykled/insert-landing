@@ -1,0 +1,8 @@
+{#- geometric-rule (deco, placed): 100% wide, 8 px tall row of 6 px chevrons, 1 px brass. facts (the facts strip includes
+    it at its foot; base falls back to after the facts section), story / tour (base): a divider above the section. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('facts', 'story', 'tour') if fb else slot in ('facts', 'section-head', 'hero') %}
+{% if place(slot, here) %}
+<div class="orn-geo{% if fb %} orn-slot orn-geo-divider{% endif %}" data-ornament="geometric-rule" aria-hidden="true"></div>
+{% endif %}

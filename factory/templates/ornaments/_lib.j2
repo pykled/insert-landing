@@ -1,0 +1,12 @@
+{#- Shared gate for every ornament partial (stage 2B). `place(slot, want)` returns truthy once per slot and never past
+    three placed instances on the page; `orn` is the namespace base.html.j2 shares with every include. Partials:
+      {% from 'ornaments/_lib.j2' import place, initials with context %}
+      {% if place(slot, slot in ('header', 'footer')) %} ...markup with data-ornament="<id>"... {% endif %}
+    Variables a caller may pass with `{% with %}`: slot (required), from_base (base.html.j2 sibling positions), section_label,
+    section_index / section_total (counters), lead_em / lead_caps (italic-lead-in), bar_text (underline-bar), align ('center'). -#}
+{% macro place(slot, want) -%}
+{% if want %}{% if orn is not defined %}1{% elif orn.placed < 3 and slot not in orn.slots %}{% set orn.placed = orn.placed + 1 %}{% set orn.slots = orn.slots + [slot] %}1{% endif %}{% endif %}
+{%- endmacro %}
+{% macro initials(name) -%}
+{{ name.split()|map('first')|join('')|upper|truncate(3, true, '') }}
+{%- endmacro %}

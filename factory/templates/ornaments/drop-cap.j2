@@ -1,0 +1,8 @@
+{#- drop-cap (editorial, placed): a zero-size marker; the css styles the first letter of the paragraph that follows the
+    marker (section-head, inner) or the first story paragraph of the section that follows it (story, base).
+    The statement section marks its own sentence with data-ornament="drop-cap" (that counts as one instance). -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set here = slot == 'story' if from_base|default(false) else slot == 'section-head' %}
+{% if place(slot, here) %}
+<span class="orn-dropcap-marker{% if from_base|default(false) %} orn-dropcap-story{% endif %}" data-ornament="drop-cap" aria-hidden="true"></span>
+{% endif %}

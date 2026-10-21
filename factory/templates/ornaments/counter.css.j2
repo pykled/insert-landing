@@ -1,0 +1,4 @@
+  /* ornament: counter */
+  .orn-counter { display: inline-flex; align-items: center; gap: 12px; font-family: var(--body); font-size: 12.5px; letter-spacing: 0.22em; font-weight: {{ pair.body.medium }}; color: var(--ink-soft); margin: 0 0 16px; max-width: none; font-variant-numeric: tabular-nums; }
+  .orn-counter i { display: block; width: 28px; height: 1px; background: var(--line-strong, var(--line)); }
+  .orn-counter-band { display: flex; margin: 0 auto; width: min(var(--max), 100%); padding: 0 var(--gutter); position: relative; z-index: 2; transform: translateY(calc(clamp(var(--pad-min), 9vw, var(--pad-max)) - 24px)); }

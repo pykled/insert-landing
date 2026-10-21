@@ -1,0 +1,9 @@
+{#- italic-lead-in (editorial, placed): a lowercase italic word in the display face before tracked caps ("the WILDFLOWER 301").
+    hero (base, after the hero): "in <LOCALITY>". section-head (inner): lead_em + lead_caps (defaults: "the" + section label). -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot == 'hero' if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+{% if fb %}{% set em_, caps_ = 'in', v.tagline_facts.locality ~ ', ' ~ v.tagline_facts.state %}{% else %}{% set em_, caps_ = lead_em|default('the'), lead_caps|default(section_label|default(v.short_name)) %}{% endif %}
+<p class="orn-leadin{% if fb %} orn-slot orn-leadin-band{% endif %}" data-ornament="italic-lead-in"><em>{{ em_ }}</em> <span class="caps">{{ caps_ }}</span></p>
+{% endif %}

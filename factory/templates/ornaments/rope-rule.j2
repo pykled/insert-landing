@@ -1,0 +1,8 @@
+{#- rope-rule (ranch, placed): a 1 px dashed rule, 8 px dashes in accent. story / tour / facts (base): a divider above the
+    section. section-head (inner): 160 px under the heading. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'tour', 'facts') if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+<div class="orn-rope{% if fb %} orn-slot orn-rope-divider{% endif %}{% if align|default('left') == 'center' %} orn-center{% endif %}" data-ornament="rope-rule" aria-hidden="true"></div>
+{% endif %}

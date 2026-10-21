@@ -1,0 +1,9 @@
+  /* ornament: brand-mark */
+  .orn-brand { display: flex; justify-content: center; color: var(--accent-text); line-height: 0; }
+  .orn-brand svg { width: 48px; height: 48px; overflow: visible; }
+  .orn-brand circle, .orn-brand path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+  .orn-brand text { font-family: var(--display); font-weight: var(--display-weight); font-size: 17px; letter-spacing: 0.08em; fill: currentColor; {% if pair.display.vars %}font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .orn-brand-header { position: relative; z-index: 31; height: 0; pointer-events: none; }
+  .orn-brand-header svg { margin-top: -24px; background: var(--paper); border-radius: 50%; }
+  .orn-brand-footer { padding: 0 0 36px; }
+  .orn-brand-hero { color: var(--on-deep, var(--accent-text)); }

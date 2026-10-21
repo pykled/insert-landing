@@ -1,0 +1,9 @@
+{#- underline-bar (deco, placed): an accent bar behind the lower third of the name on an inline span; slides in once
+    (background-size 0 -> 100%, 600 ms, data-motion-device="bar-slide"). hero / section-head (inner): wraps bar_text (default
+    v.short_name) so a hero writes `{% with slot='hero', bar_text=v.short_name %}`. footer (base): a centred wordmark line. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot == 'footer' if fb else slot in ('hero', 'section-head', 'story') %}
+{% if place(slot, here) %}
+{% if fb %}<p class="orn-bar-line orn-slot" aria-hidden="true">{% endif %}<span class="orn-bar" data-ornament="underline-bar" data-motion-device="bar-slide">{{ bar_text|default(v.short_name) }}</span>{% if fb %}</p>{% endif %}
+{% endif %}

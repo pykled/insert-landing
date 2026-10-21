@@ -1,0 +1,13 @@
+{#- botanical-line (botanical, placed): one leaf sprig, 1 px ink stroke, 120-240 px, chosen by the first photo `flora` tag
+    (ornaments/sprigs/<flora>.svg.j2; olive when untagged). story (base): section opener centred above the story. footer (base):
+    flourish above the footer. section-head (inner): opener above a heading (the statement). It draws in once (1600 ms). -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'footer') if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+{% set flora = (photos.values()|selectattr('flora')|map(attribute='flora')|list|first)|default('olive', true) %}
+{% set sprig = flora if flora in ('olive', 'fig', 'fern', 'lavender', 'oak', 'eucalyptus') else 'olive' %}
+<div class="orn-sprig orn-sprig-{{ slot }}{% if fb %} orn-slot{% endif %}" data-ornament="botanical-line" data-motion-device="draw-in" aria-hidden="true">
+{% include 'ornaments/sprigs/' ~ sprig ~ '.svg.j2' %}
+</div>
+{% endif %}

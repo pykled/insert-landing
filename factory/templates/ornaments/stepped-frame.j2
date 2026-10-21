@@ -1,0 +1,16 @@
+{#- stepped-frame (deco, placed): a brass frame with three 6 px steps per corner. Inner include (tour card, hero band,
+    section-head): the parent is position: relative; the frame fills it. tour (base): a marker before #tour gives the band
+    a stepped top edge (two corners + the rule between them). -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot == 'tour' if fb else slot in ('tour', 'hero', 'section-head', 'story') %}
+{% if place(slot, here) %}
+<div class="orn-step{% if fb %} orn-step-top orn-slot{% endif %}" data-ornament="stepped-frame" aria-hidden="true">
+  <svg class="orn-step-c orn-step-tl" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M24 .5 H18.5 V6.5 H12.5 V12.5 H6.5 V18.5 H.5 V24"/></svg>
+  <svg class="orn-step-c orn-step-tr" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M0 .5 H5.5 V6.5 H11.5 V12.5 H17.5 V18.5 H23.5 V24"/></svg>
+{% if not fb %}
+  <svg class="orn-step-c orn-step-bl" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M.5 0 V5.5 H6.5 V11.5 H12.5 V17.5 H18.5 V23.5 H24"/></svg>
+  <svg class="orn-step-c orn-step-br" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M23.5 0 V5.5 H17.5 V11.5 H11.5 V17.5 H5.5 V23.5 H0"/></svg>
+{% endif %}
+</div>
+{% endif %}

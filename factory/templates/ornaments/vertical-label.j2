@@ -1,0 +1,10 @@
+{#- vertical-label (editorial, placed): the section name rotated -90 deg in small caps at the left margin (<= 3 sections).
+    story / tour (base): a zero-height wrapper before the section anchors the label in the left margin (hidden under 1100 px).
+    section-head (inner): a short vertical label beside the heading. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'tour') if fb else slot == 'section-head' %}
+{% if place(slot, here) %}
+{% set label_ = section_label|default(slot|replace('-', ' ')|capitalize) %}
+<div class="orn-vlabel-wrap{% if fb %} orn-slot{% endif %}" data-ornament="vertical-label" aria-hidden="true"><span class="orn-vlabel">{{ label_ }}</span></div>
+{% endif %}

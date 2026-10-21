@@ -1,0 +1,9 @@
+{#- counter (modern-luxe / coastal, placed): section counter "02 — 05" in tracked caps. story / tour (base): above the section
+    inside the container. section-head (inner): counter_index / section_index over section_total. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'tour') if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+{% set i = counter_index|default(section_index|default(1)) %}{% set n = counter_total|default(section_total|default(sections|length + 1)) %}
+<p class="orn-counter{% if fb %} orn-slot orn-counter-band{% endif %}" data-ornament="counter" aria-hidden="true"><span>{{ '%02d' % i }}</span><i></i><span>{{ '%02d' % n }}</span></p>
+{% endif %}

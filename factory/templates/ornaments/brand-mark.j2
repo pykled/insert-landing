@@ -1,0 +1,14 @@
+{#- brand-mark (ranch, placed): 48 px circle + initials, 2 px stroke, cattle-brand style (a short bar under the letters).
+    header (base): medallion under the header centre. footer (base): centred above the footer. hero (inner). -#}
+{% from 'ornaments/_lib.j2' import place, initials with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('header', 'footer') if fb else slot in ('hero', 'section-head') %}
+{% if place(slot, here) %}
+<div class="orn-brand orn-brand-{{ slot }}{% if fb %} orn-slot{% endif %}" data-ornament="brand-mark" aria-hidden="true">
+  <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false">
+    <circle cx="24" cy="24" r="22"/>
+    <text x="24" y="22" text-anchor="middle" dominant-baseline="central">{{ initials(v.short_name) }}</text>
+    <path d="M15 33 H33"/>
+  </svg>
+</div>
+{% endif %}

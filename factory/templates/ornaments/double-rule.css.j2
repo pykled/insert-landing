@@ -1,0 +1,7 @@
+  /* ornament: double-rule */
+  .orn-drule { width: 64px; display: grid; gap: 5px; margin: 18px 0 0; }
+  .orn-drule i { display: block; height: 1px; background: var(--line-strong, var(--line)); }
+  .orn-drule.orn-center { margin-left: auto; margin-right: auto; }
+  .orn-drule-divider { margin: 0 auto; transform: translateY(calc(clamp(var(--pad-min), 9vw, var(--pad-max)) / 2)); position: relative; z-index: 2; }
+  .section-head .orn-drule { margin-top: 18px; }
+  .section-head.center .orn-drule, [data-align="center"] .orn-drule { margin-left: auto; margin-right: auto; }

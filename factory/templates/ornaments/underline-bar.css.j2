@@ -1,0 +1,6 @@
+  /* ornament: underline-bar (the span carries data-ornament, so E11 reads the gradient as a device, not a background) */
+  .orn-bar { display: inline; background-image: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 88%, transparent 88%); background-repeat: no-repeat; background-size: 100% 100%; padding: 0 0.08em; margin: 0 -0.08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .orn-bar-line { display: flex; justify-content: center; margin: 0; padding: 0 var(--gutter) 40px; font-family: var(--display); font-weight: var(--display-weight); font-size: clamp({{ [pair.display.min_px, 28]|max }}px, 3vw, 44px); letter-spacing: {{ '0.12em' if (t.display_case == 'caps' or pair.display.caps_only) else 'var(--display-track)' }}; {% if t.display_case == 'caps' or pair.display.caps_only %}text-transform: uppercase;{% endif %} color: var(--ink); line-height: 1.1; max-width: none; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  @keyframes orn-bar-slide { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+  .orn-bar { animation: orn-bar-slide {{ t.motion_device_ms|default(600) }}ms var(--ease) both; }
+  @media (prefers-reduced-motion: reduce) { .orn-bar { animation: none; background-size: 100% 100%; } }

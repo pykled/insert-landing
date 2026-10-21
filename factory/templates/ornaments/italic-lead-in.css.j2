@@ -1,0 +1,6 @@
+  /* ornament: italic-lead-in */
+  .orn-leadin { display: flex; align-items: baseline; gap: 0.35em; margin: 0 0 14px; color: var(--ink); max-width: none; }
+  .orn-leadin em { font-family: var(--display); font-style: italic; font-weight: {{ pair.display.italic_weight }}; font-size: clamp({{ [pair.display.min_px, 24]|max }}px, 2vw, 30px); line-height: 1; text-transform: lowercase; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .orn-leadin .caps { font-family: var(--body); font-weight: {{ pair.body.medium }}; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); }
+  .orn-leadin-band { justify-content: center; margin: 0; padding: 26px var(--gutter) 0; }
+  .hero .orn-leadin { margin-bottom: 18px; }

@@ -1,0 +1,7 @@
+  /* ornament: vertical-label */
+  .orn-vlabel { font-family: var(--body); font-variant: small-caps; font-variant-caps: small-caps; text-transform: lowercase; letter-spacing: 0.16em; font-size: 15px; font-weight: {{ pair.body.medium }}; color: var(--accent-text); writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; line-height: 1; }
+  .orn-vlabel-wrap.orn-slot { position: relative; height: 0; z-index: 2; }
+  .orn-vlabel-wrap.orn-slot .orn-vlabel { position: absolute; top: calc(clamp(var(--pad-min), 9vw, var(--pad-max)) + 4px); left: calc(max(var(--gutter), (100% - var(--max)) / 2) - 44px); }
+  .orn-vlabel-wrap.orn-slot .orn-vlabel::after { content: ""; display: block; width: 1px; height: 40px; background: var(--line-strong, var(--line)); margin: 0 auto 14px; }
+  .orn-vlabel-wrap:not(.orn-slot) { display: inline-flex; align-items: flex-end; height: 92px; margin: 0 0 18px; }
+  @media (max-width: 1100px) { .orn-vlabel-wrap.orn-slot { display: none; } }

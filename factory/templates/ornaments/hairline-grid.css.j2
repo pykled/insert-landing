@@ -1,0 +1,9 @@
+  /* ornament: hairline-grid (page): 1 px rules between the rows and columns of the facts strip and the spaces list */
+  body[data-ornament="hairline-grid"] .facts-row, body[data-ornament="hairline-grid"] .glance-grid { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-left: 0; border-right: 0; border-radius: 0; background: transparent; }
+  body[data-ornament="hairline-grid"] .facts-item + .facts-item, body[data-ornament="hairline-grid"] .glance-item + .glance-item { border-left: 1px solid var(--line); }
+  body[data-ornament="hairline-grid"] .strip { border-top: 1px solid var(--line); }
+  body[data-ornament="hairline-grid"] .strip-item { border-bottom: 1px solid var(--line); }
+  body[data-ornament="hairline-grid"] .strip-item + .strip-item { border-left: 1px solid var(--line); }
+  body[data-ornament="hairline-grid"] .index-row, body[data-ornament="hairline-grid"] .stack-row { border-top: 1px solid var(--line); }
+  body[data-ornament="hairline-grid"] .index-row:last-child, body[data-ornament="hairline-grid"] .stack-row:last-child { border-bottom: 1px solid var(--line); }
+  @media (max-width: 860px) { body[data-ornament="hairline-grid"] .facts-item + .facts-item, body[data-ornament="hairline-grid"] .strip-item + .strip-item { border-left: 0; border-top: 1px solid var(--line); } }

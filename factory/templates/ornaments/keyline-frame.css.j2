@@ -1,0 +1,4 @@
+  /* ornament: keyline-frame (page): photos get a 1 px --line border inset 8 px inside a square box */
+  body[data-ornament="keyline-frame"] .ph { border-radius: 0; outline: 1px solid var(--line); outline-offset: -8px; }
+  body[data-ornament="keyline-frame"] .ph img { border-radius: 0; }
+  body[data-ornament="keyline-frame"] .ph::after { content: ""; position: absolute; inset: 0; border: 1px solid var(--line); pointer-events: none; }

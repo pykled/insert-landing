@@ -1,0 +1,14 @@
+{#- crest-roundel (estate, placed): 56 px roundel, 1 px brass stroke, initials in the display face, inner ring at 44 px.
+    header: medallion hanging from the header centre (base). hero: inside the hero (crest-centred hero includes it).
+    footer: centred above the footer (base). The rings draw in once (crest-reveal moment reads data-motion-device). -#}
+{% from 'ornaments/_lib.j2' import place, initials with context %}
+{% set here = slot in ('header', 'footer') if from_base|default(false) else slot in ('hero', 'section-head') %}
+{% if place(slot, here) %}
+<div class="orn-crest orn-crest-{{ slot }}{% if from_base|default(false) %} orn-slot{% endif %}" data-ornament="crest-roundel"{% if slot == 'header' %} data-crest-header{% endif %}>
+  <svg class="orn-crest-svg" viewBox="0 0 56 56" width="56" height="56" aria-hidden="true" focusable="false" data-motion-device="draw-in">
+    <circle class="orn-crest-ring" cx="28" cy="28" r="27.5" pathLength="1"/>
+    <circle class="orn-crest-ring orn-crest-ring-in" cx="28" cy="28" r="21.5" pathLength="1"/>
+    <text class="orn-crest-text" x="28" y="28" text-anchor="middle" dominant-baseline="central">{{ initials(v.short_name) }}</text>
+  </svg>
+</div>
+{% endif %}

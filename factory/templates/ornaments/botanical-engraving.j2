@@ -1,0 +1,13 @@
+{#- botanical-engraving (candlelit, placed): one 320 x 320 generic line drawing (laurel / olive / ivy), 1 px brass, opacity .35.
+    story (inner, story-split places it behind the copy; the parent positions it). footer (base): centred flourish at 200 px.
+    The drawing is chosen by the first photo `flora` tag (olive -> olive, fern / lavender -> ivy, else laurel). -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot == 'footer' if fb else slot in ('story', 'section-head', 'hero') %}
+{% if place(slot, here) %}
+{% set flora = (photos.values()|selectattr('flora')|map(attribute='flora')|list|first)|default('laurel', true) %}
+{% set engraving = {'olive': 'olive', 'fern': 'ivy', 'lavender': 'ivy', 'eucalyptus': 'olive'}.get(flora, 'laurel') %}
+<div class="orn-engraving orn-engraving-{{ slot }}{% if fb %} orn-slot{% endif %}" data-ornament="botanical-engraving" aria-hidden="true">
+{% include 'ornaments/engravings/' ~ engraving ~ '.svg.j2' %}
+</div>
+{% endif %}

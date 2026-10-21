@@ -1,0 +1,5 @@
+  /* ornament: small-caps-kicker (page) */
+  body[data-ornament="small-caps-kicker"] .kicker { font-family: var(--body); font-variant: small-caps; font-variant-caps: small-caps; text-transform: lowercase; letter-spacing: 0.14em; font-size: 16px; font-weight: {{ pair.body.medium }}; color: var(--accent-text); display: block; }
+  body[data-ornament="small-caps-kicker"] .kicker::before { content: ""; display: block; width: 48px; height: 1px; background: var(--accent-text); margin-bottom: 14px; {% if not (dialect and dialect.id == 'coastal') %}display: none;{% endif %} }
+  body[data-ornament="small-caps-kicker"] .band-deep .kicker, body[data-ornament="small-caps-kicker"] .hero .kicker { color: var(--on-deep-accent, var(--accent-text)); }
+  body[data-ornament="small-caps-kicker"] .band-deep .kicker::before { background: var(--on-deep-accent, var(--accent-text)); }

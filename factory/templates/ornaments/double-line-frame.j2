@@ -1,0 +1,16 @@
+{#- double-line-frame (candlelit, placed): rect pair, outer 1 px brass inset 12 px, inner inset 20 px, square corners.
+    Inner include (hero panel copy, tour card, section-head): the parent must be position: relative; the frame fills it
+    and draws in once (1400 ms, data-motion-device="draw-in"). tour (base): a marker before #tour frames the band with css. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot == 'tour' if fb else slot in ('hero', 'tour', 'section-head', 'story') %}
+{% if place(slot, here) %}
+{% if fb %}
+<span class="orn-dlf-marker orn-slot" data-ornament="double-line-frame" data-motion-device="draw-in" aria-hidden="true"></span>
+{% else %}
+<div class="orn-dlf" data-ornament="double-line-frame" data-motion-device="draw-in" aria-hidden="true">
+  <svg class="orn-dlf-outer" aria-hidden="true" focusable="false"><rect pathLength="1" x="0" y="0" width="100%" height="100%"/></svg>
+  <svg class="orn-dlf-inner" aria-hidden="true" focusable="false"><rect pathLength="1" x="0" y="0" width="100%" height="100%"/></svg>
+</div>
+{% endif %}
+{% endif %}

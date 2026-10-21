@@ -1,0 +1,14 @@
+  /* ornament: botanical-line */
+  .orn-sprig { display: flex; justify-content: center; color: var(--ink); line-height: 0; }
+  .orn-sprig svg { width: 160px; height: auto; overflow: visible; }
+  .orn-sprig path { fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .orn-sprig-story { position: relative; z-index: 2; transform: translateY(calc(clamp(var(--pad-min), 9vw, var(--pad-max)) - 56px)); height: 0; align-items: flex-start; }
+  .orn-sprig-footer { padding: 0 0 32px; }
+  .orn-sprig-footer svg { width: 120px; }
+  .orn-sprig-section-head { margin: 0 0 22px; justify-content: flex-start; }
+  .orn-sprig-section-head svg, .orn-sprig-hero svg { width: 120px; }
+  .center .orn-sprig-section-head, [data-align="center"] .orn-sprig-section-head { justify-content: center; }
+  @keyframes orn-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  .orn-sprig path { animation: orn-draw {{ t.motion_device_ms|default(1600) }}ms var(--ease) both; }
+  .orn-sprig path:nth-child(2) { animation-delay: 200ms; } .orn-sprig path:nth-child(3) { animation-delay: 400ms; } .orn-sprig path:nth-child(n+4) { animation-delay: 600ms; }
+  @media (prefers-reduced-motion: reduce) { .orn-sprig path { animation: none; stroke-dashoffset: 0; } }

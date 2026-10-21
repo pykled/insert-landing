@@ -1,0 +1,8 @@
+{#- leaf-rule (botanical, placed): 1 px rule with a 12 px leaf glyph at centre. story / tour / facts (base): a centred
+    divider above the section. section-head (inner): 160 px rule under the heading. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'tour', 'facts') if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+<div class="orn-leafrule{% if fb %} orn-slot orn-leafrule-divider{% endif %}{% if align|default('left') == 'center' %} orn-center{% endif %}" data-ornament="leaf-rule" aria-hidden="true"><i></i><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M1 11 C 1 5, 5 1, 11 1 C 11 7, 7 11, 1 11 Z M1 11 L 9 3"/></svg><i></i></div>
+{% endif %}

@@ -1,0 +1,12 @@
+  /* ornament: olive-band (page) */
+  body[data-ornament="olive-band"] #spaces:not(.band-deep):not(.band-ink):not(.spaces-olive), body[data-ornament="olive-band"] #spaces.band-deep, body[data-ornament="olive-band"] .spaces-olive { background: var(--deep); color: var(--on-deep); }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) h2, body[data-ornament="olive-band"] #spaces:not(.band-ink) h3 { color: var(--on-deep); }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) p, body[data-ornament="olive-band"] #spaces:not(.band-ink) li, body[data-ornament="olive-band"] #spaces:not(.band-ink) .lede { color: var(--on-deep-soft); }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) .kicker, body[data-ornament="olive-band"] #spaces:not(.band-ink) small { color: var(--on-deep-accent); font-variant: small-caps; font-variant-caps: small-caps; text-transform: lowercase; letter-spacing: 0.14em; font-size: 16px; }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) .kicker::before { background: var(--on-deep-accent); }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) .card, body[data-ornament="olive-band"] #spaces:not(.band-ink) .card p { color: var(--ink); }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) .link, body[data-ornament="olive-band"] #spaces:not(.band-ink) .chips li, body[data-ornament="olive-band"] #spaces:not(.band-ink) .cap { color: var(--on-deep); border-color: var(--on-deep-soft); background: transparent; }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) .btn-ghost { color: var(--on-deep); border-color: var(--on-deep-soft); }
+  @keyframes orn-band-fade { from { background-color: var(--paper); } to { background-color: var(--deep); } }
+  body[data-ornament="olive-band"] #spaces:not(.band-ink) { animation: orn-band-fade {{ t.motion_device_ms|default(600) }}ms var(--ease) both; }
+  @media (prefers-reduced-motion: reduce) { body[data-ornament="olive-band"] #spaces { animation: none; } }

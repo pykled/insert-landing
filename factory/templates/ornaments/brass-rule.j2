@@ -1,0 +1,8 @@
+{#- brass-rule (candlelit, placed): 1 px brass rule with a 6 px diamond at centre. story / tour / facts (base): a centred
+    divider above the section at container width. section-head (inner): 120 px rule under the heading. -#}
+{% from 'ornaments/_lib.j2' import place with context %}
+{% set fb = from_base|default(false) %}
+{% set here = slot in ('story', 'tour', 'facts') if fb else slot in ('section-head', 'hero') %}
+{% if place(slot, here) %}
+<div class="orn-brass{% if fb %} orn-slot orn-brass-divider{% endif %}{% if align|default('left') == 'center' %} orn-center{% endif %}" data-ornament="brass-rule" aria-hidden="true"><i></i><b></b><i></i></div>
+{% endif %}
