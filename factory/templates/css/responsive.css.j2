@@ -13,4 +13,15 @@
     .foot-grid { grid-template-columns: 1fr; gap: 26px; }
     .card { padding: 22px 20px 20px; }
     .row2 { grid-template-columns: 1fr; }
+  }{% if dialect %}
+
+  /* stage 2B dialect overrides (this file is included last, so they win over section css) */
+  .glance-item p, .tour-notes, .sched-notes li, .foot-grid p, .foot-grid li { font-size: 16.5px; }
+  .card .sub { font-size: 16.5px; }
+{% if pair.secondary and pair.display.weight <= 400 and not pair.display.caps_only %}
+  @media (max-width: 600px) {
+    /* the mobile h1 moves to the secondary face: the primary fails the 1x/2x hairline probe below ~48 px */
+    h1 { font-family: var(--display-2); font-weight: var(--display-2-weight); letter-spacing: {{ pair.secondary.tracking|default('0') }}; line-height: {{ pair.secondary.line_height|default(1.1) }}; {% if pair.secondary.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.secondary.vars|safe }};{% endif %} }
   }
+{% endif %}
+{% endif %}

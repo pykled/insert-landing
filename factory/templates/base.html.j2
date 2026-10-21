@@ -11,24 +11,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?{{ pair.import }}&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="{{ photos[lead].src }}" imagesrcset="{{ photos[lead].srcset }}" imagesizes="{{ hero_sizes }}">
+{# stage 2B: one ornament device per site. `orn` is shared with every included template (namespace): placed instances are
+   capped at three and each slot renders once, so a hero/section that includes the partial itself wins over the base slot. #}
+{% set orn = namespace(placed=0, slots=[]) %}
+{% set orn_tpl = 'ornaments/' ~ ornament ~ '.j2' if (dialect and ornament and ornament != 'none') else none %}
 <style>
 {% include 'css/base.css.j2' %}
 {% include 'heroes/' ~ ch.hero ~ '.css.j2' %}
 {% for s in sections %}{% include s.template ~ '.css.j2' ignore missing %}
 {% endfor %}
+{% if orn_tpl %}{% include 'ornaments/' ~ ornament ~ '.css.j2' ignore missing %}
+{% endif %}
 {% include 'css/responsive.css.j2' %}
 </style>
 <script type="application/ld+json">{{ jsonld|safe }}</script>
 </head>
-<body data-variant="{{ build.variant }}" data-hero="{{ ch.hero }}" data-moment="{{ ch.moment }}">
+<body data-variant="{{ build.variant }}" data-hero="{{ ch.hero }}" data-moment="{{ ch.moment }}"{% if dialect %} data-dialect="{{ dialect.id }}" data-ornament="{{ ornament }}" data-motion="{{ t.motion_device }}" data-paper="{{ palette_mode }}" data-paper-tone="{{ t.paper_tone }}" data-photo-edge="{{ t.photo_edge }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 {% include 'partials/nav-' ~ nav_style ~ '.j2' %}
+{% if orn_tpl %}{% with slot='header' %}{% include orn_tpl ignore missing %}{% endwith %}
+{% endif %}
 <main id="main">
 {% include 'heroes/' ~ ch.hero ~ '.j2' %}
+{% if orn_tpl %}{% with slot='hero', section_index=1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% endif %}
 {% for s in sections %}
+{% if orn_tpl and s.id in ('story', 'tour') %}{% with slot=s.id, section_label=s.nav, section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% endif %}
 {% include s.template ~ '.j2' %}
+{% if orn_tpl and s.id in ('facts-strip', 'glance') %}{% with slot='facts', section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% endif %}
 {% endfor %}
 </main>
+{% if orn_tpl %}{% with slot='footer' %}{% include orn_tpl ignore missing %}{% endwith %}
+{% endif %}
 {% include 'partials/footer.j2' %}
 <script>
 {% include 'partials/app.js.j2' %}
