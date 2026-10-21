@@ -1,6 +1,10 @@
   /* hero: crest-centred (estate) */
 {% include 'heroes/_shared.css.j2' %}
 {% set sec = pair.secondary if pair.secondary else None %}
+{% set subw = sec.weight if sec else pair.display.weight %}
+{% set subfam = sec.family if sec else pair.display.family %}
+{# thin 400-weight faces fail the hairline probe below 48 px (56 for Forum / Libre Caslon Display / Italiana / Instrument Serif, measured by the base maker) #}
+{% set subfloor = (56 if subfam in ('Forum', 'Libre Caslon Display', 'Italiana', 'Instrument Serif') else 48) if (subw <= 400 and (sec.min_px if sec else pair.display.min_px) >= 36) else [(sec.min_px if sec else pair.display.min_px), 24]|max %}
   .hero-crest { padding: 0; }
   .crest-stage { position: relative; min-height: min(80vh, 740px); display: grid; align-items: center; isolation: isolate; color: var(--on-photo, #fff); text-align: center; }
   .crest-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: transparent; }
@@ -14,7 +18,7 @@
   .crest-mark { min-height: 0; margin-bottom: 22px; display: grid; place-items: center; color: var(--metal, var(--on-photo, #fff)); }
   .crest-mark:empty { display: none; }
   .crest-name { font-family: var(--display); font-weight: var(--display-weight); text-transform: uppercase; letter-spacing: 0.2em; text-indent: 0.2em; line-height: 1.15; font-size: clamp({{ [pair.display.min_px, 26]|max }}px, 3.2vw, {{ 46 if (pair.display.weight <= 400 and pair.display.min_px >= 36) else 40 }}px); color: var(--on-photo, #fff); text-wrap: balance; }
-  .crest-sub { margin-top: 18px; letter-spacing: 0; text-wrap: balance; font-family: {{ ("'" ~ sec.family ~ "', " ~ sec.fallback)|safe if sec else 'var(--display)' }}; font-weight: {{ sec.italic_weight if sec else pair.display.italic_weight }}; font-style: italic; font-size: clamp({{ [(sec.min_px if sec else pair.display.min_px), 24]|max }}px, 2.4vw, 34px); line-height: 1.25; color: var(--on-photo, #fff); max-width: 30ch; text-wrap: balance; {% if sec %}font-variation-settings: normal;{% elif pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .crest-sub { margin-top: 18px; letter-spacing: 0; text-wrap: balance; font-family: {{ ("'" ~ sec.family ~ "', " ~ sec.fallback)|safe if sec else 'var(--display)' }}; font-weight: {{ sec.italic_weight if sec else pair.display.italic_weight }}; font-style: italic; font-size: clamp({{ subfloor }}px, 2.6vw, {{ [subfloor, 38]|max }}px); line-height: 1.2; color: var(--on-photo, #fff); max-width: 30ch; text-wrap: balance; {% if sec %}font-variation-settings: normal;{% elif pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
   .crest-sub em { font-style: italic; font-weight: inherit; }
   .crest-loc { margin-top: 16px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: {{ pair.body.medium }}; color: var(--on-photo, #fff); }
   .crest-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }

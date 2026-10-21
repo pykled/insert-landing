@@ -3,7 +3,7 @@
 <section class="hero hero-cinematic" data-hero="cinematic" data-hero-framing="{{ dialect.hero_framing if dialect else 'bleed' }}" aria-labelledby="hero-title">
   <div class="cine-stage">
     <div class="cine-media" aria-hidden="false">
-      <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+      <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(max-width: 860px) 140vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
     </div>
     <div class="container cine-inner">
       <div class="cine-copy">
