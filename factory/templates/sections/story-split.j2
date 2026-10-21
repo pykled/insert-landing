@@ -1,0 +1,28 @@
+{#- story `split`: port of previews/stonehurst/index.html #property (story-grid 7/5, offset keyline frame on a 3:4 photo).
+    Facts row from the mock only when the page has neither a facts strip nor a statement (both carry the same numbers). -#}
+{% set sp = photos[v.story.photo] %}
+{% set has_facts_block = sections|selectattr('id', 'in', ['facts-strip', 'statement'])|list|length > 0 %}
+<section id="story" class="story-split" aria-labelledby="story-title">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        {% if ornament != 'none' %}{% with slot='story' %}{% include 'ornaments/' ~ ornament ~ '.j2' ignore missing %}{% endwith %}{% endif %}
+        <p class="kicker reveal">{{ copy.story_kicker }}</p>
+        <h2 id="story-title" class="reveal d1">{{ v.story.lead }}</h2>
+        <div class="story-copy reveal d2">
+          {% for ptxt in v.story.paragraphs %}<p{% if loop.first %} class="story-lead-in"{% endif %}>{{ ptxt }}</p>{% endfor %}
+          {% if v.story.credit %}<cite>{{ v.story.credit }}</cite>{% endif %}
+        </div>
+      </div>
+      <figure class="story-media reveal d2">
+        <span class="story-frame"><span class="ph story-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 440px, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"></span></span>
+        <figcaption>{{ sp.caption }}</figcaption>
+      </figure>
+    </div>
+    {% if not has_facts_block and v.numbers %}
+    <div class="story-facts reveal" aria-label="At a glance">
+      {% for n in v.numbers[:3] %}<div class="story-fact"><b>{{ n.value }}</b><span>{{ n.label }}</span></div>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

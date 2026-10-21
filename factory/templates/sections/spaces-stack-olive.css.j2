@@ -1,0 +1,27 @@
+  /* spaces: stack on the olive band (ranch) */
+  .spaces-olive { background: var(--deep); color: var(--on-deep); }
+  .spaces-olive h2, .spaces-olive h3 { color: var(--on-deep); }
+  .spaces-olive .lede { color: var(--on-deep-soft); }
+  .spaces-olive .olive-kicker { font-size: 14px; font-variant: small-caps; letter-spacing: 0.14em; text-transform: none; color: var(--on-deep-accent); font-weight: {{ pair.body.medium }}; font-family: var(--body); font-style: normal; margin-bottom: 14px; display: block; }
+  .spaces-olive .olive-kicker::before { content: none; }
+  .olive-stack { display: grid; gap: clamp(40px, 6vw, 88px); }
+  .olive-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+  .olive-row:nth-child(even) .olive-ph { order: 2; }
+  .olive-ph { aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+  .olive-ph img { aspect-ratio: 4 / 3; transition: transform 1.2s var(--ease); }
+  .olive-row:hover .olive-ph img { transform: scale(1.03); }
+  .olive-num { font-size: 15px; margin-bottom: 12px; }
+  .olive-num span { color: var(--on-deep-soft); font-variant: normal; letter-spacing: 0.02em; }
+  .olive-body h3 { font-size: clamp(26px, 2.6vw, 36px); }
+  .olive-blurb { color: var(--on-deep-soft); margin-top: 12px; font-size: 17px; max-width: 46ch; }
+  .olive-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .olive-chips li { font-size: 13.5px; color: var(--on-deep-soft); background: transparent; border: 1px solid color-mix(in srgb, var(--on-deep-soft) 45%, transparent); padding: 6px 12px; border-radius: 999px; }
+{% if t.motion_device == 'band-fade' and t.reveal != 'none' %}
+  /* band-fade: the olive band arrives from paper once, {{ t.motion_device_ms or 600 }} ms */
+  .spaces-olive[data-motion-device="band-fade"] { background: var(--paper); transition: background-color {{ t.motion_device_ms or 600 }}ms var(--ease), opacity {{ t.reveal_ms or 800 }}ms var(--ease), transform {{ t.reveal_ms or 800 }}ms var(--ease); }
+  .spaces-olive[data-motion-device="band-fade"].visible { background: var(--deep); }
+{% endif %}
+  @media (max-width: 860px) {
+    .olive-row { grid-template-columns: 1fr; }
+    .olive-row:nth-child(even) .olive-ph { order: 0; }
+  }

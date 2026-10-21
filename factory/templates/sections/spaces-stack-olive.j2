@@ -1,0 +1,28 @@
+{#- spaces `stack-olive` (ranch): the alternating stack on the deep olive band (--deep) with ochre small-caps kickers
+    (--on-deep-accent). The band itself is the ranch motion device (band-fade: paper -> olive once, on reveal). -#}
+<section id="spaces" class="spaces-olive band-deep reveal" aria-labelledby="spaces-title"{% if t.motion_device == 'band-fade' %} data-motion-device="band-fade"{% endif %}>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker olive-kicker reveal">{{ copy.spaces_kicker }}</p>
+      <h2 id="spaces-title" class="reveal d1">{{ copy.spaces_title }}</h2>
+      {% if copy.spaces_lede %}<p class="lede reveal d2">{{ copy.spaces_lede }}</p>{% endif %}
+    </div>
+    <div class="olive-stack">
+      {% for s in v.spaces %}
+      {% set sp = photos[s.photo] %}
+      <article class="olive-row reveal" id="space-{{ s.id }}">
+        <div class="ph olive-ph">
+          <img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async">
+          <span class="cap">{{ s.capacity_label }}</span>
+        </div>
+        <div class="olive-body">
+          <p class="olive-kicker olive-num">{{ loop.index }} <span>of {{ v.spaces|length }}</span></p>
+          <h3>{{ s.name }}</h3>
+          <p class="olive-blurb">{{ s.blurb }}</p>
+          {% if s.features %}<ul class="chips olive-chips">{% for f in s.features %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

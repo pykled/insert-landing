@@ -1,0 +1,27 @@
+{#- gallery `pairs` (editorial): photo pairs at 3:2 with a 24-40 px gap and captions. Placed by the builder right after
+    the spaces section. Photos: everything that is not the lead or the story photo, the ones no space uses first;
+    at most four (two pairs). Renders nothing when fewer than two photos qualify. -#}
+{% set taken = [lead, v.story.photo] + (v.spaces|map(attribute='photo')|list) %}
+{% set ns = namespace(list=[]) %}
+{% for n in photos if n not in taken %}{% set ns.list = ns.list + [n] %}{% endfor %}
+{% for n in photos if n in taken and n != lead and n != v.story.photo and n not in ns.list %}{% set ns.list = ns.list + [n] %}{% endfor %}
+{% set gal = ns.list[:4] %}
+{% if gal|length >= 2 %}
+<section id="gallery" class="gallery-pairs" aria-label="Photographs of {{ v.short_name }}">
+  <div class="container">
+    <div class="pairs">
+      {% for pr in gal|batch(2) if pr|length == 2 %}
+      {% set outer = loop %}
+      <div class="pair reveal{% if not loop.first %} d1{% endif %}">
+        {% for n in pr %}{% set sp = photos[n] %}
+        <figure class="pair-fig">
+          <div class="ph pair-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"{% if sp.mono %} data-mono{% endif %}></div>
+          <figcaption><span class="pair-n">{{ '%02d' % (outer.index0 * 2 + loop.index) }}</span>{{ sp.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

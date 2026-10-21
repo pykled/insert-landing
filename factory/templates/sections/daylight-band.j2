@@ -1,0 +1,26 @@
+{#- section `daylight-band` (candlelit): the one light band on a dark page. A `light: day` photo (never the lead or the
+    story photo; grounds/building/place first) with the hours of the day from v.day. The light ground is the dark
+    set's off-white ink and the text its charcoal paper, scoped to .daylight (no global token redefinition). -#}
+{% set items = v.photos['items'] %}
+{% set ns = namespace(pick=none) %}
+{% for n, m in items.items() if ns.pick is none and m.light == 'day' and n != lead and n != v.story.photo and m.subject in ('grounds', 'building', 'place') %}{% set ns.pick = n %}{% endfor %}
+{% for n, m in items.items() if ns.pick is none and m.light == 'day' and n != lead %}{% set ns.pick = n %}{% endfor %}
+{% if ns.pick %}
+{% set dp = photos[ns.pick] %}
+<section id="daylight-band" class="daylight" aria-labelledby="daylight-title">
+  <div class="container daylight-grid">
+    <figure class="daylight-media reveal">
+      <div class="ph daylight-ph"><img src="{{ dp.src }}" srcset="{{ dp.srcset }}" sizes="(min-width: 861px) 54vw, 100vw" width="{{ dp.width }}" height="{{ dp.height }}" alt="{{ dp.alt }}" style="object-position: {{ dp.focal }}" loading="lazy" decoding="async"></div>
+      <figcaption>{{ dp.caption }}</figcaption>
+    </figure>
+    <div class="daylight-copy">
+      <p class="kicker reveal">By daylight</p>
+      <h2 id="daylight-title" class="reveal d1">The same grounds, by day.</h2>
+      <p class="reveal d2">{{ v.day.rental_hours|int|wordnum|capitalize }} hours on the day: gates open at {{ v.day.gates_open }}, events end at {{ v.day.event_end }} and breakdown runs to {{ 'midnight' if v.day.breakdown_end == '12 AM' else v.day.breakdown_end }}.</p>
+      {% if v.day.included %}<ul class="daylight-list reveal d2" aria-label="Included">{% for i in v.day.included %}<li>{{ i }}</li>{% endfor %}</ul>{% endif %}
+      {% if v.day.requirement %}<p class="fine reveal d2">{{ v.day.requirement }}.</p>{% endif %}
+      <a class="link daylight-link reveal d3" href="#check">{{ copy.nav_cta }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}

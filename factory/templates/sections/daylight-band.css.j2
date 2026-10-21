@@ -1,0 +1,21 @@
+  /* daylight band: the one light band on a dark page (candlelit). Light tokens via a local scope, never global. */
+  .daylight { --dl-ground: var(--ink); --dl-text: var(--paper); --dl-soft: var(--paper-3); --dl-line: color-mix(in srgb, var(--paper) 22%, transparent); --dl-line-strong: color-mix(in srgb, var(--paper) 40%, transparent);
+    background: var(--dl-ground); color: var(--dl-text); }
+  .daylight-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .daylight-ph { aspect-ratio: 3 / 2; background: var(--dl-line); }
+  .daylight-ph img { aspect-ratio: 3 / 2; }
+  .daylight-ph::after { border-color: var(--dl-line) !important; }
+  .daylight figcaption { color: var(--dl-soft); }
+  .daylight h2 { color: var(--dl-text); }
+  .daylight .kicker { color: var(--dl-soft); font-variant: small-caps; letter-spacing: 0.14em; text-transform: none; }
+  .daylight .kicker::before { background: var(--dl-soft); content: none; }
+  .daylight-copy > p { color: var(--dl-soft); font-size: clamp(17px, 1.3vw, 19px); margin-top: 22px; max-width: 46ch; }
+  .daylight-copy > p.fine { color: var(--dl-soft); margin-top: 14px; }
+  .daylight-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; font-size: 15px; color: var(--dl-text); font-weight: {{ pair.body.medium }}; }
+  .daylight-list li { display: inline-flex; align-items: center; gap: 10px; }
+  .daylight-list li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--dl-soft); }
+  .daylight .daylight-link { color: var(--dl-text); border-color: var(--dl-line-strong); margin-top: 22px; }
+  .daylight .daylight-link:hover { color: var(--dl-text); border-color: var(--dl-text); }
+  @media (max-width: 860px) {
+    .daylight-grid { grid-template-columns: 1fr; gap: 28px; }
+  }

@@ -1,0 +1,25 @@
+  /* statement: one sentence after the hero */
+{% set st_face = pair.secondary if (pair.display.caps_only and pair.secondary) else pair.display %}
+  .statement { padding-top: clamp(48px, 7vw, 112px); padding-bottom: clamp(40px, 6vw, 96px); }
+  .statement-wrap { position: relative; }
+  .statement-wrap > [data-ornament]:not(.statement-text) { display: block; margin-bottom: 22px; }
+  .statement-text { font-family: '{{ st_face.family }}', {{ st_face.fallback|safe }}; font-weight: {{ st_face.weight }}; font-size: max({{ st_face.min_px }}px, clamp(28px, 2.6vw, 34px)); line-height: 1.32; letter-spacing: {{ st_face.tracking }}; color: var(--ink); max-width: 38ch; text-wrap: pretty; {% if st_face.vars %}font-optical-sizing: none; font-variation-settings: {{ st_face.vars|safe }};{% endif %} }
+  .statement-text em { font-style: italic; font-weight: {{ st_face.italic_weight }}; }
+  /* drop cap: display face, three lines, accent (initial-letter with a float fallback) */
+  .statement-text[data-ornament="drop-cap"]::first-letter { font-family: var(--display); font-weight: var(--display-weight); color: var(--accent-text); float: left; font-size: 3.1em; line-height: 0.84; padding: 0.06em 0.12em 0 0; }
+  @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+    .statement-text[data-ornament="drop-cap"]::first-letter { float: none; font-size: inherit; line-height: inherit; padding: 0 0.1em 0 0; -webkit-initial-letter: 3; initial-letter: 3; }
+  }
+  .statement-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 0; margin-top: clamp(24px, 3vw, 36px); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); font-weight: {{ pair.body.medium }}; }
+  .statement-facts li { display: inline-flex; align-items: baseline; gap: 6px; }
+  .statement-facts li + li::before { content: ""; display: inline-block; width: 1px; height: 12px; background: var(--line-strong); margin: 0 18px; align-self: center; }
+  .statement-facts b { font-weight: {{ pair.body.medium }}; color: var(--ink); font-variant-numeric: tabular-nums; }
+{% if ornament == 'watercolour-wash' %}
+  /* watercolour wash (botanical): radial accent-tint at <= 8% behind the sentence; the only background gradient allowed */
+  .statement-wash .statement-wrap::before { content: ""; position: absolute; inset: -12% -8% -12% -8%; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 60% 70% at 38% 50%, color-mix(in srgb, var(--accent-tint) 8%, transparent), transparent 72%); }
+  .statement-wash .statement-wrap { z-index: 0; }
+{% endif %}
+  @media (max-width: 600px) {
+    .statement-facts { flex-direction: column; gap: 10px; font-size: 13px; }
+    .statement-facts li + li::before { content: none; }
+  }

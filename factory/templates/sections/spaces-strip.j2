@@ -1,0 +1,23 @@
+{#- spaces `strip` (modern-luxe): one hairlined row of 4:5 photos with tracked-caps captions. A grid, never an
+    overflow-x row (E8); it wraps at narrower viewports. -#}
+<section id="spaces" class="spaces-strip" aria-labelledby="spaces-title">
+  <div class="container">
+    <div class="strip-head">
+      <h2 id="spaces-title" class="reveal">{{ copy.spaces_title }}</h2>
+      {% if copy.spaces_lede %}<p class="lede reveal d1">{{ copy.spaces_lede }}</p>{% endif %}
+    </div>
+    <div class="strip" role="list">
+      {% for s in v.spaces %}
+      {% set sp = photos[s.photo] %}
+      <article class="strip-item reveal{% if loop.index0 % 3 == 1 %} d1{% elif loop.index0 % 3 == 2 %} d2{% endif %}" id="space-{{ s.id }}" role="listitem">
+        <div class="ph strip-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 1100px) 180px, (min-width: 861px) 30vw, (min-width: 481px) 46vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"></div>
+        <p class="strip-cap"><span class="strip-n">{{ '%02d' % loop.index }}</span>{{ s.capacity_label }}</p>
+        <h3>{{ s.name }}</h3>
+        <p class="strip-use">{{ s.use }}</p>
+        {% if s.features %}<p class="fine strip-notes">{{ s.features|join(' · ') }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% if v.day.spaces_per_event %}<p class="fine strip-foot">{{ v.day.spaces_per_event }}.</p>{% endif %}
+  </div>
+</section>

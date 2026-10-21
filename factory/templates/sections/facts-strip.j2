@@ -1,0 +1,28 @@
+{#- section `facts-strip` (estate, editorial, candlelit, ranch, deco): year, acres, guests, spaces from v.tagline_facts and
+    v.vibe.era; nulls omitted; topped up to four from v.numbers (skipping values already shown). Every value carries
+    data-fact. Labels here are template words; every number comes from the content file. -#}
+{% set tf = v.tagline_facts %}
+{% set facts = [] %}
+{% if v.vibe and v.vibe.era %}{% set _ = facts.append(('year', v.vibe.era, 'Established')) %}{% endif %}
+{% if tf.acres %}{% set _ = facts.append(('acres', tf.acres, 'Acres')) %}{% endif %}
+{% if tf.max_guests %}{% set _ = facts.append(('guests', tf.max_guests, 'Guests')) %}{% endif %}
+{% if tf.space_count %}{% set _ = facts.append(('spaces', tf.space_count, 'Spaces')) %}{% endif %}
+{% set shown = facts|map(attribute=1)|map('string')|list %}
+{% for n in v.numbers if facts|length < 4 and (n.value|string) not in shown %}
+  {% set _ = facts.append(('number', n.value, n.label)) %}{% set _ = shown.append(n.value|string) %}
+{% endfor %}
+{% if facts %}
+<section id="facts-strip" class="facts-strip" aria-label="{{ v.short_name }} at a glance">
+  <div class="container">
+    <ul class="facts-row reveal" style="--facts-n: {{ facts|length }}">
+      {% for key, val, label in facts %}
+      <li class="facts-item">
+        <b{% if key != 'number' %} data-fact="{{ key }}"{% endif %}>{{ val }}</b>
+        <span>{{ label }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if ornament != 'none' %}{% with slot='facts' %}{% include 'ornaments/' ~ ornament ~ '.j2' ignore missing %}{% endwith %}{% endif %}
+  </div>
+</section>
+{% endif %}
