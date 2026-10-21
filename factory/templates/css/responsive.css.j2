@@ -27,10 +27,10 @@
   .guide-band .field input { background: var(--field, #fff); }
   .light[data-light="night"] .light-ctl button[aria-pressed="true"] { background: var(--on-deep, #fff); color: var(--deep); }
 {% if true %}
-  /* display floors on mobile (contract 3.2): h1 >= --h1-floor, h2 >= --h2-floor. A hero/section that wants a larger
+  /* display floors on mobile (contract 3.2): h1 >= --h1-min (pairing minimum), h2 >= --h2-floor. A hero/section that wants a larger
      size sets --h1-size / --h2-size on the heading; the floor still applies. Desktop sizes stay with the template. */
   @media (max-width: 600px) {
-    body[data-dialect] h1 { font-size: max(var(--h1-floor), var(--h1-size, var(--h1-floor))); }
+    body[data-dialect] h1 { font-size: max(var(--h1-min), var(--h1-size, var(--h1-min))); }
     body[data-dialect] h2:not(.card h2):not(.card-title):not(.display-2) { font-size: max(var(--h2-floor), var(--h2-size, var(--h2-floor))); }
 {% if pair.secondary and pair.display.weight <= 400 and not pair.display.caps_only %}
     /* the mobile h1 moves to the secondary face: the primary fails the 1x/2x hairline probe below ~48 px */

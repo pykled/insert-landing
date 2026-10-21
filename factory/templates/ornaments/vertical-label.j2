@@ -5,6 +5,6 @@
 {% set fb = from_base|default(false) %}
 {% set here = slot in ('story', 'tour') if fb else slot == 'section-head' %}
 {% if place(slot, here) %}
-{% set label_ = section_label|default(slot|replace('-', ' ')|capitalize) %}
-<div class="orn-vlabel-wrap{% if fb %} orn-slot{% endif %}" data-ornament="vertical-label" aria-hidden="true"><span class="orn-vlabel">{{ label_ }}</span></div>
+{% set label_ = section_label|default(none) %}
+{% if label_ %}<div class="orn-vlabel-wrap{% if fb %} orn-slot{% endif %}" data-ornament="vertical-label" aria-hidden="true"><span class="orn-vlabel">{{ label_ }}</span></div>{% endif %}
 {% endif %}

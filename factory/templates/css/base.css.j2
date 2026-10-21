@@ -41,11 +41,13 @@
 {% if t.display_case == 'caps' %}
     /* caps display case: the hero sets its own tracked-caps h1 (14-40 px); section h2s stay sentence case (E5) */
     --h1-floor: {{ [pair.display.min_px, 28]|max }}px;
+    --h1-min: var(--h1-floor);
     --h2-floor: {{ [pair.display.min_px, (32 * t.display_scale)|round|int]|max }}px;
     --h1: clamp(var(--h1-floor), 2.8vw, {{ [40, pair.display.min_px]|max }}px);
     --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);
 {% else %}
     --h1-floor: {{ [pair.display.min_px, hairline_floor if thin_face else (40 * t.display_scale)|round|int]|max }}px;
+    --h1-min: {{ [pair.display.min_px, (40 * t.display_scale)|round|int]|max }}px;   /* the pairing minimum alone; heroes adopt --h1-floor for the hairline-safe size */
     --h2-floor: {{ [pair.display.min_px, (32 * t.display_scale)|round|int]|max }}px;
     --h1: clamp(var(--h1-floor), {{ (6.2 * t.display_scale)|round(1) }}vw, {{ [(84 * t.display_scale)|round|int, pair.display.max_px|default(96)]|min }}px);
     --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);
@@ -246,7 +248,7 @@
   /* footer */
   footer { {% if t.rule_style == 'hairline' %}border-top: 1px solid var(--line);{% else %}background: var(--paper-2);{% endif %} padding: 56px 0 32px; }
   .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
-  .foot-grid h3.foot-h { font-size: {{ '12px' if t.caps else '13.5px' }}; {% if t.caps %}letter-spacing: 0.2em; text-transform: uppercase;{% endif %} color: var(--ink-faint); font-weight: {{ pair.body.medium }}; margin-bottom: 14px; }
+  .foot-grid h3.foot-h { {% if dialect %}font-family: var(--body); {% endif %}font-size: {{ '12px' if t.caps else '13.5px' }}; {% if t.caps %}letter-spacing: 0.2em; text-transform: uppercase;{% endif %} color: var(--ink-faint); font-weight: {{ pair.body.medium }}; margin-bottom: 14px; }
   .foot-grid p, .foot-grid li { font-size: 15.5px; color: var(--ink-soft); }
   .foot-grid ul { list-style: none; display: grid; gap: 8px; }
   .foot-grid a { text-decoration: none; display: inline-block; padding: 3px 0; }
