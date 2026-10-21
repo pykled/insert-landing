@@ -2,7 +2,9 @@
     header: medallion hanging from the header centre (base). hero: inside the hero (crest-centred hero includes it).
     footer: centred above the footer (base). The rings draw in once (crest-reveal moment reads data-motion-device). -#}
 {% from 'ornaments/_lib.j2' import place, initials with context %}
-{% set here = slot in ('header', 'footer') if from_base|default(false) else slot in ('hero', 'section-head') %}
+{# 2C: the crest-centred hero already shows the crest under the header; a second medallion hanging over the photo edge
+   480 px above it read as a duplicate, so the header slot stays empty on crest heroes #}
+{% set here = (slot == 'footer' or (slot == 'header' and ch.hero != 'crest-centred')) if from_base|default(false) else slot in ('hero', 'section-head') %}
 {% if place(slot, here) %}
 <div class="orn-crest orn-crest-{{ slot }}{% if from_base|default(false) %} orn-slot{% endif %}" data-ornament="crest-roundel"{% if slot == 'header' %} data-crest-header{% endif %}>
   <svg class="orn-crest-svg" viewBox="0 0 56 56" width="56" height="56" aria-hidden="true" focusable="false" data-motion-device="draw-in">

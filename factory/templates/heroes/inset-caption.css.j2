@@ -2,8 +2,10 @@
 {% include 'heroes/_shared.css.j2' %}
   .hero-inset-caption { padding: clamp(20px, 2.5vw, 36px) 0 0; }
   .icap-wrap { padding: 0 clamp(24px, 5.5vw, 80px); max-width: 1600px; margin: 0 auto; }
-  .icap-ph { aspect-ratio: 16 / 9; max-height: 62vh; border-radius: 0; }
-  .icap-ph img { aspect-ratio: 16 / 9; max-height: 62vh; }
+  /* 2C: full container width, height capped by the viewport: a 16:9 box capped at 62vh left a dead right column
+     at 1440 x 900; the cap now crops (object-fit) instead of narrowing the photo */
+  .icap-ph { aspect-ratio: 16 / 9; max-height: 62vh; width: 100%; border-radius: 0; }
+  .icap-ph img { width: 100%; height: 100%; max-height: 62vh; object-fit: cover; }
   .icap-fig figcaption { margin-top: 12px; }
   .icap-below { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); gap: clamp(28px, 5vw, 80px); align-items: end; padding: clamp(24px, 3vw, 44px) 0 clamp(28px, 3.5vw, 48px); }
   .icap-kicker { font-variant: small-caps; letter-spacing: 0.14em; font-size: 15.5px; color: var(--accent-text); font-weight: {{ pair.body.medium }}; margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
