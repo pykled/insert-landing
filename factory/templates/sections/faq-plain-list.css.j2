@@ -2,5 +2,5 @@
   .faq-plain h2 { font-size: clamp(28px, 3vw, 44px); }
   .qa-list div { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 8px 24px; }
   .qa-list dt { font-weight: {{ pair.body.medium }}; font-size: 16.5px; }
-  .qa-list dd { color: var(--ink-soft); font-size: 16px; max-width: 56ch; }
+  .qa-list dd { color: var(--ink-soft); font-size: {{ '16.5px' if dialect else '16px' }}; max-width: 56ch; }
   @media (max-width: 860px) { .faq-plain-grid, .qa-list div { grid-template-columns: 1fr; } }

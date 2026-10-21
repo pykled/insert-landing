@@ -17,7 +17,18 @@ Everything below that touches another owner's file is a request, not a change.
 | `partials/nav-two-row.j2` + css | nav `two-row` | row 1: wordmark, locality · region, CTA, burger; row 2: hairlined sub-nav, at most six section links (header total ≤ 8 links, no nested lists). **The css is included from inside the partial in a `<style>` block** because `base.html.j2` includes only `partials/nav-<style>.j2`; base may move it to `<head>` with `{% include 'partials/nav-' ~ nav_style ~ '.css.j2' ignore missing %}` and the inline block can then be deleted. |
 
 Existing sections, gated on `dialect` so pre-dialect builds are byte-identical: `spaces-index` `.use`/`.blurb` 15.5 → 16.5 px,
-`glance` `p` 15 → 16.5 px, `story-timeline` `.tl-paras p` 58ch → 54ch (E16 measured 73 characters at Karla 17 px).
+`glance` `p` 15 → 16.5 px, `story-timeline` `.tl-paras p` 58ch → 54ch (E16 measured 73 characters at Karla 17 px),
+`faq-numbered` `.qa p` and `faq-plain-list` `dd` 16 → 16.5 px.
+
+## QA state of the eight checks (2026-10-21, after the fixes)
+
+Every remaining problem in `qa.py` output sits in another owner's file: crest-centred / cinematic / arch-split / pair-split
+hero contrast and scrims, the crest-centred copy block overflowing 138 px at 390 (`div.crest-copy` 528 px wide), moment
+`mo-*` contrast, base h2 below `pair.display.min_px` on mobile, guide form button/placeholder contrast on the dark set.
+`botanical` passes clean. `modern-luxe` crashes qa.py itself: the guide flow does `page.fill('#g-email')` but that
+dialect's rhythms have no `guide` block, so there is no `#guide-form` (qa.py should skip the flow when `#guide-wrap`
+is absent). Screenshot note: lazy photos below the fold render as blank `.ph` boxes in element screenshots unless the
+page is scrolled through first; `img.complete`/`naturalWidth` confirm they load (checked on the olive band).
 
 ## Needs a change outside my paths
 
