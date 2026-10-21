@@ -335,7 +335,7 @@
    },
    "meta": {
     "path": ".factory-check/proof/botanical",
-    "built": "2026-10-21T02:09:13",
+    "built": "2026-10-21T02:30:02",
     "personality": {
      "formality": 65.0,
      "scale": 52.5,
@@ -344,6 +344,11 @@
      "temperature": 37.5,
      "voice": 25.0
     }
+   },
+   "phash": {
+    "fold": "3fc0c077c2371b901a9638874c774e7163fc43944a473fc698779e39e4f89388",
+    "strip": "3b90bf80364c944ec89448dfbf49389948d6bf01376abe6440b7689dc46f6277",
+    "captured": "2026-10-21"
    }
   },
   {
@@ -391,7 +396,7 @@
    },
    "meta": {
     "path": ".factory-check/proof/estate",
-    "built": "2026-10-21T02:10:11",
+    "built": "2026-10-21T02:30:03",
     "personality": {
      "formality": 85.0,
      "scale": 70.0,
@@ -400,6 +405,11 @@
      "temperature": 35.0,
      "voice": 62.5
     }
+   },
+   "phash": {
+    "fold": "01d801729db49aec72cd6213fc16fc861cca4b1beb33fd653ecc26ad839440f3",
+    "strip": "6ec58dc6133a003bc019689d3fe63fe60dc6eed9c43b113ac5326ec56bc495c2",
+    "captured": "2026-10-21"
    }
   },
   {
@@ -448,7 +458,7 @@
    },
    "meta": {
     "path": ".factory-check/proof/candlelit",
-    "built": "2026-10-21T02:18:40",
+    "built": "2026-10-21T02:30:04",
     "personality": {
      "formality": 80.0,
      "scale": 75.0,
@@ -457,6 +467,11 @@
      "temperature": 25.0,
      "voice": 57.5
     }
+   },
+   "phash": {
+    "fold": "250a296a3b5ed450c462315e354acd724756d04e3df90d3e6f4aa2db98b72eb4",
+    "strip": "3760409b401fbf60ccb3449fb6e4409bb96bbf60409f449fbfe0c89b484f3f60",
+    "captured": "2026-10-21"
    }
   },
   {
@@ -505,7 +520,7 @@
    },
    "meta": {
     "path": ".factory-check/proof/editorial",
-    "built": "2026-10-21T02:22:49",
+    "built": "2026-10-21T02:30:05",
     "personality": {
      "formality": 75.0,
      "scale": 57.5,
@@ -514,6 +529,11 @@
      "temperature": 47.5,
      "voice": 37.5
     }
+   },
+   "phash": {
+    "fold": "2bfe6bf69e05d601f098c8dc4814ca15ab5529f240f01aea56231faf67a91ceb",
+    "strip": "2fc4eacdc03bc13ebfe211e2b3f86a996ac5e8c7403b6a3993e23fc09528423a",
+    "captured": "2026-10-21"
    }
   }
  ],
