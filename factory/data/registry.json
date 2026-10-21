@@ -345,6 +345,62 @@
      "voice": 25.0
     }
    }
+  },
+  {
+   "id": "stonehurst-proof-estate",
+   "fingerprint": {
+    "display_family": "Libre Caslon Display",
+    "display_class": "garalde",
+    "body_family": "Libre Caslon Text",
+    "accent_hue": 128.1,
+    "paper_temperature": "cool",
+    "hero": "crest-centred",
+    "hero_family": "photo-bleed",
+    "spaces": "index",
+    "story": "pullquote",
+    "faq": "accordion-split",
+    "tour": "scheduler-split",
+    "section_order": [
+     "hero",
+     "facts-strip",
+     "story",
+     "featured",
+     "spaces",
+     "crest-reveal",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "crest-reveal",
+    "button_style": "square-outline-caps",
+    "radius": 0,
+    "lead_photo": "barn",
+    "dialect": "estate",
+    "pairing": "estate-caslon",
+    "voice": "heritage",
+    "paper_tone": "light",
+    "hero_framing": "crest",
+    "display_case": "sentence",
+    "ornament": "crest-roundel",
+    "body_px": 19,
+    "photo_edge": "keyline",
+    "motion_device": "draw-in",
+    "nav_style": "centered",
+    "ornament_wanted": "crest-roundel"
+   },
+   "meta": {
+    "path": ".factory-check/proof/estate",
+    "built": "2026-10-21T02:10:11",
+    "personality": {
+     "formality": 85.0,
+     "scale": 70.0,
+     "era": 25.0,
+     "density": 52.5,
+     "temperature": 35.0,
+     "voice": 62.5
+    }
+   }
   }
  ],
  "schema_version": 2
