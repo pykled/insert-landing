@@ -279,6 +279,12 @@ def main():
         for e in lead_errs:
             print('  ERROR:', e)
         sys.exit(3)
+    copy_zone = {}
+    if a.dialect != 'none':
+        # stage 2C: can the lead carry copy on the photo under the 35% scrim cap? (heroes' needs.copy_zone reads this)
+        copy_zone = {n: P.copy_zone_contrast(paths[n], items[n].get('focal', '50% 50%')) for n in items}
+        v['_copy_zone'] = copy_zone[lead]
+        v['_copy_zone_min'] = P.COPY_ZONE_MIN
 
     # 1. dialect: score (photo signals + vibe + type prior), pick, clamp the axes
     t1 = time.time()
@@ -402,6 +408,15 @@ def main():
     if used['hero'] == 'none':
         print('  ERROR: no renderable hero for this build'); sys.exit(3)
     hero_rec = arch_by['heroes'][used['hero']]
+    hero_copy_on = 'photo'
+    zone = hero_rec.get('needs', {}).get('copy_zone')
+    if dialect and zone and copy_zone[lead][zone] < P.COPY_ZONE_MIN:
+        darker = sorted((n for n in items if copy_zone[n][zone] >= P.COPY_ZONE_MIN), key=lambda n: -copy_zone[n][zone])
+        if hero_rec['needs'].get('paper_mode_ok'):
+            hero_copy_on = 'paper'
+            print('  hero %s: lead %s measures %.2f:1 in the copy zone under a 35%% scrim (< %.1f); copy set on paper' % (used['hero'], lead, copy_zone[lead][zone], P.COPY_ZONE_MIN))
+        else:
+            print('  WARNING: hero %s forced on lead %s (copy zone %.2f:1 < %.1f); darker leads: %s' % (used['hero'], lead, copy_zone[lead][zone], P.COPY_ZONE_MIN, ', '.join(darker) or 'none'))
     nav_style = 'minimal' if p['era'] >= 85 else ('centered' if (p['formality'] >= 75 and p['voice'] >= 60) else 'bar')
     if dialect:
         if nav_style not in dialect['nav']:
@@ -503,7 +518,7 @@ def main():
                uses_band='ink' if p['density'] >= 80 else 'deep', looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
-               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'))
+               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on)
     fp = {
         'display_family': pair['display']['family'], 'display_class': pair['display']['class'], 'body_family': pair['body']['family'],
         'accent_hue': pal_meta['accent_hue'], 'paper_temperature': pal_meta['temperature'],
@@ -536,7 +551,7 @@ def main():
             'wanted': {k: (val['id'] if isinstance(val, dict) else val) for k, val in ch.items()},
             'selection': sel_report, 'rhythm': rhythm, 'nav_style': nav_style, 'guide_layout': guide_layout, 'pairing': {'display': pair['display'], 'body': pair['body'], 'id': pair['id']},
             'palette': {'tokens': tokens, 'report': pal_report, 'meta': pal_meta, 'photos': pal_names}, 'lead': lead, 'fingerprint': fp,
-            'dialect': dialect_meta, 'fallbacks': fallbacks, 'cta_set': cta_index, 'schema_warnings': schema_warnings, 'fonts': {'ok': fonts_ok, 'message': fonts_msg},
+            'dialect': dialect_meta, 'fallbacks': fallbacks, 'copy_zone': {'lead': copy_zone.get(lead), 'min': P.COPY_ZONE_MIN, 'hero_copy_on': hero_copy_on, 'per_photo': copy_zone}, 'cta_set': cta_index, 'schema_warnings': schema_warnings, 'fonts': {'ok': fonts_ok, 'message': fonts_msg},
             'guard': {'status': status, 'nearest': g['nearest'], 'driver': nid, 'distance': round(dist, 3), 'quota': g['quota'], 'all': rows},
             'timings': timings, 'html_bytes': len(html.encode())}
     json.dump(meta, open(os.path.join(out_dir, 'build-meta.json'), 'w'), indent=1, default=str)

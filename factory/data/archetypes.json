@@ -19,7 +19,8 @@
    },
    "needs": {
     "lead_min_width": 2400,
-    "photos": 1
+    "photos": 1,
+    "copy_zone": "cinematic"
    },
    "fingerprint": {
     "hero_family": "photo-bleed",
@@ -208,7 +209,9 @@
    },
    "needs": {
     "lead_min_width": 2400,
-    "photos": 1
+    "photos": 1,
+    "copy_zone": "crest",
+    "paper_mode_ok": true
    },
    "fingerprint": {
     "hero_family": "photo-bleed",

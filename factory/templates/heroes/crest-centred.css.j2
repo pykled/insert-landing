@@ -43,6 +43,24 @@
     .crest-copy { padding-top: 40px; padding-bottom: 40px; }
     .crest-actions { flex-direction: column; align-items: stretch; width: min(100%, 320px); }
   }
+{% if hero_copy_on == 'paper' %}
+  /* paper mode (stage 2C): build.py measured the lead too bright for copy under the 35% scrim cap
+     (lib/palette.copy_zone_contrast), so the photo stands alone as a band and the crest block sits on paper at every
+     width, like the mobile layout. The facts move into the crest block so they stay in the first screen (E19). */
+  .crest-on-paper .crest-stage { display: block; min-height: 0; color: var(--ink); }
+  .crest-on-paper .crest-stage::after { display: none; }
+  .crest-on-paper .crest-media { position: relative; inset: auto; z-index: 0; height: clamp(300px, 46vh, 460px); }
+  .crest-on-paper .crest-mark { color: var(--metal, var(--accent-text)); margin-bottom: 16px; }
+  .crest-on-paper .crest-name, .crest-on-paper .crest-sub { color: var(--ink); }
+  .crest-on-paper .crest-loc { color: var(--ink-soft); }
+  .crest-on-paper .crest-btn, .crest-on-paper .crest-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .crest-on-paper .crest-btn:hover { background: var(--ink); color: var(--paper); }
+  .crest-on-paper .crest-copy { padding-top: clamp(36px, 5vh, 56px); padding-bottom: clamp(36px, 5vh, 56px); }
+  .crest-on-paper .crest-sub { margin-top: 12px; }
+  .crest-on-paper .crest-facts { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .crest-on-paper .crest-facts .hero-facts { justify-content: center; }
+  .crest-on-paper .crest-actions { margin-top: 24px; }
+{% endif %}
   @media (prefers-reduced-motion: reduce) {
     .crest-copy .hero-anim { animation: none; opacity: 1; transform: none; }
   }

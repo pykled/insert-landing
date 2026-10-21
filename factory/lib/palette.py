@@ -289,6 +289,33 @@ def photo_signals(photo_paths, lead=None):
     return aggregate_signals({name: photo_signal(p) for name, p in photo_paths.items()}, lead)
 
 
+# --- text-on-photo feasibility (stage 2C) ---------------------------------------------------------------------------
+# Where a hero sets copy on the lead photo, as fractions (left, top, right, bottom) of a 1440 x 860 cover crop.
+COPY_ZONES = {'cinematic': (0.04, 0.50, 0.55, 0.95), 'crest': (0.22, 0.25, 0.78, 0.85)}
+COPY_ZONE_MIN = 4.5     # small text on the photo (kicker, lede, buttons) needs 4.5:1 in qa.py
+COPY_ZONE_SCRIM = 0.35  # the E9 cap: no scrim stop darker than 35% black
+
+
+def copy_zone_contrast(path, focal='50% 50%', scrim=COPY_ZONE_SCRIM, q=99, viewport=(1440, 860)):
+    """Estimated worst-case contrast of white copy over each COPY_ZONES box of the photo under a uniform `scrim`
+    (conservative: the real gradients reach the cap only at their darkest stop). qa.py takes the minimum ratio under
+    every glyph, so the estimate uses the q-th percentile of zone luminance, not the mean. Deterministic."""
+    im = Image.open(path).convert('RGB')
+    W, H = im.size
+    fx, fy = [float(s.strip('%')) / 100 for s in focal.split()]
+    ar = viewport[0] / float(viewport[1])
+    cw, ch = (H * ar, H) if W / float(H) > ar else (W, W / ar)
+    x0 = min(max(fx * W - cw / 2, 0), W - cw); y0 = min(max(fy * H - ch / 2, 0), H - ch)
+    gw, gh = 288, int(round(288 / ar))
+    a = np.asarray(im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((gw, gh)), dtype=np.float64) / 255
+    Y = C.srgb_to_linear(a) @ np.array([0.2126, 0.7152, 0.0722])
+    out = {}
+    for z, (l, t, r, b) in COPY_ZONES.items():
+        y = float(np.percentile(Y[int(t * gh):int(b * gh), int(l * gw):int(r * gw)], q))
+        out[z] = round(1.05 / (y * (1 - scrim) + 0.05), 2)
+    return out
+
+
 # --- dark (charcoal paper) token set ------------------------------------------------------------------------------
 def dark_tokens(paper_L, paper_C, paper_h, accent_h, accent_C, metal=None, text_min_L=0.70):
     """Charcoal-ground token set. Same names as the light set so templates need no special cases, plus:
