@@ -458,6 +458,63 @@
      "voice": 57.5
     }
    }
+  },
+  {
+   "id": "stonehurst-proof-editorial",
+   "fingerprint": {
+    "display_family": "Literata",
+    "display_class": "transitional",
+    "body_family": "Literata",
+    "accent_hue": 115.3,
+    "paper_temperature": "cool",
+    "hero": "inset-caption",
+    "hero_family": "photo-matted",
+    "spaces": "index",
+    "story": "pullquote",
+    "faq": "numbered",
+    "tour": "scheduler-centered",
+    "section_order": [
+     "hero",
+     "statement",
+     "spaces",
+     "gallery",
+     "story",
+     "featured",
+     "pairs-counter",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "pairs-counter",
+    "button_style": "square-outline-caps",
+    "radius": 2,
+    "lead_photo": "flower",
+    "dialect": "editorial",
+    "pairing": "editorial-literata",
+    "voice": "romantic",
+    "paper_tone": "light",
+    "hero_framing": "inset",
+    "display_case": "sentence",
+    "ornament": "drop-cap",
+    "body_px": 19,
+    "photo_edge": "flush",
+    "motion_device": "cross-fade",
+    "nav_style": "bar",
+    "ornament_wanted": "drop-cap"
+   },
+   "meta": {
+    "path": ".factory-check/proof/editorial",
+    "built": "2026-10-21T02:22:49",
+    "personality": {
+     "formality": 75.0,
+     "scale": 57.5,
+     "era": 47.5,
+     "density": 67.5,
+     "temperature": 47.5,
+     "voice": 37.5
+    }
+   }
   }
  ],
  "schema_version": 2

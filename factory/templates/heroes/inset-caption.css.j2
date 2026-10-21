@@ -13,7 +13,11 @@
 {% with sel='.hero-inset-caption h1', vw=5.6, maxpx=84 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
   .hero-inset-caption h1 { max-width: 15ch; }
   .icap-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 42ch; margin-bottom: 18px; }
-  .icap-aside .hero-facts { padding-top: 16px; border-top: 1px solid var(--line); }
+  /* 2C: facts lead the aside and the aside sits at the top of the row, so two facts stay in the first screen at
+     1440 x 900 (bottom-aligned, they landed at ~950 px under a three-line headline) */
+  .icap-below { align-items: start; }
+  .icap-aside { display: flex; flex-direction: column; padding-top: clamp(28px, 2.6vw, 40px); }
+  .icap-aside .hero-facts { order: -1; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
   .icap-datefine { font-size: 17px; color: var(--ink-soft); }
   @media (max-width: 860px) {
     .icap-ph, .icap-ph img { aspect-ratio: 4 / 3; max-height: none; }
