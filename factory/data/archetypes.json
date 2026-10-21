@@ -2,7 +2,9 @@
  "_notes": [
   "status: built = a Jinja template exists under factory/templates, has been rendered for a Stonehurst variant and passed qa.py; mock-only = exists only as hand-written HTML in previews/stonehurst or previews/lindley-scott-house (registered in the fingerprint registry, not yet ported to a template); spec = defined here and in docs/venue-site-factory.md, no template yet. The selector only ever picks 'built' items.",
   "axes use the same 0-100 scale as pairings.json. Missing axes are 'don't care'.",
-  "needs lists photo requirements the selector checks against the content photo manifest (min source width for the lead photo, number of photos, orientation)."
+  "needs lists photo requirements the selector checks against the content photo manifest (min source width for the lead photo, number of photos, orientation).",
+  "Stage 2A (2026-10-20): status planned-2B = specified in docs/research/05-luxury-dialects-spec.md and owed by stage 2B (factory/STAGE-2B-CONTRACT.md); planned_stage=2B on a mock-only/spec item means 2B ports/builds it. Template existence on disk is the source of truth at build time (lib/templates.py); these labels are refreshed by `python3 lib/templates.py --refresh`. heroes[].fingerprint.hero_framing is one of inset/bleed/type/silent/split/crest (fingerprint dimension). `sections` lists rhythm blocks that dialects place by id.",
+  "dialect_only: true = never offered to pre-dialect (--dialect none) builds, so the three Stonehurst proof variants select exactly what they did before stage 2A."
  ],
  "heroes": [
   {
@@ -22,11 +24,13 @@
    "fingerprint": {
     "hero_family": "photo-bleed",
     "text_on_photo": true,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "bleed"
    },
    "used_by": [
     "stonehurst-mock-v2"
-   ]
+   ],
+   "planned_stage": "2B"
   },
   {
    "id": "masthead",
@@ -46,7 +50,8 @@
    "fingerprint": {
     "hero_family": "type-first",
     "text_on_photo": false,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "type"
    },
    "used_by": []
   },
@@ -68,7 +73,8 @@
    "fingerprint": {
     "hero_family": "photo-matted",
     "text_on_photo": false,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "inset"
    },
    "used_by": []
   },
@@ -90,7 +96,8 @@
    "fingerprint": {
     "hero_family": "type-first",
     "text_on_photo": false,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "type"
    },
    "used_by": []
   },
@@ -113,7 +120,8 @@
    "fingerprint": {
     "hero_family": "split",
     "text_on_photo": false,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "split"
    },
    "used_by": [
     "lindley-scott-mock"
@@ -137,9 +145,11 @@
    "fingerprint": {
     "hero_family": "split",
     "text_on_photo": false,
-    "form_in_hero": true
+    "form_in_hero": true,
+    "hero_framing": "split"
    },
-   "used_by": []
+   "used_by": [],
+   "planned_stage": "2B"
   },
   {
    "id": "mosaic",
@@ -159,7 +169,8 @@
    "fingerprint": {
     "hero_family": "grid",
     "text_on_photo": false,
-    "form_in_hero": false
+    "form_in_hero": false,
+    "hero_framing": "bleed"
    },
    "used_by": []
   },
@@ -180,9 +191,174 @@
    "fingerprint": {
     "hero_family": "photo-bleed",
     "text_on_photo": true,
+    "form_in_hero": false,
+    "hero_framing": "bleed"
+   },
+   "used_by": [],
+   "planned_stage": "2B"
+  },
+  {
+   "id": "crest-centred",
+   "status": "planned-2B",
+   "label": "Full-bleed photo, crest + tracked-caps name + italic subline centred, two square buttons (estate)",
+   "axes": {
+    "formality": 88,
+    "scale": 75,
+    "era": 20
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "photo-bleed",
+    "hero_framing": "crest",
+    "text_on_photo": true,
     "form_in_hero": false
    },
-   "used_by": []
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "inset-caption",
+   "status": "planned-2B",
+   "label": "Inset 16:9 photo; headline on paper below it bottom-left, small-caps kicker above (editorial, coastal)",
+   "axes": {
+    "formality": 75,
+    "density": 70,
+    "voice": 45
+   },
+   "needs": {
+    "lead_min_width": 1800,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "photo-matted",
+    "hero_framing": "inset",
+    "text_on_photo": false,
+    "form_in_hero": false
+   },
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "silent",
+   "status": "planned-2B",
+   "label": "Full-height photo, nav bar at the hero foot, one outlined Inquire (candlelit); lead >= 2400 and subject=building",
+   "axes": {
+    "formality": 85,
+    "scale": 80,
+    "density": 65
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 1,
+    "lead_subject": [
+     "building"
+    ]
+   },
+   "fingerprint": {
+    "hero_family": "photo-bleed",
+    "hero_framing": "silent",
+    "text_on_photo": false,
+    "form_in_hero": false
+   },
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "inset-wide",
+   "status": "planned-2B",
+   "label": "Inset panoramic photo under a two-row minimal header; headline on paper beneath at 40-56px, no kicker (modern-luxe)",
+   "axes": {
+    "formality": 80,
+    "era": 90,
+    "density": 88
+   },
+   "needs": {
+    "lead_min_width": 1800,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "photo-matted",
+    "hero_framing": "inset",
+    "text_on_photo": false,
+    "form_in_hero": false
+   },
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "landscape-silent",
+   "status": "planned-2B",
+   "label": "Full-height photo, no text, header only; headline arrives in the next section (modern-luxe, ranch)",
+   "axes": {
+    "era": 75,
+    "density": 70,
+    "scale": 70
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 1,
+    "lead_subject": [
+     "place",
+     "grounds",
+     "building"
+    ]
+   },
+   "fingerprint": {
+    "hero_family": "photo-bleed",
+    "hero_framing": "silent",
+    "text_on_photo": false,
+    "form_in_hero": false
+   },
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "arch-split",
+   "status": "planned-2B",
+   "label": "50/50: photo in an arch mask left, copy + date check right on paper with the wash (botanical)",
+   "axes": {
+    "formality": 62,
+    "density": 42,
+    "voice": 25
+   },
+   "needs": {
+    "lead_min_width": 1200,
+    "photos": 1,
+    "portrait_ok": true
+   },
+   "fingerprint": {
+    "hero_family": "split",
+    "hero_framing": "split",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": [],
+   "spec": "05 section 2"
+  },
+  {
+   "id": "pair-split",
+   "status": "planned-2B",
+   "label": "Headline band on ivory, then a b/w + colour photo pair at 4:5, date check inline (deco)",
+   "axes": {
+    "formality": 85,
+    "era": 65,
+    "voice": 78
+   },
+   "needs": {
+    "lead_min_width": 1200,
+    "photos": 2
+   },
+   "fingerprint": {
+    "hero_family": "split",
+    "hero_framing": "split",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": [],
+   "spec": "05 section 2"
   }
  ],
  "spaces": [
@@ -255,7 +431,18 @@
     "era": 80,
     "scale": 60
    },
-   "used_by": []
+   "used_by": [],
+   "planned_stage": "2B"
+  },
+  {
+   "id": "stack-olive",
+   "status": "planned-2B",
+   "label": "Olive-band variant of stack: spaces on the deep olive band with ochre small-caps kickers (ranch)",
+   "axes": {
+    "density": 35,
+    "formality": 50,
+    "temperature": 20
+   }
   }
  ],
  "story": [
@@ -269,7 +456,8 @@
    },
    "used_by": [
     "stonehurst-mock-v2"
-   ]
+   ],
+   "planned_stage": "2B"
   },
   {
    "id": "pullquote",
@@ -287,7 +475,7 @@
   {
    "id": "timeline",
    "status": "built",
-   "label": "Dated rail (1907 \u2192 today) with photo beside",
+   "label": "Dated rail (1907 → today) with photo beside",
    "axes": {
     "density": 30,
     "era": 20,
@@ -402,7 +590,8 @@
     "density": 50,
     "formality": 75
    },
-   "used_by": []
+   "used_by": [],
+   "planned_stage": "2B"
   }
  ],
  "moments": [
@@ -458,7 +647,8 @@
    },
    "needs": {
     "day": true
-   }
+   },
+   "planned_stage": "2B"
   },
   {
    "id": "grounds-constellation",
@@ -505,6 +695,77 @@
    },
    "needs": {
     "numbers": 3
+   },
+   "planned_stage": "2B"
+  },
+  {
+   "id": "slideshow-counter",
+   "status": "planned-2B",
+   "label": "Cross-fade slideshow with a \"01 - 04\" counter; static under reduced motion",
+   "axes": {
+    "era": 80,
+    "density": 75
+   },
+   "needs": {
+    "photos": 3
+   }
+  },
+  {
+   "id": "crest-reveal",
+   "status": "planned-2B",
+   "label": "The crest rings draw in once (SVG stroke-dashoffset 1200ms); shares the draw-in module with sprig-draw",
+   "axes": {
+    "formality": 88,
+    "era": 20
+   },
+   "needs": {}
+  },
+  {
+   "id": "sprig-draw",
+   "status": "planned-2B",
+   "label": "The botanical line drawing animates once (stroke-dashoffset 1600ms)",
+   "axes": {
+    "formality": 60,
+    "voice": 25
+   },
+   "needs": {
+    "flora": true
+   }
+  },
+  {
+   "id": "then-now",
+   "status": "planned-2B",
+   "label": "Two-photo slider, archival b/w <-> today, brass handle; only with an archival photo with rights",
+   "axes": {
+    "era": 60,
+    "formality": 85
+   },
+   "needs": {
+    "archival": true
+   }
+  },
+  {
+   "id": "candle-count",
+   "status": "planned-2B",
+   "label": "numbers-count styled as brass numerals with a flicker-free ease (candlelit)",
+   "axes": {
+    "formality": 80,
+    "temperature": 25
+   },
+   "needs": {
+    "numbers": 3
+   }
+  },
+  {
+   "id": "pairs-counter",
+   "status": "planned-2B",
+   "label": "Pairs gallery with captions and a \"1 - 3\" counter, no autoplay (editorial)",
+   "axes": {
+    "formality": 75,
+    "density": 65
+   },
+   "needs": {
+    "photos": 4
    }
   }
  ],
@@ -546,6 +807,88 @@
    },
    "label": "Short sentences, no adjectives that aren't facts, labels instead of kickers",
    "status": "built"
+  },
+  {
+   "id": "heritage",
+   "axes": {
+    "voice": 65,
+    "formality": 85,
+    "era": 20
+   },
+   "label": "Declarative, third person, dates and materials (estate)",
+   "status": "built",
+   "dialect_only": true
+  },
+  {
+   "id": "evening",
+   "axes": {
+    "voice": 60,
+    "formality": 80,
+    "temperature": 25
+   },
+   "label": "Short, sensory, nouns (candlelit)",
+   "status": "built",
+   "dialect_only": true
+  },
+  {
+   "id": "lyric",
+   "axes": {
+    "voice": 45,
+    "formality": 75,
+    "temperature": 72
+   },
+   "label": "Short sentences, nouns of weather and water (coastal)",
+   "status": "built",
+   "dialect_only": true
+  }
+ ],
+ "sections": [
+  {
+   "id": "statement",
+   "status": "planned-2B",
+   "label": "One big serif sentence (28-34px) after the hero, optional drop cap / sprig / wash",
+   "template": "sections/statement"
+  },
+  {
+   "id": "facts-strip",
+   "status": "planned-2B",
+   "label": "Facts strip: year, acres, guests, spaces (only content-sourced values); hairline-grid or brass small caps by dialect",
+   "template": "sections/facts-strip"
+  },
+  {
+   "id": "daylight-band",
+   "status": "planned-2B",
+   "label": "Candlelit only: one light-paper band mid-page with a daytime photo",
+   "template": "sections/daylight-band",
+   "needs": {
+    "photos_by_light": [
+     "day"
+    ]
+   }
+  },
+  {
+   "id": "glance",
+   "status": "built",
+   "label": "At-a-glance strip (existing)",
+   "template": "sections/glance"
+  },
+  {
+   "id": "featured",
+   "status": "built",
+   "label": "Featured-in names (plain text, from content.featured_in only)",
+   "template": "sections/featured"
+  },
+  {
+   "id": "uses",
+   "status": "built",
+   "label": "Uses band (existing)",
+   "template": "sections/uses"
+  },
+  {
+   "id": "guide",
+   "status": "built",
+   "label": "Pricing guide (existing)",
+   "template": "sections/guide"
   }
  ]
 }

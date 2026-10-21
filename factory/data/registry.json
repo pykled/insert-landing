@@ -1,5 +1,8 @@
 {
- "_notes": "Fingerprints of every site Insert has built. The two mock entries were transcribed by hand from previews/stonehurst/index.html and previews/lindley-scott-house/index.html; build.py appends generated sites automatically.",
+ "_notes": [
+  "Fingerprints of every site Insert has built. The two mock entries were transcribed by hand from previews/stonehurst/index.html and previews/lindley-scott-house/index.html; build.py appends generated sites automatically.",
+  "Schema 2 (2026-10-20, stage 2A): fingerprints add dialect, pairing, voice, paper_tone, hero_framing, display_case, ornament, body_px, photo_edge, motion_device, nav_style (lib/fingerprint.py); each site may carry phash {fold, strip} (256-bit DCT hashes, lib/phash.py) and allow_close (the human reason when registered past a refusal). All five sites were re-registered under schema 2; the three generated variants and the two mocks are dialect \"none\" (pre-dialect)."
+ ],
  "sites": [
   {
    "id": "stonehurst-mock-v2",
@@ -30,13 +33,29 @@
     "moment": "none",
     "button_style": "square-outline-caps",
     "radius": 2,
-    "lead_photo": "hero"
+    "lead_photo": "hero",
+    "dialect": "none",
+    "pairing": "editorial-didone",
+    "paper_tone": "mid",
+    "hero_framing": "bleed",
+    "display_case": "sentence",
+    "ornament": "none",
+    "body_px": 17,
+    "photo_edge": "flush",
+    "motion_device": "none",
+    "nav_style": "bar"
    },
    "meta": {
     "path": "previews/stonehurst/index.html",
     "built": "2026-10-16",
     "palette": "clay #733425 / teal #123132 on paper #f6f2ec (venue Wix theme)",
-    "note": "accent hue measured from --clay #9a5039 in OKLCH"
+    "note": "accent hue measured from --clay #9a5039 in OKLCH",
+    "schema2": "2026-10-20: new dimensions transcribed by hand from the rendered mock (computed paper colour, body size, hero, nav); pHash captured with lib/phash.py capture at 1440x900 @1x"
+   },
+   "phash": {
+    "fold": "1a40da4eb5a535a5e1ef4a514a5bc1bf35a1e4af5a5a5a51c05e35a0b4a7c0be",
+    "strip": "3a9022b611be116a266c376c3762176a3989e895c8976a95e897eb916d996a5f",
+    "captured": "2026-10-20"
    }
   },
   {
@@ -64,13 +83,29 @@
     "moment": "day-timeline",
     "button_style": "square-outline",
     "radius": 2,
-    "lead_photo": "placeholder"
+    "lead_photo": "placeholder",
+    "dialect": "none",
+    "pairing": "heritage-garalde",
+    "paper_tone": "tinted",
+    "hero_framing": "split",
+    "display_case": "sentence",
+    "ornament": "none",
+    "body_px": 19,
+    "photo_edge": "flush",
+    "motion_device": "none",
+    "nav_style": "bar"
    },
    "meta": {
     "path": "previews/lindley-scott-house/index.html",
     "built": "2026-10",
     "palette": "moss #4d5a3f / brass #a8894f on paper #f7f3ec",
-    "note": "accent hue measured from --moss in OKLCH; placeholders instead of photos"
+    "note": "accent hue measured from --moss in OKLCH; placeholders instead of photos",
+    "schema2": "2026-10-20: new dimensions transcribed by hand from the rendered mock (computed paper colour, body size, hero, nav); pHash captured with lib/phash.py capture at 1440x900 @1x"
+   },
+   "phash": {
+    "fold": "39c4c233c63b3f84e3763bc416190f396f24e2763bc095a93c84ea56965b94ad",
+    "strip": "3f81bb81433bc5ee44ee446ecc73319cb39c3311bb213ec1c4eec07ec43e2e44",
+    "captured": "2026-10-20"
    }
   },
   {
@@ -102,7 +137,18 @@
     "moment": "guest-journey",
     "button_style": "square-outline-caps",
     "radius": 1,
-    "lead_photo": "greenhouse"
+    "lead_photo": "greenhouse",
+    "dialect": "none",
+    "pairing": "coastal-newsreader",
+    "voice": "editorial",
+    "paper_tone": "light",
+    "hero_framing": "type",
+    "display_case": "mixed",
+    "ornament": "none",
+    "body_px": 17,
+    "photo_edge": "keyline",
+    "motion_device": "none",
+    "nav_style": "centered"
    },
    "meta": {
     "path": "previews/stonehurst-variants/a",
@@ -114,7 +160,13 @@
      "density": 70.0,
      "temperature": 65.0,
      "voice": 80.0
-    }
+    },
+    "schema2": "2026-10-20: re-registered from a byte-identical rebuild (build-all.sh, --dialect none); pHash from qa.py on that rebuild"
+   },
+   "phash": {
+    "fold": "2ab5d54a2ab50bc1d5b1295b28bbfd3abc5c0aa5d696c5932ab16169f1582aa5",
+    "strip": "2ac52ac52231103aa238481d6a9defc73de6bdc2d55ac459c45bd538953af766",
+    "captured": "2026-10-20"
    }
   },
   {
@@ -146,7 +198,18 @@
     "moment": "light-shift",
     "button_style": "pill-solid",
     "radius": 6,
-    "lead_photo": "barn"
+    "lead_photo": "barn",
+    "dialect": "none",
+    "pairing": "warm-fraunces",
+    "voice": "warm-host",
+    "paper_tone": "tinted",
+    "hero_framing": "inset",
+    "display_case": "sentence",
+    "ornament": "none",
+    "body_px": 17,
+    "photo_edge": "rounded",
+    "motion_device": "none",
+    "nav_style": "bar"
    },
    "meta": {
     "path": "previews/stonehurst-variants/b",
@@ -158,7 +221,13 @@
      "density": 25.0,
      "temperature": 15.0,
      "voice": 25.0
-    }
+    },
+    "schema2": "2026-10-20: re-registered from a byte-identical rebuild (build-all.sh, --dialect none); pHash from qa.py on that rebuild"
+   },
+   "phash": {
+    "fold": "3e85c0fe4e959f0560f9d3856ed49ba660f41f2762c1ca1c671c1c31b64ee1c6",
+    "strip": "3f903f03b64bc40e6a959549ccdd48973760b76ac1b61ab4906ac0f9c0bf37e8",
+    "captured": "2026-10-20"
    }
   },
   {
@@ -189,7 +258,18 @@
     "moment": "seat-picker",
     "button_style": "square-solid",
     "radius": 0,
-    "lead_photo": "hero"
+    "lead_photo": "hero",
+    "dialect": "none",
+    "pairing": "modern-instrument",
+    "voice": "plainspoken",
+    "paper_tone": "light",
+    "hero_framing": "type",
+    "display_case": "sentence",
+    "ornament": "none",
+    "body_px": 17,
+    "photo_edge": "flush",
+    "motion_device": "none",
+    "nav_style": "minimal"
    },
    "meta": {
     "path": "previews/stonehurst-variants/c",
@@ -201,8 +281,15 @@
      "density": 92.0,
      "temperature": 55.0,
      "voice": 92.0
-    }
+    },
+    "schema2": "2026-10-20: re-registered from a byte-identical rebuild (build-all.sh, --dialect none); pHash from qa.py on that rebuild"
+   },
+   "phash": {
+    "fold": "6ed597324ad5c897b6c46ad1925d1b366ad592d1949b489dc1f693b03e443722",
+    "strip": "6ed5cec0bec04cdd401fb626b760139245bbbf60932264bfd03b3e4064eccad3",
+    "captured": "2026-10-20"
    }
   }
- ]
+ ],
+ "schema_version": 2
 }

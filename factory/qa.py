@@ -23,17 +23,30 @@ Checks, per viewport (1440x900 @2x desktop, 390x844 @2x mobile):
      motion rules present, tap targets >= 24 px on mobile, LCP element reported.
   7. interactive flows: date check (error + success + reset), tour (open panel if needed, pick, book,
      reset), guide (invalid + valid), and the site's signature moment.
-  8. diversity: fingerprint distance to every registered site; FAIL on 'refuse'.
+  8. diversity: fingerprint guard against every registered site (schema 2: same-dialect rule + quota); FAIL on
+     'refuse'. Screenshot pHash of the 1440 fold and the full-page rhythm strip (lib/phash.py) against every
+     registered site's stored hashes: Hamming <= 18/256 WARN, <= 12 FAIL.
+  9. spec 05 section 5 exclusions E1-E19 (lib/exclusions.py) on a DOM snapshot of the desktop page. Dialect builds:
+     FAIL; pre-dialect builds and hand-built mocks: WARN (they predate the spec).
+ 10. motion: under prefers-reduced-motion every .reveal is visible and nothing animates (no running animations, no
+     auto-advancing [data-autoplay]); with motion on, the reveal transition is 600-1200 ms.
+ 11. template fallbacks recorded in build-meta.json (a dialect asked for a template stage 2B has not built yet):
+     WARN, FAIL with --strict.
 Writes shots + qa-report.json into <dir>/qa/. Exit 1 on any problem.
+  qa.py --self-test   run the exclusion fixtures (factory/tests/test_exclusions.py) without a browser
 """
 import os, re, io, json, sys, math, argparse
+if '--self-test' in sys.argv:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from tests import test_exclusions as _T
+    sys.exit(_T.main())
 from playwright.sync_api import sync_playwright
 from PIL import Image, ImageFilter
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from lib import fingerprint as FP
+from lib import fingerprint as FP, exclusions as EX, phash as PH
 
 ap = argparse.ArgumentParser()
 ap.add_argument('dir')
@@ -41,6 +54,8 @@ ap.add_argument('--base', default='http://localhost:4821')
 ap.add_argument('--url')
 ap.add_argument('--registry', default=os.path.join(HERE, 'data', 'registry.json'))
 ap.add_argument('--no-shots', action='store_true')
+ap.add_argument('--strict', action='store_true', help='template fallbacks are problems, not warnings')
+ap.add_argument('--content', help='content JSON (default: build-meta content_path, else content/<slug>.json)')
 a = ap.parse_args()
 
 DIR = os.path.abspath(a.dir)
@@ -50,6 +65,11 @@ OUT = os.path.join(DIR, 'qa'); os.makedirs(OUT, exist_ok=True)
 MAN = {m['name']: m for m in json.load(open(os.path.join(DIR, 'img', 'manifest.json')))} if os.path.exists(os.path.join(DIR, 'img', 'manifest.json')) else {}
 META = json.load(open(os.path.join(DIR, 'build-meta.json'))) if os.path.exists(os.path.join(DIR, 'build-meta.json')) else None
 
+DIALECT = ((META or {}).get('dialect') or {}).get('id') if isinstance((META or {}).get('dialect'), dict) else None
+DIALECT_MODE = DIALECT not in (None, 'none')
+_cpath = a.content or ((META or {}).get('content_path') and os.path.join(ROOT, META['content_path'])) or (META and os.path.join(HERE, 'content', META['id'].split('-')[0] + '.json'))
+CONTENT = json.load(open(_cpath)) if _cpath and os.path.exists(_cpath) else {}
+HTML = open(os.path.join(DIR, 'index.html')).read() if os.path.exists(os.path.join(DIR, 'index.html')) else ''
 problems, warnings, info = [], [], {}
 contrast_rows = []
 
@@ -302,6 +322,16 @@ def run(pw, name, width, height, scale, mobile):
         elif MAN:
             problems.append('%s: image not in manifest: %s' % (name, i['cur']))
     info.setdefault('images_checked', {})[name] = counted
+    # --- spec exclusions E1-E19 on a DOM snapshot (desktop; mobile adds the first-screen fact check) ---
+    page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})"); page.wait_for_timeout(100)
+    snap = page.evaluate(EX.COLLECT_JS)   # all positions in document coordinates, so the scroll offset does not matter
+    if not mobile:
+        ex_p, ex_w, ex_sum = EX.run_all(snap, META, CONTENT, HTML, dialect_mode=DIALECT_MODE)
+        info['exclusions'] = {'mode': 'dialect' if DIALECT_MODE else 'pre-dialect (warnings only)', 'failures_by_rule': ex_sum, 'sections': snap.get('sections'), 'first_screen_text': snap.get('first_screen_text', '')[:400], 'content': _cpath}
+        problems.extend('%s: %s' % (name, x) for x in ex_p); warnings.extend('%s: %s' % (name, x) for x in ex_w)
+    else:
+        p19, w19 = EX.e19_first_screen_facts(snap, CONTENT)
+        (problems if DIALECT_MODE else warnings).extend('%s: %s' % (name, x) for x in p19)
     # --- contrast: default ---
     check_contrast(page, name, 'default', None, scale)
     # --- hover states ---
@@ -373,6 +403,28 @@ def run(pw, name, width, height, scale, mobile):
         page.evaluate("window.__fitSet(50)"); page.wait_for_timeout(100)
         if 'fit-bamboo:yes' not in page.evaluate("[...document.querySelectorAll('.fit-row')].map(r => r.id + ':' + r.getAttribute('data-fit'))"): problems.append('%s: seat picker wrong at 50' % name)
         page.evaluate("window.__fitSet(120)")
+    elif moment == 'slideshow-counter':
+        page.evaluate("window.__slideTo(1)"); page.wait_for_timeout(150)
+        if '02' not in (page.inner_text('[data-counter]') if page.locator('[data-counter]').count() else ''): problems.append('%s: slideshow counter did not advance to 02' % name)
+        check_contrast(page, name, 'slide 2', '[data-moment-root]', scale)
+    elif moment in ('numbers-count', 'candle-count'):
+        page.evaluate("window.__countFinish()"); page.wait_for_timeout(100)
+        bad = page.evaluate("[...document.querySelectorAll('[data-count-to]')].filter(e => e.textContent.trim() !== e.getAttribute('data-count-to')).map(e => e.textContent)")
+        if bad or not page.locator('[data-count-to]').count(): problems.append('%s: numbers did not settle on their content values: %s' % (name, bad))
+        check_contrast(page, name, 'numbers settled', '[data-moment-root]', scale)
+    elif moment == 'then-now':
+        page.evaluate("window.__thenNow(25)"); page.wait_for_timeout(100)
+        if page.evaluate("document.querySelector('[data-moment-root]').getAttribute('data-split')") != '25': problems.append('%s: then-now slider did not move to 25' % name)
+    elif moment == 'pairs-counter':
+        page.evaluate("window.__pairsTo(1)"); page.wait_for_timeout(150)
+        if '2' not in (page.inner_text('[data-counter]') if page.locator('[data-counter]').count() else ''): problems.append('%s: pairs counter did not advance' % name)
+        check_contrast(page, name, 'pair 2', '[data-moment-root]', scale)
+    elif moment == 'hours-dial':
+        page.evaluate("window.__dialSet(18)"); page.wait_for_timeout(100)
+        if page.evaluate("document.querySelector('[data-moment-root]').getAttribute('data-dial-hour')") != '18': problems.append('%s: hours dial did not move to 18' % name)
+        check_contrast(page, name, 'dial 18', '[data-moment-root]', scale)
+    elif moment in ('crest-reveal', 'sprig-draw'):
+        if not page.locator('[data-motion-device="draw-in"]').count(): problems.append('%s: %s moment without a [data-motion-device=draw-in] element' % (name, moment))
     elif moment == 'guest-journey':
         page.evaluate("window.__journeyActivate(2)"); page.wait_for_timeout(100)
         on = page.evaluate("[...document.querySelectorAll('.jstage-img')].findIndex(i => i.classList.contains('on'))")
@@ -382,9 +434,15 @@ def run(pw, name, width, height, scale, mobile):
     if not a.no_shots:
         page.evaluate("document.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible')); window.scrollTo(0,0)")
         page.evaluate("Promise.all([...document.images].map(i => i.decode().catch(()=>0)))")
-        fullshot(page, os.path.join(OUT, '%s.png' % name))
+        full = fullshot(page, os.path.join(OUT, '%s.png' % name))
         hero_h = page.evaluate("document.querySelector('.hero').getBoundingClientRect().height")
         fullshot(page, os.path.join(OUT, '%s-hero.png' % name), clip=(0, 0, width, max(200, min(hero_h, 2400))))
+    # --- screenshot pHash (desktop): fold + full-page rhythm strip ---
+    if not mobile:
+        if a.no_shots:
+            page.evaluate("document.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible')); window.scrollTo(0,0)")
+            full = fullshot(page)
+        info['phash'] = {'fold': PH.fold_hash(full), 'strip': PH.strip_hash(full)}
     # --- network ---
     reqs = page.evaluate("performance.getEntriesByType('resource').map(r => r.name).filter(u => !u.startsWith(location.origin))")
     ext = [u for u in reqs if 'fonts.g' not in u]
@@ -413,18 +471,57 @@ with sync_playwright() as pw:
             warnings.append('1x: %s hairline share %.0f%% at 1x DPR (%s %s @ %.0fpx): fine on retina, watch on 1x screens' % (sel, sp['hairline_share_1px'] * 100, sp['family'], sp['weight'], sp['size_css']))
     ctx.close()
 
+    # reduced motion: everything static; motion on: reveal timing inside the baseline
+    for reduce in (True, False):
+        ctx = pw.chromium.launch().new_context(viewport={'width': 1440, 'height': 900}, device_scale_factor=1, reduced_motion='reduce' if reduce else 'no-preference')
+        pg = ctx.new_page(); pg.goto(URL, wait_until='load'); pg.wait_for_timeout(700)
+        m = pg.evaluate("""() => { const run = document.getAnimations().filter(x => x.playState === 'running');
+          const rev = [...document.querySelectorAll('.reveal')]; const hidden = rev.filter(e => e.getBoundingClientRect().top < innerHeight && parseFloat(getComputedStyle(e).opacity) < 0.99).length;
+          const dur = rev.length ? getComputedStyle(rev[0]).transitionDuration : '';
+          const dev = [...document.querySelectorAll('[data-motion-device]')].map(e => ({id: e.getAttribute('data-motion-device'), anims: e.getAnimations({subtree: true}).map(x => x.effect ? x.effect.getComputedTiming().duration : 0)}));
+          const auto = [...document.querySelectorAll('[data-autoplay]')].map(e => e.getAttribute('data-autoplay'));
+          return {running: run.length, running_names: run.slice(0, 5).map(x => x.animationName || x.transitionProperty || 'anim'), hidden_reveals: hidden, reveal_duration: dur, devices: dev, autoplay: auto}; }""")
+        info.setdefault('motion', {})['reduced' if reduce else 'normal'] = m
+        sink = problems if DIALECT_MODE else warnings
+        if reduce:
+            if m['running']: sink.append('motion: %d animations still running under prefers-reduced-motion (%s)' % (m['running'], m['running_names']))
+            if m['hidden_reveals']: sink.append('motion: %d .reveal elements in the first screen stay hidden under prefers-reduced-motion' % m['hidden_reveals'])
+            if [x for x in m['autoplay'] if str(x).lower() not in ('off', 'false', 'none', '0')]: sink.append('motion: [data-autoplay] still on under prefers-reduced-motion')
+        else:
+            secs = [float(x[:-2]) / 1000 if x.endswith('ms') else float(x[:-1]) for x in re.findall(r'[\d.]+m?s', m['reveal_duration'] or '')]
+            if secs and any(d0 > 0 and not (0.6 <= d0 <= 1.2) for d0 in secs): sink.append('motion: reveal transition %s outside 600-1200 ms' % m['reveal_duration'])
+            for d in m['devices']:
+                for ms in d['anims']:
+                    if ms and not (600 <= ms <= 1600): warnings.append('motion: device %s runs %d ms (dialect devices stay within 600-1600 ms)' % (d['id'], ms))
+        ctx.close()
+
+# --- template fallbacks (stage 2B not built yet) ---
+for f in (META or {}).get('fallbacks', []):
+    msg = 'template fallback: %s "%s" -> %s (%s)' % (f['kind'], f['wanted'], f['used'] or 'omitted', 'planned for stage 2B')
+    (problems if a.strict else warnings).append(msg)
+info['fallbacks'] = len((META or {}).get('fallbacks', []))
+
 # --- diversity ---
 if META:
     reg = FP.load_registry(a.registry)
-    status, nid, dist, rows = FP.check(META['fingerprint'], reg, exclude_id=META['id'])
-    info['diversity'] = {'status': status, 'nearest': nid, 'distance': dist, 'all': [(r['id'], r['distance']) for r in rows]}
-    if status == 'refuse': problems.append('diversity: too close to %s (%.3f)' % (nid, dist))
-    elif status == 'warn': warnings.append('diversity: family resemblance to %s (%.3f)' % (nid, dist))
+    g = FP.guard(META['fingerprint'], reg, exclude_id=META['id'])
+    status, nid, dist = g['status'], g['driver'], g['distance']
+    info['diversity'] = {'status': status, 'nearest': nid, 'distance': dist, 'all': [(r['id'], r['distance'], r['status']) for r in g['rows']], 'quota': g['quota']}
+    why = next((r['rule'] for r in g['rows'] if r['id'] == nid), g['quota']['status'] + ' quota')
+    if status == 'refuse': problems.append('diversity: too close to %s (%s)' % (nid, why))
+    elif status == 'warn': warnings.append('diversity: family resemblance to %s (%s)' % (nid, why))
+if 'phash' in info:
+    reg = FP.load_registry(a.registry)
+    ph_status, ph_rows = PH.compare(info['phash'], reg, exclude_id=(META or {}).get('id'))
+    info['phash_compare'] = [(r['id'], r.get('fold'), r.get('strip'), r['status']) for r in ph_rows]
+    near = next((r for r in ph_rows if r['status'] in ('refuse', 'warn')), None)
+    if ph_status == 'refuse': problems.append('pHash: looks like %s (fold %s, strip %s of 256 bits differ; refuse <= %d)' % (near['id'], near['fold'], near['strip'], PH.REFUSE))
+    elif ph_status == 'warn': warnings.append('pHash: close to %s (fold %s, strip %s of 256 bits; warn <= %d)' % (near['id'], near['fold'], near['strip'], PH.WARN))
 
 json.dump({'url': URL, 'problems': problems, 'warnings': warnings, 'info': info, 'contrast': contrast_rows}, open(os.path.join(OUT, 'qa-report.json'), 'w'), indent=0, default=str)
 small = [r for r in contrast_rows if not (r['size'] >= 24 or (r['size'] >= 18.66 and r['weight'] >= 700))]
 print('%s\ntext nodes measured: %d (small %d). Lowest small-text ratio: %.2f, lowest overall: %.2f' % (URL, len(contrast_rows), len(small), min(r['min'] for r in small), min(r['min'] for r in contrast_rows)))
-print('info:', json.dumps({k: v for k, v in info.items() if k != 'diversity'}, default=str))
+print('info:', json.dumps({k: v for k, v in info.items() if k not in ('diversity', 'motion', 'phash_compare', 'stroke', 'stroke_1x')}, default=str)[:1500])
 if 'diversity' in info: print('diversity:', info['diversity']['status'].upper(), 'nearest', info['diversity']['nearest'], '%.3f' % info['diversity']['distance'], info['diversity']['all'])
 print('\nWARNINGS: %d' % len(warnings))
 for w in warnings: print('  ' + w)

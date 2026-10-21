@@ -1,0 +1,3260 @@
+{
+ "_notes": [
+  "Eight luxury dialects from docs/research/05-luxury-dialects-spec.md (sections 1-4). A dialect is a bounded region of the six-axis personality space plus a curated sub-library. lib/personality.py scores them (photo signals + content vibe + type prior), clamps the axes to the winner, and selects only ids listed here.",
+  "Every id carries status: exists (template/data present now), planned-2B (owed by stage 2B, see factory/STAGE-2B-CONTRACT.md) or deferred (named in the spec but not in the phase-2 inventory). Statuses are a snapshot; build.py checks the filesystem (lib/templates.py) and `python3 lib/templates.py --refresh` rewrites them.",
+  "Colour values are OKLCH (L 0-1, C, H degrees). Ranges are [min, max]; H is a list of [min, max] ranges. paper.mode = light | dark; paper_dark is an alternate charcoal ground chosen from the photos. contrast_pairs name pairs that must pass 7:1 (lib/palette.py walks them).",
+  "rhythm_variants: two section orders per dialect. blocks of kind role resolve to the selected archetype (spaces, story, moment, tour, faq) or the guide; kind section is a stand-alone block resolved via sections/<id>.j2 with the fallbacks below. featured (press names) is inserted after the story when content.featured_in is non-empty; uses closes the page.",
+  "fallbacks: nearest existing template per kind, tried in order (ids the dialect allows first). An empty chain means the block is omitted. Every fallback is recorded in build-meta.json fallbacks[] and flagged by qa.py."
+ ],
+ "schema_version": 1,
+ "shared_baseline": {
+  "paper_light": {
+   "L": [
+    0.93,
+    0.985
+   ],
+   "C": [
+    0.004,
+    0.022
+   ]
+  },
+  "paper_dark": {
+   "L": [
+    0.16,
+    0.24
+   ]
+  },
+  "never_paper": [
+   "#ffffff"
+  ],
+  "display_weight": [
+   400,
+   600
+  ],
+  "display_size_px": {
+   "sentence_desktop": [
+    48,
+    96
+   ],
+   "sentence_mobile": [
+    30,
+    44
+   ],
+   "caps": [
+    14,
+    40
+   ],
+   "caps_tracking_em": [
+    0.08,
+    0.22
+   ]
+  },
+  "body_px": [
+   17,
+   22
+  ],
+  "body_line_height": [
+   1.55,
+   1.7
+  ],
+  "sections_before_inquiry": [
+   3,
+   5
+  ],
+  "facts_first_screen_min": 2,
+  "ornament": {
+   "devices_max": 1,
+   "instances_max": 3
+  },
+  "scrim": {
+   "black_max": 0.35,
+   "white_max": 0.2,
+   "gradient_only": true
+  },
+  "motion": {
+   "duration_ms": [
+    600,
+    1200
+   ],
+   "easing": "cubic-bezier(.2,.7,.2,1)",
+   "reduced_motion": "static",
+   "hero_slider": false
+  },
+  "headline_words_max": 14,
+  "banned_headline_words": [
+   "luxury",
+   "luxurious",
+   "stunning",
+   "unforgettable",
+   "dream",
+   "magical",
+   "elegance & grandeur"
+  ],
+  "lead_subjects": [
+   "place",
+   "building",
+   "grounds",
+   "interior",
+   "detail"
+  ],
+  "people_max_frame_share": 0.1
+ },
+ "vibe_words": {
+  "grand": "estate",
+  "heritage": "estate",
+  "formal": "estate",
+  "romantic": "editorial",
+  "soft": "editorial",
+  "floral": "editorial",
+  "editorial": "editorial",
+  "evening": "candlelit",
+  "candlelit": "candlelit",
+  "moody": "candlelit",
+  "brass": "candlelit",
+  "minimal": "modern-luxe",
+  "architectural": "modern-luxe",
+  "serene": "modern-luxe",
+  "modern": "modern-luxe",
+  "bright": "coastal",
+  "breezy": "coastal",
+  "water": "coastal",
+  "nautical": "coastal",
+  "lush": "botanical",
+  "garden": "botanical",
+  "green": "botanical",
+  "dappled": "botanical",
+  "rustic": "ranch",
+  "land": "ranch",
+  "golden": "ranch",
+  "timber": "ranch",
+  "glam": "deco",
+  "period": "deco",
+  "graphic": "deco",
+  "monochrome": "deco"
+ },
+ "vibe_word_points": 2,
+ "type_priors": {
+  "estate": {
+   "estate": 2
+  },
+  "mansion": {
+   "estate": 2
+  },
+  "castle": {
+   "estate": 2
+  },
+  "villa": {
+   "estate": 2
+  },
+  "hacienda": {
+   "estate": 2
+  },
+  "barn": {
+   "ranch": 2,
+   "editorial": 1
+  },
+  "ranch": {
+   "ranch": 2
+  },
+  "vineyard": {
+   "ranch": 2
+  },
+  "garden": {
+   "botanical": 2
+  },
+  "glasshouse": {
+   "botanical": 2
+  },
+  "coastal": {
+   "coastal": 2
+  },
+  "lake": {
+   "coastal": 2
+  },
+  "desert": {
+   "modern-luxe": 2
+  },
+  "resort": {
+   "modern-luxe": 2
+  },
+  "clubhouse": {
+   "deco": 2,
+   "candlelit": 1
+  },
+  "theatre": {
+   "deco": 2,
+   "candlelit": 1
+  },
+  "loft": {
+   "deco": 1,
+   "modern-luxe": 1
+  },
+  "hotel": {
+   "estate": 1,
+   "modern-luxe": 1
+  }
+ },
+ "deferred": [
+  "season-toggle",
+  "window-reveal",
+  "grounds-constellation",
+  "hairline-rule",
+  "monogram-seal",
+  "arrow-glyph",
+  "inset-margin"
+ ],
+ "fallbacks": {
+  "hero": {
+   "cinematic": [
+    "frame"
+   ],
+   "crest-centred": [
+    "cinematic",
+    "frame"
+   ],
+   "inset-caption": [
+    "frame"
+   ],
+   "panel": [
+    "frame"
+   ],
+   "silent": [
+    "cinematic",
+    "cover-type",
+    "frame"
+   ],
+   "inset-wide": [
+    "cover-type",
+    "frame"
+   ],
+   "landscape-silent": [
+    "cinematic",
+    "cover-type",
+    "frame"
+   ],
+   "arch-split": [
+    "frame"
+   ],
+   "pair-split": [
+    "masthead",
+    "cover-type"
+   ],
+   "slideshow": [
+    "frame",
+    "cover-type"
+   ]
+  },
+  "story": {
+   "split": [
+    "pullquote",
+    "timeline"
+   ]
+  },
+  "spaces": {
+   "strip": [
+    "spec-sheet",
+    "index"
+   ],
+   "stack-olive": [
+    "stack"
+   ]
+  },
+  "gallery": {
+   "pairs": [
+    "none"
+   ]
+  },
+  "moment": {
+   "hours-dial": [
+    "light-shift",
+    "seat-picker"
+   ],
+   "grounds-constellation": [
+    "guest-journey"
+   ],
+   "crest-reveal": [
+    "none"
+   ],
+   "sprig-draw": [
+    "light-shift"
+   ],
+   "season-toggle": [
+    "light-shift"
+   ],
+   "window-reveal": [
+    "none"
+   ],
+   "numbers-count": [
+    "none"
+   ],
+   "candle-count": [
+    "numbers-count",
+    "light-shift"
+   ],
+   "slideshow-counter": [
+    "guest-journey"
+   ],
+   "then-now": [
+    "none"
+   ],
+   "pairs-counter": [
+    "guest-journey"
+   ]
+  },
+  "ornament": {
+   "crest-roundel": [
+    "none"
+   ],
+   "double-rule": [
+    "none"
+   ],
+   "keyline-frame": [
+    "none"
+   ],
+   "small-caps-kicker": [
+    "none"
+   ],
+   "drop-cap": [
+    "none"
+   ],
+   "italic-lead-in": [
+    "none"
+   ],
+   "vertical-label": [
+    "none"
+   ],
+   "hairline-rule": [
+    "none"
+   ],
+   "double-line-frame": [
+    "none"
+   ],
+   "botanical-engraving": [
+    "none"
+   ],
+   "brass-rule": [
+    "none"
+   ],
+   "monogram-seal": [
+    "none"
+   ],
+   "hairline-grid": [
+    "none"
+   ],
+   "counter": [
+    "none"
+   ],
+   "arrow-glyph": [
+    "none"
+   ],
+   "compass-rose": [
+    "none"
+   ],
+   "inset-margin": [
+    "none"
+   ],
+   "botanical-line": [
+    "none"
+   ],
+   "leaf-rule": [
+    "none"
+   ],
+   "watercolour-wash": [
+    "none"
+   ],
+   "rounded-arch": [
+    "none"
+   ],
+   "olive-band": [
+    "none"
+   ],
+   "rope-rule": [
+    "none"
+   ],
+   "wood-keyline": [
+    "none"
+   ],
+   "brand-mark": [
+    "none"
+   ],
+   "underline-bar": [
+    "none"
+   ],
+   "stepped-frame": [
+    "none"
+   ],
+   "sunburst": [
+    "none"
+   ],
+   "geometric-rule": [
+    "none"
+   ]
+  },
+  "section": {
+   "statement": [],
+   "facts-strip": [
+    "glance"
+   ],
+   "daylight-band": []
+  },
+  "nav": {
+   "two-row": [
+    "bar"
+   ]
+  }
+ },
+ "dialects": [
+  {
+   "id": "estate",
+   "label": "Old-world estate",
+   "spec": "05 section 2.1",
+   "fits": "Stone villas, mansions, castles, mission and hacienda buildings, formal gardens; warm stone, boxwood, terracotta, chandeliers.",
+   "axes": {
+    "formality": [
+     75,
+     95
+    ],
+    "scale": [
+     55,
+     85
+    ],
+    "era": [
+     10,
+     40
+    ],
+    "density": [
+     40,
+     65
+    ],
+    "temperature": [
+     20,
+     50
+    ],
+    "voice": [
+     50,
+     75
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.955,
+     0.975
+    ],
+    "C": [
+     0.008,
+     0.018
+    ],
+    "H": [
+     [
+      70,
+      95
+     ]
+    ],
+    "tones": [
+     "light",
+     "mid"
+    ]
+   },
+   "paper_dark": {
+    "L": [
+     0.19,
+     0.21
+    ],
+    "C": [
+     0.006,
+     0.014
+    ],
+    "H": [
+     [
+      60,
+      80
+     ]
+    ],
+    "tones": [
+     "dark-warm"
+    ],
+    "when": "castle variant: photo dark share >= 0.45"
+   },
+   "ink": {
+    "L": 0.22,
+    "C": 0.015,
+    "H": 60
+   },
+   "deep": {
+    "L": [
+     0.28,
+     0.36
+    ],
+    "C": [
+     0.02,
+     0.05
+    ],
+    "H": [
+     [
+      55,
+      85
+     ]
+    ]
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      20,
+      60
+     ],
+     [
+      120,
+      160
+     ]
+    ],
+    "C": [
+     0.06,
+     0.12
+    ],
+    "L": [
+     0.38,
+     0.48
+    ],
+    "text_max_L": 0.4,
+    "fill_max_C": 0.14,
+    "roles": [
+     "text-and-rules",
+     "buttons-and-band"
+    ],
+    "metallic": {
+     "name": "brass",
+     "L": 0.7,
+     "C": 0.09,
+     "H": 80,
+     "uses": [
+      "rules",
+      "crest"
+     ],
+     "text": false
+    }
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on deep",
+    "accent-text on accent-tint",
+    "on-deep-soft on deep"
+   ],
+   "type": {
+    "headline_case": [
+     "caps",
+     "mixed",
+     "sentence"
+    ],
+    "body_px": [
+     17,
+     19
+    ],
+    "kicker_styles": [
+     "small-caps",
+     "caps-rule"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "heritage-garalde",
+     "status": "exists"
+    },
+    {
+     "id": "inscriptional-marcellus",
+     "status": "exists"
+    },
+    {
+     "id": "estate-caslon",
+     "status": "exists"
+    },
+    {
+     "id": "estate-cinzel",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "crest-centred",
+     "status": "planned-2B"
+    },
+    {
+     "id": "cinematic",
+     "status": "planned-2B"
+    },
+    {
+     "id": "frame",
+     "status": "exists"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "stack",
+     "status": "exists"
+    },
+    {
+     "id": "index",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "split",
+     "status": "planned-2B"
+    },
+    {
+     "id": "timeline",
+     "status": "exists"
+    },
+    {
+     "id": "pullquote",
+     "status": "exists"
+    }
+   ],
+   "faq": [
+    {
+     "id": "accordion-split",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-split",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "crest-reveal",
+     "status": "planned-2B"
+    },
+    {
+     "id": "hours-dial",
+     "status": "planned-2B"
+    },
+    {
+     "id": "grounds-constellation",
+     "status": "deferred"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "crest-roundel",
+     "status": "planned-2B"
+    },
+    {
+     "id": "double-rule",
+     "status": "planned-2B"
+    },
+    {
+     "id": "keyline-frame",
+     "status": "planned-2B"
+    },
+    {
+     "id": "small-caps-kicker",
+     "status": "planned-2B"
+    }
+   ],
+   "voices": [
+    {
+     "id": "heritage",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "centered",
+    "bar"
+   ],
+   "photo": {
+    "edges": [
+     "keyline"
+    ],
+    "ratios": [
+     "3:2",
+     "4:5"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": false,
+    "mono": false,
+    "warm_grade": "sepia(.06) max",
+    "hero_bleed": "only if lead >= 2400px and shows the building, else inset"
+   },
+   "rhythm_variants": [
+    {
+     "id": "estate-story-first",
+     "label": "facts strip, story before spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "estate-spaces-first",
+     "label": "facts strip, spaces before story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade",
+    "reveal_ms": 900,
+    "offset_px": 0,
+    "device": "draw-in",
+    "device_target": "crest",
+    "device_ms": 1200,
+    "parallax": false
+   },
+   "tokens": {
+    "radius": 0,
+    "radius_card": 0
+   }
+  },
+  {
+   "id": "editorial",
+   "label": "Romantic editorial",
+   "spec": "05 section 2.2",
+   "fits": "Barns and farms that photograph like magazines, garden estates, white houses; soft daylight, florals, film grain, pale sky.",
+   "axes": {
+    "formality": [
+     65,
+     85
+    ],
+    "scale": [
+     45,
+     70
+    ],
+    "era": [
+     35,
+     60
+    ],
+    "density": [
+     55,
+     80
+    ],
+    "temperature": [
+     35,
+     60
+    ],
+    "voice": [
+     20,
+     55
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.965,
+     0.985
+    ],
+    "C": [
+     0.004,
+     0.014
+    ],
+    "H": [
+     [
+      40,
+      80
+     ]
+    ],
+    "tones": [
+     "light",
+     "tinted"
+    ],
+    "tinted": {
+     "C": [
+      0.012,
+      0.02
+     ],
+     "H": [
+      [
+       20,
+       40
+      ]
+     ],
+     "name": "blush"
+    }
+   },
+   "ink": {
+    "L": 0.2,
+    "C": 0.01,
+    "H": 60
+   },
+   "deep": {
+    "L": [
+     0.22,
+     0.22
+    ],
+    "C": [
+     0.005,
+     0.01
+    ],
+    "H": [
+     [
+      40,
+      80
+     ]
+    ],
+    "optional": true
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      20,
+      45
+     ],
+     [
+      100,
+      150
+     ]
+    ],
+    "C": [
+     0.04,
+     0.09
+    ],
+    "L": [
+     0.42,
+     0.55
+    ],
+    "text_max_L": 0.4,
+    "fill_max_C": 0.14,
+    "roles": [
+     "text-and-rules"
+    ],
+    "metallic": null
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "accent-text on accent-tint",
+    "paper on ink"
+   ],
+   "type": {
+    "headline_case": [
+     "sentence"
+    ],
+    "body_px": [
+     17,
+     19
+    ],
+    "kicker_styles": [
+     "italic"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "editorial-didone",
+     "status": "exists"
+    },
+    {
+     "id": "coastal-newsreader",
+     "status": "exists"
+    },
+    {
+     "id": "garden-garamond",
+     "status": "exists"
+    },
+    {
+     "id": "editorial-literata",
+     "status": "exists"
+    },
+    {
+     "id": "editorial-gloock",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "frame",
+     "status": "exists"
+    },
+    {
+     "id": "inset-caption",
+     "status": "planned-2B"
+    },
+    {
+     "id": "masthead",
+     "status": "exists"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "index",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "pullquote",
+     "status": "exists"
+    }
+   ],
+   "faq": [
+    {
+     "id": "numbered",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-centered",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "pairs",
+     "status": "planned-2B"
+    },
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "guest-journey",
+     "status": "exists"
+    },
+    {
+     "id": "pairs-counter",
+     "status": "planned-2B"
+    },
+    {
+     "id": "light-shift",
+     "status": "exists"
+    },
+    {
+     "id": "season-toggle",
+     "status": "deferred"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "drop-cap",
+     "status": "planned-2B"
+    },
+    {
+     "id": "italic-lead-in",
+     "status": "planned-2B"
+    },
+    {
+     "id": "vertical-label",
+     "status": "planned-2B"
+    },
+    {
+     "id": "hairline-rule",
+     "status": "deferred"
+    }
+   ],
+   "voices": [
+    {
+     "id": "romantic",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "centered",
+    "bar"
+   ],
+   "photo": {
+    "edges": [
+     "flush"
+    ],
+    "ratios": [
+     "16:9",
+     "3:2",
+     "4:5"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": "optional",
+    "mono": false,
+    "hero_bleed": "inset with 48-80px margins"
+   },
+   "rhythm_variants": [
+    {
+     "id": "editorial-statement",
+     "label": "statement paragraph, spaces before story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "editorial-facts",
+     "label": "facts strip, story before spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade-up",
+    "reveal_ms": 800,
+    "offset_px": 10,
+    "device": "cross-fade",
+    "device_target": "index photos / pairs counter",
+    "device_ms": 800,
+    "parallax": false
+   },
+   "masthead_rule": "masthead only with a muted accent and the dateline replaced by the facts strip",
+   "tokens": {}
+  },
+  {
+   "id": "candlelit",
+   "label": "Dark and candlelit",
+   "spec": "05 section 2.3",
+   "fits": "Historic halls, ballrooms, industrial-heritage hotels, rooftop and dome venues, dusk or candle photography.",
+   "axes": {
+    "formality": [
+     70,
+     90
+    ],
+    "scale": [
+     60,
+     90
+    ],
+    "era": [
+     25,
+     60
+    ],
+    "density": [
+     45,
+     70
+    ],
+    "temperature": [
+     10,
+     40
+    ],
+    "voice": [
+     45,
+     70
+    ]
+   },
+   "paper": {
+    "mode": "dark",
+    "L": [
+     0.17,
+     0.23
+    ],
+    "C": [
+     0.006,
+     0.02
+    ],
+    "H": [
+     [
+      60,
+      80
+     ],
+     [
+      250,
+      270
+     ]
+    ],
+    "tones": [
+     "dark-warm",
+     "dark-cool"
+    ],
+    "surface_2_L": [
+     0.24,
+     0.28
+    ]
+   },
+   "ink": {
+    "L": 0.93,
+    "C": 0.01,
+    "H": 80
+   },
+   "deep": {
+    "L": [
+     0.13,
+     0.15
+    ],
+    "C": [
+     0.006,
+     0.015
+    ],
+    "H": [
+     [
+      60,
+      80
+     ],
+     [
+      250,
+      270
+     ]
+    ]
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      25,
+      35
+     ],
+     [
+      140,
+      150
+     ]
+    ],
+    "C": [
+     0.07,
+     0.12
+    ],
+    "L": [
+     0.55,
+     0.65
+    ],
+    "text_min_L": 0.74,
+    "fill_max_C": 0.14,
+    "roles": [
+     "buttons-and-band"
+    ],
+    "metallic": {
+     "name": "brass",
+     "L": [
+      0.72,
+      0.78
+     ],
+     "C": [
+      0.09,
+      0.12
+     ],
+     "H": [
+      75,
+      90
+     ],
+     "uses": [
+      "rules",
+      "frames",
+      "kickers"
+     ],
+     "text": true,
+     "walk_min_L": 0.74
+    }
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "brass on paper",
+    "on-accent on accent-fill",
+    "ink-soft on paper-2"
+   ],
+   "type": {
+    "headline_case": [
+     "caps"
+    ],
+    "body_px": [
+     17
+    ],
+    "kicker_styles": [
+     "small-caps"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "inscriptional-marcellus",
+     "status": "exists"
+    },
+    {
+     "id": "candlelit-cormorant-sc",
+     "status": "exists"
+    },
+    {
+     "id": "candlelit-forum",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "panel",
+     "status": "planned-2B"
+    },
+    {
+     "id": "cinematic",
+     "status": "planned-2B"
+    },
+    {
+     "id": "silent",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "stack",
+     "status": "exists"
+    },
+    {
+     "id": "index",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "split",
+     "status": "planned-2B"
+    }
+   ],
+   "faq": [
+    {
+     "id": "plain-list",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "band-cta",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "light-shift",
+     "status": "exists"
+    },
+    {
+     "id": "candle-count",
+     "status": "planned-2B"
+    },
+    {
+     "id": "hours-dial",
+     "status": "planned-2B"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "double-line-frame",
+     "status": "planned-2B"
+    },
+    {
+     "id": "botanical-engraving",
+     "status": "planned-2B"
+    },
+    {
+     "id": "brass-rule",
+     "status": "planned-2B"
+    },
+    {
+     "id": "monogram-seal",
+     "status": "deferred"
+    }
+   ],
+   "voices": [
+    {
+     "id": "evening",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "bar"
+   ],
+   "photo": {
+    "edges": [
+     "keyline"
+    ],
+    "ratios": [
+     "16:9",
+     "3:2",
+     "4:5"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": false,
+    "mono": false,
+    "scrim": "none on dark photos; max 25% black gradient on mid-tone",
+    "hero_bleed": "full-bleed or inset on charcoal with a brass keyline"
+   },
+   "rhythm_variants": [
+    {
+     "id": "candlelit-spaces-first",
+     "label": "facts strip, spaces, story, optional daylight band",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "section",
+       "id": "daylight-band",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "candlelit-story-first",
+     "label": "facts strip, story with engraving, then spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade",
+    "reveal_ms": 1000,
+    "offset_px": 0,
+    "device": "draw-in",
+    "device_target": "double-line frame",
+    "device_ms": 1400,
+    "hover": "button fill L +0.04 over 300ms",
+    "parallax": false
+   },
+   "light_shift_default": "night",
+   "tokens": {
+    "radius": 0,
+    "radius_card": 0
+   }
+  },
+  {
+   "id": "modern-luxe",
+   "label": "Modern luxe",
+   "spec": "05 section 2.4",
+   "fits": "Architect-designed resorts, desert and canyon properties, glass pavilions, minimalist retreats; dusk desert, concrete, water, long shadows.",
+   "axes": {
+    "formality": [
+     70,
+     90
+    ],
+    "scale": [
+     55,
+     80
+    ],
+    "era": [
+     80,
+     100
+    ],
+    "density": [
+     75,
+     95
+    ],
+    "temperature": [
+     50,
+     80
+    ],
+    "voice": [
+     75,
+     95
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.93,
+     0.96
+    ],
+    "C": [
+     0.004,
+     0.01
+    ],
+    "H": [
+     [
+      60,
+      90
+     ],
+     [
+      240,
+      260
+     ]
+    ],
+    "tones": [
+     "light",
+     "mid"
+    ],
+    "cool_max_C": 0.006
+   },
+   "ink": {
+    "L": 0.24,
+    "C": 0.01,
+    "H": 70
+   },
+   "deep": {
+    "L": [
+     0.24,
+     0.24
+    ],
+    "C": [
+     0.01,
+     0.01
+    ],
+    "H": [
+     [
+      60,
+      90
+     ],
+     [
+      240,
+      260
+     ]
+    ],
+    "is_ink": true
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      70,
+      85
+     ],
+     [
+      120,
+      140
+     ],
+     [
+      230,
+      250
+     ]
+    ],
+    "C": [
+     0.03,
+     0.06
+    ],
+    "L": [
+     0.45,
+     0.55
+    ],
+    "text_max_L": 0.42,
+    "fill_max_C": 0.06,
+    "roles": [
+     "text-and-rules"
+    ],
+    "buttons": "outlined or filled in ink, never the accent",
+    "metallic": null
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on ink",
+    "accent-text on accent-tint"
+   ],
+   "type": {
+    "headline_case": [
+     "mixed",
+     "sentence"
+    ],
+    "body_px": [
+     17,
+     19
+    ],
+    "kicker_styles": [
+     "label"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "quiet-instrument-serif",
+     "status": "exists"
+    },
+    {
+     "id": "modern-instrument",
+     "status": "exists"
+    },
+    {
+     "id": "desert-dm",
+     "status": "exists"
+    },
+    {
+     "id": "luxe-tracked-sans",
+     "status": "exists"
+    },
+    {
+     "id": "luxe-sans-only",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "cover-type",
+     "status": "exists"
+    },
+    {
+     "id": "inset-wide",
+     "status": "planned-2B"
+    },
+    {
+     "id": "landscape-silent",
+     "status": "planned-2B"
+    },
+    {
+     "id": "slideshow",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "spec-sheet",
+     "status": "exists"
+    },
+    {
+     "id": "strip",
+     "status": "planned-2B"
+    }
+   ],
+   "story": [
+    {
+     "id": "ledger",
+     "status": "exists"
+    }
+   ],
+   "faq": [
+    {
+     "id": "plain-list",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-centered",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "seat-picker",
+     "status": "exists"
+    },
+    {
+     "id": "slideshow-counter",
+     "status": "planned-2B"
+    },
+    {
+     "id": "numbers-count",
+     "status": "planned-2B"
+    },
+    {
+     "id": "window-reveal",
+     "status": "deferred"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "hairline-grid",
+     "status": "planned-2B"
+    },
+    {
+     "id": "counter",
+     "status": "planned-2B"
+    },
+    {
+     "id": "arrow-glyph",
+     "status": "deferred"
+    }
+   ],
+   "voices": [
+    {
+     "id": "plainspoken",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "minimal",
+    "two-row"
+   ],
+   "photo": {
+    "edges": [
+     "flush"
+    ],
+    "ratios": [
+     "16:9",
+     "2:1"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": false,
+    "mono": false,
+    "captions": "tracked caps under each photo",
+    "hero_bleed": "inset with wide margins, or full-bleed landscape with no text"
+   },
+   "rhythm_variants": [
+    {
+     "id": "luxe-spaces-first",
+     "label": "statement + ledger, spaces, story, moment",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "luxe-moment-first",
+     "label": "statement, spaces, moment, tour, story late",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade",
+    "reveal_ms": 700,
+    "offset_px": 0,
+    "device": "cross-fade",
+    "device_target": "slideshow counter (6s, static under reduced motion)",
+    "device_ms": 1200,
+    "smooth_scroll": false,
+    "parallax": false
+   },
+   "corner_rule": "the only dialect allowed density >= 85 with voice >= 85, and only with section padding >= 160px and inset photos (exclusion 17)",
+   "tokens": {
+    "section_pad_min": 160,
+    "section_pad_max": 200,
+    "container": 1120,
+    "gutter": "clamp(20px, 5vw, 72px)",
+    "radius": 0,
+    "radius_card": 0
+   }
+  },
+  {
+   "id": "coastal",
+   "label": "Coastal and airy",
+   "spec": "05 section 2.5",
+   "fits": "Ocean-front and lake estates, sailcloth-tent venues, coast inns, white houses near water; bright, blue-white, hydrangea, haze.",
+   "axes": {
+    "formality": [
+     70,
+     85
+    ],
+    "scale": [
+     50,
+     75
+    ],
+    "era": [
+     45,
+     65
+    ],
+    "density": [
+     60,
+     85
+    ],
+    "temperature": [
+     60,
+     85
+    ],
+    "voice": [
+     35,
+     60
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.975,
+     0.985
+    ],
+    "C": [
+     0.004,
+     0.008
+    ],
+    "H": [
+     [
+      80,
+      100
+     ]
+    ],
+    "tones": [
+     "light",
+     "mid"
+    ],
+    "note": "spec C 0.003-0.008; the shared baseline floor 0.004 wins",
+    "paper_2": {
+     "L": 0.9,
+     "C": 0.02,
+     "H": 80,
+     "name": "sand"
+    }
+   },
+   "ink": {
+    "L": 0.22,
+    "C": 0.03,
+    "H": 255,
+    "alt": {
+     "L": 0.26,
+     "C": 0.05,
+     "H": 158
+    }
+   },
+   "deep": {
+    "L": [
+     0.22,
+     0.26
+    ],
+    "C": [
+     0.03,
+     0.05
+    ],
+    "H": [
+     [
+      250,
+      260
+     ],
+     [
+      150,
+      165
+     ]
+    ]
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      220,
+      250
+     ],
+     [
+      150,
+      170
+     ]
+    ],
+    "C": [
+     0.05,
+     0.1
+    ],
+    "L": [
+     0.38,
+     0.48
+    ],
+    "text_max_L": 0.42,
+    "fill_max_L": 0.46,
+    "fill_max_C": 0.14,
+    "roles": [
+     "text-and-rules",
+     "buttons-and-band"
+    ],
+    "metallic": null
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on deep",
+    "accent-text on accent-tint",
+    "white on accent-fill"
+   ],
+   "type": {
+    "headline_case": [
+     "sentence",
+     "caps"
+    ],
+    "body_px": [
+     17,
+     19
+    ],
+    "kicker_styles": [
+     "small-caps"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "coastal-newsreader",
+     "status": "exists"
+    },
+    {
+     "id": "garden-garamond",
+     "status": "exists"
+    },
+    {
+     "id": "coastal-engraved",
+     "status": "exists"
+    },
+    {
+     "id": "coastal-spectral",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "frame",
+     "status": "exists"
+    },
+    {
+     "id": "inset-caption",
+     "status": "planned-2B"
+    },
+    {
+     "id": "masthead",
+     "status": "exists"
+    },
+    {
+     "id": "slideshow",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "stack",
+     "status": "exists"
+    },
+    {
+     "id": "index",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "pullquote",
+     "status": "exists"
+    },
+    {
+     "id": "split",
+     "status": "planned-2B"
+    }
+   ],
+   "faq": [
+    {
+     "id": "accordion-split",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-split",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "light-shift",
+     "status": "exists"
+    },
+    {
+     "id": "slideshow-counter",
+     "status": "planned-2B"
+    },
+    {
+     "id": "season-toggle",
+     "status": "deferred"
+    },
+    {
+     "id": "hours-dial",
+     "status": "planned-2B"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "small-caps-kicker",
+     "status": "planned-2B"
+    },
+    {
+     "id": "compass-rose",
+     "status": "planned-2B"
+    },
+    {
+     "id": "counter",
+     "status": "planned-2B"
+    },
+    {
+     "id": "inset-margin",
+     "status": "deferred"
+    }
+   ],
+   "voices": [
+    {
+     "id": "lyric",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "centered",
+    "bar"
+   ],
+   "photo": {
+    "edges": [
+     "flush"
+    ],
+    "ratios": [
+     "16:9",
+     "3:2",
+     "4:5"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": false,
+    "mono": false,
+    "scrim": "never dark; 20% white gradient from the bottom if text must sit on a photo",
+    "hero_bleed": "inset 16:9 with margins"
+   },
+   "rhythm_variants": [
+    {
+     "id": "coastal-spaces-first",
+     "label": "kicker + lyric statement + facts, spaces, story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "coastal-story-first",
+     "label": "statement, story, then spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade",
+    "reveal_ms": 800,
+    "offset_px": 0,
+    "device": "scale-in",
+    "device_target": "photos 1.02 -> 1.00 once on reveal",
+    "device_ms": 1200,
+    "parallax": false
+   },
+   "tokens": {}
+  },
+  {
+   "id": "botanical",
+   "label": "Botanical garden",
+   "spec": "05 section 2.6",
+   "fits": "Garden estates, orchid farms, glasshouses, redwood and canyon gardens; green-on-green, dappled light, florals, lavender rows.",
+   "axes": {
+    "formality": [
+     55,
+     75
+    ],
+    "scale": [
+     40,
+     65
+    ],
+    "era": [
+     25,
+     55
+    ],
+    "density": [
+     30,
+     55
+    ],
+    "temperature": [
+     25,
+     50
+    ],
+    "voice": [
+     10,
+     40
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.97,
+     0.985
+    ],
+    "C": [
+     0.005,
+     0.012
+    ],
+    "H": [
+     [
+      90,
+      110
+     ]
+    ],
+    "tones": [
+     "light",
+     "tinted"
+    ]
+   },
+   "ink": {
+    "L": 0.22,
+    "C": 0.02,
+    "H": 160
+   },
+   "deep": {
+    "L": [
+     0.28,
+     0.28
+    ],
+    "C": [
+     0.05,
+     0.05
+    ],
+    "H": [
+     [
+      155,
+      155
+     ]
+    ]
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      110,
+      150
+     ]
+    ],
+    "C": [
+     0.05,
+     0.09
+    ],
+    "L": [
+     0.4,
+     0.5
+    ],
+    "text_max_L": 0.4,
+    "fill_max_C": 0.14,
+    "roles": [
+     "text-and-rules",
+     "buttons-and-band"
+    ],
+    "floral": {
+     "hue_ranges": [
+      [
+       10,
+       40
+      ],
+      [
+       320,
+       350
+      ]
+     ],
+     "C": [
+      0.08,
+      0.12
+     ],
+     "uses": [
+      "kicker",
+      "one rule"
+     ],
+     "text": false
+    },
+    "metallic": null
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on deep",
+    "accent-text on accent-tint"
+   ],
+   "type": {
+    "headline_case": [
+     "sentence"
+    ],
+    "body_px": [
+     17,
+     19
+    ],
+    "kicker_styles": [
+     "italic",
+     "caps-rule"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "garden-garamond",
+     "status": "exists"
+    },
+    {
+     "id": "warm-fraunces",
+     "status": "exists"
+    },
+    {
+     "id": "botanical-fraunces",
+     "status": "exists"
+    },
+    {
+     "id": "botanical-cardo",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "frame",
+     "status": "exists"
+    },
+    {
+     "id": "cinematic",
+     "status": "planned-2B"
+    },
+    {
+     "id": "arch-split",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "stack",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "timeline",
+     "status": "exists"
+    },
+    {
+     "id": "pullquote",
+     "status": "exists"
+    }
+   ],
+   "faq": [
+    {
+     "id": "accordion-split",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-split",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "light-shift",
+     "status": "exists"
+    },
+    {
+     "id": "guest-journey",
+     "status": "exists"
+    },
+    {
+     "id": "season-toggle",
+     "status": "deferred"
+    },
+    {
+     "id": "sprig-draw",
+     "status": "planned-2B"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "botanical-line",
+     "status": "planned-2B"
+    },
+    {
+     "id": "leaf-rule",
+     "status": "planned-2B"
+    },
+    {
+     "id": "watercolour-wash",
+     "status": "planned-2B"
+    },
+    {
+     "id": "rounded-arch",
+     "status": "planned-2B"
+    }
+   ],
+   "voices": [
+    {
+     "id": "romantic",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "bar",
+    "centered"
+   ],
+   "photo": {
+    "edges": [
+     "flush",
+     "arch",
+     "rounded"
+    ],
+    "ratios": [
+     "3:2",
+     "4:5"
+    ],
+    "radius_px": [
+     0,
+     6
+    ],
+    "grain": false,
+    "mono": false,
+    "hero_bleed": "full-bleed only if foliage share >= 0.45 of the lead"
+   },
+   "rhythm_variants": [
+    {
+     "id": "botanical-spaces-first",
+     "label": "statement with a sprig, spaces as garden bands, story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "botanical-story-first",
+     "label": "statement, garden history, then spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "statement",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade-up",
+    "reveal_ms": 800,
+    "offset_px": 10,
+    "device": "draw-in",
+    "device_target": "sprig",
+    "device_ms": 1600,
+    "hover": "space bands tint to accent-tint over 400ms",
+    "parallax": false
+   },
+   "flora": [
+    "olive",
+    "fig",
+    "fern",
+    "lavender",
+    "oak",
+    "eucalyptus"
+   ],
+   "tokens": {}
+  },
+  {
+   "id": "ranch",
+   "label": "Rustic-refined",
+   "spec": "05 section 2.7",
+   "fits": "Ranches, vineyards, barns with good bones, canyon and foothill venues; golden grass, oaks, olive, ochre dust, timber.",
+   "axes": {
+    "formality": [
+     40,
+     65
+    ],
+    "scale": [
+     50,
+     80
+    ],
+    "era": [
+     20,
+     50
+    ],
+    "density": [
+     25,
+     50
+    ],
+    "temperature": [
+     5,
+     35
+    ],
+    "voice": [
+     25,
+     50
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.95,
+     0.97
+    ],
+    "C": [
+     0.012,
+     0.022
+    ],
+    "H": [
+     [
+      75,
+      95
+     ]
+    ],
+    "tones": [
+     "tinted",
+     "mid"
+    ]
+   },
+   "ink": {
+    "L": 0.23,
+    "C": 0.02,
+    "H": 60
+   },
+   "deep": {
+    "L": [
+     0.3,
+     0.3
+    ],
+    "C": [
+     0.04,
+     0.04
+    ],
+    "H": [
+     [
+      110,
+      125
+     ]
+    ],
+    "name": "olive",
+    "alt": {
+     "H": [
+      15,
+      30
+     ],
+     "name": "oxblood"
+    }
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      65,
+      85
+     ],
+     [
+      15,
+      30
+     ],
+     [
+      35,
+      50
+     ]
+    ],
+    "C": [
+     0.08,
+     0.12
+    ],
+    "L": [
+     0.5,
+     0.58
+    ],
+    "text_max_L": 0.42,
+    "fill_max_L": 0.46,
+    "fill_max_C": 0.14,
+    "roles": [
+     "text-and-rules",
+     "buttons-and-band"
+    ],
+    "metallic": null,
+    "on_deep_accent_min_L": 0.76
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on deep",
+    "on-deep-accent on deep",
+    "white on accent-fill"
+   ],
+   "type": {
+    "headline_case": [
+     "sentence"
+    ],
+    "body_px": [
+     17,
+     19,
+     21
+    ],
+    "kicker_styles": [
+     "small-caps"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "warm-fraunces",
+     "status": "exists"
+    },
+    {
+     "id": "ranch-lora",
+     "status": "exists"
+    },
+    {
+     "id": "ranch-display-sans",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "cinematic",
+     "status": "planned-2B"
+    },
+    {
+     "id": "frame",
+     "status": "exists"
+    },
+    {
+     "id": "landscape-silent",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "stack",
+     "status": "exists"
+    },
+    {
+     "id": "stack-olive",
+     "status": "planned-2B"
+    }
+   ],
+   "story": [
+    {
+     "id": "timeline",
+     "status": "exists"
+    },
+    {
+     "id": "split",
+     "status": "planned-2B"
+    }
+   ],
+   "faq": [
+    {
+     "id": "accordion-split",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "scheduler-split",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "light-shift",
+     "status": "exists"
+    },
+    {
+     "id": "guest-journey",
+     "status": "exists"
+    },
+    {
+     "id": "grounds-constellation",
+     "status": "deferred"
+    },
+    {
+     "id": "numbers-count",
+     "status": "planned-2B"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "olive-band",
+     "status": "planned-2B"
+    },
+    {
+     "id": "rope-rule",
+     "status": "planned-2B"
+    },
+    {
+     "id": "wood-keyline",
+     "status": "planned-2B"
+    },
+    {
+     "id": "brand-mark",
+     "status": "planned-2B"
+    }
+   ],
+   "voices": [
+    {
+     "id": "warm-host",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "bar"
+   ],
+   "photo": {
+    "edges": [
+     "flush",
+     "keyline"
+    ],
+    "ratios": [
+     "3:2",
+     "16:9"
+    ],
+    "radius_px": [
+     0,
+     4
+    ],
+    "grain": false,
+    "mono": false,
+    "hero_bleed": "landscape full-bleed (golden hour); a barn-interior lead uses frame"
+   },
+   "rhythm_variants": [
+    {
+     "id": "ranch-story-first",
+     "label": "facts strip, family/land story, spaces in the olive band",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "ranch-spaces-first",
+     "label": "facts strip, spaces, then story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "slide",
+    "reveal_ms": 800,
+    "offset_px": 12,
+    "device": "band-fade",
+    "device_target": "olive band fades in from paper",
+    "device_ms": 600,
+    "parallax": false
+   },
+   "light_shift_default": "golden",
+   "tokens": {}
+  },
+  {
+   "id": "deco",
+   "label": "Deco glam",
+   "spec": "05 section 2.8",
+   "fits": "1920s-40s clubhouses, theatres, period lofts, Palm Springs hotels; monochrome, geometric, brass, lacquer, archival photography.",
+   "axes": {
+    "formality": [
+     75,
+     95
+    ],
+    "scale": [
+     55,
+     80
+    ],
+    "era": [
+     55,
+     80
+    ],
+    "density": [
+     60,
+     85
+    ],
+    "temperature": [
+     40,
+     70
+    ],
+    "voice": [
+     65,
+     90
+    ]
+   },
+   "paper": {
+    "mode": "light",
+    "L": [
+     0.96,
+     0.975
+    ],
+    "C": [
+     0.008,
+     0.014
+    ],
+    "H": [
+     [
+      80,
+      95
+     ]
+    ],
+    "tones": [
+     "light"
+    ]
+   },
+   "paper_dark": {
+    "L": [
+     0.18,
+     0.18
+    ],
+    "C": [
+     0.004,
+     0.008
+    ],
+    "H": [
+     [
+      60,
+      90
+     ],
+     [
+      250,
+      270
+     ]
+    ],
+    "tones": [
+     "dark-warm",
+     "dark-cool"
+    ],
+    "when": "photo mean L < 0.45 or dark share >= 0.45"
+   },
+   "ink": {
+    "L": 0.18,
+    "C": 0.005,
+    "H": 80
+   },
+   "deep": {
+    "L": [
+     0.18,
+     0.18
+    ],
+    "C": [
+     0.005,
+     0.005
+    ],
+    "H": [
+     [
+      80,
+      95
+     ]
+    ],
+    "is_ink": true
+   },
+   "accent": {
+    "hue_ranges": [
+     [
+      45,
+      55
+     ],
+     [
+      150,
+      160
+     ],
+     [
+      15,
+      25
+     ]
+    ],
+    "C": [
+     0.1,
+     0.16
+    ],
+    "L": [
+     0.45,
+     0.55
+    ],
+    "text_max_L": 0.4,
+    "fill_max_C": 0.16,
+    "roles": [
+     "buttons-and-band"
+    ],
+    "accent_never_body_text": true,
+    "metallic": {
+     "name": "brass",
+     "L": 0.72,
+     "C": 0.09,
+     "H": 82,
+     "uses": [
+      "frames",
+      "rules"
+     ],
+     "text": false
+    }
+   },
+   "contrast_pairs": [
+    "ink on paper",
+    "paper on ink",
+    "accent-text on accent-tint"
+   ],
+   "type": {
+    "headline_case": [
+     "caps"
+    ],
+    "body_px": [
+     17
+    ],
+    "kicker_styles": [
+     "caps-rule"
+    ]
+   },
+   "pairings": [
+    {
+     "id": "editorial-didone",
+     "status": "exists"
+    },
+    {
+     "id": "loft-archivo",
+     "status": "exists"
+    },
+    {
+     "id": "deco-big-shoulders",
+     "status": "exists"
+    },
+    {
+     "id": "deco-italiana",
+     "status": "exists"
+    }
+   ],
+   "heroes": [
+    {
+     "id": "masthead",
+     "status": "exists"
+    },
+    {
+     "id": "cover-type",
+     "status": "exists"
+    },
+    {
+     "id": "pair-split",
+     "status": "planned-2B"
+    }
+   ],
+   "spaces": [
+    {
+     "id": "index",
+     "status": "exists"
+    }
+   ],
+   "story": [
+    {
+     "id": "pullquote",
+     "status": "exists"
+    }
+   ],
+   "faq": [
+    {
+     "id": "numbered",
+     "status": "exists"
+    }
+   ],
+   "tour": [
+    {
+     "id": "band-cta",
+     "status": "exists"
+    }
+   ],
+   "gallery": [
+    {
+     "id": "none",
+     "status": "exists"
+    }
+   ],
+   "moments": [
+    {
+     "id": "numbers-count",
+     "status": "planned-2B"
+    },
+    {
+     "id": "window-reveal",
+     "status": "deferred"
+    },
+    {
+     "id": "then-now",
+     "status": "planned-2B"
+    }
+   ],
+   "ornaments": [
+    {
+     "id": "underline-bar",
+     "status": "planned-2B"
+    },
+    {
+     "id": "stepped-frame",
+     "status": "planned-2B"
+    },
+    {
+     "id": "sunburst",
+     "status": "planned-2B"
+    },
+    {
+     "id": "geometric-rule",
+     "status": "planned-2B"
+    }
+   ],
+   "voices": [
+    {
+     "id": "editorial",
+     "status": "exists"
+    }
+   ],
+   "nav": [
+    "centered",
+    "two-row"
+   ],
+   "photo": {
+    "edges": [
+     "flush",
+     "keyline"
+    ],
+    "ratios": [
+     "4:5",
+     "1:1"
+    ],
+    "radius_px": [
+     0,
+     0
+    ],
+    "grain": false,
+    "mono": true,
+    "mono_filter": "grayscale(1) contrast(1.05)",
+    "mono_rule": "per photo via content mono: true; never the lead unless the venue site is monochrome"
+   },
+   "rhythm_variants": [
+    {
+     "id": "deco-story-first",
+     "label": "facts strip with the geometric rule, architect/year story, numbered spaces",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    },
+    {
+     "id": "deco-spaces-first",
+     "label": "facts strip, spaces, then story",
+     "blocks": [
+      {
+       "kind": "section",
+       "id": "facts-strip",
+       "status": "planned-2B"
+      },
+      {
+       "kind": "role",
+       "id": "spaces"
+      },
+      {
+       "kind": "role",
+       "id": "story"
+      },
+      {
+       "kind": "role",
+       "id": "moment"
+      },
+      {
+       "kind": "role",
+       "id": "tour"
+      },
+      {
+       "kind": "role",
+       "id": "guide"
+      },
+      {
+       "kind": "role",
+       "id": "faq"
+      }
+     ]
+    }
+   ],
+   "motion": {
+    "reveal": "fade",
+    "reveal_ms": 700,
+    "offset_px": 0,
+    "device": "bar-slide",
+    "device_target": "underline bar scaleX 0 -> 1 from left, once",
+    "device_ms": 600,
+    "marquee": false,
+    "parallax": false
+   },
+   "tokens": {
+    "radius": 0,
+    "radius_card": 0
+   }
+  }
+ ]
+}

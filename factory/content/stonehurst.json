@@ -14,6 +14,8 @@
     "events_per_day": 1,
     "uses": ["Weddings", "Filming", "Private events"]
   },
+  "vibe": {"type": "garden", "era": null, "words": ["lush", "garden", "romantic"],
+           "_note": "Stage 2A (2026-10-20): set by the Maker from this file (a nine-acre garden estate whose photos are ceremony gardens, a glasshouse and a barn); a human should confirm the three words. era stays null: 1907 is the barn's first recorded use, not a verified build year."},
   "website": "https://www.thestonehurst.com/",
   "platform_note": "Wix; homepage HTML 640 KB before media (NOTES.md)",
   "contact": {
@@ -154,15 +156,15 @@
     "manifest": "../../previews/stonehurst/img/real/manifest.json",
     "credit": "photography © The Stonehurst",
     "items": {
-      "hero":       {"alt": "The Flower Garden at The Stonehurst set for a ceremony: rows of wooden cross-back chairs on a stone-paved aisle leading to the trunk of the towering fig tree, with white floral arrangements at its base, bamboo to the left and the barn roof behind.", "focal": "50% 42%", "light": "day", "tags": ["ceremony", "garden", "wide"]},
-      "greenhouse": {"alt": "The Greenhouse at night, its glass walls glowing from inside, with strings of café lights over long candlelit reception tables and the dark wood barn wall to the right.", "focal": "50% 50%", "light": "night", "tags": ["reception", "glass", "wide"]},
-      "barn":       {"alt": "The weathered wood barn seen from the entrance, its doors open on a chandelier inside, flanked by agave and yucca with the hills of Shadow Hills behind.", "focal": "50% 55%", "light": "day", "tags": ["barn", "entrance", "wide"]},
-      "flower":     {"alt": "Ceremony set-up in the Flower Garden: white chairs either side of a sandstone aisle, two blush floral arches at the base of the fig tree, the barn behind.", "focal": "50% 50%", "light": "day", "tags": ["ceremony", "garden"]},
-      "bamboo":     {"alt": "A ceremony in the Bamboo Garden: two tall arrangements of peach, coral and cream roses frame the altar, black woven lanterns hang overhead, and bamboo closes in on every side.", "focal": "50% 45%", "light": "day", "tags": ["ceremony", "bamboo"]},
-      "terrace":    {"alt": "The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it.", "focal": "50% 50%", "light": "golden", "tags": ["reception", "terrace"]},
-      "bungalow":   {"alt": "The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves.", "focal": "50% 50%", "light": "day", "tags": ["bungalow", "detail"]},
-      "reception":  {"alt": "Inside the Greenhouse set for dinner: long linen tables with gold cutlery and small bud vases, wooden cross-back chairs, exposed brick walls and white drapery across the beams.", "focal": "50% 50%", "light": "day", "tags": ["reception", "interior", "tables"]},
-      "stonepath":  {"alt": "A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.", "focal": "50% 50%", "light": "day", "tags": ["detail", "stone", "portrait"]}
+      "hero":       {"alt": "The Flower Garden at The Stonehurst set for a ceremony: rows of wooden cross-back chairs on a stone-paved aisle leading to the trunk of the towering fig tree, with white floral arrangements at its base, bamboo to the left and the barn roof behind.", "focal": "50% 42%", "light": "day", "tags": ["ceremony", "garden", "wide"], "subject": "grounds", "flora": "fig"},
+      "greenhouse": {"alt": "The Greenhouse at night, its glass walls glowing from inside, with strings of café lights over long candlelit reception tables and the dark wood barn wall to the right.", "focal": "50% 50%", "light": "night", "tags": ["reception", "glass", "wide"], "subject": "building"},
+      "barn":       {"alt": "The weathered wood barn seen from the entrance, its doors open on a chandelier inside, flanked by agave and yucca with the hills of Shadow Hills behind.", "focal": "50% 55%", "light": "day", "tags": ["barn", "entrance", "wide"], "subject": "building"},
+      "flower":     {"alt": "Ceremony set-up in the Flower Garden: white chairs either side of a sandstone aisle, two blush floral arches at the base of the fig tree, the barn behind.", "focal": "50% 50%", "light": "day", "tags": ["ceremony", "garden"], "subject": "grounds", "flora": "fig"},
+      "bamboo":     {"alt": "A ceremony in the Bamboo Garden: two tall arrangements of peach, coral and cream roses frame the altar, black woven lanterns hang overhead, and bamboo closes in on every side.", "focal": "50% 45%", "light": "day", "tags": ["ceremony", "bamboo"], "subject": "grounds"},
+      "terrace":    {"alt": "The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it.", "focal": "50% 50%", "light": "golden", "tags": ["reception", "terrace"], "subject": "grounds"},
+      "bungalow":   {"alt": "The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves.", "focal": "50% 50%", "light": "day", "tags": ["bungalow", "detail"], "subject": "building"},
+      "reception":  {"alt": "Inside the Greenhouse set for dinner: long linen tables with gold cutlery and small bud vases, wooden cross-back chairs, exposed brick walls and white drapery across the beams.", "focal": "50% 50%", "light": "day", "tags": ["reception", "interior", "tables"], "subject": "interior"},
+      "stonepath":  {"alt": "A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.", "focal": "50% 50%", "light": "day", "tags": ["detail", "stone", "portrait"], "subject": "detail"}
     }
   },
   "preview": {

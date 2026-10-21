@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 assets/*.png
 docs/research/shots/
+.factory-check/
+__pycache__/
+.pytest_cache/

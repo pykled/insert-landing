@@ -175,6 +175,9 @@ rhythm), so the thresholds are set low and a pHash of screenshots is the planned
 sites to calibrate on. The guard is useful today for the failure it is built to catch, the same pairing + hero +
 moment reused, and it reports the drivers of every distance so a human can disagree with it.
 
+**Superseded 2026-10-20 by registry schema 2** (section 9.4): new dimensions, the same-dialect rule, a quota and the
+screenshot pHash. The table above is the schema-1 record.
+
 ## 4. Content schema
 
 `factory/lib/schema.md`. One JSON per venue; every fact, space, FAQ and photo carries its source URL; nulls are allowed
@@ -245,7 +248,103 @@ of it template work that is now reusable.
 - **Copy.** Voice presets produce acceptable, slot-filled headlines. The best line on each variant should still be written by a person.
 - **Palette review.** Photo-derived palettes are only as good as the photos (dusk greenhouse gave a blue; stone gave ochre). The override exists because a human will sometimes prefer the venue's existing brand colour.
 - **Library breadth.** Built today: 3 heroes, 3 spaces, 3 story, 3 faq, 3 tour, 3 moments, 4 voices, 10 pairings. Specified but not built: 5 heroes (two of them exist only as the hand-written mocks), gallery sections, 5 moments. Each new archetype costs about 30-60 minutes and immediately multiplies the space.
-- **Guard calibration.** Five sites is not enough to trust the thresholds; add a screenshot pHash and re-tune after ten sites.
+- **Guard calibration.** Five sites is not enough to trust the thresholds; the screenshot pHash now exists (section 9.4) and every threshold is re-tuned after ten sites.
 - **Page weight on desktop.** A and B transfer about 2.5 MB at load in the QA run because Chromium's lazy-load threshold pulls the swapping photo stacks early; C transfers 632 KB. Fix candidates: smaller width ladders for stage images, or load them on first interaction.
 - **Three sub-7:1 labels.** White button labels on the accent fill measure 6.65-6.87 at the anti-aliased edge in error states (AA passes at 4.5). Raising the fill target further darkens warm accents toward brown; a human call per site.
 - **Containment.** Variants are noindex, under the tokenised private path with `X-Robots-Tag` and `Cache-Control: no-store`; `previews/`, `factory/` and `docs/` are in `.railwayignore` so content files and research never reach the server. Not pushed to GitHub.
+
+## 9. Dialect layer (stage 2A, 2026-10-20)
+
+Implements `docs/research/05-luxury-dialects-spec.md` sections 1-7 except the templates (stage 2B, contract in
+`factory/STAGE-2B-CONTRACT.md`). A dialect is chosen before fit-ranked selection; the selector then runs unchanged over
+the dialect's ids.
+
+### 9.1 Data
+
+- `data/dialects.json`: the eight dialects (estate, editorial, candlelit, modern-luxe, coastal, botanical, ranch, deco)
+  with axis clamps, paper / ink / deep / accent ranges (OKLCH), metallic, 7:1 pairs, type knobs (headline case, body
+  px, kicker styles), allowed pairings / heroes / spaces / story / faq / tour / gallery / moments / ornaments / voices,
+  nav styles, photo rules, two rhythm variants, motion device and token overrides; plus the shared baseline, the
+  controlled vibe words, type priors and the fallback chains. Every listed id has `status`: exists, planned-2B or
+  deferred (`python3 lib/templates.py --missing` lists the 57 not yet available; `--refresh` rewrites the labels).
+- `data/pairings.json`: 16 new pairings (the spec inventory says 14; its dialect blocks name 16), all `dialect_only`,
+  with pinned weight / opsz / tracking, optional `secondary` face, `display.case`; the spec's working names are kept as
+  `aliases` (editorial-playfair-free -> editorial-gloock, ranch-canela-free -> ranch-lora, deco-poiret-free ->
+  deco-big-shoulders). `lib/fonts.py` enforces the rules (display weight 400-600, pinned opsz, didone hairline caution,
+  banned families) and verifies the chosen import on fonts.googleapis.com at build time (cache in
+  `data/fonts-verified.json`; offline uses the cache; HTTP 4xx stops the build). All 26 verified 2026-10-20.
+- `data/voices.json`: heritage, evening, lyric, each with three CTA sets (rotated per registered site using the voice).
+  Values may be candidate lists; the first one whose `{slots}` all have content values is used, an unfillable one stops
+  the build, and strict voices contain no number outside a slot. The four older voices still state "Six spaces" /
+  "One event a day" literally (warned, not changed: the proof variants render from them).
+- `data/archetypes.json`: the new heroes / sections / moments as `planned-2B` with `needs`, `hero_framing` on every hero.
+- Content schema: per-photo `subject`, `mono`, `flora`, `archival` (+ `rights`), a `vibe` block; validated by
+  `lib/schema.py`. `content/stonehurst.json` gained subject tags, two `flora: fig` tags and a vibe block (garden; lush,
+  garden, romantic) set by the Maker from the file, to be confirmed by a human.
+
+### 9.2 Selection (`lib/palette.py`, `lib/personality.py`, `build.py`)
+
+1. Photo signals over the palette photos (lead 2x): mean L, mono / foliage / water / dark / earth shares, warm shadows.
+2. Score table: the spec section 3 signal rules + vibe words (+2 each) + type prior + era rules. Top score wins; ties go
+   to the dialect with fewer registered sites, then file order. `--dialect <id>` is a recorded human override;
+   `--dialect none` is the pre-dialect path. The full table with every reason is written to `build-meta.json`
+   `dialect.scores`.
+3. Axes clamp to the dialect's region (missing `--personality` = the dialect centre); the density >= 85 + voice >= 85
+   corner is pulled back everywhere except modern-luxe.
+4. Within-dialect knobs: paper tone (light / mid / tinted, or dark-warm / dark-cool from the shadows; estate and deco
+   switch to their charcoal variant on dark photos), ornament (least used in the dialect), rhythm variant (alternates),
+   pairing (never the same as the dialect's last registered site), body px 17/19/21, headline case, photo edge, kicker.
+5. Palette: dialect paper ranges; accent prefers candidates inside the dialect's hue ranges (reported when none is);
+   the charcoal set (`derive_dark`) walks every small-text pair to 7:1 with the same lightness walker and adds
+   `--on-accent`, `--metal`, `--field`. Pure white paper is never output.
+6. Templates resolve by id; a missing one falls back along `fallbacks` (dialect-allowed ids first) and is recorded in
+   `build-meta.json` `fallbacks[]` and flagged by QA. Fingerprints and the guard use what is actually rendered.
+
+Stonehurst with the vibe block scores botanical 6, editorial 2, modern-luxe 1, coastal 1 and builds as botanical
+(botanical-cardo, frame hero for the planned arch-split, stack, timeline, light-shift for the planned sprig-draw).
+Forced estate / candlelit / deco / coastal builds also complete, with their fallbacks listed.
+
+The three proof variants build with `--dialect none` (build-all.sh) and are byte-identical to the published files except
+the generator hash (`FACTORY_OUT=../.factory-check/stonehurst-variants ./build-all.sh`, then diff).
+
+### 9.3 QA additions (`qa.py`, `lib/exclusions.py`)
+
+- Exclusions E1-E19 from spec section 5 run on one DOM snapshot per viewport (`COLLECT_JS`); each message starts with
+  its E-number. Dialect builds fail on them; pre-dialect builds and mocks get them as warnings (A, B, C: four or five
+  sub-16.5 px card/dateline paragraphs, B one 73-character line, C the density/voice corner E17). Fixtures: `tests/test_exclusions.py`,
+  also `python3 qa.py --self-test`.
+- Reduced motion: every first-screen `.reveal` visible and zero running animations; motion on: reveal 600-1200 ms,
+  `[data-motion-device]` animations 600-1600 ms.
+- Moment hooks for the new moments (`__slideTo`, `__countFinish`, `__thenNow`, `__pairsTo`, `__dialSet`, draw-in marker).
+- Template fallbacks: warning, or a problem with `--strict`.
+- pHash: 16 x 16 DCT hash of the 1440 fold and of the full page as a 64 x 256 rhythm strip, stored in `qa-report.json`
+  and compared with every registered site (<= 18 of 256 bits warn, <= 12 fail).
+- The existing contrast walker and legibility probe are unchanged.
+
+Current state: A, B, C pass (0 problems). Dialect builds of Stonehurst do not pass yet, for template reasons listed in
+the contract section 3: botanical 6 problems, estate 7, candlelit 40 (hard-coded white on charcoal, display minimums
+and the hairline probe on mobile for Cardo and Libre Caslon Display, body copy under 16.5 px).
+
+### 9.4 Diversity guard, registry schema 2
+
+New fingerprint dimensions paper_tone, hero_framing, display_case, ornament, body_px, photo_edge, motion_device,
+nav_style (weights 0.06 / 0.06 / 0.04 / 0.06 / 0.03 / 0.03 / 0.03 / 0.03; schema-1 weights x 0.66); dialect, pairing
+and voice stored unweighted. Same dialect: refuse < 0.32, warn < 0.45, and refuse unless 4 of 7 key dimensions differ
+(pairing, hero framing, ornament, paper tone, spaces, moment, body size). Quota: the 2nd site sharing dialect + pairing +
+hero framing warns, the 3rd refuses. `--allow-close "<reason>"` stores the reason with the registration. All five sites
+were re-registered (mocks: new dimensions transcribed from the rendered pages; variants: from the byte-identical
+rebuild) with pHashes.
+
+```
+                          stonehurst-mo lindley-scott stonehurst-a  stonehurst-b  stonehurst-c  
+stonehurst-mock-v2        0.000         0.717         0.804         0.665         0.734         
+lindley-scott-mock        0.717         0.000         0.830         0.669         0.712         
+stonehurst-a              0.804         0.830         0.000         0.830         0.626         
+stonehurst-b              0.665         0.669         0.830         0.000         0.747         
+stonehurst-c              0.734         0.712         0.626         0.747         0.000         
+(* same dialect: refuse < 0.32, warn < 0.45, and >= 4 of 7 key dims must differ; otherwise refuse < 0.35, warn < 0.50)
+```
+
+Distances fell from 0.78-0.92 to 0.63-0.83 because the new dimensions mostly agree across the five (no ornament, no
+motion device, 17 px body): the new levers have not been used yet. The two mocks are 0.717 apart (was 0.859), which is
+closer to how alike they look.
