@@ -9,14 +9,14 @@
 {% if gal|length >= 2 %}
 <section id="gallery" class="gallery-pairs" aria-label="Photographs of {{ v.short_name }}">
   <div class="container">
-    <div class="pairs">
+    <div class="gp-list">
       {% for pr in gal|batch(2) if pr|length == 2 %}
       {% set outer = loop %}
-      <div class="pair reveal{% if not loop.first %} d1{% endif %}">
+      <div class="gp-pair reveal{% if not loop.first %} d1{% endif %}">
         {% for n in pr %}{% set sp = photos[n] %}
-        <figure class="pair-fig">
-          <div class="ph pair-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"{% if sp.mono %} data-mono{% endif %}></div>
-          <figcaption><span class="pair-n">{{ '%02d' % (outer.index0 * 2 + loop.index) }}</span>{{ sp.caption }}</figcaption>
+        <figure class="gp-fig">
+          <div class="ph gp-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"{% if sp.mono %} data-mono{% endif %}></div>
+          <figcaption><span class="gp-n">{{ '%02d' % (outer.index0 * 2 + loop.index) }}</span>{{ sp.caption }}</figcaption>
         </figure>
         {% endfor %}
       </div>

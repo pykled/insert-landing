@@ -4,7 +4,7 @@
   .glance-item:last-child { border-right: 0; }
   .glance-item small { display: block; font-size: {{ '12px' if t.caps else '13px' }}; {% if t.caps %}letter-spacing: 0.18em; text-transform: uppercase;{% endif %} color: var(--accent-text); font-weight: {{ pair.body.medium }}; margin-bottom: 10px; }
   .glance-item b { font-family: var(--h3-font); font-weight: var(--h3-weight); font-size: 22px; display: block; margin-bottom: 6px; line-height: 1.15; }
-  .glance-item p { font-size: 15px; color: var(--ink-soft); }
+  .glance-item p { font-size: {{ '16.5px' if dialect else '15px' }}; color: var(--ink-soft); }
   @media (max-width: 860px) {
     .glance-grid { grid-template-columns: 1fr 1fr; }
     .glance-item:nth-child(2) { border-right: 0; }

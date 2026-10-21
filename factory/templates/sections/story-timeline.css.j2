@@ -1,7 +1,7 @@
   /* story: timeline rail */
   .tl-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
   .tl-paras { margin-top: 24px; }
-  .tl-paras p { color: var(--ink-soft); font-size: 17px; margin-bottom: 16px; max-width: 58ch; }
+  .tl-paras p { color: var(--ink-soft); font-size: 17px; margin-bottom: 16px; max-width: {{ '54ch' if dialect else '58ch' }}; }
   .tl-paras cite { display: block; font-style: normal; font-size: 13px; color: var(--ink-faint); }
   .rail { list-style: none; margin-top: 36px; border-left: 2px solid var(--accent); }
   .rail li { position: relative; padding: 0 0 22px 26px; color: var(--ink-soft); font-size: 16px; }

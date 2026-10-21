@@ -4,8 +4,8 @@
   .index-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 8px 16px; padding: 22px 0; border-bottom: 1px solid var(--line); cursor: default; transition: padding-left .35s var(--ease); }
   .index-row .num { font-family: var(--display); font-weight: var(--display-weight); font-size: 15px; color: var(--ink-faint); padding-top: 6px; font-variant-numeric: tabular-nums; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
   .index-row h3 { font-size: clamp(22px, 2vw, 28px); }
-  .index-row .use { color: var(--ink-soft); font-size: 15.5px; margin-top: 4px; }
-  .index-row .blurb { color: var(--ink-soft); font-size: 15.5px; margin-top: 10px; max-width: 52ch; display: none; }
+  .index-row .use { color: var(--ink-soft); font-size: {{ '16.5px' if dialect else '15.5px' }}; margin-top: 4px; }
+  .index-row .blurb { color: var(--ink-soft); font-size: {{ '16.5px' if dialect else '15.5px' }}; margin-top: 10px; max-width: 52ch; display: none; }
   .index-row[data-active] .blurb { display: block; }
   .index-row[data-active] { padding-left: 8px; }
   .index-row[data-active] .num, .index-row[data-active] h3 { color: var(--accent-text); }

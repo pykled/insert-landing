@@ -12,7 +12,8 @@
 {% else %}
   .story-copy p.story-lead-in { font-family: '{{ lead_face.family }}', {{ lead_face.fallback|safe }}; font-weight: {{ lead_face.weight }}; font-size: max({{ lead_face.min_px }}px, clamp(24px, 2.4vw, 32px)); line-height: 1.3; letter-spacing: {{ lead_face.tracking }}; color: var(--ink); max-width: 40ch; {% if lead_face.vars %}font-optical-sizing: none; font-variation-settings: {{ lead_face.vars|safe }};{% endif %} }
 {% endif %}
-  .story-copy cite { display: block; font-style: normal; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
+  /* the mock set this in tracked caps; credits run past 60 characters (E5), so: small, plain, letter-spaced lightly */
+  .story-copy cite { display: block; font-style: normal; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink-faint); margin-top: 8px; max-width: 48ch; }
   .story-media { max-width: 440px; justify-self: end; width: 100%; position: relative; }
   .story-frame { position: relative; display: block; }
   .story-ph { display: block; aspect-ratio: 3 / 4; }
