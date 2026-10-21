@@ -1,0 +1,8 @@
+{% if v.featured_in %}
+<div class="featured" aria-label="As featured in" id="featured">
+  <div class="container">
+    <small>As featured in</small>
+    <ul>{% for f in v.featured_in %}<li>{{ f }}</li>{% endfor %}</ul>
+  </div>
+</div>
+{% endif %}

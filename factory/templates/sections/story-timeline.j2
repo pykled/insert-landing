@@ -1,0 +1,19 @@
+<section id="story" class="story-tl band-tint" aria-labelledby="story-title">
+  <div class="container tl-grid">
+    <div class="tl-text">
+      <p class="kicker reveal">{{ copy.story_kicker }}</p>
+      <h2 id="story-title" class="reveal d1">{{ v.story.lead }}</h2>
+      <div class="reveal d2 tl-paras">
+        {% for ptxt in v.story.paragraphs %}<p>{{ ptxt }}</p>{% endfor %}
+        <cite>{{ v.story.credit }}</cite>
+      </div>
+      <ol class="rail reveal d2" aria-label="Timeline">
+        {% for e in v.story.timeline %}<li><time>{{ e.year }}</time><span>{{ e.text }}</span></li>{% endfor %}
+      </ol>
+    </div>
+    <figure class="tl-media reveal d2">
+      <div class="ph tl-ph"><img src="{{ photos[v.story.photo].src }}" srcset="{{ photos[v.story.photo].srcset }}" sizes="(min-width: 861px) 400px, 100vw" width="{{ photos[v.story.photo].width }}" height="{{ photos[v.story.photo].height }}" alt="{{ photos[v.story.photo].alt }}" loading="lazy" decoding="async"></div>
+      <figcaption>{{ photos[v.story.photo].caption }}</figcaption>
+    </figure>
+  </div>
+</section>

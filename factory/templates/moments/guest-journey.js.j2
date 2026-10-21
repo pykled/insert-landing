@@ -1,0 +1,14 @@
+(function () {
+  var steps = document.querySelectorAll('.jstep'), imgs = document.querySelectorAll('.jstage-img');
+  if (!steps.length) return;
+  function activate(i) {
+    steps.forEach(function (s, j) { s.classList.toggle('active', i === j); });
+    imgs.forEach(function (im, j) { im.classList.toggle('on', i === j); });
+  }
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) activate(+e.target.getAttribute('data-step')); });
+  }, { rootMargin: '-40% 0px -45% 0px', threshold: 0 });
+  steps.forEach(function (s) { io.observe(s); });
+  window.__journeyActivate = activate;
+})();

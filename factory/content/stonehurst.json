@@ -1,0 +1,173 @@
+{
+  "$schema": "../lib/schema.md",
+  "slug": "stonehurst",
+  "name": "The Stonehurst",
+  "short_name": "Stonehurst",
+  "legal_name": "Stonehurst, LLC",
+  "tagline_facts": {
+    "locality": "Shadow Hills",
+    "region": "Los Angeles County",
+    "state": "CA",
+    "acres": 9,
+    "space_count": 6,
+    "max_guests": 200,
+    "events_per_day": 1,
+    "uses": ["Weddings", "Filming", "Private events"]
+  },
+  "website": "https://www.thestonehurst.com/",
+  "platform_note": "Wix; homepage HTML 640 KB before media (NOTES.md)",
+  "contact": {
+    "email": "hello@thestonehurst.com",
+    "email_note": "PLACEHOLDER domain address. The venue's only real contact is thestonehurst@gmail.com (site footer). Swap before any real use.",
+    "phone": null,
+    "phone_note": "No phone number anywhere on the venue site. Do not invent one.",
+    "address_line": "Corner of Sunland & Stonehurst Ave",
+    "address_note": "Our History page; the site prints no street number.",
+    "hours": "Tours by appointment",
+    "source": "https://www.thestonehurst.com/our-history"
+  },
+  "facts": [
+    {"id": "acres", "text": "9-acre garden property in Shadow Hills, on the corner of Sunland and Stonehurst Ave", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "six-spaces", "text": "6 stunning spaces: a full functioning greenhouse, a historical barn, cactus, bamboo and flower gardens, a grand terrace with views of the mini desert garden, and a private mid-century bungalow", "source": "https://www.thestonehurst.com/"},
+    {"id": "one-event", "text": "The venue is private and hosts only one event a day", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "max-200", "text": "Maximum capacity 200 guests", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "three-four-spaces", "text": "Private events may use three to four of the six spaces unless otherwise approved", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "rental-12h", "text": "Standard 12-hour rental including breakdown; gates open 12 PM, event ends 10 PM, breakdown 10 PM to midnight", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "planner", "text": "A partial-service planner at minimum is required for every event", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "included", "text": "Valet, a site manager, luxe restrooms and security are included in the rental", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "filming", "text": "Filming and photoshoot inquiries go by email", "source": "https://www.thestonehurst.com/faq"},
+    {"id": "name-origin", "text": "The name comes from the street and the hand-laid stone work on the main pathways", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "joe-stromei", "text": "Joe Stromei, owner of Aaardvark's Odd Ark, planted most of the vegetation by hand; his name is carved into a greenhouse beam", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "barn-1907", "text": "The barn hosted some of the area's original Boy Scout meetings dating to 1907", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "barn-doors-2015", "text": "Today's barn doors were reclaimed from the original horse stalls in 2015", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "barn-oldest", "text": "The barn is one of the oldest structures in this part of Los Angeles County and greets you on entry", "source": "https://www.thestonehurst.com/rustic-barn-los-angeles"},
+    {"id": "history-credit", "text": "History text credited to the Shadow Hills Property Owners Association", "source": "https://www.thestonehurst.com/our-history"},
+    {"id": "featured", "text": "Featured-in row on the live homepage: Junebug Weddings, Loverly, Style Me Pretty, Vogue India, The Knot, Zola, Wedding Chicks, PartySlate", "source": "https://www.thestonehurst.com/"},
+    {"id": "by-appointment", "text": "Opening hours: by appointment only", "source": "https://www.thestonehurst.com/"}
+  ],
+  "story": {
+    "kicker": "The property",
+    "lead": "A garden planted by hand, on the corner of Sunland and Stonehurst.",
+    "paragraphs": [
+      "The name comes from the street and from the hand-laid stone work that dances across the main pathways.",
+      "The barn is one of the oldest structures in this part of Los Angeles County and hosted some of the area's original Boy Scout meetings in 1907; its doors were reclaimed from the original horse stalls in 2015. Most of the vegetation, from the towering South American fig over the flower garden to a cactus garden that fruits every spring and fall, was planted by hand by Joe Stromei, whose name is still carved into a beam of the greenhouse."
+    ],
+    "credit": "History as recorded by the Shadow Hills Property Owners Association",
+    "timeline": [
+      {"year": "1907", "text": "The barn hosts some of the area's original Boy Scout meetings.", "source": "https://www.thestonehurst.com/our-history"},
+      {"year": "Mid-century", "text": "The bungalow, original to the property, with two rooms and a large open communal room.", "source": "https://www.thestonehurst.com/copy-of-greenhouse-1"},
+      {"year": "2015", "text": "The barn's doors are reclaimed from the original horse stalls.", "source": "https://www.thestonehurst.com/our-history"},
+      {"year": "Today", "text": "Nine acres, six spaces, one event a day.", "source": "https://www.thestonehurst.com/faq"}
+    ],
+    "photo": "stonepath",
+    "source": "https://www.thestonehurst.com/our-history"
+  },
+  "numbers": [
+    {"value": "9", "label": "Acres of garden", "source": "https://www.thestonehurst.com/our-history"},
+    {"value": "6", "label": "Distinct spaces", "source": "https://www.thestonehurst.com/"},
+    {"value": "1", "label": "Event per day", "source": "https://www.thestonehurst.com/faq"},
+    {"value": "1907", "label": "Barn's first recorded gathering", "source": "https://www.thestonehurst.com/our-history"}
+  ],
+  "spaces": [
+    {
+      "id": "greenhouse", "name": "The Greenhouse", "photo": "greenhouse",
+      "capacity": 200, "capacity_label": "Up to 200", "capacity_kind": "seated or ceremony",
+      "use": "Indoor ceremony or reception",
+      "blurb": "Bright and open, for an indoor ceremony or reception. Floor-to-ceiling glass, where industry meets nature.",
+      "features": ["Existing beams for decor and floral hanging", "HVAC climate controlled", "Original beams"],
+      "journey_step": "Dinner under glass",
+      "source": "https://www.thestonehurst.com/greenhouse-los-angeles"
+    },
+    {
+      "id": "barn", "name": "The Barn", "photo": "barn",
+      "capacity": 150, "capacity_label": "Up to 150", "capacity_kind": "seated",
+      "use": "Reception, ceremony or shoot",
+      "blurb": "One of the oldest structures in this part of Los Angeles County. It greets you at the gate and anchors any event or shoot.",
+      "features": ["Original wood", "Three cascading chandeliers", "Natural lighting"],
+      "journey_step": "Arrive at the barn",
+      "source": "https://www.thestonehurst.com/rustic-barn-los-angeles"
+    },
+    {
+      "id": "flower", "name": "The Flower Garden", "photo": "flower",
+      "capacity": 175, "capacity_label": "Up to 175", "capacity_kind": "ceremony or cocktail",
+      "use": "Ceremony, cocktail hour or private party",
+      "blurb": "Home to the towering South American fig. A lush setting for a ceremony, cocktail hour or private party.",
+      "features": ["Greenery on every side", "Ceremony or cocktail"],
+      "journey_step": "Ceremony under the fig",
+      "source": "https://www.thestonehurst.com/copy-of-bamboo-garden"
+    },
+    {
+      "id": "bamboo", "name": "The Bamboo Garden", "photo": "bamboo",
+      "capacity": 120, "capacity_label": "60 ceremony · 120 cocktail", "capacity_kind": "cocktail (60 for a ceremony)",
+      "capacity_ceremony": 60,
+      "use": "Intimate ceremony, cocktail hour, pre-ceremony photos",
+      "blurb": "The secret garden. For a small, intimate ceremony, an unexpected cocktail hour, or the photos before the aisle.",
+      "features": ["Three types of bamboo", "Private and intimate"],
+      "journey_step": "Cocktails in the bamboo",
+      "source": "https://www.thestonehurst.com/the-gardens-gallery"
+    },
+    {
+      "id": "terrace", "name": "The Terrace", "photo": "terrace",
+      "capacity": null, "capacity_label": "Capacity on request", "capacity_kind": null,
+      "use": "Views over the mini desert garden",
+      "blurb": "A grand terrace with endless views over the mini desert garden and its cactus beds.",
+      "features": ["Desert garden views", "Cactus garden adjoining"],
+      "journey_step": "Sunset on the terrace",
+      "source": "https://www.thestonehurst.com/"
+    },
+    {
+      "id": "bungalow", "name": "The Bungalow", "photo": "bungalow",
+      "capacity": 15, "capacity_label": "1 – 15", "capacity_kind": "couple's suite or green room",
+      "use": "Getting ready, green room, pre-approved special events",
+      "blurb": "Original to the property: two rooms and a large open communal room, reserved for the couple, a green room, or pre-approved special events.",
+      "features": ["Getting ready", "Green room"],
+      "journey_step": "Get ready in the bungalow",
+      "source": "https://www.thestonehurst.com/copy-of-greenhouse-1"
+    }
+  ],
+  "journey": {
+    "note": "Order is built only from stated uses: the barn greets you on entry (barn page); ceremony in the flower garden, cocktails in the bamboo garden, reception in the greenhouse (each space page). The terrace and bungalow steps use only their stated uses.",
+    "steps": ["bungalow", "barn", "flower", "bamboo", "greenhouse"]
+  },
+  "day": {
+    "rental_hours": 12,
+    "gates_open": "12 PM",
+    "event_end": "10 PM",
+    "breakdown_end": "12 AM",
+    "included": ["Valet", "Site manager", "Luxe restrooms", "Security"],
+    "requirement": "A partial-service planner, at minimum, for every event",
+    "spaces_per_event": "Three to four of the six spaces, unless otherwise approved",
+    "source": "https://www.thestonehurst.com/faq"
+  },
+  "faqs": [
+    {"q": "What is the maximum capacity?", "a": "We can host up to 200 guests.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "Are there multiple events in one day?", "a": "No. The venue is private and we host only one event a day.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "Can all six spaces be used?", "a": "For private events we allow three to four spaces to be used, unless otherwise approved.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "What is the rental time for events?", "a": "Our standard is a 12-hour rental including breakdown. On event days the gates open at 12 PM, the event ends at 10 PM, and there are two hours for breakdown (10 PM to midnight). For additional hours or shorter time frames, send us a note.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "Is a wedding or event planner required?", "a": "Yes. We require, at minimum, a partial-service planner for your event.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "What is included in the rental?", "a": "Valet, a site manager, luxe restrooms and security are included in the rental.", "source": "https://www.thestonehurst.com/faq"},
+    {"q": "How do I inquire about filming and photoshoots?", "a": "For filming and photoshoots, email us and we'll come back with availability and rates for your dates.", "source": "https://www.thestonehurst.com/faq"}
+  ],
+  "featured_in": ["Junebug Weddings", "Loverly", "Style Me Pretty", "Vogue India", "The Knot", "Zola", "Wedding Chicks", "PartySlate"],
+  "photos": {
+    "source_dir": "../../previews/stonehurst/img/real",
+    "manifest": "../../previews/stonehurst/img/real/manifest.json",
+    "credit": "photography © The Stonehurst",
+    "items": {
+      "hero":       {"alt": "The Flower Garden at The Stonehurst set for a ceremony: rows of wooden cross-back chairs on a stone-paved aisle leading to the trunk of the towering fig tree, with white floral arrangements at its base, bamboo to the left and the barn roof behind.", "focal": "50% 42%", "light": "day", "tags": ["ceremony", "garden", "wide"]},
+      "greenhouse": {"alt": "The Greenhouse at night, its glass walls glowing from inside, with strings of café lights over long candlelit reception tables and the dark wood barn wall to the right.", "focal": "50% 50%", "light": "night", "tags": ["reception", "glass", "wide"]},
+      "barn":       {"alt": "The weathered wood barn seen from the entrance, its doors open on a chandelier inside, flanked by agave and yucca with the hills of Shadow Hills behind.", "focal": "50% 55%", "light": "day", "tags": ["barn", "entrance", "wide"]},
+      "flower":     {"alt": "Ceremony set-up in the Flower Garden: white chairs either side of a sandstone aisle, two blush floral arches at the base of the fig tree, the barn behind.", "focal": "50% 50%", "light": "day", "tags": ["ceremony", "garden"]},
+      "bamboo":     {"alt": "A ceremony in the Bamboo Garden: two tall arrangements of peach, coral and cream roses frame the altar, black woven lanterns hang overhead, and bamboo closes in on every side.", "focal": "50% 45%", "light": "day", "tags": ["ceremony", "bamboo"]},
+      "terrace":    {"alt": "The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it.", "focal": "50% 50%", "light": "golden", "tags": ["reception", "terrace"]},
+      "bungalow":   {"alt": "The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves.", "focal": "50% 50%", "light": "day", "tags": ["bungalow", "detail"]},
+      "reception":  {"alt": "Inside the Greenhouse set for dinner: long linen tables with gold cutlery and small bud vases, wooden cross-back chairs, exposed brick walls and white drapery across the beams.", "focal": "50% 50%", "light": "day", "tags": ["reception", "interior", "tables"]},
+      "stonepath":  {"alt": "A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.", "focal": "50% 50%", "light": "day", "tags": ["detail", "stone", "portrait"]}
+    }
+  },
+  "preview": {
+    "private": true,
+    "disclaimer": "Concept preview by Insert · photography © The Stonehurst · not affiliated with the venue",
+    "meta_description": "Concept homepage redesign for The Stonehurst, a 9-acre garden wedding and event venue in Shadow Hills, Los Angeles County. Prepared by Insert as an unsolicited design preview. Not affiliated with the venue."
+  }
+}

@@ -1,0 +1,293 @@
+[
+{
+"name": "hero",
+"crop": [
+11648,
+8736
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+129796
+],
+[
+1200,
+900,
+269850
+],
+[
+1800,
+1350,
+375166
+],
+[
+2400,
+1800,
+536764
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_c53749f9cc334a58bca20dc46128b8ca~mv2.jpg"
+},
+{
+"name": "greenhouse",
+"crop": [
+11648,
+8736
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+60406
+],
+[
+1200,
+900,
+111736
+],
+[
+1800,
+1350,
+199888
+],
+[
+2400,
+1800,
+305916
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_faf7efa119644297a7e9df7107b7a1e9~mv2.jpg"
+},
+{
+"name": "barn",
+"crop": [
+5053,
+3790
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+1200,
+900,
+194116
+],
+[
+1800,
+1350,
+385440
+],
+[
+2400,
+1800,
+489274
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_93561ad4073f4c769a70ce03e4aa63c5~mv2.jpg"
+},
+{
+"name": "flower",
+"crop": [
+5097,
+3823
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+114708
+],
+[
+1200,
+900,
+225868
+],
+[
+1800,
+1350,
+333196
+],
+[
+2400,
+1800,
+514028
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_1fbdb1ce5c8d4febab7d0a4987605e06~mv2.jpg"
+},
+{
+"name": "bamboo",
+"crop": [
+4636,
+3477
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+188760
+],
+[
+1200,
+900,
+313704
+],
+[
+1800,
+1350,
+450956
+],
+[
+2400,
+1800,
+688456
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_dda286a194e34c70addb74f1575a8432~mv2.png"
+},
+{
+"name": "terrace",
+"crop": [
+1600,
+1200
+],
+"kept_copy_size": [
+1600,
+1200
+],
+"variants": [
+[
+800,
+600,
+71510
+],
+[
+1200,
+900,
+146936
+],
+[
+1600,
+1200,
+230108
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_13d8c023d33b4bdba5aa9ff0d7a4d612~mv2.jpg"
+},
+{
+"name": "bungalow",
+"crop": [
+4663,
+3497
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+80100
+],
+[
+1200,
+900,
+159962
+],
+[
+1800,
+1350,
+318900
+],
+[
+2400,
+1800,
+510632
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_3c0747cbc41349d580c09bae9a3b173a~mv2.jpg"
+},
+{
+"name": "reception",
+"crop": [
+3755,
+2816
+],
+"kept_copy_size": [
+2400,
+1800
+],
+"variants": [
+[
+800,
+600,
+79570
+],
+[
+1200,
+900,
+145536
+],
+[
+1800,
+1350,
+310598
+],
+[
+2400,
+1800,
+392812
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_3d58f3b1103849e888d99cc30eae9cfa~mv2.jpg"
+},
+{
+"name": "stonepath",
+"crop": [
+1152,
+1536
+],
+"kept_copy_size": [
+1152,
+1536
+],
+"variants": [
+[
+600,
+800,
+94796
+],
+[
+900,
+1200,
+170434
+],
+[
+1152,
+1536,
+238120
+]
+],
+"source_url": "https://static.wixstatic.com/media/41b656_fad86b73f0eb42b5a660be4a9f5604eb~mv2.jpeg"
+}
+]

@@ -1,0 +1,23 @@
+  /* moment: light shift */
+  .light { transition: background .8s var(--ease), color .8s var(--ease); }
+  .light[data-light="golden"] { background: var(--accent-tint); }
+  .light[data-light="night"] { background: var(--deep); color: var(--on-deep); }
+  .light[data-light="night"] h2, .light[data-light="night"] h3 { color: #fff; }
+  .light[data-light="night"] .kicker { color: var(--on-deep-accent); }
+  .light[data-light="night"] p, .light[data-light="night"] li { color: var(--on-deep-soft); }
+  .light[data-light="night"] .light-time, .light[data-light="night"] .light-sched b { color: var(--on-deep-accent); }
+  .light-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 48px); }
+  .light-ctl { display: inline-flex; border: 1px solid currentColor; border-radius: 999px; padding: 4px; gap: 4px; }
+  .light-ctl button { font: inherit; font-size: 14.5px; font-weight: {{ pair.body.medium }}; padding: 10px 18px; min-height: 44px; border: 0; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; transition: background .3s, color .3s; }
+  .light-ctl button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .light[data-light="night"] .light-ctl button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+  .light-grid { display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .light-stage { aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+  .light-img { position: absolute; inset: 0; opacity: 0; transition: opacity .9s var(--ease); }
+  .light-img.on { opacity: 1; position: relative; }
+  .light-time { font-family: var(--display); font-weight: var(--display-weight); font-size: 30px; color: var(--accent-text); line-height: 1; margin-bottom: 12px; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .light-note h3 { font-size: clamp(24px, 2.4vw, 32px); margin-bottom: 12px; }
+  .light-note p { color: var(--ink-soft); font-size: 17px; max-width: 42ch; }
+  .light-sched { list-style: none; display: grid; gap: 8px; margin-top: 28px; padding-top: 20px; border-top: 1px solid currentColor; font-size: 15px; color: var(--ink-soft); }
+  .light-sched b { font-weight: {{ pair.body.medium }}; color: var(--accent-text); display: inline-block; width: 86px; }
+  @media (max-width: 860px) { .light-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,17 @@
+<section id="tour" class="tour-centered" aria-labelledby="tour-title">
+  <div class="container">
+    <div class="section-head centered">
+      <p class="kicker reveal">{{ copy.tour_kicker }}</p>
+      <h2 id="tour-title" class="reveal d1">{{ copy.tour_title }}</h2>
+      {% if copy.tour_lede %}<p class="lede reveal d2">{{ copy.tour_lede }}</p>{% endif %}
+    </div>
+    <div class="tour-wrap">
+      {% include 'partials/scheduler.j2' %}
+    </div>
+    <ul class="tour-notes reveal d3">
+      <li>Walk all {{ v.tagline_facts.space_count }} spaces.</li>
+      <li>{{ v.contact.address_line }}, {{ v.tagline_facts.locality }}. Directions arrive with your confirmation.</li>
+      <li>{{ v.day.requirement }}.</li>
+    </ul>
+  </div>
+</section>

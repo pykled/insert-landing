@@ -1,0 +1,8 @@
+<section id="faq" class="faq-plain" aria-labelledby="faq-title">
+  <div class="container faq-plain-grid">
+    <h2 id="faq-title">{{ copy.faq_title }}</h2>
+    <dl class="qa-list">
+      {% for f in v.faqs %}<div><dt>{{ f.q }}</dt><dd>{{ f.a }}</dd></div>{% endfor %}
+    </dl>
+  </div>
+</section>

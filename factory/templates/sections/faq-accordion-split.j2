@@ -1,0 +1,18 @@
+<section id="faq" class="faq-split" aria-labelledby="faq-title">
+  <div class="container faq-grid">
+    <div class="faq-aside">
+      <p class="kicker reveal">{{ copy.faq_kicker }}</p>
+      <h2 id="faq-title" class="reveal d1">{{ copy.faq_title }}</h2>
+      {% if copy.faq_lede %}<p class="reveal d2">{{ copy.faq_lede }}</p>{% endif %}
+      <a class="btn btn-ghost reveal d3" href="#check">{{ copy.nav_cta }}</a>
+    </div>
+    <div class="faq-list reveal d2">
+      {% for f in v.faqs %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

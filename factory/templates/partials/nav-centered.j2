@@ -1,0 +1,10 @@
+<header class="site nav-centered" id="top">
+  <div class="container nav">
+    <ul class="nav-links nav-left" id="nav-links">
+      {% for s in sections if s.nav %}<li><a href="#{{ s.id }}">{{ s.nav }}</a></li>{% endfor %}
+    </ul>
+    <a class="brand" href="#top" aria-label="{{ v.name }}, home"><span class="brand-word">{{ v.short_name }}<small>{{ v.tagline_facts.locality }}</small></span></a>
+    <a class="btn btn-ghost" href="#check">{{ copy.nav_cta }}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+  </div>
+</header>

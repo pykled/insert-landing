@@ -1,0 +1,25 @@
+<div class="scheduler reveal d2" id="scheduler">
+  <div class="cal-head">
+    <h3 id="cal-month" aria-live="polite">Month</h3>
+    <div class="cal-nav">
+      <button type="button" id="cal-prev" aria-label="Previous month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button type="button" id="cal-next" aria-label="Next month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="cal" id="cal" aria-label="Choose a tour day"></div>
+  <div class="slots">
+    <div class="slots-title">Available times <span id="slots-for">Pick a day first</span></div>
+    <div class="slot-list" id="slots"><p class="slot-empty">Select a day on the calendar to see open times.</p></div>
+  </div>
+  <div class="sched-foot">
+    <p class="picked" id="picked">Nothing selected yet.</p>
+    <button class="btn btn-accent" type="button" id="book" disabled>{{ copy.tour_cta }}</button>
+  </div>
+  <div class="confirm" id="tour-confirm" aria-live="polite">
+    <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3>You're on the calendar.</h3>
+    <p>Your tour is <b id="t-when">soon</b>.</p>
+    <div class="hold"><b>Confirmation sent by text.</b> Directions to the gate, what to bring, and a one-tap reschedule link. A reminder follows the day before.</div>
+    <a href="#tour" class="link again" id="tour-again">Choose a different time</a>
+  </div>
+</div>

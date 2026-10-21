@@ -1,0 +1,23 @@
+  .guide-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+  .guide-media .ph { aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+  .guide-media img { aspect-ratio: 4 / 3; }
+  .guide-form { display: flex; gap: 10px; margin-top: 28px; max-width: 520px; }
+  .guide-form .field { flex: 1; margin: 0; }
+  .guide-form .btn { white-space: nowrap; }
+  .guide .fine { max-width: 520px; margin-top: 12px; }
+  .guide-band .fine { color: var(--on-deep-soft); }
+  .guide-band .confirm h3 { color: #fff; } .guide-band .confirm p { color: var(--on-deep-soft); }
+  .guide-band .check { background: color-mix(in srgb, #fff 14%, transparent); color: #fff; }
+  .guide-band .btn-solid { background: #fff; color: var(--ink); border-color: #fff; }
+  .guide-band .btn-solid:hover { background: var(--on-deep-accent); border-color: var(--on-deep-accent); color: var(--ink); }
+  .guide-band .field input { background: #fff; border-color: transparent; }
+  .guide-band .field input::placeholder { color: var(--ink-faint); }
+  .guide-band .err { color: var(--on-deep-accent); }
+  .guide-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding-top: 36px; border-top: 1px solid var(--ink); }
+  .guide-plain h2 { font-size: clamp(28px, 3vw, 44px); }
+  .guide-plain .lede { margin-top: 12px; }
+  .guide-plain .guide-form { margin-top: 0; }
+  @media (max-width: 860px) {
+    .guide-grid, .guide-row { grid-template-columns: 1fr; }
+    .guide-form { flex-direction: column; }
+  }

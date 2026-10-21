@@ -1,0 +1,36 @@
+{% if guide_layout == 'photo' %}
+<section class="guide guide-photo band-tint" id="guide" aria-labelledby="guide-title">
+  <div class="container guide-grid">
+    <figure class="guide-media reveal">
+      <div class="ph"><img src="{{ photos[guide_photo].src }}" srcset="{{ photos[guide_photo].srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ photos[guide_photo].width }}" height="{{ photos[guide_photo].height }}" alt="{{ photos[guide_photo].alt }}" style="object-position: {{ photos[guide_photo].focal }}" loading="lazy" decoding="async"></div>
+    </figure>
+    <div>
+      <p class="kicker reveal">{{ copy.guide_kicker }}</p>
+      <h2 id="guide-title" class="reveal d1">{{ copy.guide_title }}</h2>
+      <p class="lede reveal d2">{{ copy.guide_lede }}</p>
+      {% include 'partials/guide-form.j2' %}
+    </div>
+  </div>
+</section>
+{% elif guide_layout == 'plain' %}
+<section class="guide guide-plain" id="guide" aria-labelledby="guide-title">
+  <div class="container guide-row">
+    <div>
+      <h2 id="guide-title">{{ copy.guide_title }}</h2>
+      <p class="lede">{{ copy.guide_lede }}</p>
+    </div>
+    {% include 'partials/guide-form.j2' %}
+  </div>
+</section>
+{% else %}
+<section class="guide guide-band band-deep" id="guide" aria-labelledby="guide-title">
+  <div class="container guide-grid">
+    <div>
+      <p class="kicker reveal">{{ copy.guide_kicker }}</p>
+      <h2 id="guide-title" class="reveal d1">{{ copy.guide_title }}</h2>
+      <p class="lede reveal d2">{{ copy.guide_lede }}</p>
+    </div>
+    {% include 'partials/guide-form.j2' %}
+  </div>
+</section>
+{% endif %}

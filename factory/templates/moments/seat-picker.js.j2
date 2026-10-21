@@ -1,0 +1,25 @@
+(function () {
+  var range = document.getElementById('fit-range'); if (!range) return;
+  var rows = document.querySelectorAll('.fit-row'), out = document.getElementById('fit-n'), sum = document.getElementById('fit-summary');
+  function update() {
+    var n = +range.value; out.textContent = n; range.setAttribute('aria-valuenow', n);
+    var yes = [], partial = [], no = [];
+    rows.forEach(function (r) {
+      var cap = r.getAttribute('data-cap'), cer = r.getAttribute('data-cer'), name = r.getAttribute('data-name'), kind = r.getAttribute('data-kind'), tag = r.querySelector('[data-tag]');
+      if (cap === '') { r.setAttribute('data-fit', 'ask'); tag.textContent = 'ask on your tour'; return; }
+      cap = +cap;
+      if (cap < 20) { r.setAttribute('data-fit', 'aside'); tag.textContent = 'for the two of you'; return; }
+      if (n <= cap) {
+        if (cer && n > +cer) { r.setAttribute('data-fit', 'yes'); tag.textContent = 'cocktail hour, not ceremony'; partial.push(name); }
+        else { r.setAttribute('data-fit', 'yes'); tag.textContent = 'fits'; yes.push(name); }
+      } else { r.setAttribute('data-fit', 'no'); tag.textContent = 'over by ' + (n - cap); no.push(name); }
+    });
+    var s = 'At ' + n + ' guests: ' + (yes.length ? yes.join(', ') + (yes.length > 1 ? ' fit' : ' fits') : 'no space seats everyone') + '.';
+    if (partial.length) s += ' ' + partial.join(', ') + ' works for cocktail hour but not a ceremony at that size.';
+    if (no.length) s += ' ' + no.join(', ') + (no.length > 1 ? ' are' : ' is') + ' too small.';
+    sum.textContent = s;
+  }
+  range.addEventListener('input', update);
+  update();
+  window.__fitSet = function (n) { range.value = n; update(); };
+})();

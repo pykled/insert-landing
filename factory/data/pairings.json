@@ -1,0 +1,111 @@
+{
+  "_notes": [
+    "Every family + axis range below was fetched from fonts.googleapis.com/css2 on 2026-10-20 and returned 200.",
+    "display.min_px is the smallest size the display face may be used at with display.weight; below that the generator falls back to the body face.",
+    "display.vars is the font-variation-settings string that is ALWAYS applied with font-optical-sizing:none when the family has an opsz axis. Lesson from Stonehurst v1: Bodoni Moda's automatic optical size thinned hairlines to ~1px at 60-90px; pinning a low opsz and weight 500 fixed it.",
+    "class values: didone, garalde, transitional, scotch, slab, soft-serif, grotesk, geometric-sans, humanist-sans, inscriptional.",
+    "axes: formality (0 rustic .. 100 refined), scale (0 intimate .. 100 grand), era (0 heritage .. 100 modern), density (0 lush .. 100 minimal), temperature (0 warm .. 100 cool), voice (0 romantic .. 100 editorial)."
+  ],
+  "pairings": [
+    {
+      "id": "editorial-didone",
+      "mood": "editorial-refined",
+      "axes": {"formality": 90, "era": 45, "density": 55, "voice": 70, "temperature": 50},
+      "display": {"family": "Bodoni Moda", "class": "didone", "weight": 500, "italic_weight": 400, "min_px": 30, "vars": "\"opsz\" 18", "has_opsz": true, "tracking": "0.005em", "line_height": 1.05, "fallback": "'Didot', 'Bodoni 72', Georgia, serif"},
+      "body": {"family": "Jost", "class": "geometric-sans", "weight": 400, "medium": 500, "size_px": 17.5, "line_height": 1.6, "fallback": "'Avenir Next', 'Helvetica Neue', sans-serif"},
+      "import": "family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@400;500",
+      "risk": "Hairlines. Never use auto opsz; never weight 400 above 40px on photos.",
+      "used_by": ["stonehurst-mock-v2"]
+    },
+    {
+      "id": "heritage-garalde",
+      "mood": "heritage-classic",
+      "axes": {"formality": 70, "era": 15, "density": 40, "voice": 35, "temperature": 40},
+      "display": {"family": "Cormorant Garamond", "class": "garalde", "weight": 500, "italic_weight": 500, "min_px": 28, "vars": null, "has_opsz": false, "tracking": "-0.005em", "line_height": 1.1, "fallback": "Garamond, Georgia, serif"},
+      "body": {"family": "Inter", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.65, "fallback": "-apple-system, 'Helvetica Neue', sans-serif"},
+      "import": "family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:opsz,wght@14..32,400;14..32,500",
+      "risk": "Cormorant is light and small on the body; weight 500+ only and never below 28px.",
+      "used_by": ["lindley-scott-mock"]
+    },
+    {
+      "id": "warm-fraunces",
+      "mood": "warm-organic",
+      "axes": {"formality": 35, "era": 55, "density": 25, "voice": 30, "temperature": 15},
+      "display": {"family": "Fraunces", "class": "soft-serif", "weight": 500, "italic_weight": 400, "min_px": 26, "vars": "\"opsz\" 36, \"SOFT\" 40, \"WONK\" 1", "has_opsz": true, "tracking": "-0.01em", "line_height": 1.06, "fallback": "'Cooper BT', Georgia, serif"},
+      "body": {"family": "Karla", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 17, "line_height": 1.62, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400,40,1;0,9..144,500,40,1;0,9..144,600,40,1;1,9..144,400,40,1&family=Karla:wght@400;500",
+      "risk": "At opsz 144 the thins get fine; pinned at 36 the face stays soft and sturdy. WONK on only at display sizes.",
+      "used_by": []
+    },
+    {
+      "id": "modern-instrument",
+      "mood": "modern-minimal",
+      "axes": {"formality": 70, "era": 95, "density": 90, "voice": 85, "temperature": 65},
+      "display": {"family": "Instrument Sans", "class": "grotesk", "weight": 500, "italic_weight": 400, "min_px": 20, "vars": "\"wdth\" 100", "has_opsz": false, "tracking": "-0.028em", "line_height": 0.98, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "body": {"family": "Instrument Sans", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Instrument+Sans:ital,wdth,wght@0,100,400;0,100,500;0,100,600;1,100,400",
+      "risk": "Single-family system reads as SaaS if spacing is tight; needs generous white space and large photography.",
+      "used_by": []
+    },
+    {
+      "id": "quiet-instrument-serif",
+      "mood": "quiet-luxury",
+      "axes": {"formality": 85, "era": 70, "density": 75, "voice": 75, "temperature": 55},
+      "display": {"family": "Instrument Serif", "class": "transitional", "weight": 400, "italic_weight": 400, "min_px": 32, "vars": null, "has_opsz": false, "tracking": "-0.01em", "line_height": 1.0, "fallback": "'Times New Roman', Times, serif"},
+      "body": {"family": "Instrument Sans", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wdth,wght@0,100,400;0,100,500;1,100,400",
+      "risk": "Single weight (400) display face: keep above 32px and never over busy photos.",
+      "used_by": []
+    },
+    {
+      "id": "coastal-newsreader",
+      "mood": "coastal-airy",
+      "axes": {"formality": 75, "era": 50, "density": 70, "voice": 70, "temperature": 70},
+      "display": {"family": "Newsreader", "class": "transitional", "weight": 500, "italic_weight": 400, "min_px": 26, "vars": "\"opsz\" 24", "has_opsz": true, "tracking": "-0.012em", "line_height": 1.04, "fallback": "Georgia, 'Times New Roman', serif"},
+      "body": {"family": "Figtree", "class": "geometric-sans", "weight": 400, "medium": 500, "size_px": 17, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Figtree:wght@400;500;600",
+      "risk": "Newsreader's 72 opsz master is fine and high-contrast; pinned at 24 it keeps text-face sturdiness at display sizes.",
+      "used_by": []
+    },
+    {
+      "id": "garden-garamond",
+      "mood": "garden-romantic",
+      "axes": {"formality": 60, "era": 25, "density": 30, "voice": 15, "temperature": 35},
+      "display": {"family": "EB Garamond", "class": "garalde", "weight": 500, "italic_weight": 400, "min_px": 30, "vars": null, "has_opsz": false, "tracking": "-0.005em", "line_height": 1.08, "fallback": "Garamond, Georgia, serif"},
+      "body": {"family": "Nunito Sans", "class": "humanist-sans", "weight": 400, "medium": 600, "size_px": 17, "line_height": 1.62, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Nunito+Sans:opsz,wght@12,400;12,600",
+      "risk": "Garamond x-height is small: display sizes run ~8% larger than other pairings to hold the same presence.",
+      "used_by": []
+    },
+    {
+      "id": "desert-dm",
+      "mood": "desert-modern",
+      "axes": {"formality": 65, "era": 70, "density": 60, "voice": 55, "temperature": 20},
+      "display": {"family": "DM Serif Display", "class": "scotch", "weight": 400, "italic_weight": 400, "min_px": 28, "vars": null, "has_opsz": false, "tracking": "-0.005em", "line_height": 1.04, "fallback": "Georgia, serif"},
+      "body": {"family": "DM Sans", "class": "geometric-sans", "weight": 400, "medium": 500, "size_px": 17, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@14,400;14,500",
+      "risk": "DM Serif Display is display-only (no text weights); body never uses it. Pin DM Sans opsz 14 for body so the 9 master is never served at 17px.",
+      "used_by": []
+    },
+    {
+      "id": "inscriptional-marcellus",
+      "mood": "mediterranean-heritage",
+      "axes": {"formality": 80, "era": 20, "density": 55, "voice": 50, "temperature": 30},
+      "display": {"family": "Marcellus", "class": "inscriptional", "weight": 400, "italic_weight": 400, "min_px": 24, "vars": null, "has_opsz": false, "tracking": "0.02em", "line_height": 1.1, "fallback": "'Trajan Pro', Georgia, serif"},
+      "body": {"family": "Work Sans", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.62, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Marcellus&family=Work+Sans:wght@400;500",
+      "risk": "Single weight, no italic; use small caps/tracking for emphasis instead of italics.",
+      "used_by": []
+    },
+    {
+      "id": "loft-archivo",
+      "mood": "industrial-loft",
+      "axes": {"formality": 45, "era": 90, "density": 65, "voice": 90, "temperature": 75},
+      "display": {"family": "Archivo", "class": "grotesk", "weight": 600, "italic_weight": 500, "min_px": 22, "vars": "\"wdth\" 112", "has_opsz": false, "tracking": "-0.02em", "line_height": 0.98, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "body": {"family": "Archivo", "class": "grotesk", "weight": 400, "medium": 500, "size_px": 16.5, "line_height": 1.6, "fallback": "'Helvetica Neue', Arial, sans-serif"},
+      "import": "family=Archivo:ital,wdth,wght@0,100,400;0,100,500;0,112,600;1,100,400",
+      "risk": "Expanded display caps get wide fast; cap headline length at ~24 characters per line.",
+      "used_by": []
+    }
+  ]
+}

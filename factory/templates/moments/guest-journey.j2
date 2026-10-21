@@ -1,0 +1,29 @@
+{% set steps = v.journey.steps %}
+<section id="journey" class="journey" aria-labelledby="journey-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">A guest's day</p>
+      <h2 id="journey-title" class="reveal d1">From the bungalow to <em>the last dance.</em></h2>
+      <p class="lede reveal d2">Where each part of the day happens, as the venue describes it. Scroll.</p>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-stage" aria-hidden="true">
+        <div class="ph jstage-ph">
+          {% for sid in steps %}{% set s = spaces_by_id[sid] %}<img class="jstage-img{% if loop.first %} on{% endif %}" data-step="{{ loop.index0 }}" src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 42vw, 1px" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async">{% endfor %}
+        </div>
+      </div>
+      <ol class="journey-steps" id="journey-steps">
+        {% for sid in steps %}{% set s = spaces_by_id[sid] %}
+        <li class="jstep{% if loop.first %} active{% endif %}" data-step="{{ loop.index0 }}">
+          <span class="jnum">{{ '%02d' % loop.index }}</span>
+          <h3>{{ s.journey_step }}</h3>
+          <p class="jwhere">{{ s.name }} · {{ s.capacity_label }}</p>
+          <p>{{ s.blurb }}</p>
+          <div class="ph jstep-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    <p class="fine journey-note">{{ v.journey.note }}</p>
+  </div>
+</section>

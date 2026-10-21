@@ -1,0 +1,6 @@
+  .sched-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .sched-grid .section-head { margin-bottom: 28px; }
+  .sched-notes { list-style: none; display: grid; gap: 14px; margin-top: 28px; }
+  .sched-notes li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 16px; color: var(--ink-soft); }
+  .sched-notes svg { margin-top: 4px; color: var(--accent-text); }
+  @media (max-width: 860px) { .sched-grid { grid-template-columns: 1fr; } }

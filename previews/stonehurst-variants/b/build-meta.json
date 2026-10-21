@@ -1,0 +1,622 @@
+{
+ "id": "stonehurst-b",
+ "built": "2026-10-20T18:18:50",
+ "personality": {
+  "formality": 30.0,
+  "scale": 45.0,
+  "era": 35.0,
+  "density": 25.0,
+  "temperature": 15.0,
+  "voice": 25.0
+ },
+ "axis_tokens": {
+  "radius": 6,
+  "radius_card": 6,
+  "button_style": "pill-solid",
+  "kicker_style": "italic",
+  "section_pad_min": 87,
+  "section_pad_max": 152,
+  "container": 1201,
+  "gutter": "clamp(20px, 4vw, 47px)",
+  "image_edge": "rounded",
+  "shadow": "warm",
+  "reveal": "slide",
+  "display_scale": 1.11,
+  "rule_style": "none",
+  "caps": false
+ },
+ "choices": {
+  "pairing": "warm-fraunces",
+  "hero": "frame",
+  "spaces": "stack",
+  "moment": "light-shift",
+  "story": "timeline",
+  "faq": "accordion-split",
+  "tour": "scheduler-split",
+  "gallery": "none",
+  "voice": "warm-host"
+ },
+ "selection": {
+  "ranked": {
+   "pairing": [
+    [
+     0.095,
+     "warm-fraunces"
+    ],
+    [
+     0.175,
+     "garden-garamond"
+    ],
+    [
+     0.243,
+     "heritage-garalde"
+    ],
+    [
+     0.299,
+     "inscriptional-marcellus"
+    ],
+    [
+     0.303,
+     "desert-dm"
+    ],
+    [
+     0.396,
+     "editorial-didone"
+    ],
+    [
+     0.432,
+     "coastal-newsreader"
+    ],
+    [
+     0.466,
+     "quiet-instrument-serif"
+    ],
+    [
+     0.503,
+     "loft-archivo"
+    ],
+    [
+     0.557,
+     "modern-instrument"
+    ]
+   ],
+   "hero": [
+    [
+     0.074,
+     "frame"
+    ],
+    [
+     0.436,
+     "masthead"
+    ],
+    [
+     0.524,
+     "cover-type"
+    ]
+   ],
+   "spaces": [
+    [
+     0.043,
+     "stack"
+    ],
+    [
+     0.552,
+     "index"
+    ],
+    [
+     0.668,
+     "spec-sheet"
+    ]
+   ],
+   "story": [
+    [
+     0.126,
+     "timeline"
+    ],
+    [
+     0.438,
+     "pullquote"
+    ],
+    [
+     0.618,
+     "ledger"
+    ]
+   ],
+   "faq": [
+    [
+     0.2,
+     "accordion-split"
+    ],
+    [
+     0.526,
+     "numbered"
+    ],
+    [
+     0.629,
+     "plain-list"
+    ]
+   ],
+   "tour": [
+    [
+     0.15,
+     "scheduler-split"
+    ],
+    [
+     0.45,
+     "scheduler-centered"
+    ],
+    [
+     0.65,
+     "band-cta"
+    ]
+   ],
+   "gallery": [
+    [
+     0.5,
+     "none"
+    ]
+   ],
+   "moment": [
+    [
+     0.058,
+     "light-shift"
+    ],
+    [
+     0.34,
+     "guest-journey"
+    ],
+    [
+     0.601,
+     "seat-picker"
+    ]
+   ],
+   "voice": [
+    [
+     0.05,
+     "warm-host"
+    ],
+    [
+     0.237,
+     "romantic"
+    ],
+    [
+     0.526,
+     "editorial"
+    ],
+    [
+     0.601,
+     "plainspoken"
+    ]
+   ]
+  },
+  "top_combos": [
+   [
+    0.396,
+    0.396,
+    "ok",
+    "lindley-scott-mock",
+    0.86,
+    {
+     "pairing": "warm-fraunces",
+     "hero": "frame",
+     "spaces": "stack",
+     "moment": "light-shift",
+     "story": "timeline"
+    }
+   ],
+   [
+    0.476,
+    0.476,
+    "ok",
+    "lindley-scott-mock",
+    0.8,
+    {
+     "pairing": "garden-garamond",
+     "hero": "frame",
+     "spaces": "stack",
+     "moment": "light-shift",
+     "story": "timeline"
+    }
+   ],
+   [
+    0.544,
+    0.544,
+    "ok",
+    "lindley-scott-mock",
+    0.58,
+    {
+     "pairing": "heritage-garalde",
+     "hero": "frame",
+     "spaces": "stack",
+     "moment": "light-shift",
+     "story": "timeline"
+    }
+   ],
+   [
+    0.679,
+    0.679,
+    "ok",
+    "lindley-scott-mock",
+    0.86,
+    {
+     "pairing": "warm-fraunces",
+     "hero": "frame",
+     "spaces": "stack",
+     "moment": "guest-journey",
+     "story": "timeline"
+    }
+   ],
+   [
+    0.708,
+    0.708,
+    "ok",
+    "lindley-scott-mock",
+    0.82,
+    {
+     "pairing": "warm-fraunces",
+     "hero": "frame",
+     "spaces": "stack",
+     "moment": "light-shift",
+     "story": "pullquote"
+    }
+   ],
+   [
+    0.758,
+    0.758,
+    "ok",
+    "stonehurst-a",
+    0.78,
+    {
+     "pairing": "warm-fraunces",
+     "hero": "masthead",
+     "spaces": "stack",
+     "moment": "light-shift",
+     "story": "timeline"
+    }
+   ]
+  ],
+  "forced": {},
+  "guard": {
+   "status": "ok",
+   "nearest": "lindley-scott-mock",
+   "distance": 0.86
+  }
+ },
+ "rhythm": "warm: straight to the grounds, history after",
+ "nav_style": "bar",
+ "guide_layout": "photo",
+ "pairing": {
+  "display": {
+   "family": "Fraunces",
+   "class": "soft-serif",
+   "weight": 500,
+   "italic_weight": 400,
+   "min_px": 26,
+   "vars": "\"opsz\" 36, \"SOFT\" 40, \"WONK\" 1",
+   "has_opsz": true,
+   "tracking": "-0.01em",
+   "line_height": 1.06,
+   "fallback": "'Cooper BT', Georgia, serif"
+  },
+  "body": {
+   "family": "Karla",
+   "class": "grotesk",
+   "weight": 400,
+   "medium": 500,
+   "size_px": 17,
+   "line_height": 1.62,
+   "fallback": "'Helvetica Neue', Arial, sans-serif"
+  },
+  "id": "warm-fraunces"
+ },
+ "palette": {
+  "tokens": {
+   "paper": "#f4f3eb",
+   "paper-2": "#ece9dc",
+   "paper-3": "#e1decd",
+   "white": "#ffffff",
+   "ink": "#1a1812",
+   "ink-soft": "#3c3b32",
+   "ink-faint": "#47453c",
+   "accent-tint": "#ebe5c4",
+   "accent-text": "#544700",
+   "accent": "#7d6f2d",
+   "accent-fill": "#63550c",
+   "deep": "#41380e",
+   "on-deep": "#ffffff",
+   "on-deep-soft": "#e8e5d6",
+   "on-deep-accent": "#d9cb8f",
+   "on-ink-soft": "#d3d1c8",
+   "line": "rgba(26,24,18,0.14)",
+   "line-strong": "rgba(26,24,18,0.30)",
+   "focus": "#7d6f2d"
+  },
+  "report": [
+   {
+    "pair": "ink on paper",
+    "fg": "#1a1812",
+    "bg": "#f4f3eb",
+    "ratio": 15.94,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "ink-soft on paper-2",
+    "fg": "#3c3b32",
+    "bg": "#ece9dc",
+    "ratio": 9.26,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "ink-faint on paper-3",
+    "fg": "#47453c",
+    "bg": "#e1decd",
+    "ratio": 7.11,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "accent-text on paper-2",
+    "fg": "#544700",
+    "bg": "#ece9dc",
+    "ratio": 7.57,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "white on accent",
+    "fg": "#ffffff",
+    "bg": "#7d6f2d",
+    "ratio": 5.02,
+    "need": 4.5,
+    "ok": true
+   },
+   {
+    "pair": "white on accent-fill",
+    "fg": "#ffffff",
+    "bg": "#63550c",
+    "ratio": 7.41,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "paper on deep",
+    "fg": "#f4f3eb",
+    "bg": "#41380e",
+    "ratio": 10.5,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "on-deep-soft on deep",
+    "fg": "#e8e5d6",
+    "bg": "#41380e",
+    "ratio": 9.24,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "on-deep-accent on deep",
+    "fg": "#d9cb8f",
+    "bg": "#41380e",
+    "ratio": 7.17,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "paper on ink",
+    "fg": "#f4f3eb",
+    "bg": "#1a1812",
+    "ratio": 15.94,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "on-ink-soft on ink",
+    "fg": "#d3d1c8",
+    "bg": "#1a1812",
+    "ratio": 11.6,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "ink on accent-tint",
+    "fg": "#1a1812",
+    "bg": "#ebe5c4",
+    "ratio": 13.98,
+    "need": 7,
+    "ok": true
+   },
+   {
+    "pair": "accent-text on accent-tint",
+    "fg": "#544700",
+    "bg": "#ebe5c4",
+    "ratio": 7.26,
+    "need": 7,
+    "ok": true
+   }
+  ],
+  "meta": {
+   "accent_hue": 97.4,
+   "accent_chroma": 0.088,
+   "accent_from_photo": "terrace",
+   "deep_hue": 97.3,
+   "deep_from_photo": "terrace",
+   "paper_L": 0.963,
+   "paper_C": 0.011,
+   "paper_hue": 97.3,
+   "temperature": "warm",
+   "candidates": [
+    {
+     "L": 0.603,
+     "C": 0.087,
+     "h": 97.284,
+     "w": 0.067,
+     "photo": "terrace",
+     "score": 0.006
+    },
+    {
+     "L": 0.569,
+     "C": 0.055,
+     "h": 91.479,
+     "w": 0.21,
+     "photo": "barn",
+     "score": 0.005
+    },
+    {
+     "L": 0.462,
+     "C": 0.048,
+     "h": 92.384,
+     "w": 0.202,
+     "photo": "barn",
+     "score": 0.004
+    },
+    {
+     "L": 0.689,
+     "C": 0.048,
+     "h": 87.672,
+     "w": 0.202,
+     "photo": "barn",
+     "score": 0.004
+    },
+    {
+     "L": 0.524,
+     "C": 0.049,
+     "h": 93.146,
+     "w": 0.15,
+     "photo": "terrace",
+     "score": 0.004
+    },
+    {
+     "L": 0.411,
+     "C": 0.05,
+     "h": 99.947,
+     "w": 0.134,
+     "photo": "terrace",
+     "score": 0.004
+    }
+   ],
+   "all_pairs_pass": true
+  },
+  "photos": [
+   "barn",
+   "flower",
+   "terrace",
+   "bungalow"
+  ]
+ },
+ "lead": "barn",
+ "fingerprint": {
+  "display_family": "Fraunces",
+  "display_class": "soft-serif",
+  "body_family": "Karla",
+  "accent_hue": 97.4,
+  "paper_temperature": "warm",
+  "hero": "frame",
+  "hero_family": "photo-matted",
+  "spaces": "stack",
+  "story": "timeline",
+  "faq": "accordion-split",
+  "tour": "scheduler-split",
+  "section_order": [
+   "hero",
+   "featured",
+   "spaces",
+   "day",
+   "story",
+   "tour",
+   "guide",
+   "glance",
+   "faq",
+   "uses"
+  ],
+  "moment": "light-shift",
+  "button_style": "pill-solid",
+  "radius": 6,
+  "lead_photo": "barn"
+ },
+ "guard": {
+  "status": "ok",
+  "nearest": "stonehurst-mock-v2",
+  "distance": 0.781,
+  "all": [
+   {
+    "id": "stonehurst-mock-v2",
+    "distance": 0.781,
+    "shared": [
+     "paper_temperature",
+     "faq",
+     "tour"
+    ],
+    "drivers": {
+     "display_family": 0.16,
+     "hero": 0.14,
+     "spaces": 0.08,
+     "moment": 0.08,
+     "display_class": 0.06,
+     "body_family": 0.06,
+     "hero_family": 0.06,
+     "story": 0.04,
+     "accent_hue": 0.04,
+     "section_order": 0.021,
+     "button_style": 0.02,
+     "radius_bucket": 0.02
+    }
+   },
+   {
+    "id": "lindley-scott-mock",
+    "distance": 0.832,
+    "shared": [
+     "paper_temperature"
+    ],
+    "drivers": {
+     "display_family": 0.16,
+     "hero": 0.14,
+     "spaces": 0.08,
+     "moment": 0.08,
+     "display_class": 0.06,
+     "body_family": 0.06,
+     "hero_family": 0.06,
+     "section_order": 0.042,
+     "story": 0.04,
+     "tour": 0.03,
+     "accent_hue": 0.02,
+     "faq": 0.02,
+     "button_style": 0.02,
+     "radius_bucket": 0.02
+    }
+   },
+   {
+    "id": "stonehurst-a",
+    "distance": 0.924,
+    "shared": [],
+    "drivers": {
+     "display_family": 0.16,
+     "hero": 0.14,
+     "accent_hue": 0.1,
+     "spaces": 0.08,
+     "moment": 0.08,
+     "display_class": 0.06,
+     "body_family": 0.06,
+     "hero_family": 0.06,
+     "story": 0.04,
+     "paper_temperature": 0.04,
+     "tour": 0.03,
+     "faq": 0.02,
+     "button_style": 0.02,
+     "radius_bucket": 0.02,
+     "section_order": 0.014
+    }
+   }
+  ]
+ },
+ "timings": {
+  "palette_s": 0.23,
+  "select_s": 0.01,
+  "images_s": 0.08,
+  "render_s": 0.04,
+  "total_s": 0.36
+ },
+ "html_bytes": 68597
+}

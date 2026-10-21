@@ -1,0 +1,551 @@
+{
+ "_notes": [
+  "status: built = a Jinja template exists under factory/templates, has been rendered for a Stonehurst variant and passed qa.py; mock-only = exists only as hand-written HTML in previews/stonehurst or previews/lindley-scott-house (registered in the fingerprint registry, not yet ported to a template); spec = defined here and in docs/venue-site-factory.md, no template yet. The selector only ever picks 'built' items.",
+  "axes use the same 0-100 scale as pairings.json. Missing axes are 'don't care'.",
+  "needs lists photo requirements the selector checks against the content photo manifest (min source width for the lead photo, number of photos, orientation)."
+ ],
+ "heroes": [
+  {
+   "id": "cinematic",
+   "status": "mock-only",
+   "label": "Full-bleed photo, deep scrim, copy bottom-left, date-check card right",
+   "axes": {
+    "scale": 85,
+    "density": 35,
+    "voice": 40,
+    "formality": 70
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "photo-bleed",
+    "text_on_photo": true,
+    "form_in_hero": true
+   },
+   "used_by": [
+    "stonehurst-mock-v2"
+   ]
+  },
+  {
+   "id": "masthead",
+   "status": "built",
+   "label": "Magazine masthead: giant wordmark + dateline on paper, full-bleed photo beneath, date check in a slim bar",
+   "axes": {
+    "scale": 75,
+    "density": 65,
+    "voice": 85,
+    "formality": 85,
+    "era": 55
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "type-first",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": []
+  },
+  {
+   "id": "frame",
+   "status": "built",
+   "label": "Photo matted inside a generous paper margin, centred wordmark above, handwritten-feel caption, date check below the frame",
+   "axes": {
+    "scale": 45,
+    "density": 30,
+    "voice": 25,
+    "formality": 45,
+    "era": 40
+   },
+   "needs": {
+    "lead_min_width": 1800,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "photo-matted",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": []
+  },
+  {
+   "id": "cover-type",
+   "status": "built",
+   "label": "Typographic cover: headline fills the viewport width, one medium photo and the three facts as a ledger; date check is a single inline row",
+   "axes": {
+    "scale": 55,
+    "density": 90,
+    "voice": 90,
+    "formality": 70,
+    "era": 95
+   },
+   "needs": {
+    "lead_min_width": 1200,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "type-first",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": []
+  },
+  {
+   "id": "editorial-split",
+   "status": "mock-only",
+   "label": "Text-first left column with facts, tall portrait photo right; no scrim; date check card under the copy",
+   "axes": {
+    "scale": 40,
+    "density": 55,
+    "voice": 60,
+    "formality": 75,
+    "era": 50
+   },
+   "needs": {
+    "lead_min_width": 1500,
+    "photos": 1,
+    "portrait_ok": true
+   },
+   "fingerprint": {
+    "hero_family": "split",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": [
+    "lindley-scott-mock"
+   ]
+  },
+  {
+   "id": "panel",
+   "status": "spec",
+   "label": "50/50: photo left, solid palette panel right holding copy and the date check; panel colour from the photo",
+   "axes": {
+    "scale": 55,
+    "density": 45,
+    "voice": 50,
+    "formality": 55,
+    "era": 75
+   },
+   "needs": {
+    "lead_min_width": 1200,
+    "photos": 1
+   },
+   "fingerprint": {
+    "hero_family": "split",
+    "text_on_photo": false,
+    "form_in_hero": true
+   },
+   "used_by": []
+  },
+  {
+   "id": "mosaic",
+   "status": "spec",
+   "label": "Asymmetric 3-photo grid with the headline occupying one cell",
+   "axes": {
+    "scale": 50,
+    "density": 20,
+    "voice": 45,
+    "formality": 50,
+    "era": 60
+   },
+   "needs": {
+    "lead_min_width": 1200,
+    "photos": 3
+   },
+   "fingerprint": {
+    "hero_family": "grid",
+    "text_on_photo": false,
+    "form_in_hero": false
+   },
+   "used_by": []
+  },
+  {
+   "id": "slideshow",
+   "status": "spec",
+   "label": "Three cross-fading full-bleed photos with a caption counter; static first frame under reduced motion",
+   "axes": {
+    "scale": 90,
+    "density": 25,
+    "voice": 30,
+    "formality": 60
+   },
+   "needs": {
+    "lead_min_width": 2400,
+    "photos": 3
+   },
+   "fingerprint": {
+    "hero_family": "photo-bleed",
+    "text_on_photo": true,
+    "form_in_hero": false
+   },
+   "used_by": []
+  }
+ ],
+ "spaces": [
+  {
+   "id": "bento",
+   "status": "mock-only",
+   "label": "12-column asymmetric cards (7/5, 5/7, 6/6) with capacity chip over the photo",
+   "axes": {
+    "density": 35,
+    "scale": 70,
+    "era": 60
+   },
+   "used_by": [
+    "stonehurst-mock-v2"
+   ]
+  },
+  {
+   "id": "index",
+   "status": "built",
+   "label": "Editorial index: numbered rows (name, use, capacity) with one large photo that swaps on hover/focus; rows stack with their photo on mobile",
+   "axes": {
+    "density": 75,
+    "voice": 85,
+    "formality": 85
+   },
+   "used_by": []
+  },
+  {
+   "id": "stack",
+   "status": "built",
+   "label": "Alternating full-width bands, one space per band, photo rounded, feature chips",
+   "axes": {
+    "density": 20,
+    "scale": 50,
+    "formality": 35,
+    "voice": 25
+   },
+   "used_by": []
+  },
+  {
+   "id": "spec-sheet",
+   "status": "built",
+   "label": "Spec table: thumbnail, name, use, capacity, features as a ruled table; reads like a tech sheet",
+   "axes": {
+    "density": 95,
+    "era": 95,
+    "voice": 95
+   },
+   "used_by": []
+  },
+  {
+   "id": "three-col",
+   "status": "mock-only",
+   "label": "Classic three equal cards",
+   "axes": {
+    "density": 50,
+    "era": 30,
+    "formality": 60
+   },
+   "used_by": [
+    "lindley-scott-mock"
+   ]
+  },
+  {
+   "id": "strip",
+   "status": "spec",
+   "label": "Horizontal scroll-snap strip of tall 3:4 cards",
+   "axes": {
+    "density": 45,
+    "era": 80,
+    "scale": 60
+   },
+   "used_by": []
+  }
+ ],
+ "story": [
+  {
+   "id": "split",
+   "status": "mock-only",
+   "label": "Text 7 / portrait photo 5 with offset keyline frame and three big numbers",
+   "axes": {
+    "density": 45,
+    "formality": 70
+   },
+   "used_by": [
+    "stonehurst-mock-v2"
+   ]
+  },
+  {
+   "id": "pullquote",
+   "status": "built",
+   "label": "One large serif passage with drop cap, photo under, credit line",
+   "axes": {
+    "density": 60,
+    "voice": 70,
+    "formality": 80
+   },
+   "used_by": [
+    "lindley-scott-mock"
+   ]
+  },
+  {
+   "id": "timeline",
+   "status": "built",
+   "label": "Dated rail (1907 \u2192 today) with photo beside",
+   "axes": {
+    "density": 30,
+    "era": 20,
+    "voice": 40
+   },
+   "used_by": []
+  },
+  {
+   "id": "ledger",
+   "status": "built",
+   "label": "Numbers-first: four big figures in a ruled ledger, two short paragraphs",
+   "axes": {
+    "density": 90,
+    "era": 90,
+    "voice": 90
+   },
+   "used_by": []
+  }
+ ],
+ "faq": [
+  {
+   "id": "accordion-split",
+   "status": "built",
+   "label": "Aside (heading + CTA) and accordion list",
+   "axes": {
+    "density": 45
+   },
+   "used_by": [
+    "stonehurst-mock-v2"
+   ]
+  },
+  {
+   "id": "numbered",
+   "status": "built",
+   "label": "Numbered Q&A, all open, two columns on desktop",
+   "axes": {
+    "density": 75,
+    "voice": 80
+   },
+   "used_by": []
+  },
+  {
+   "id": "plain-list",
+   "status": "built",
+   "label": "Single column, every answer visible, hairline rules",
+   "axes": {
+    "density": 95,
+    "era": 90
+   },
+   "used_by": []
+  }
+ ],
+ "tour": [
+  {
+   "id": "scheduler-split",
+   "status": "built",
+   "label": "Copy + notes left, calendar/slot card right",
+   "axes": {
+    "density": 40
+   },
+   "used_by": [
+    "stonehurst-mock-v2"
+   ]
+  },
+  {
+   "id": "scheduler-centered",
+   "status": "built",
+   "label": "Heading centred, scheduler card centred under it",
+   "axes": {
+    "density": 70
+   },
+   "used_by": []
+  },
+  {
+   "id": "band-cta",
+   "status": "built",
+   "label": "Dark band with a single 'Book a tour' CTA (scheduler appears inline when clicked)",
+   "axes": {
+    "density": 90
+   },
+   "used_by": [
+    "lindley-scott-mock"
+   ]
+  }
+ ],
+ "gallery": [
+  {
+   "id": "none",
+   "status": "built",
+   "label": "No separate gallery; spaces section carries the photography",
+   "axes": {},
+   "used_by": [
+    "stonehurst-mock-v2",
+    "lindley-scott-mock"
+   ]
+  },
+  {
+   "id": "filmstrip",
+   "status": "spec",
+   "label": "Horizontal scrolling strip of 3:2 photos with captions",
+   "axes": {
+    "density": 40,
+    "era": 70
+   },
+   "used_by": []
+  },
+  {
+   "id": "pairs",
+   "status": "spec",
+   "label": "Two photos per row, alternating 7/5 and 5/7, captions",
+   "axes": {
+    "density": 50,
+    "formality": 75
+   },
+   "used_by": []
+  }
+ ],
+ "moments": [
+  {
+   "id": "guest-journey",
+   "status": "built",
+   "label": "Scroll story: five steps of a guest's day, image swaps per step, built only from each space's stated use",
+   "axes": {
+    "voice": 70,
+    "scale": 60,
+    "density": 60
+   },
+   "needs": {
+    "journey": true
+   }
+  },
+  {
+   "id": "light-shift",
+   "status": "built",
+   "label": "A day on the grounds: noon / golden hour / night control shifts a photo set and a colour wash across the section",
+   "axes": {
+    "voice": 25,
+    "formality": 40,
+    "density": 25
+   },
+   "needs": {
+    "photos_by_light": [
+     "day",
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "seat-picker",
+   "status": "built",
+   "label": "Guest-count slider; spaces that fit light up, others dim, with the stated capacity rule",
+   "axes": {
+    "voice": 90,
+    "era": 90,
+    "density": 85
+   },
+   "needs": {
+    "capacities": true
+   }
+  },
+  {
+   "id": "hours-dial",
+   "status": "spec",
+   "label": "The rental day as a 12-hour arc: gates, event, breakdown segments from the venue's own FAQ",
+   "axes": {
+    "voice": 60,
+    "era": 60
+   },
+   "needs": {
+    "day": true
+   }
+  },
+  {
+   "id": "grounds-constellation",
+   "status": "spec",
+   "label": "Abstract diagram of the spaces as linked nodes (not a map); hovering a node highlights its card",
+   "axes": {
+    "voice": 50,
+    "era": 70
+   },
+   "needs": {
+    "spaces": 4
+   }
+  },
+  {
+   "id": "season-toggle",
+   "status": "spec",
+   "label": "Spring/summer/autumn/winter switch that changes photo sets and captions",
+   "axes": {
+    "voice": 30,
+    "density": 30
+   },
+   "needs": {
+    "photos_by_season": true
+   }
+  },
+  {
+   "id": "window-reveal",
+   "status": "spec",
+   "label": "Hero photo revealed through a tall pane-shaped mask that widens on scroll",
+   "axes": {
+    "formality": 80,
+    "era": 80
+   },
+   "needs": {
+    "lead_min_width": 2400
+   }
+  },
+  {
+   "id": "numbers-count",
+   "status": "spec",
+   "label": "Count-up of the venue's figures when the ledger enters view",
+   "axes": {
+    "era": 70
+   },
+   "needs": {
+    "numbers": 3
+   }
+  }
+ ],
+ "voices": [
+  {
+   "id": "romantic",
+   "axes": {
+    "voice": 10,
+    "formality": 60
+   },
+   "label": "Soft, sensory, second person; italic emphasis; 'yours alone for the day'",
+   "status": "built"
+  },
+  {
+   "id": "warm-host",
+   "axes": {
+    "voice": 30,
+    "formality": 35,
+    "temperature": 20
+   },
+   "label": "Friendly, plain, hospitable; contractions; 'come walk it with us'",
+   "status": "built"
+  },
+  {
+   "id": "editorial",
+   "axes": {
+    "voice": 75,
+    "formality": 85
+   },
+   "label": "Declarative, specific, magazine dateline energy; numbers up front",
+   "status": "built"
+  },
+  {
+   "id": "plainspoken",
+   "axes": {
+    "voice": 90,
+    "era": 90,
+    "density": 85
+   },
+   "label": "Short sentences, no adjectives that aren't facts, labels instead of kickers",
+   "status": "built"
+  }
+ ]
+}

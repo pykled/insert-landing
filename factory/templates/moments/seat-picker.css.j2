@@ -1,0 +1,33 @@
+  /* moment: seat picker */
+  .fit { border-top: 1px solid var(--ink); }
+  .fit-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .fit h2 { font-size: clamp(30px, 3.4vw, 50px); }
+  .fit-ctl .lede { margin-top: 14px; }
+  .fit-slider { margin-top: 28px; }
+  .fit-slider output { display: block; font-size: 17px; color: var(--ink-soft); margin-bottom: 10px; }
+  .fit-slider output b { font-family: var(--display); font-weight: var(--display-weight); font-size: 44px; color: var(--ink); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-right: 6px; }
+  .fit-slider input[type=range] { width: 100%; accent-color: var(--ink); height: 32px; cursor: pointer; }
+  .fit-scale { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
+  .fit-summary { margin-top: 20px; font-size: 16px; color: var(--ink); min-height: 3em; }
+  .fit-ctl .fine { margin-top: 14px; }
+  .fit-ctl { position: sticky; top: 96px; }
+  .fit-list { list-style: none; border-top: 1px solid var(--ink); }
+  .fit-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); transition: opacity .4s var(--ease); }
+  /* rows that do not fit recede by colour + greyscale photo, never by opacity (contrast stays >= 7:1) */
+  .fit-row[data-fit="no"] { color: var(--ink-faint); }
+  .fit-row[data-fit="no"] h3, .fit-row[data-fit="no"] p, .fit-row[data-fit="no"] b { color: var(--ink-faint); }
+  .fit-row[data-fit="no"] .fit-ph img { filter: grayscale(1) opacity(.55); }
+  .fit-ph { width: 96px; aspect-ratio: 1; }
+  .fit-ph img { aspect-ratio: 1; transition: filter .4s; }
+  .fit-body h3 { font-size: 20px; }
+  .fit-body p { color: var(--ink-soft); font-size: 14.5px; margin-top: 4px; }
+  .fit-cap { text-align: right; }
+  .fit-cap b { display: block; font-weight: {{ pair.body.medium }}; font-size: 15.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .fit-tag { display: block; font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
+  .fit-row[data-fit="yes"] .fit-tag { color: var(--accent-text); }
+  @media (max-width: 860px) {
+    .fit-grid { grid-template-columns: 1fr; }
+    .fit-ctl { position: static; }
+    .fit-row { grid-template-columns: 72px minmax(0, 1fr) auto; gap: 12px; }
+    .fit-ph { width: 72px; }
+  }

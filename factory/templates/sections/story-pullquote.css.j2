@@ -1,0 +1,16 @@
+  /* story: pull quote */
+  .story-pull .pull { font-size: clamp(30px, 3.6vw, 54px); max-width: 24ch; }
+  .pull-cols { margin-top: clamp(28px, 4vw, 48px); columns: 2; column-gap: clamp(32px, 5vw, 72px); max-width: 980px; }
+  .pull-cols p { color: var(--ink-soft); font-size: 17px; margin-bottom: 16px; break-inside: avoid; }
+  .pull-cols p.drop::first-letter { font-family: var(--display); font-weight: var(--display-weight); font-size: 3.4em; float: left; line-height: 0.82; padding: 6px 10px 0 0; color: var(--ink); }
+  .pull-cols cite { display: block; font-style: normal; font-size: 13px; color: var(--ink-faint); letter-spacing: 0.04em; }
+  .pull-photos { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 6vw, 72px); align-items: end; }
+  .pp-a .ph { aspect-ratio: 3 / 4; }
+  .pp-a img { aspect-ratio: 3 / 4; }
+  .pp-b .ph { aspect-ratio: 3 / 2; }
+  .pp-b img { aspect-ratio: 3 / 2; }
+  @media (max-width: 860px) {
+    .pull-cols { columns: 1; }
+    .pull-photos { grid-template-columns: 1fr; }
+    .pp-a { max-width: 420px; }
+  }

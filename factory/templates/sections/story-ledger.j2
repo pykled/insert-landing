@@ -1,0 +1,20 @@
+<section id="story" class="story-ledger" aria-labelledby="story-title">
+  <div class="container">
+    <div class="ledger-grid">
+      <div>
+        <h2 id="story-title">{{ v.story.lead }}</h2>
+        <dl class="bignums" aria-label="The property in numbers">
+          {% for n in v.numbers %}<div><dd>{{ n.value }}</dd><dt>{{ n.label }}</dt></div>{% endfor %}
+        </dl>
+      </div>
+      <div class="ledger-text">
+        {% for ptxt in v.story.paragraphs %}<p>{{ ptxt }}</p>{% endfor %}
+        <cite>{{ v.story.credit }}</cite>
+        <figure class="ledger-fig">
+          <div class="ph ledger-ph"><img src="{{ photos[v.story.photo].src }}" srcset="{{ photos[v.story.photo].srcset }}" sizes="(min-width: 861px) 300px, 60vw" width="{{ photos[v.story.photo].width }}" height="{{ photos[v.story.photo].height }}" alt="{{ photos[v.story.photo].alt }}" loading="lazy" decoding="async"></div>
+          <figcaption>{{ photos[v.story.photo].caption }}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

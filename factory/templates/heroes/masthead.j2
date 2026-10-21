@@ -1,0 +1,24 @@
+<section class="hero hero-masthead" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="mast-top">
+      <p class="mast-kicker">{{ copy.hero_kicker }}</p>
+      <p class="mast-kicker mast-right">{{ v.tagline_facts.uses|join(' · ') }}</p>
+    </div>
+    <h1 id="hero-title" class="mast-word">{{ v.short_name }}</h1>
+    <div class="mast-line">
+      <p class="mast-dek display">{{ copy.hero_headline }}</p>
+      <ul class="mast-facts" aria-label="At a glance">
+        {% for n in v.numbers[:3] %}<li><b>{{ n.value }}</b><span>{{ n.label }}</span></li>{% endfor %}
+        <li><b>{{ v.tagline_facts.max_guests }}</b><span>Guests at most</span></li>
+      </ul>
+    </div>
+  </div>
+  <figure class="mast-photo">
+    <div class="ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+    <figcaption class="container">{{ photos[lead].caption }}</figcaption>
+  </figure>
+  <div class="container">
+    <p class="lede mast-lede">{{ copy.hero_lede }}</p>
+    {% include 'partials/date-inline.j2' %}
+  </div>
+</section>

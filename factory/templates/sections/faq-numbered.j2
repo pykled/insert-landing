@@ -1,0 +1,18 @@
+<section id="faq" class="faq-numbered" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">{{ copy.faq_kicker }}</p>
+      <h2 id="faq-title" class="reveal d1">{{ copy.faq_title }}</h2>
+      {% if copy.faq_lede %}<p class="lede reveal d2">{{ copy.faq_lede }}</p>{% endif %}
+    </div>
+    <ol class="qa-grid">
+      {% for f in v.faqs %}
+      <li class="qa">
+        <span class="qa-n">{{ '%02d' % loop.index }}</span>
+        <h3>{{ f.q }}</h3>
+        <p>{{ f.a }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

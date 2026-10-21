@@ -1,0 +1,134 @@
+(function () {
+  // Client-side only. No network calls are made anywhere on this page.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+  var header = document.querySelector('header.site');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.hasAttribute('data-open');
+    if (open) { header.removeAttribute('data-open'); } else { header.setAttribute('data-open', ''); }
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { header.removeAttribute('data-open'); toggle.setAttribute('aria-expanded', 'false'); });
+  });
+
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function isoDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function longDate(d) { return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate(); }
+  function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var MAXG = {{ v.tagline_facts.max_guests }};
+
+  // --- check your date (client-side mock) ---
+  var dateInput = document.getElementById('f-date');
+  dateInput.min = isoDate(today);
+  var dateForm = document.getElementById('date-form'), dateWrap = document.getElementById('check'), dateErr = document.getElementById('date-error');
+  dateForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = dateInput.value, g = document.getElementById('f-guests').value, c = document.getElementById('f-contact').value.trim();
+    var msg = '';
+    if (!d) msg = 'Pick a date to check.';
+    else if (parseISO(d) < today) msg = 'That date has already passed.';
+    else if (!g || +g < 1) msg = 'Add an estimated guest count.';
+    else if (+g > MAXG) msg = 'We host up to ' + MAXG + ' guests. Try a smaller number.';
+    else if (!/@|\d{7,}/.test(c)) msg = 'Add an email address or mobile number so we can reply.';
+    if (msg) { dateErr.textContent = msg; dateErr.hidden = false; return; }
+    dateErr.hidden = true;
+    document.getElementById('c-date').textContent = longDate(parseISO(d));
+    document.getElementById('c-guests').textContent = g;
+    document.getElementById('c-contact').textContent = c;
+    dateWrap.setAttribute('data-done', '');
+    document.getElementById('date-confirm').setAttribute('data-on', '');
+    document.getElementById('date-again').focus({ preventScroll: true });
+  });
+  document.getElementById('date-again').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    dateWrap.removeAttribute('data-done');
+    document.getElementById('date-confirm').removeAttribute('data-on');
+    dateForm.reset();
+    dateInput.focus({ preventScroll: true });
+  });
+
+  // --- tour scheduler (static mock; availability is illustrative) ---
+  var SLOTS = ['10:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
+  var view = new Date(today.getFullYear(), today.getMonth(), 1);
+  var maxView = new Date(today.getFullYear(), today.getMonth() + 3, 1);
+  var selDay = null, selSlot = null;
+  var calEl = document.getElementById('cal'), monthEl = document.getElementById('cal-month');
+  var prevBtn = document.getElementById('cal-prev'), nextBtn = document.getElementById('cal-next');
+  var slotsEl = document.getElementById('slots'), slotsFor = document.getElementById('slots-for');
+  var pickedEl = document.getElementById('picked'), bookBtn = document.getElementById('book');
+  var sched = document.getElementById('scheduler');
+  function available(d) {
+    if (d < today) return false;
+    if (d.getDay() === 0) return false;
+    var n = d.getDate() + d.getMonth() * 3;
+    return !(n % 7 === 3 || n % 11 === 5);
+  }
+  function slotsFor_(d) { var n = d.getDate() + d.getDay(); return SLOTS.filter(function (s, i) { return (n + i) % 4 !== 1; }); }
+  function renderCal() {
+    monthEl.textContent = MONTHS[view.getMonth()] + ' ' + view.getFullYear();
+    prevBtn.disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    nextBtn.disabled = view >= maxView;
+    var html = ['S','M','T','W','T','F','S'].map(function (d) { return '<div class="dow" aria-hidden="true">' + d + '</div>'; }).join('');
+    var first = new Date(view.getFullYear(), view.getMonth(), 1);
+    var days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    for (var i = 0; i < first.getDay(); i++) html += '<div aria-hidden="true"></div>';
+    for (var d = 1; d <= days; d++) {
+      var date = new Date(view.getFullYear(), view.getMonth(), d);
+      var ok = available(date);
+      var sel = selDay && isoDate(selDay) === isoDate(date);
+      var cls = isoDate(date) === isoDate(today) ? ' class="today"' : '';
+      html += '<button type="button"' + cls + ' data-date="' + isoDate(date) + '"' + (ok ? '' : ' disabled') + ' aria-pressed="' + (sel ? 'true' : 'false') + '" aria-label="' + longDate(date) + (ok ? '' : ', unavailable') + '">' + d + '</button>';
+    }
+    calEl.innerHTML = html;
+  }
+  function renderSlots() {
+    if (!selDay) { slotsFor.textContent = 'Pick a day first'; slotsEl.innerHTML = '<p class="slot-empty">Select a day on the calendar to see open times.</p>'; return; }
+    slotsFor.textContent = longDate(selDay);
+    slotsEl.innerHTML = slotsFor_(selDay).map(function (s) { return '<button type="button" data-slot="' + s + '" aria-pressed="' + (s === selSlot ? 'true' : 'false') + '">' + s + '</button>'; }).join('');
+  }
+  function renderPicked() {
+    if (selDay && selSlot) { pickedEl.innerHTML = '<b>' + longDate(selDay) + '</b> at <b>' + selSlot + '</b>'; bookBtn.disabled = false; }
+    else if (selDay) { pickedEl.textContent = longDate(selDay) + '. Now pick a time.'; bookBtn.disabled = true; }
+    else { pickedEl.textContent = 'Nothing selected yet.'; bookBtn.disabled = true; }
+  }
+  calEl.addEventListener('click', function (ev) { var b = ev.target.closest('button[data-date]'); if (!b || b.disabled) return; selDay = parseISO(b.getAttribute('data-date')); selSlot = null; renderCal(); renderSlots(); renderPicked(); });
+  slotsEl.addEventListener('click', function (ev) { var b = ev.target.closest('button[data-slot]'); if (!b) return; selSlot = b.getAttribute('data-slot'); renderSlots(); renderPicked(); });
+  prevBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
+  nextBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
+  bookBtn.addEventListener('click', function () {
+    if (!selDay || !selSlot) return;
+    document.getElementById('t-when').textContent = longDate(selDay) + ' at ' + selSlot;
+    sched.setAttribute('data-done', ''); document.getElementById('tour-confirm').setAttribute('data-on', '');
+    document.getElementById('tour-again').focus({ preventScroll: true });
+  });
+  document.getElementById('tour-again').addEventListener('click', function (ev) { ev.preventDefault(); sched.removeAttribute('data-done'); document.getElementById('tour-confirm').removeAttribute('data-on'); selSlot = null; renderSlots(); renderPicked(); });
+  renderCal(); renderSlots(); renderPicked();
+  var tourOpen = document.getElementById('tour-open');
+  if (tourOpen) { tourOpen.addEventListener('click', function () { document.getElementById('tour-panel').hidden = false; tourOpen.setAttribute('aria-expanded', 'true'); tourOpen.hidden = true; }); }
+
+  // --- pricing guide (client-side mock) ---
+  var guideForm = document.getElementById('guide-form'), guideWrap = document.getElementById('guide-wrap'), guideErr = document.getElementById('guide-error');
+  guideForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var e = document.getElementById('g-email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { guideErr.textContent = 'Enter a valid email address.'; guideErr.hidden = false; return; }
+    guideErr.hidden = true;
+    document.getElementById('g-sent').textContent = e;
+    guideWrap.setAttribute('data-done', '');
+    document.getElementById('guide-confirm').setAttribute('data-on', '');
+  });
+})();

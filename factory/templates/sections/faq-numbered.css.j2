@@ -1,0 +1,6 @@
+  .qa-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(32px, 5vw, 80px); border-top: 1px solid var(--ink); }
+  .qa { display: grid; grid-template-columns: 40px 1fr; gap: 6px 14px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .qa-n { font-family: var(--display); font-weight: var(--display-weight); color: var(--ink-faint); font-size: 15px; padding-top: 5px; font-variant-numeric: tabular-nums; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .qa h3 { font-size: clamp(19px, 1.6vw, 22px); }
+  .qa p { grid-column: 2; color: var(--ink-soft); font-size: 16px; max-width: 56ch; }
+  @media (max-width: 860px) { .qa-grid { grid-template-columns: 1fr; } }

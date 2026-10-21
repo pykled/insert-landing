@@ -1,0 +1,27 @@
+  /* moment: guest journey scroll story */
+  .journey { background: var(--paper-2); }
+  .journey-grid { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .journey-stage { position: sticky; top: 96px; }
+  .jstage-ph { aspect-ratio: 4 / 5; }
+  .jstage-img { position: absolute; inset: 0; opacity: 0; transition: opacity .7s var(--ease); }
+  .jstage-img.on { opacity: 1; }
+  .journey-steps { list-style: none; }
+  /* inactive steps recede by colour, not opacity, so every state stays >= 7:1 */
+  .jstep { padding: clamp(28px, 4vw, 56px) 0; border-top: 1px solid var(--line); color: var(--ink-faint); transition: color .5s var(--ease); min-height: 36vh; }
+  .jstep h3, .jstep p, .jstep .jwhere, .jstep .jnum { color: inherit; }
+  .jstep.active { color: var(--ink); }
+  .jstep.active .jnum { color: var(--accent-text); }
+  .jstep.active p { color: var(--ink-soft); }
+  .jnum { font-family: var(--display); font-weight: var(--display-weight); font-size: 15px; display: block; margin-bottom: 10px; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .jstep h3 { font-size: clamp(26px, 2.8vw, 40px); }
+  .jwhere { font-size: 14px; margin: 8px 0 14px; font-weight: {{ pair.body.medium }}; }
+  .jstep p { max-width: 46ch; font-size: 17px; }
+  .jstep-ph { display: none; aspect-ratio: 4 / 3; margin-top: 20px; }
+  .journey-note { margin-top: 24px; max-width: 70ch; }
+  @media (max-width: 860px) {
+    .journey-grid { grid-template-columns: 1fr; }
+    .journey-stage { display: none; }
+    .jstep { min-height: 0; color: var(--ink); }
+    .jstep p { color: var(--ink-soft); }
+    .jstep-ph { display: block; }
+  }

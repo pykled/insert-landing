@@ -1,0 +1,14 @@
+  /* story: ledger */
+  .story-ledger { border-top: 1px solid var(--ink); }
+  .ledger-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .story-ledger h2 { font-size: clamp(28px, 3vw, 44px); max-width: 20ch; }
+  .bignums { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin-top: 36px; }
+  .bignums div { padding: 18px 0; border-top: 1px solid var(--line); }
+  .bignums dd { font-family: var(--display); font-weight: var(--display-weight); font-size: clamp(40px, 4.5vw, 64px); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .bignums dt { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .ledger-text p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 14px; max-width: 52ch; }
+  .ledger-text cite { display: block; font-style: normal; font-size: 13px; color: var(--ink-faint); }
+  .ledger-fig { margin-top: 32px; max-width: 300px; }
+  .ledger-ph { aspect-ratio: 3 / 4; }
+  .ledger-ph img { aspect-ratio: 3 / 4; }
+  @media (max-width: 860px) { .ledger-grid { grid-template-columns: 1fr; } }

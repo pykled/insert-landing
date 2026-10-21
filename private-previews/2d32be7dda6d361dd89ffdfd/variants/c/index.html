@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow"><title>The Stonehurst — Garden Wedding Estate in Shadow Hills (Concept C)</title>
+<meta name="description" content="Concept homepage redesign for The Stonehurst, a 9-acre garden wedding and event venue in Shadow Hills, Los Angeles County. Prepared by Insert as an unsolicited design preview. Not affiliated with the venue.">
+<meta name="generator" content="Insert venue site factory 0.1 · variant c · 94acc06d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,100,400;0,100,500;0,100,600;1,100,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-1800.webp" imagesrcset="img/hero-400.webp 400w, img/hero-1200.webp 1200w, img/hero-1800.webp 1800w, img/hero-2400.webp 2400w" imagesizes="(min-width: 861px) 46vw, 100vw">
+<style>
+  :root {
+    --paper: #f9faf8;
+    --paper-2: #eef0ed;
+    --paper-3: #e2e4e0;
+    --white: #ffffff;
+    --ink: #14191e;
+    --ink-soft: #3a4147;
+    --ink-faint: #414950;
+    --accent-tint: #e4efd9;
+    --accent-text: #40512b;
+    --accent: #61734b;
+    --accent-fill: #485933;
+    --deep: #273a4c;
+    --on-deep: #ffffff;
+    --on-deep-soft: #dae6f2;
+    --on-deep-accent: #bbd0a4;
+    --on-ink-soft: #cbd2d9;
+    --line: rgba(20,25,30,0.14);
+    --line-strong: rgba(20,25,30,0.30);
+    --focus: #61734b;
+    --display: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+    --body: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+    --h3-font: var(--display);
+    --h3-weight: 500;
+    --display-weight: 500;
+    --display-track: -0.028em;
+    --display-lh: 0.98;
+    --body-size: 16.5px;
+    --body-lh: 1.6;
+    --radius: 0px;
+    --radius-card: 0px;
+    --radius-img: 0px;
+    --max: 1219px;
+    --gutter: clamp(20px, 4vw, 67px);
+    --pad-min: 127px;
+    --pad-max: 212px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+    --h1: clamp(49px, 7.6vw, 102px);
+    --h2: clamp(39px, 5.4vw, 68px);
+    --h3: clamp(22px, 2.2vw, 28px);
+    --shadow: none;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); font-weight: 400; font-size: var(--body-size); line-height: var(--body-lh); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  em { font-style: italic; }
+  /* display face: optical size pinned (never auto), weight pinned. Lesson from Stonehurst v1. */
+  h1, h2, .display { font-family: var(--display); font-weight: var(--display-weight); line-height: var(--display-lh); letter-spacing: var(--display-track); text-wrap: balance; font-optical-sizing: none; font-variation-settings: "wdth" 100; }
+  h1 em, h2 em, .display em { font-weight: 400; }
+  h3 { font-family: var(--h3-font); font-weight: var(--h3-weight); line-height: 1.15; letter-spacing: -0.028em; font-optical-sizing: none; font-variation-settings: "wdth" 100; }
+  h1 { font-size: var(--h1); }
+  h2 { font-size: var(--h2); }
+  h3 { font-size: var(--h3); }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  section { padding: clamp(var(--pad-min), 9vw, var(--pad-max)) 0; }
+  .lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 58ch; }
+  .fine { font-size: 13.5px; color: var(--ink-faint); line-height: 1.5; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+  .skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 100; transition: top .2s; text-decoration: none; }
+  .skip:focus { top: 12px; }
+  .section-head { max-width: 760px; margin-bottom: clamp(32px, 5vw, 60px); }
+  .section-head .lede { margin-top: 16px; }
+
+  /* kicker: label */
+  .kicker { font-size: 13.5px; color: var(--accent-text); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.01em; }
+  .kicker::before { content: "— "; }
+
+  /* buttons: square-solid */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; cursor: pointer; font-family: var(--body); transition: background .25s var(--ease), color .25s var(--ease), border-color .25s; }
+  .btn { padding: 14px 22px; border-radius: 0; font-size: 15px; font-weight: 500; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-light { background: transparent; border-color: var(--on-deep-soft); color: #fff; }
+  .btn-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+  .link { display: inline-block; font-size: 14px; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--line-strong); padding: 4px 0 3px; min-height: 24px; transition: border-color .3s, color .3s; }
+  .link:hover { color: var(--accent-text); border-color: var(--accent-text); }
+
+  /* header (shared shell; nav style template sets layout) */
+  header.site { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 96%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 16px; }
+  .brand { text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 12px; min-height: 44px; }
+  .brand-word { font-family: var(--display); font-weight: var(--display-weight); font-size: 22px; line-height: 1; font-optical-sizing: none; font-variation-settings: "wdth" 100;  }
+  .brand-word small { display: block; font-family: var(--body); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-top: 5px; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { text-decoration: none; display: inline-block; padding: 6px 0; font-size: 15px;  font-weight: 500; color: var(--ink-soft); transition: color .25s; }
+  .nav-links a:hover { color: var(--accent-text); }
+  .nav .btn { padding: 11px 18px; font-size: 14px; }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--line-strong); border-radius: var(--radius); width: 42px; height: 42px; cursor: pointer; place-items: center; }
+  .nav-toggle span { display: block; width: 18px; height: 1.5px; background: var(--ink); box-shadow: 0 -6px 0 var(--ink), 0 6px 0 var(--ink); }
+
+  /* forms + card (shared date check / scheduler / guide) */
+  .card { background: var(--white); color: var(--ink); border-radius: var(--radius-card); padding: 28px 28px 26px; box-shadow: var(--shadow); border: 1px solid var(--line); position: relative; }
+  .card h2, .card .card-title { font-size: clamp(24px, 2vw, 30px); margin-bottom: 4px; }
+  .card .sub { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 20px; }
+  .field { display: grid; gap: 7px; margin-bottom: 14px; }
+  .field label { font-size: 13.5px;  font-weight: 500; color: var(--ink-soft); }
+  .field input, .field select { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 12px 14px; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; min-height: 48px; }
+  .field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .field input::placeholder { color: var(--ink-faint); opacity: 1; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card .btn { width: 100%; margin-top: 6px; }
+  .card .fine { margin-top: 12px; }
+  .err { color: var(--accent-text); font-weight: 500; }
+  .confirm { display: none; }
+  .confirm[data-on] { display: block; animation: fadeUp .5s var(--ease); }
+  .form-wrap[data-done] form, .form-wrap[data-done] .hide-done { display: none; }
+  .check { width: 44px; height: 44px; border-radius: 50%; background: var(--accent-tint); color: var(--accent-text); display: grid; place-items: center; margin-bottom: 16px; }
+  .confirm h3 { font-size: 24px; margin-bottom: 8px; }
+  .confirm p { font-size: 15.5px; color: var(--ink-soft); }
+  .confirm .hold { margin: 16px 0; padding: 14px 16px; border: 1px solid var(--line); border-left: 2px solid var(--accent-fill); font-size: 14.5px; background: var(--paper); color: var(--ink); border-radius: var(--radius); }
+  .confirm .hold b { font-weight: 500; }
+  .confirm .again { margin-top: 14px; display: inline-block; }
+
+  /* scheduler */
+  .scheduler { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-card); padding: clamp(20px, 3vw, 32px); box-shadow: var(--shadow); }
+  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cal-head h3 { font-size: 20px; }
+  .cal-nav { display: flex; gap: 6px; }
+  .cal-nav button { width: 40px; height: 40px; border: 1px solid var(--line-strong); background: transparent; border-radius: var(--radius); cursor: pointer; display: grid; place-items: center; color: var(--ink); transition: background .2s; }
+  .cal-nav button:hover:not(:disabled) { background: var(--paper-2); }
+  .cal-nav button:disabled { color: var(--ink-faint); border-color: var(--line); cursor: default; }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal .dow { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); text-align: center; padding: 6px 0 10px; font-weight: 500; }
+  .cal button { aspect-ratio: 1; min-height: 36px; border: 0; background: transparent; border-radius: var(--radius); font: inherit; font-size: 15.5px; font-weight: 500; color: var(--ink); cursor: pointer; position: relative; transition: background .2s, color .2s; }
+  .cal button:hover:not(:disabled) { background: var(--paper-2); }
+  .cal button:disabled { color: var(--ink-faint); font-weight: 400; background: var(--paper-2); cursor: default; }
+  .cal button[aria-pressed="true"], .cal button[aria-pressed="true"]:hover { background: var(--ink); color: var(--paper); }
+  .cal button.today::after { content: ""; position: absolute; bottom: 5px; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); transform: translateX(-50%); }
+  .slots { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .slots-title { font-size: 14px;  color: var(--ink-soft); font-weight: 500; margin-bottom: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .slots-title span { color: var(--ink-faint); font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 14px; }
+  .slot-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+  .slot-list button { font: inherit; font-size: 14.5px; padding: 11px 8px; min-height: 44px; border: 1px solid var(--line-strong); background: transparent; border-radius: var(--radius); cursor: pointer; color: var(--ink); transition: background .2s, color .2s, border-color .2s; }
+  .slot-list button:hover { border-color: var(--ink); }
+  .slot-list button[aria-pressed="true"], .slot-list button[aria-pressed="true"]:hover { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+  .slot-empty { font-size: 14.5px; color: var(--ink-faint); padding: 10px 0; grid-column: 1 / -1; }
+  .sched-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+  .sched-foot .picked { font-size: 15.5px; color: var(--ink-soft); }
+  .sched-foot .picked b { font-weight: 500; color: var(--ink); }
+  .scheduler[data-done] .cal-head, .scheduler[data-done] .cal, .scheduler[data-done] .slots, .scheduler[data-done] .sched-foot { display: none; }
+  .scheduler .confirm { padding: 8px 0 4px; }
+
+  /* photos */
+  .ph { position: relative; overflow: hidden; border-radius: var(--radius-img); background: var(--paper-3); }
+  .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .cap { position: absolute; top: 14px; left: 14px; background: color-mix(in srgb, var(--paper) 96%, transparent); backdrop-filter: blur(6px); padding: 7px 12px; border-radius: var(--radius); font-size: 13px;  font-weight: 500; color: var(--ink); }
+  figcaption { font-size: 13.5px; color: var(--ink-faint); margin-top: 16px; }
+
+  /* bands */
+  .band-deep { background: var(--deep); color: var(--on-deep); }
+  .band-deep h2, .band-deep h3 { color: #fff; }
+  .band-deep .lede, .band-deep p { color: var(--on-deep-soft); }
+  .band-deep .kicker { color: var(--on-deep-accent); } .band-deep .kicker::before { background: var(--on-deep-accent); }
+  .band-ink { background: var(--ink); color: var(--paper); }
+  .band-ink h2 { color: #fff; } .band-ink p { color: var(--on-ink-soft); }
+  .band-tint { background: var(--paper-2); }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 56px 0 32px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+  .foot-grid h3.foot-h { font-size: 13.5px;  color: var(--ink-faint); font-weight: 500; margin-bottom: 14px; }
+  .foot-grid p, .foot-grid li { font-size: 15.5px; color: var(--ink-soft); }
+  .foot-grid ul { list-style: none; display: grid; gap: 8px; }
+  .foot-grid a { text-decoration: none; display: inline-block; padding: 3px 0; }
+  .foot-grid a:hover { color: var(--accent-text); }
+  .foot-brand .brand-word { font-size: 26px; }
+  .foot-brand p { margin-top: 14px; max-width: 34ch; }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-faint); }
+  .chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; letter-spacing: 0.04em; color: var(--ink-soft); }
+  .chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  /* faq shared */
+  details { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; cursor: pointer; padding: 20px 44px 20px 0; font-family: var(--h3-font); font-weight: var(--h3-weight); font-size: clamp(18px, 1.6vw, 22px); position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 11px; height: 11px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform: translateY(-70%) rotate(45deg); transition: transform .3s var(--ease); }
+  details[open] summary::after { transform: translateY(-30%) rotate(225deg); }
+  details p { padding: 0 0 22px; color: var(--ink-soft); font-size: 16.5px; max-width: 62ch; }
+
+  /* motion: none */
+  .reveal { opacity: 1; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  }  /* hero: typographic cover */
+  .hero-cover { padding: clamp(32px, 5vw, 64px) 0 clamp(40px, 6vw, 80px); }
+  .cover-kicker { font-size: 13.5px; color: var(--ink-soft); font-weight: 500; margin-bottom: clamp(20px, 3vw, 36px); }
+  .cover-h1 { font-size: clamp(42px, 8.6vw, 132px); line-height: 0.96; letter-spacing: -0.035em; max-width: 12ch; }
+  .cover-h1 em { font-style: normal; color: var(--ink-faint); font-weight: 400; }
+  .cover-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: start; margin-top: clamp(32px, 5vw, 64px); }
+  .cover-ledger .lede { font-size: clamp(17px, 1.4vw, 20px); max-width: 44ch; }
+  .ledger { display: grid; grid-template-columns: 1fr 1fr; margin-top: 28px; border-top: 1px solid var(--ink); }
+  .ledger div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .ledger div:nth-child(odd) { margin-right: 14px; } .ledger div:nth-child(even) { margin-left: 14px; }
+  .ledger dt { color: var(--ink-soft); }
+  .ledger dd { font-weight: 500; font-variant-numeric: tabular-nums; }
+  .cover-fig { max-width: 560px; justify-self: end; width: 100%; }
+  .cover-ph { aspect-ratio: 4 / 5; }
+  .cover-ph img { aspect-ratio: 4 / 5; }
+  .date-inline { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--ink); }
+  .date-row { display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 12px; align-items: end; }
+  .date-row .field { margin: 0; }
+  .date-row .btn { grid-column: 1 / -1; justify-self: start; min-height: 48px; min-width: 160px; }
+  .date-row .date-err { grid-column: 1 / -1; margin: 0; }
+  .date-inline .date-fine { margin-top: 10px; }
+  @media (max-width: 860px) {
+    .cover-grid { grid-template-columns: 1fr; }
+    .cover-fig { justify-self: start; max-width: 100%; }
+    .cover-ph, .cover-ph img { aspect-ratio: 4 / 3; }
+    .date-row { grid-template-columns: 1fr; }
+    .ledger { grid-template-columns: 1fr; }
+    .ledger div { margin: 0 !important; }
+  }  /* spaces: spec sheet */
+  .spec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; margin-bottom: 32px; }
+  .spec { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); }
+  .spec th, .spec td { text-align: left; vertical-align: top; padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+  .spec thead th { font-size: 12.5px; color: var(--ink-faint); font-weight: 500; padding: 12px 16px 12px 0; letter-spacing: 0.02em; }
+  .spec tbody th { font-weight: 500; font-size: 17px; white-space: nowrap; }
+  .spec-n { display: inline-block; width: 34px; color: var(--ink-faint); font-weight: 400; font-variant-numeric: tabular-nums; }
+  .spec td { color: var(--ink-soft); }
+  .td-cap { white-space: nowrap; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+  .td-img { width: 128px; }
+  .spec-ph { width: 112px; aspect-ratio: 1; }
+  .spec-ph img { aspect-ratio: 1; }
+  .spec-foot { margin-top: 16px; }
+  @media (max-width: 860px) {
+    .spec-head { grid-template-columns: 1fr; }
+    .spec thead { display: none; }
+    .spec, .spec tbody, .spec tr, .spec td, .spec tbody th { display: block; }
+    .spec tr { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .spec td, .spec tbody th { border: 0; padding: 4px 0; }
+    .spec tbody th { padding-top: 12px; }
+    .spec td[data-label]::before { content: attr(data-label) ": "; color: var(--ink-faint); }
+    .td-img { width: auto; }
+    .spec-ph { width: 100%; aspect-ratio: 3 / 2; }
+    .spec-ph img { aspect-ratio: 3 / 2; }
+  }  /* moment: seat picker */
+  .fit { border-top: 1px solid var(--ink); }
+  .fit-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .fit h2 { font-size: clamp(30px, 3.4vw, 50px); }
+  .fit-ctl .lede { margin-top: 14px; }
+  .fit-slider { margin-top: 28px; }
+  .fit-slider output { display: block; font-size: 17px; color: var(--ink-soft); margin-bottom: 10px; }
+  .fit-slider output b { font-family: var(--display); font-weight: var(--display-weight); font-size: 44px; color: var(--ink); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-right: 6px; }
+  .fit-slider input[type=range] { width: 100%; accent-color: var(--ink); height: 32px; cursor: pointer; }
+  .fit-scale { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
+  .fit-summary { margin-top: 20px; font-size: 16px; color: var(--ink); min-height: 3em; }
+  .fit-ctl .fine { margin-top: 14px; }
+  .fit-ctl { position: sticky; top: 96px; }
+  .fit-list { list-style: none; border-top: 1px solid var(--ink); }
+  .fit-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); transition: opacity .4s var(--ease); }
+  /* rows that do not fit recede by colour + greyscale photo, never by opacity (contrast stays >= 7:1) */
+  .fit-row[data-fit="no"] { color: var(--ink-faint); }
+  .fit-row[data-fit="no"] h3, .fit-row[data-fit="no"] p, .fit-row[data-fit="no"] b { color: var(--ink-faint); }
+  .fit-row[data-fit="no"] .fit-ph img { filter: grayscale(1) opacity(.55); }
+  .fit-ph { width: 96px; aspect-ratio: 1; }
+  .fit-ph img { aspect-ratio: 1; transition: filter .4s; }
+  .fit-body h3 { font-size: 20px; }
+  .fit-body p { color: var(--ink-soft); font-size: 14.5px; margin-top: 4px; }
+  .fit-cap { text-align: right; }
+  .fit-cap b { display: block; font-weight: 500; font-size: 15.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .fit-tag { display: block; font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
+  .fit-row[data-fit="yes"] .fit-tag { color: var(--accent-text); }
+  @media (max-width: 860px) {
+    .fit-grid { grid-template-columns: 1fr; }
+    .fit-ctl { position: static; }
+    .fit-row { grid-template-columns: 72px minmax(0, 1fr) auto; gap: 12px; }
+    .fit-ph { width: 72px; }
+  }  .tband-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; }
+  .tband-head h2 { font-size: clamp(30px, 3.6vw, 52px); }
+  .tband-head p { margin-top: 10px; max-width: 56ch; font-size: 17px; }
+  .tour-panel { max-width: 680px; margin-top: 36px; }
+  .tour-panel .scheduler { color: var(--ink); }
+  .tour-panel .scheduler p, .tour-panel .scheduler h3 { color: var(--ink); }
+  .tour-panel .scheduler .picked, .tour-panel .scheduler .slots-title, .tour-panel .confirm p { color: var(--ink-soft); }
+  @media (max-width: 860px) { .tband-head { grid-template-columns: 1fr; } }  .guide-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+  .guide-media .ph { aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+  .guide-media img { aspect-ratio: 4 / 3; }
+  .guide-form { display: flex; gap: 10px; margin-top: 28px; max-width: 520px; }
+  .guide-form .field { flex: 1; margin: 0; }
+  .guide-form .btn { white-space: nowrap; }
+  .guide .fine { max-width: 520px; margin-top: 12px; }
+  .guide-band .fine { color: var(--on-deep-soft); }
+  .guide-band .confirm h3 { color: #fff; } .guide-band .confirm p { color: var(--on-deep-soft); }
+  .guide-band .check { background: color-mix(in srgb, #fff 14%, transparent); color: #fff; }
+  .guide-band .btn-solid { background: #fff; color: var(--ink); border-color: #fff; }
+  .guide-band .btn-solid:hover { background: var(--on-deep-accent); border-color: var(--on-deep-accent); color: var(--ink); }
+  .guide-band .field input { background: #fff; border-color: transparent; }
+  .guide-band .field input::placeholder { color: var(--ink-faint); }
+  .guide-band .err { color: var(--on-deep-accent); }
+  .guide-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding-top: 36px; border-top: 1px solid var(--ink); }
+  .guide-plain h2 { font-size: clamp(28px, 3vw, 44px); }
+  .guide-plain .lede { margin-top: 12px; }
+  .guide-plain .guide-form { margin-top: 0; }
+  @media (max-width: 860px) {
+    .guide-grid, .guide-row { grid-template-columns: 1fr; }
+    .guide-form { flex-direction: column; }
+  }  /* story: ledger */
+  .story-ledger { border-top: 1px solid var(--ink); }
+  .ledger-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .story-ledger h2 { font-size: clamp(28px, 3vw, 44px); max-width: 20ch; }
+  .bignums { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin-top: 36px; }
+  .bignums div { padding: 18px 0; border-top: 1px solid var(--line); }
+  .bignums dd { font-family: var(--display); font-weight: var(--display-weight); font-size: clamp(40px, 4.5vw, 64px); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .bignums dt { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .ledger-text p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 14px; max-width: 52ch; }
+  .ledger-text cite { display: block; font-style: normal; font-size: 13px; color: var(--ink-faint); }
+  .ledger-fig { margin-top: 32px; max-width: 300px; }
+  .ledger-ph { aspect-ratio: 3 / 4; }
+  .ledger-ph img { aspect-ratio: 3 / 4; }
+  @media (max-width: 860px) { .ledger-grid { grid-template-columns: 1fr; } }  .faq-plain-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(28px, 5vw, 72px); align-items: start; padding-top: 36px; border-top: 1px solid var(--ink); }
+  .faq-plain h2 { font-size: clamp(28px, 3vw, 44px); }
+  .qa-list div { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 8px 24px; }
+  .qa-list dt { font-weight: 500; font-size: 16.5px; }
+  .qa-list dd { color: var(--ink-soft); font-size: 16px; max-width: 56ch; }
+  @media (max-width: 860px) { .faq-plain-grid, .qa-list div { grid-template-columns: 1fr; } }  .uses { padding-top: 0; }
+  .uses-band { border-radius: var(--radius-card); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; }
+  .uses-band h2 { font-size: clamp(28px, 3vw, 40px); margin-bottom: 10px; }
+  .uses-band p { max-width: 56ch; }
+  @media (max-width: 860px) { .uses-band { grid-template-columns: 1fr; } }  .featured { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; }
+  .featured .container { display: flex; align-items: center; gap: 16px 30px; flex-wrap: wrap; justify-content: center; }
+  .featured small { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .featured ul { display: flex; gap: 10px 26px; flex-wrap: wrap; list-style: none; justify-content: center; }
+  .featured li { font-family: var(--h3-font); font-size: 16.5px; color: var(--ink-soft); }  @media (max-width: 1024px) {
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: grid; }
+    .nav .btn { display: none; }
+    header.site[data-open] .nav-links { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 0; }
+    header.site[data-open] .nav-links li { border-top: 1px solid var(--line); }
+    header.site[data-open] .nav-links a { display: block; padding: 16px var(--gutter); }
+  }
+  @media (max-width: 600px) {
+    .foot-grid { grid-template-columns: 1fr; gap: 26px; }
+    .card { padding: 22px 20px 20px; }
+    .row2 { grid-template-columns: 1fr; }
+  }</style>
+<script type="application/ld+json">{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": [
+"EventVenue",
+"LocalBusiness"
+],
+"@id": "https://www.thestonehurst.com/#venue",
+"name": "The Stonehurst",
+"url": "https://www.thestonehurst.com/",
+"description": "A 9-acre garden wedding and event venue in Shadow Hills, Los Angeles County.",
+"email": "hello@thestonehurst.com",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Corner of Sunland & Stonehurst Ave",
+"addressLocality": "Shadow Hills",
+"addressRegion": "CA",
+"addressCountry": "US"
+},
+"maximumAttendeeCapacity": 200,
+"amenityFeature": [
+{
+"@type": "LocationFeatureSpecification",
+"name": "Valet",
+"value": true
+},
+{
+"@type": "LocationFeatureSpecification",
+"name": "Site manager",
+"value": true
+},
+{
+"@type": "LocationFeatureSpecification",
+"name": "Luxe restrooms",
+"value": true
+},
+{
+"@type": "LocationFeatureSpecification",
+"name": "Security",
+"value": true
+}
+],
+"containsPlace": [
+{
+"@type": "Place",
+"name": "The Greenhouse",
+"description": "Indoor ceremony or reception",
+"maximumAttendeeCapacity": 200
+},
+{
+"@type": "Place",
+"name": "The Barn",
+"description": "Reception, ceremony or shoot",
+"maximumAttendeeCapacity": 150
+},
+{
+"@type": "Place",
+"name": "The Flower Garden",
+"description": "Ceremony, cocktail hour or private party",
+"maximumAttendeeCapacity": 175
+},
+{
+"@type": "Place",
+"name": "The Bamboo Garden",
+"description": "Intimate ceremony, cocktail hour, pre-ceremony photos",
+"maximumAttendeeCapacity": 120
+},
+{
+"@type": "Place",
+"name": "The Terrace",
+"description": "Views over the mini desert garden"
+},
+{
+"@type": "Place",
+"name": "The Bungalow",
+"description": "Getting ready, green room, pre-approved special events",
+"maximumAttendeeCapacity": 15
+}
+],
+"openingHoursSpecification": {
+"@type": "OpeningHoursSpecification",
+"description": "Tours by appointment"
+}
+},
+{
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "What is the maximum capacity?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "We can host up to 200 guests."
+}
+},
+{
+"@type": "Question",
+"name": "Are there multiple events in one day?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "No. The venue is private and we host only one event a day."
+}
+},
+{
+"@type": "Question",
+"name": "Can all six spaces be used?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "For private events we allow three to four spaces to be used, unless otherwise approved."
+}
+},
+{
+"@type": "Question",
+"name": "What is the rental time for events?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Our standard is a 12-hour rental including breakdown. On event days the gates open at 12 PM, the event ends at 10 PM, and there are two hours for breakdown (10 PM to midnight). For additional hours or shorter time frames, send us a note."
+}
+},
+{
+"@type": "Question",
+"name": "Is a wedding or event planner required?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Yes. We require, at minimum, a partial-service planner for your event."
+}
+},
+{
+"@type": "Question",
+"name": "What is included in the rental?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Valet, a site manager, luxe restrooms and security are included in the rental."
+}
+},
+{
+"@type": "Question",
+"name": "How do I inquire about filming and photoshoots?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "For filming and photoshoots, email us and we'll come back with availability and rates for your dates."
+}
+}
+]
+}
+]
+}</script>
+</head>
+<body data-variant="c" data-hero="cover-type" data-moment="seat-picker">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site nav-minimal" id="top">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="The Stonehurst, home"><span class="brand-word">Stonehurst</span></a>
+    <ul class="nav-links" id="nav-links">
+<li><a href="#spaces">Spaces</a></li><li><a href="#fit">Capacity</a></li><li><a href="#tour">Tours</a></li><li><a href="#guide">Pricing</a></li><li><a href="#story">History</a></li><li><a href="#faq">FAQ</a></li>    </ul>
+    <a class="btn" href="#check">Check a date</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+  </div>
+</header><main id="main">
+<section class="hero hero-cover" aria-labelledby="hero-title">
+  <div class="container">
+    <p class="cover-kicker">Shadow Hills, CA · Weddings, Filming, Private events</p>
+    <h1 id="hero-title" class="cover-h1">A nine-acre garden estate. <em>Yours for the day.</em></h1>
+    <div class="cover-grid">
+      <div class="cover-ledger">
+        <p class="lede">Six spaces. Up to 200 guests. One event a day.</p>
+        <dl class="ledger" aria-label="At a glance">
+<div><dt>Acres of garden</dt><dd>9</dd></div><div><dt>Distinct spaces</dt><dd>6</dd></div><div><dt>Event per day</dt><dd>1</dd></div><div><dt>Barn&#39;s first recorded gathering</dt><dd>1907</dd></div>          <div><dt>Rental</dt><dd>12 hours</dd></div>
+          <div><dt>Hours</dt><dd>12 PM – 10 PM</dd></div>
+        </dl>
+<div class="date-inline form-wrap" id="check">
+  <form id="date-form" class="date-row" novalidate aria-label="Check a date">
+    <div class="field">
+      <label for="f-date">Event date</label>
+      <input id="f-date" name="date" type="date" required autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="f-guests">Guests</label>
+      <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" max="200" placeholder="120" required>
+    </div>
+    <div class="field">
+      <label for="f-contact">Email or mobile</label>
+      <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+    </div>
+    <button class="btn btn-accent" type="submit">Check</button>
+    <p class="fine err date-err" id="date-error" role="alert" hidden></p>
+  </form>
+  <p class="fine hide-done date-fine">Free. Holds nothing until you ask.</p>
+<div class="confirm" id="date-confirm" aria-live="polite">
+  <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+  <h3><span id="c-date">Your date</span> is open.</h3>
+  <p>We've placed a courtesy hold for <b id="c-guests">120</b> guests.</p>
+  <div class="hold"><b>Held for 24 hours.</b> We'll text you in under a minute with next steps and tour times, and the hold releases on its own if we don't hear back.</div>
+  <p>Sent to <b id="c-contact">you@email.com</b>.</p>
+  <a href="#check" class="link again" id="date-again">Check another date</a>
+</div></div>      </div>
+      <figure class="cover-fig">
+        <div class="ph cover-ph"><img src="img/hero-1800.webp" srcset="img/hero-400.webp 400w, img/hero-1200.webp 1200w, img/hero-1800.webp 1800w, img/hero-2400.webp 2400w" sizes="(min-width: 861px) 46vw, 100vw" width="2400" height="1800" alt="The Flower Garden at The Stonehurst set for a ceremony: rows of wooden cross-back chairs on a stone-paved aisle leading to the trunk of the towering fig tree, with white floral arrangements at its base, bamboo to the left and the barn roof behind." style="object-position: 50% 42%" fetchpriority="high" decoding="async"></div>
+        <figcaption>The Flower Garden at The Stonehurst set for a ceremony.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section><section id="spaces" class="spaces-spec" aria-labelledby="spaces-title">
+  <div class="container">
+    <div class="spec-head">
+      <h2 id="spaces-title">Six spaces.</h2>
+<p class="lede">Three to four of the six spaces, unless otherwise approved.</p>    </div>
+    <table class="spec">
+      <thead><tr><th scope="col" class="th-img"><span class="sr-only">Photo</span></th><th scope="col">Space</th><th scope="col">Use</th><th scope="col" class="th-cap">Capacity</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr id="space-greenhouse">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/greenhouse-1200.webp" srcset="img/greenhouse-400.webp 400w, img/greenhouse-800.webp 800w, img/greenhouse-1200.webp 1200w, img/greenhouse-1800.webp 1800w, img/greenhouse-2400.webp 2400w" sizes="(min-width: 861px) 112px, 100vw" width="2400" height="1800" alt="The Greenhouse at night, its glass walls glowing from inside, with strings of café lights over long candlelit reception tables and the dark wood barn wall to the right." style="object-position: 50% 50%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">01</span>The Greenhouse</th>
+          <td data-label="Use">Indoor ceremony or reception</td>
+          <td data-label="Capacity" class="td-cap">Up to 200</td>
+          <td data-label="Notes">Existing beams for decor and floral hanging · HVAC climate controlled · Original beams</td>
+        </tr>
+        <tr id="space-barn">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/barn-1200.webp" srcset="img/barn-400.webp 400w, img/barn-800.webp 800w, img/barn-1200.webp 1200w, img/barn-1800.webp 1800w, img/barn-2400.webp 2400w" sizes="(min-width: 861px) 112px, 100vw" width="2400" height="1800" alt="The weathered wood barn seen from the entrance, its doors open on a chandelier inside, flanked by agave and yucca with the hills of Shadow Hills behind." style="object-position: 50% 55%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">02</span>The Barn</th>
+          <td data-label="Use">Reception, ceremony or shoot</td>
+          <td data-label="Capacity" class="td-cap">Up to 150</td>
+          <td data-label="Notes">Original wood · Three cascading chandeliers · Natural lighting</td>
+        </tr>
+        <tr id="space-flower">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/flower-1200.webp" srcset="img/flower-400.webp 400w, img/flower-800.webp 800w, img/flower-1200.webp 1200w, img/flower-1800.webp 1800w, img/flower-2400.webp 2400w" sizes="(min-width: 861px) 112px, 100vw" width="2400" height="1800" alt="Ceremony set-up in the Flower Garden: white chairs either side of a sandstone aisle, two blush floral arches at the base of the fig tree, the barn behind." style="object-position: 50% 50%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">03</span>The Flower Garden</th>
+          <td data-label="Use">Ceremony, cocktail hour or private party</td>
+          <td data-label="Capacity" class="td-cap">Up to 175</td>
+          <td data-label="Notes">Greenery on every side · Ceremony or cocktail</td>
+        </tr>
+        <tr id="space-bamboo">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/bamboo-1200.webp" srcset="img/bamboo-400.webp 400w, img/bamboo-800.webp 800w, img/bamboo-1200.webp 1200w, img/bamboo-1800.webp 1800w, img/bamboo-2400.webp 2400w" sizes="(min-width: 861px) 112px, 100vw" width="2400" height="1800" alt="A ceremony in the Bamboo Garden: two tall arrangements of peach, coral and cream roses frame the altar, black woven lanterns hang overhead, and bamboo closes in on every side." style="object-position: 50% 45%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">04</span>The Bamboo Garden</th>
+          <td data-label="Use">Intimate ceremony, cocktail hour, pre-ceremony photos</td>
+          <td data-label="Capacity" class="td-cap">60 ceremony · 120 cocktail</td>
+          <td data-label="Notes">Three types of bamboo · Private and intimate</td>
+        </tr>
+        <tr id="space-terrace">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/terrace-1200.webp" srcset="img/terrace-400.webp 400w, img/terrace-800.webp 800w, img/terrace-1200.webp 1200w, img/terrace-1600.webp 1600w" sizes="(min-width: 861px) 112px, 100vw" width="1600" height="1200" alt="The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it." style="object-position: 50% 50%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">05</span>The Terrace</th>
+          <td data-label="Use">Views over the mini desert garden</td>
+          <td data-label="Capacity" class="td-cap">Capacity on request</td>
+          <td data-label="Notes">Desert garden views · Cactus garden adjoining</td>
+        </tr>
+        <tr id="space-bungalow">
+          <td class="td-img"><div class="ph spec-ph"><img src="img/bungalow-1200.webp" srcset="img/bungalow-400.webp 400w, img/bungalow-800.webp 800w, img/bungalow-1200.webp 1200w, img/bungalow-1800.webp 1800w, img/bungalow-2400.webp 2400w" sizes="(min-width: 861px) 112px, 100vw" width="2400" height="1800" alt="The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves." style="object-position: 50% 50%" loading="lazy" decoding="async"></div></td>
+          <th scope="row"><span class="spec-n">06</span>The Bungalow</th>
+          <td data-label="Use">Getting ready, green room, pre-approved special events</td>
+          <td data-label="Capacity" class="td-cap">1 – 15</td>
+          <td data-label="Notes">Getting ready · Green room</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="fine spec-foot">Three to four of the six spaces, unless otherwise approved. Capacities as published by the venue.</p>
+  </div>
+</section><section id="fit" class="fit" aria-labelledby="fit-title">
+  <div class="container">
+    <div class="fit-grid">
+      <div class="fit-ctl">
+        <h2 id="fit-title">How many are coming?</h2>
+        <p class="lede">Move the slider. Spaces that hold your number stay on; the rest step back.</p>
+        <div class="fit-slider">
+          <label for="fit-range" class="sr-only">Guest count</label>
+          <output for="fit-range" id="fit-out"><b id="fit-n">120</b> guests</output>
+          <input type="range" id="fit-range" min="10" max="200" step="5" value="120" aria-valuemin="10" aria-valuemax="200" aria-valuenow="120">
+          <div class="fit-scale" aria-hidden="true"><span>10</span><span>200</span></div>
+        </div>
+        <p class="fit-summary" id="fit-summary" aria-live="polite"></p>
+        <p class="fine">Three to four of the six spaces, unless otherwise approved. The venue hosts up to 200 guests and one event a day.</p>
+      </div>
+      <ul class="fit-list" id="fit-list">
+        <li class="fit-row" data-cap="200" data-cer="" data-name="The Greenhouse" data-kind="seated or ceremony" id="fit-greenhouse">
+          <div class="ph fit-ph"><img src="img/greenhouse-1200.webp" srcset="img/greenhouse-400.webp 400w, img/greenhouse-800.webp 800w, img/greenhouse-1200.webp 1200w, img/greenhouse-1800.webp 1800w, img/greenhouse-2400.webp 2400w" sizes="(min-width: 861px) 96px, 72px" width="2400" height="1800" alt="The Greenhouse at night, its glass walls glowing from inside, with strings of café lights over long candlelit reception tables and the dark wood barn wall to the right." style="object-position: 50% 50%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Greenhouse</h3>
+            <p>Indoor ceremony or reception</p>
+          </div>
+          <div class="fit-cap"><b>Up to 200</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        <li class="fit-row" data-cap="150" data-cer="" data-name="The Barn" data-kind="seated" id="fit-barn">
+          <div class="ph fit-ph"><img src="img/barn-1200.webp" srcset="img/barn-400.webp 400w, img/barn-800.webp 800w, img/barn-1200.webp 1200w, img/barn-1800.webp 1800w, img/barn-2400.webp 2400w" sizes="(min-width: 861px) 96px, 72px" width="2400" height="1800" alt="The weathered wood barn seen from the entrance, its doors open on a chandelier inside, flanked by agave and yucca with the hills of Shadow Hills behind." style="object-position: 50% 55%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Barn</h3>
+            <p>Reception, ceremony or shoot</p>
+          </div>
+          <div class="fit-cap"><b>Up to 150</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        <li class="fit-row" data-cap="175" data-cer="" data-name="The Flower Garden" data-kind="ceremony or cocktail" id="fit-flower">
+          <div class="ph fit-ph"><img src="img/flower-1200.webp" srcset="img/flower-400.webp 400w, img/flower-800.webp 800w, img/flower-1200.webp 1200w, img/flower-1800.webp 1800w, img/flower-2400.webp 2400w" sizes="(min-width: 861px) 96px, 72px" width="2400" height="1800" alt="Ceremony set-up in the Flower Garden: white chairs either side of a sandstone aisle, two blush floral arches at the base of the fig tree, the barn behind." style="object-position: 50% 50%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Flower Garden</h3>
+            <p>Ceremony, cocktail hour or private party</p>
+          </div>
+          <div class="fit-cap"><b>Up to 175</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        <li class="fit-row" data-cap="120" data-cer="60" data-name="The Bamboo Garden" data-kind="cocktail (60 for a ceremony)" id="fit-bamboo">
+          <div class="ph fit-ph"><img src="img/bamboo-1200.webp" srcset="img/bamboo-400.webp 400w, img/bamboo-800.webp 800w, img/bamboo-1200.webp 1200w, img/bamboo-1800.webp 1800w, img/bamboo-2400.webp 2400w" sizes="(min-width: 861px) 96px, 72px" width="2400" height="1800" alt="A ceremony in the Bamboo Garden: two tall arrangements of peach, coral and cream roses frame the altar, black woven lanterns hang overhead, and bamboo closes in on every side." style="object-position: 50% 45%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Bamboo Garden</h3>
+            <p>Intimate ceremony, cocktail hour, pre-ceremony photos</p>
+          </div>
+          <div class="fit-cap"><b>60 ceremony · 120 cocktail</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        <li class="fit-row" data-cap="" data-cer="" data-name="The Terrace" data-kind="" id="fit-terrace">
+          <div class="ph fit-ph"><img src="img/terrace-1200.webp" srcset="img/terrace-400.webp 400w, img/terrace-800.webp 800w, img/terrace-1200.webp 1200w, img/terrace-1600.webp 1600w" sizes="(min-width: 861px) 96px, 72px" width="1600" height="1200" alt="The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it." style="object-position: 50% 50%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Terrace</h3>
+            <p>Views over the mini desert garden</p>
+          </div>
+          <div class="fit-cap"><b>Capacity on request</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        <li class="fit-row" data-cap="15" data-cer="" data-name="The Bungalow" data-kind="couple&#39;s suite or green room" id="fit-bungalow">
+          <div class="ph fit-ph"><img src="img/bungalow-1200.webp" srcset="img/bungalow-400.webp 400w, img/bungalow-800.webp 800w, img/bungalow-1200.webp 1200w, img/bungalow-1800.webp 1800w, img/bungalow-2400.webp 2400w" sizes="(min-width: 861px) 96px, 72px" width="2400" height="1800" alt="The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves." style="object-position: 50% 50%" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>The Bungalow</h3>
+            <p>Getting ready, green room, pre-approved special events</p>
+          </div>
+          <div class="fit-cap"><b>1 – 15</b><span class="fit-tag" data-tag></span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section><section id="tour" class="tour-band band-ink" aria-labelledby="tour-title">
+  <div class="container">
+    <div class="tband-head">
+      <div>
+        <h2 id="tour-title">Book a tour.</h2>
+        <p>By appointment. Text confirmation.</p>
+      </div>
+      <button class="btn btn-light" type="button" id="tour-open" aria-expanded="false" aria-controls="tour-panel">Pick a time</button>
+    </div>
+    <div id="tour-panel" class="tour-panel" hidden>
+<div class="scheduler reveal d2" id="scheduler">
+  <div class="cal-head">
+    <h3 id="cal-month" aria-live="polite">Month</h3>
+    <div class="cal-nav">
+      <button type="button" id="cal-prev" aria-label="Previous month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button type="button" id="cal-next" aria-label="Next month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="cal" id="cal" aria-label="Choose a tour day"></div>
+  <div class="slots">
+    <div class="slots-title">Available times <span id="slots-for">Pick a day first</span></div>
+    <div class="slot-list" id="slots"><p class="slot-empty">Select a day on the calendar to see open times.</p></div>
+  </div>
+  <div class="sched-foot">
+    <p class="picked" id="picked">Nothing selected yet.</p>
+    <button class="btn btn-accent" type="button" id="book" disabled>Book</button>
+  </div>
+  <div class="confirm" id="tour-confirm" aria-live="polite">
+    <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3>You're on the calendar.</h3>
+    <p>Your tour is <b id="t-when">soon</b>.</p>
+    <div class="hold"><b>Confirmation sent by text.</b> Directions to the gate, what to bring, and a one-tap reschedule link. A reminder follows the day before.</div>
+    <a href="#tour" class="link again" id="tour-again">Choose a different time</a>
+  </div>
+</div>    </div>
+  </div>
+</section><section class="guide guide-plain" id="guide" aria-labelledby="guide-title">
+  <div class="container guide-row">
+    <div>
+      <h2 id="guide-title">Pricing guide.</h2>
+      <p class="lede">Inclusions, schedule, holds. One email.</p>
+    </div>
+<div class="guide-form-wrap form-wrap" id="guide-wrap">
+  <form class="guide-form reveal d3 hide-done" id="guide-form" novalidate>
+    <div class="field">
+      <label for="g-email" class="sr-only">Email address</label>
+      <input id="g-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+    </div>
+    <button class="btn btn-solid" type="submit">Send</button>
+  </form>
+  <p class="fine reveal d4 hide-done" id="guide-fine">One email, no drip sequence. A short note about dates and tours follows only if you ask.</p>
+  <p class="fine err" id="guide-error" role="alert" hidden></p>
+  <div class="confirm" id="guide-confirm" aria-live="polite">
+    <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3>Guide sent.</h3>
+    <p>It's on its way to <b id="g-sent">you@email.com</b>. Check your inbox in the next minute, and the spam folder if it's shy.</p>
+  </div>
+</div>  </div>
+</section>
+<section id="story" class="story-ledger" aria-labelledby="story-title">
+  <div class="container">
+    <div class="ledger-grid">
+      <div>
+        <h2 id="story-title">A garden planted by hand, on the corner of Sunland and Stonehurst.</h2>
+        <dl class="bignums" aria-label="The property in numbers">
+<div><dd>9</dd><dt>Acres of garden</dt></div><div><dd>6</dd><dt>Distinct spaces</dt></div><div><dd>1</dd><dt>Event per day</dt></div><div><dd>1907</dd><dt>Barn&#39;s first recorded gathering</dt></div>        </dl>
+      </div>
+      <div class="ledger-text">
+<p>The name comes from the street and from the hand-laid stone work that dances across the main pathways.</p><p>The barn is one of the oldest structures in this part of Los Angeles County and hosted some of the area&#39;s original Boy Scout meetings in 1907; its doors were reclaimed from the original horse stalls in 2015. Most of the vegetation, from the towering South American fig over the flower garden to a cactus garden that fruits every spring and fall, was planted by hand by Joe Stromei, whose name is still carved into a beam of the greenhouse.</p>        <cite>History as recorded by the Shadow Hills Property Owners Association</cite>
+        <figure class="ledger-fig">
+          <div class="ph ledger-ph"><img src="img/stonepath-1152.webp" srcset="img/stonepath-400.webp 400w, img/stonepath-600.webp 600w, img/stonepath-900.webp 900w, img/stonepath-1152.webp 1152w" sizes="(min-width: 861px) 300px, 60vw" width="1152" height="1536" alt="A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond." loading="lazy" decoding="async"></div>
+          <figcaption>A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section><section id="faq" class="faq-plain" aria-labelledby="faq-title">
+  <div class="container faq-plain-grid">
+    <h2 id="faq-title">Questions.</h2>
+    <dl class="qa-list">
+<div><dt>What is the maximum capacity?</dt><dd>We can host up to 200 guests.</dd></div><div><dt>Are there multiple events in one day?</dt><dd>No. The venue is private and we host only one event a day.</dd></div><div><dt>Can all six spaces be used?</dt><dd>For private events we allow three to four spaces to be used, unless otherwise approved.</dd></div><div><dt>What is the rental time for events?</dt><dd>Our standard is a 12-hour rental including breakdown. On event days the gates open at 12 PM, the event ends at 10 PM, and there are two hours for breakdown (10 PM to midnight). For additional hours or shorter time frames, send us a note.</dd></div><div><dt>Is a wedding or event planner required?</dt><dd>Yes. We require, at minimum, a partial-service planner for your event.</dd></div><div><dt>What is included in the rental?</dt><dd>Valet, a site manager, luxe restrooms and security are included in the rental.</dd></div><div><dt>How do I inquire about filming and photoshoots?</dt><dd>For filming and photoshoots, email us and we&#39;ll come back with availability and rates for your dates.</dd></div>    </dl>
+  </div>
+</section><section class="uses" aria-label="Filming and private events" id="uses">
+  <div class="container">
+    <div class="uses-band band-ink reveal">
+      <div>
+        <h2>Filming and private events.</h2>
+        <p>6 distinct looks on one private property: greenhouse, barn, flower garden, bamboo garden, terrace and bungalow. Tell us about the shoot or the celebration and we'll come back with dates.</p>
+      </div>
+      <a class="btn btn-light" href="mailto:hello@thestonehurst.com?subject=Filming%20or%20private%20event">Email about a shoot or event</a>
+    </div>
+  </div>
+</section><div class="featured" aria-label="As featured in" id="featured">
+  <div class="container">
+    <small>As featured in</small>
+    <ul><li>Junebug Weddings</li><li>Loverly</li><li>Style Me Pretty</li><li>Vogue India</li><li>The Knot</li><li>Zola</li><li>Wedding Chicks</li><li>PartySlate</li></ul>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-word">Stonehurst</span>
+        <p>The Stonehurst. 9 acres in Shadow Hills, Los Angeles County.</p>
+      </div>
+      <div>
+        <h3 class="foot-h">Visit</h3>
+        <ul>
+          <li>Corner of Sunland &amp; Stonehurst Ave</li>
+          <li>Shadow Hills, CA</li>
+          <li>Tours by appointment</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-h">Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@thestonehurst.com">hello@thestonehurst.com</a></li>
+          <li><a href="#check">Check a date</a></li>
+          <li><a href="#tour">Schedule a tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-h">Explore</h3>
+        <ul>
+<li><a href="#spaces">Spaces</a></li><li><a href="#fit">Capacity</a></li><li><a href="#tour">Tours</a></li><li><a href="#guide">Pricing</a></li><li><a href="#story">History</a></li><li><a href="#faq">FAQ</a></li>          <li><a href="#">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Stonehurst, LLC</span>
+<span class="chip"><i aria-hidden="true"></i>Concept preview by Insert · photography © The Stonehurst · not affiliated with the venue</span>    </div>
+  </div>
+</footer><script>
+(function () {
+  // Client-side only. No network calls are made anywhere on this page.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+  var header = document.querySelector('header.site');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.hasAttribute('data-open');
+    if (open) { header.removeAttribute('data-open'); } else { header.setAttribute('data-open', ''); }
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { header.removeAttribute('data-open'); toggle.setAttribute('aria-expanded', 'false'); });
+  });
+
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function isoDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function longDate(d) { return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate(); }
+  function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var MAXG = 200;
+
+  // --- check your date (client-side mock) ---
+  var dateInput = document.getElementById('f-date');
+  dateInput.min = isoDate(today);
+  var dateForm = document.getElementById('date-form'), dateWrap = document.getElementById('check'), dateErr = document.getElementById('date-error');
+  dateForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = dateInput.value, g = document.getElementById('f-guests').value, c = document.getElementById('f-contact').value.trim();
+    var msg = '';
+    if (!d) msg = 'Pick a date to check.';
+    else if (parseISO(d) < today) msg = 'That date has already passed.';
+    else if (!g || +g < 1) msg = 'Add an estimated guest count.';
+    else if (+g > MAXG) msg = 'We host up to ' + MAXG + ' guests. Try a smaller number.';
+    else if (!/@|\d{7,}/.test(c)) msg = 'Add an email address or mobile number so we can reply.';
+    if (msg) { dateErr.textContent = msg; dateErr.hidden = false; return; }
+    dateErr.hidden = true;
+    document.getElementById('c-date').textContent = longDate(parseISO(d));
+    document.getElementById('c-guests').textContent = g;
+    document.getElementById('c-contact').textContent = c;
+    dateWrap.setAttribute('data-done', '');
+    document.getElementById('date-confirm').setAttribute('data-on', '');
+    document.getElementById('date-again').focus({ preventScroll: true });
+  });
+  document.getElementById('date-again').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    dateWrap.removeAttribute('data-done');
+    document.getElementById('date-confirm').removeAttribute('data-on');
+    dateForm.reset();
+    dateInput.focus({ preventScroll: true });
+  });
+
+  // --- tour scheduler (static mock; availability is illustrative) ---
+  var SLOTS = ['10:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
+  var view = new Date(today.getFullYear(), today.getMonth(), 1);
+  var maxView = new Date(today.getFullYear(), today.getMonth() + 3, 1);
+  var selDay = null, selSlot = null;
+  var calEl = document.getElementById('cal'), monthEl = document.getElementById('cal-month');
+  var prevBtn = document.getElementById('cal-prev'), nextBtn = document.getElementById('cal-next');
+  var slotsEl = document.getElementById('slots'), slotsFor = document.getElementById('slots-for');
+  var pickedEl = document.getElementById('picked'), bookBtn = document.getElementById('book');
+  var sched = document.getElementById('scheduler');
+  function available(d) {
+    if (d < today) return false;
+    if (d.getDay() === 0) return false;
+    var n = d.getDate() + d.getMonth() * 3;
+    return !(n % 7 === 3 || n % 11 === 5);
+  }
+  function slotsFor_(d) { var n = d.getDate() + d.getDay(); return SLOTS.filter(function (s, i) { return (n + i) % 4 !== 1; }); }
+  function renderCal() {
+    monthEl.textContent = MONTHS[view.getMonth()] + ' ' + view.getFullYear();
+    prevBtn.disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    nextBtn.disabled = view >= maxView;
+    var html = ['S','M','T','W','T','F','S'].map(function (d) { return '<div class="dow" aria-hidden="true">' + d + '</div>'; }).join('');
+    var first = new Date(view.getFullYear(), view.getMonth(), 1);
+    var days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    for (var i = 0; i < first.getDay(); i++) html += '<div aria-hidden="true"></div>';
+    for (var d = 1; d <= days; d++) {
+      var date = new Date(view.getFullYear(), view.getMonth(), d);
+      var ok = available(date);
+      var sel = selDay && isoDate(selDay) === isoDate(date);
+      var cls = isoDate(date) === isoDate(today) ? ' class="today"' : '';
+      html += '<button type="button"' + cls + ' data-date="' + isoDate(date) + '"' + (ok ? '' : ' disabled') + ' aria-pressed="' + (sel ? 'true' : 'false') + '" aria-label="' + longDate(date) + (ok ? '' : ', unavailable') + '">' + d + '</button>';
+    }
+    calEl.innerHTML = html;
+  }
+  function renderSlots() {
+    if (!selDay) { slotsFor.textContent = 'Pick a day first'; slotsEl.innerHTML = '<p class="slot-empty">Select a day on the calendar to see open times.</p>'; return; }
+    slotsFor.textContent = longDate(selDay);
+    slotsEl.innerHTML = slotsFor_(selDay).map(function (s) { return '<button type="button" data-slot="' + s + '" aria-pressed="' + (s === selSlot ? 'true' : 'false') + '">' + s + '</button>'; }).join('');
+  }
+  function renderPicked() {
+    if (selDay && selSlot) { pickedEl.innerHTML = '<b>' + longDate(selDay) + '</b> at <b>' + selSlot + '</b>'; bookBtn.disabled = false; }
+    else if (selDay) { pickedEl.textContent = longDate(selDay) + '. Now pick a time.'; bookBtn.disabled = true; }
+    else { pickedEl.textContent = 'Nothing selected yet.'; bookBtn.disabled = true; }
+  }
+  calEl.addEventListener('click', function (ev) { var b = ev.target.closest('button[data-date]'); if (!b || b.disabled) return; selDay = parseISO(b.getAttribute('data-date')); selSlot = null; renderCal(); renderSlots(); renderPicked(); });
+  slotsEl.addEventListener('click', function (ev) { var b = ev.target.closest('button[data-slot]'); if (!b) return; selSlot = b.getAttribute('data-slot'); renderSlots(); renderPicked(); });
+  prevBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
+  nextBtn.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
+  bookBtn.addEventListener('click', function () {
+    if (!selDay || !selSlot) return;
+    document.getElementById('t-when').textContent = longDate(selDay) + ' at ' + selSlot;
+    sched.setAttribute('data-done', ''); document.getElementById('tour-confirm').setAttribute('data-on', '');
+    document.getElementById('tour-again').focus({ preventScroll: true });
+  });
+  document.getElementById('tour-again').addEventListener('click', function (ev) { ev.preventDefault(); sched.removeAttribute('data-done'); document.getElementById('tour-confirm').removeAttribute('data-on'); selSlot = null; renderSlots(); renderPicked(); });
+  renderCal(); renderSlots(); renderPicked();
+  var tourOpen = document.getElementById('tour-open');
+  if (tourOpen) { tourOpen.addEventListener('click', function () { document.getElementById('tour-panel').hidden = false; tourOpen.setAttribute('aria-expanded', 'true'); tourOpen.hidden = true; }); }
+
+  // --- pricing guide (client-side mock) ---
+  var guideForm = document.getElementById('guide-form'), guideWrap = document.getElementById('guide-wrap'), guideErr = document.getElementById('guide-error');
+  guideForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var e = document.getElementById('g-email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { guideErr.textContent = 'Enter a valid email address.'; guideErr.hidden = false; return; }
+    guideErr.hidden = true;
+    document.getElementById('g-sent').textContent = e;
+    guideWrap.setAttribute('data-done', '');
+    document.getElementById('guide-confirm').setAttribute('data-on', '');
+  });
+})();(function () {
+  var range = document.getElementById('fit-range'); if (!range) return;
+  var rows = document.querySelectorAll('.fit-row'), out = document.getElementById('fit-n'), sum = document.getElementById('fit-summary');
+  function update() {
+    var n = +range.value; out.textContent = n; range.setAttribute('aria-valuenow', n);
+    var yes = [], partial = [], no = [];
+    rows.forEach(function (r) {
+      var cap = r.getAttribute('data-cap'), cer = r.getAttribute('data-cer'), name = r.getAttribute('data-name'), kind = r.getAttribute('data-kind'), tag = r.querySelector('[data-tag]');
+      if (cap === '') { r.setAttribute('data-fit', 'ask'); tag.textContent = 'ask on your tour'; return; }
+      cap = +cap;
+      if (cap < 20) { r.setAttribute('data-fit', 'aside'); tag.textContent = 'for the two of you'; return; }
+      if (n <= cap) {
+        if (cer && n > +cer) { r.setAttribute('data-fit', 'yes'); tag.textContent = 'cocktail hour, not ceremony'; partial.push(name); }
+        else { r.setAttribute('data-fit', 'yes'); tag.textContent = 'fits'; yes.push(name); }
+      } else { r.setAttribute('data-fit', 'no'); tag.textContent = 'over by ' + (n - cap); no.push(name); }
+    });
+    var s = 'At ' + n + ' guests: ' + (yes.length ? yes.join(', ') + (yes.length > 1 ? ' fit' : ' fits') : 'no space seats everyone') + '.';
+    if (partial.length) s += ' ' + partial.join(', ') + ' works for cocktail hour but not a ceremony at that size.';
+    if (no.length) s += ' ' + no.join(', ') + (no.length > 1 ? ' are' : ' is') + ' too small.';
+    sum.textContent = s;
+  }
+  range.addEventListener('input', update);
+  update();
+  window.__fitSet = function (n) { range.value = n; update(); };
+})();</script>
+</body>
+</html>

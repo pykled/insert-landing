@@ -1,0 +1,14 @@
+<section class="glance" id="glance" aria-label="Your day at a glance">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">Your day at a glance</p>
+      <h2 class="reveal d1">{{ v.day.rental_hours|int|wordnum|capitalize }} hours, the whole estate.</h2>
+    </div>
+    <div class="glance-grid reveal d2">
+      <div class="glance-item"><small>Rental</small><b>{{ v.day.rental_hours }} hours</b><p>Standard rental including breakdown.</p></div>
+      <div class="glance-item"><small>Timeline</small><b>{{ v.day.gates_open }} – {{ v.day.event_end }}</b><p>Gates open at {{ v.day.gates_open|lower }}; events end at {{ v.day.event_end }}, with breakdown until {{ 'midnight' if v.day.breakdown_end == '12 AM' else v.day.breakdown_end }}.</p></div>
+      <div class="glance-item"><small>Included</small><b>{{ v.day.included[:2]|join(' · ') }}</b><p>Plus {{ v.day.included[2:]|join(' and ')|lower }}, every event.</p></div>
+      <div class="glance-item"><small>Planning</small><b>Planner required</b><p>{{ v.day.requirement }}.</p></div>
+    </div>
+  </div>
+</section>

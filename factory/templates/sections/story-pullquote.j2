@@ -1,0 +1,21 @@
+<section id="story" class="story-pull" aria-labelledby="story-title">
+  <div class="container">
+    <p class="kicker reveal">{{ copy.story_kicker }}</p>
+    <h2 id="story-title" class="pull reveal d1">{{ v.story.lead }}</h2>
+    <div class="pull-cols reveal d2">
+      {% for ptxt in v.story.paragraphs %}<p{% if loop.first %} class="drop"{% endif %}>{{ ptxt }}</p>{% endfor %}
+      <cite>{{ v.story.credit }}</cite>
+    </div>
+    <div class="pull-photos reveal d2">
+      <figure class="pp-a">
+        <div class="ph"><img src="{{ photos[v.story.photo].src }}" srcset="{{ photos[v.story.photo].srcset }}" sizes="(min-width: 861px) 34vw, 100vw" width="{{ photos[v.story.photo].width }}" height="{{ photos[v.story.photo].height }}" alt="{{ photos[v.story.photo].alt }}" loading="lazy" decoding="async"></div>
+        <figcaption>{{ photos[v.story.photo].caption }}</figcaption>
+      </figure>
+      {% set second = story_second %}
+      <figure class="pp-b">
+        <div class="ph"><img src="{{ photos[second].src }}" srcset="{{ photos[second].srcset }}" sizes="(min-width: 861px) 58vw, 100vw" width="{{ photos[second].width }}" height="{{ photos[second].height }}" alt="{{ photos[second].alt }}" style="object-position: {{ photos[second].focal }}" loading="lazy" decoding="async"></div>
+        <figcaption>{{ photos[second].caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

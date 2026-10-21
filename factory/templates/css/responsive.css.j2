@@ -1,0 +1,16 @@
+  @media (max-width: 1024px) {
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: grid; }
+    .nav .btn { display: none; }
+    header.site[data-open] .nav-links { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 0; }
+    header.site[data-open] .nav-links li { border-top: 1px solid var(--line); }
+    header.site[data-open] .nav-links a { display: block; padding: 16px var(--gutter); }
+  }
+  @media (max-width: 600px) {
+    .foot-grid { grid-template-columns: 1fr; gap: 26px; }
+    .card { padding: 22px 20px 20px; }
+    .row2 { grid-template-columns: 1fr; }
+  }

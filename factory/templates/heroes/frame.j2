@@ -1,0 +1,19 @@
+<section class="hero hero-frame" aria-labelledby="hero-title">
+  <div class="container frame-wrap">
+    <p class="kicker frame-kicker">{{ copy.hero_kicker }}</p>
+    <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+    <figure class="frame-fig">
+      <div class="ph frame-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1140px) 1040px, 92vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <figcaption>{{ photos[lead].caption }}</figcaption>
+    </figure>
+    <div class="frame-below">
+      <div class="frame-copy">
+        <p class="lede">{{ copy.hero_lede }}</p>
+        <ul class="frame-facts" aria-label="At a glance">
+          {% for n in v.numbers[:3] %}<li><b>{{ n.value }}</b> {{ n.label|lower }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% include 'partials/date-card.j2' %}
+    </div>
+  </div>
+</section>

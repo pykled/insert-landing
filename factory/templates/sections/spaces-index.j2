@@ -1,0 +1,31 @@
+<section id="spaces" class="spaces-index" aria-labelledby="spaces-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker reveal">{{ copy.spaces_kicker }}</p>
+      <h2 id="spaces-title" class="reveal d1">{{ copy.spaces_title }}</h2>
+      {% if copy.spaces_lede %}<p class="lede reveal d2">{{ copy.spaces_lede }}</p>{% endif %}
+    </div>
+    <div class="index-grid">
+      <ol class="index-list" id="index-list">
+        {% for s in v.spaces %}
+        <li class="index-row" data-photo="{{ s.photo }}" {% if loop.first %}data-active{% endif %} tabindex="0" id="space-{{ s.id }}">
+          <span class="num">{{ '%02d' % loop.index }}</span>
+          <div class="index-body">
+            <h3>{{ s.name }}</h3>
+            <p class="use">{{ s.use }}</p>
+            <p class="blurb">{{ s.blurb }}</p>
+          </div>
+          <span class="capn">{{ s.capacity_label }}</span>
+          <div class="ph row-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div>
+        </li>
+        {% endfor %}
+      </ol>
+      <div class="index-stage" aria-hidden="true">
+        <div class="ph stage-ph">
+          {% for s in v.spaces %}<img class="stage-img{% if loop.first %} on{% endif %}" data-photo="{{ s.photo }}" src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 44vw, 1px" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async">{% endfor %}
+        </div>
+        <p class="stage-cap" id="stage-cap">{{ v.spaces[0].name }}</p>
+      </div>
+    </div>
+  </div>
+</section>

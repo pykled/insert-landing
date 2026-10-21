@@ -1,0 +1,12 @@
+(function () {
+  var sec = document.getElementById('day'); if (!sec) return;
+  var btns = sec.querySelectorAll('.light-ctl button'), imgs = sec.querySelectorAll('.light-img'), notes = sec.querySelectorAll('.light-note');
+  function setLight(k) {
+    sec.setAttribute('data-light', k);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-light') === k)); });
+    imgs.forEach(function (im) { im.classList.toggle('on', im.getAttribute('data-light') === k); });
+    notes.forEach(function (n) { n.hidden = n.getAttribute('data-light') !== k; });
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { setLight(b.getAttribute('data-light')); }); });
+  window.__setLight = setLight;
+})();

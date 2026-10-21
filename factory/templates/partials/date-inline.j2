@@ -1,0 +1,20 @@
+<div class="date-inline form-wrap" id="check">
+  <form id="date-form" class="date-row" novalidate aria-label="{{ copy.date_title }}">
+    <div class="field">
+      <label for="f-date">Event date</label>
+      <input id="f-date" name="date" type="date" required autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="f-guests">Guests</label>
+      <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" max="{{ v.tagline_facts.max_guests }}" placeholder="120" required>
+    </div>
+    <div class="field">
+      <label for="f-contact">Email or mobile</label>
+      <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+    </div>
+    <button class="btn btn-accent" type="submit">{{ copy.date_cta }}</button>
+    <p class="fine err date-err" id="date-error" role="alert" hidden></p>
+  </form>
+  <p class="fine hide-done date-fine">{{ copy.date_fine }}</p>
+  {% include 'partials/date-confirm.j2' %}
+</div>

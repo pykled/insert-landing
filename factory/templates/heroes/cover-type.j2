@@ -1,0 +1,21 @@
+<section class="hero hero-cover" aria-labelledby="hero-title">
+  <div class="container">
+    <p class="cover-kicker">{{ copy.hero_kicker }} · {{ v.tagline_facts.uses|join(', ') }}</p>
+    <h1 id="hero-title" class="cover-h1">{{ copy.hero_headline }}</h1>
+    <div class="cover-grid">
+      <div class="cover-ledger">
+        <p class="lede">{{ copy.hero_lede }}</p>
+        <dl class="ledger" aria-label="At a glance">
+          {% for n in v.numbers %}<div><dt>{{ n.label }}</dt><dd>{{ n.value }}</dd></div>{% endfor %}
+          <div><dt>Rental</dt><dd>{{ v.day.rental_hours }} hours</dd></div>
+          <div><dt>Hours</dt><dd>{{ v.day.gates_open }} – {{ v.day.event_end }}</dd></div>
+        </dl>
+        {% include 'partials/date-inline.j2' %}
+      </div>
+      <figure class="cover-fig">
+        <div class="ph cover-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+        <figcaption>{{ photos[lead].caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

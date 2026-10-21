@@ -1,0 +1,11 @@
+<section class="uses" aria-label="Filming and private events" id="uses">
+  <div class="container">
+    <div class="uses-band {{ 'band-ink' if uses_band == 'ink' else 'band-deep' }} reveal">
+      <div>
+        <h2>{{ v.tagline_facts.uses[1:]|join(' and ')|capitalize }}.</h2>
+        <p>{{ v.tagline_facts.space_count }} distinct looks on one private property: {{ looks_sentence }}. Tell us about the shoot or the celebration and we'll come back with dates.</p>
+      </div>
+      <a class="btn btn-light" href="mailto:{{ v.contact.email }}?subject=Filming%20or%20private%20event">Email about a shoot or event</a>
+    </div>
+  </div>
+</section>

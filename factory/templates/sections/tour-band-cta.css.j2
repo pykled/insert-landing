@@ -1,0 +1,8 @@
+  .tband-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; }
+  .tband-head h2 { font-size: clamp(30px, 3.6vw, 52px); }
+  .tband-head p { margin-top: 10px; max-width: 56ch; font-size: 17px; }
+  .tour-panel { max-width: 680px; margin-top: 36px; }
+  .tour-panel .scheduler { color: var(--ink); }
+  .tour-panel .scheduler p, .tour-panel .scheduler h3 { color: var(--ink); }
+  .tour-panel .scheduler .picked, .tour-panel .scheduler .slots-title, .tour-panel .confirm p { color: var(--ink-soft); }
+  @media (max-width: 860px) { .tband-head { grid-template-columns: 1fr; } }

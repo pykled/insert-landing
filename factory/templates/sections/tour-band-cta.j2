@@ -1,0 +1,14 @@
+<section id="tour" class="tour-band band-ink" aria-labelledby="tour-title">
+  <div class="container">
+    <div class="tband-head">
+      <div>
+        <h2 id="tour-title">{{ copy.tour_title }}</h2>
+        <p>{{ copy.tour_lede }}</p>
+      </div>
+      <button class="btn btn-light" type="button" id="tour-open" aria-expanded="false" aria-controls="tour-panel">Pick a time</button>
+    </div>
+    <div id="tour-panel" class="tour-panel" hidden>
+      {% include 'partials/scheduler.j2' %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if v.preview.private %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<title>{{ v.name }} — {{ seo.title_tail }}{% if v.preview.private %} (Concept {{ build.variant|upper }}){% endif %}</title>
+<meta name="description" content="{{ v.preview.meta_description if v.preview.private else seo.description }}">
+<meta name="generator" content="Insert venue site factory {{ build.version }} · variant {{ build.variant }} · {{ build.fingerprint_short }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?{{ pair.import }}&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="{{ photos[lead].src }}" imagesrcset="{{ photos[lead].srcset }}" imagesizes="{{ hero_sizes }}">
+<style>
+{% include 'css/base.css.j2' %}
+{% include 'heroes/' ~ ch.hero ~ '.css.j2' %}
+{% for s in sections %}{% include s.template ~ '.css.j2' ignore missing %}
+{% endfor %}
+{% include 'css/responsive.css.j2' %}
+</style>
+<script type="application/ld+json">{{ jsonld|safe }}</script>
+</head>
+<body data-variant="{{ build.variant }}" data-hero="{{ ch.hero }}" data-moment="{{ ch.moment }}">
+<a class="skip" href="#main">Skip to content</a>
+{% include 'partials/nav-' ~ nav_style ~ '.j2' %}
+<main id="main">
+{% include 'heroes/' ~ ch.hero ~ '.j2' %}
+{% for s in sections %}
+{% include s.template ~ '.j2' %}
+{% endfor %}
+</main>
+{% include 'partials/footer.j2' %}
+<script>
+{% include 'partials/app.js.j2' %}
+{% include 'moments/' ~ ch.moment ~ '.js.j2' ignore missing %}
+</script>
+</body>
+</html>

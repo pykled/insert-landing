@@ -1,0 +1,30 @@
+<section id="fit" class="fit" aria-labelledby="fit-title">
+  <div class="container">
+    <div class="fit-grid">
+      <div class="fit-ctl">
+        <h2 id="fit-title">How many are coming?</h2>
+        <p class="lede">Move the slider. Spaces that hold your number stay on; the rest step back.</p>
+        <div class="fit-slider">
+          <label for="fit-range" class="sr-only">Guest count</label>
+          <output for="fit-range" id="fit-out"><b id="fit-n">120</b> guests</output>
+          <input type="range" id="fit-range" min="10" max="{{ v.tagline_facts.max_guests }}" step="5" value="120" aria-valuemin="10" aria-valuemax="{{ v.tagline_facts.max_guests }}" aria-valuenow="120">
+          <div class="fit-scale" aria-hidden="true"><span>10</span><span>{{ v.tagline_facts.max_guests }}</span></div>
+        </div>
+        <p class="fit-summary" id="fit-summary" aria-live="polite"></p>
+        <p class="fine">{{ v.day.spaces_per_event }}. The venue hosts up to {{ v.tagline_facts.max_guests }} guests and one event a day.</p>
+      </div>
+      <ul class="fit-list" id="fit-list">
+        {% for s in v.spaces %}
+        <li class="fit-row" data-cap="{{ s.capacity if s.capacity is not none else '' }}" data-cer="{{ s.capacity_ceremony if s.capacity_ceremony is defined else '' }}" data-name="{{ s.name }}" data-kind="{{ s.capacity_kind or '' }}" id="fit-{{ s.id }}">
+          <div class="ph fit-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 96px, 72px" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div>
+          <div class="fit-body">
+            <h3>{{ s.name }}</h3>
+            <p>{{ s.use }}</p>
+          </div>
+          <div class="fit-cap"><b>{{ s.capacity_label }}</b><span class="fit-tag" data-tag></span></div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
