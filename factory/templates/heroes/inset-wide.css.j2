@@ -8,7 +8,7 @@
   .iwide-below { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr); gap: clamp(28px, 5vw, 96px); align-items: start; padding: clamp(32px, 4vw, 56px) 0 clamp(32px, 4vw, 56px); border-top: 1px solid var(--line); margin-top: clamp(20px, 2.5vw, 32px); }
 {% with sel='.hero-inset-wide h1', vw=3.8, maxpx=56, caps_vw=2.4 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
   .hero-inset-wide h1 { max-width: 20ch; }
-  @media (max-width: 600px) { .hero-inset-wide h1 { font-size: clamp({{ [pair.display.min_px, 32]|max }}px, 9vw, 48px); } }
+  @media (max-width: 600px) { .hero-inset-wide h1 { --h1-size: clamp({{ [pair.display.min_px, 32]|max }}px, 9vw, 48px); font-size: var(--h1-size); } }
   .iwide-lede { font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-soft); max-width: 40ch; margin-bottom: 18px; }
   .iwide-aside .hero-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
   .iwide-aside .hero-facts li { padding: 12px 0; border-bottom: 1px solid var(--line); }

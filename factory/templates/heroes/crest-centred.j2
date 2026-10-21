@@ -3,12 +3,12 @@
 <section class="hero hero-crest" data-hero="crest-centred" data-hero-framing="{{ dialect.hero_framing if dialect else 'crest' }}" aria-labelledby="hero-title">
   <div class="crest-stage">
     <div class="crest-media">
-      <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+      <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(max-width: 860px) 180vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
     </div>
     <div class="container crest-copy">
       <div class="crest-mark hero-anim">{% include 'heroes/_ornament-slot.j2' %}</div>
-      <h1 id="hero-title" class="crest-name hero-anim">{{ v.short_name }}</h1>
-      <p class="crest-sub hero-anim">{{ copy.hero_headline }}</p>
+      <p class="crest-name hero-anim">{{ v.short_name }}</p>
+      <h1 id="hero-title" class="crest-sub hero-anim">{{ copy.hero_headline }}</h1>
       <p class="crest-loc hero-anim">{{ copy.hero_kicker }}</p>
       <div class="crest-actions hero-anim">
         <a class="btn crest-btn" href="#tour">{{ copy.tour_cta }}</a>

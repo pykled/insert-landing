@@ -6,7 +6,7 @@
 {% set sec = pair.secondary if ((pair.display.caps_only or pair.display.wordmark_only) and pair.secondary) else None %}
 {% set caps = (dialect and t.display_case == 'caps') or (pair.display.caps_only and not sec) %}
 {% if caps %}
-  {{ sel }} { font-family: var(--display); font-weight: var(--display-weight); text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.2; font-size: clamp({{ [pair.display.min_px, 22]|max }}px, {{ caps_vw|default(2.6) }}vw, 40px); text-wrap: balance; }
+  {{ sel }} { font-family: var(--display); font-weight: var(--display-weight); text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.2; --h1-size: clamp({{ [pair.display.min_px, 26]|max }}px, {{ caps_vw|default(2.6) }}vw, {{ [pair.display.max_px|default(40), 40]|min }}px); font-size: clamp({{ [pair.display.min_px, 26]|max }}px, {{ caps_vw|default(2.6) }}vw, {{ [pair.display.max_px|default(40), 40]|min }}px); text-wrap: balance; }
   {{ sel }} em { font-style: normal; font-weight: var(--display-weight); }
 {% else %}
   {% set fam = ("'" ~ sec.family ~ "', " ~ sec.fallback) if sec else 'var(--display)' %}
@@ -16,6 +16,6 @@
   {{ sel }} { font-family: {{ fam|safe }}; font-weight: {{ w }}; letter-spacing: {{ sec.tracking if sec else 'var(--display-track)' }}; line-height: {{ sec.line_height if sec else 'var(--display-lh)' }}; text-transform: none; font-size: clamp({{ mn }}px, {{ vw|default(5.4) }}vw, {{ maxpx|default(80) }}px); {% if sec %}font-variation-settings: normal; font-optical-sizing: auto;{% endif %} }
   {% if sec %}{{ sel }} em { font-weight: {{ sec.italic_weight }}; }{% endif %}
   @media (max-width: 600px) {
-    {{ sel }} { font-size: clamp({{ 48 if thin else mn }}px, 10.5vw, 60px); }
+    {{ sel }} { --h1-size: clamp({{ 48 if thin else mn }}px, 10.5vw, 60px); font-size: var(--h1-size); }
   }
 {% endif %}

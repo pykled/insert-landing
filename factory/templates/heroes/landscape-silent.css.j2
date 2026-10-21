@@ -1,19 +1,23 @@
-  /* hero: landscape-silent (modern-luxe, ranch): the land first, then the sentence */
+  /* hero: landscape-silent (modern-luxe, ranch): the land first, a ruled line of facts, then the sentence */
 {% include 'heroes/_shared.css.j2' %}
   .hero-landscape-silent { padding: 0; }
-  .lsil-media { margin: 0; height: min(calc(100svh - 70px), 760px); min-height: 440px; overflow: hidden; background: var(--paper-3); position: relative; }
+  .lsil-media { margin: 0; height: min(calc(100svh - 190px), 720px); min-height: 420px; overflow: hidden; background: var(--paper-3); position: relative; }
   .lsil-media img { width: 100%; height: 100%; object-fit: cover; }
 {% if t.photo_edge == 'keyline' or t.image_edge == 'keyline' %}
   .lsil-media::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
 {% endif %}
-  .lsil-below { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); gap: clamp(28px, 5vw, 96px); align-items: end; padding-top: clamp(28px, 3.5vw, 48px); padding-bottom: clamp(28px, 3.5vw, 48px); }
-  .lsil-kicker { font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: {{ pair.body.medium }}; margin-bottom: 16px; }
+  .lsil-strip { border-bottom: 1px solid var(--line); }
+  .lsil-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+  .lsil-kicker { font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: {{ pair.body.medium }}; }
+  .lsil-strip .hero-facts { gap: 8px 24px; }
+  .lsil-strip .hero-facts b { font-size: 22px; }
+  .lsil-below { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); gap: clamp(28px, 5vw, 96px); align-items: end; padding-top: clamp(32px, 4vw, 56px); padding-bottom: clamp(32px, 4vw, 56px); }
 {% with sel='.hero-landscape-silent h1', vw=5.2, maxpx=76, caps_vw=2.6 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
   .hero-landscape-silent h1 { max-width: 16ch; }
-  .lsil-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 40ch; margin-bottom: 18px; }
-  .lsil-aside .hero-facts { padding-top: 16px; border-top: 1px solid var(--line); }
+  .lsil-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 40ch; }
   .lsil-datefine { font-size: 17px; color: var(--ink-soft); }
   @media (max-width: 860px) {
-    .lsil-media { height: min(68svh, 520px); min-height: 320px; }
-    .lsil-below { grid-template-columns: 1fr; gap: 22px; align-items: start; }
+    .lsil-media { height: min(64svh, 500px); min-height: 320px; }
+    .lsil-strip-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .lsil-below { grid-template-columns: 1fr; gap: 18px; align-items: start; }
   }

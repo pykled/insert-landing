@@ -1,24 +1,24 @@
-  /* hero: cinematic (ported from the Stonehurst mock; scrim capped at 35% black per stop, zoom removed) */
+  /* hero: cinematic (ported from the Stonehurst mock). Desktop: copy on the photo over two soft gradients, every stop
+     <= 35% black (25% in candlelit, spec 2.3); the 9 s zoom and the 92% mobile scrim of the mock are gone. Mobile: the
+     photo stands alone and the copy + card sit on paper under it, so nothing needs a heavy scrim at 390 px. */
 {% include 'heroes/_shared.css.j2' %}
-{% set night_lead = (v.photos['items'][lead].light|default('')) == 'night' %}
-{% set no_scrim = dialect and dialect.id == 'candlelit' and night_lead %}
+{% set cap = 0.25 if (dialect and dialect.id == 'candlelit') else 0.35 %}
+{% set mid = (cap * 0.6)|round(2) %}
   .hero-cinematic { padding: 0; color: var(--on-photo, #fff); }
   .cine-stage { position: relative; min-height: min(92vh, 860px); display: grid; align-items: end; isolation: isolate; }
-  .cine-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--deep); }
+  .cine-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: transparent; }
   .cine-media img { width: 100%; height: 100%; object-fit: cover; }
-{% if not no_scrim %}
   .cine-stage::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background:
-    linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.22) 40%, rgba(0,0,0,0.04) 72%, rgba(0,0,0,0) 100%),
-    linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.35) 62%, rgba(0,0,0,0.35) 100%); }
-{% endif %}
+    linear-gradient(90deg, rgba(0,0,0,{{ cap }}) 0%, rgba(0,0,0,{{ mid }}) 38%, rgba(0,0,0,0.04) 68%, rgba(0,0,0,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,{{ cap }}) 58%, rgba(0,0,0,{{ cap }}) 100%); }
   .cine-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 440px); gap: clamp(28px, 5vw, 80px); align-items: end; padding-top: 110px; padding-bottom: clamp(40px, 6vw, 72px); width: 100%; }
-  .cine-kicker { color: var(--on-photo, #fff); }
+  .cine-kicker { color: var(--on-photo, #fff); font-size: 13.5px; }
   .cine-kicker::before { background: var(--on-photo, #fff); }
 {% with sel='.hero-cinematic h1', vw=6.4, maxpx=88 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
-  .hero-cinematic h1 { color: var(--on-photo, #fff); margin-bottom: 20px; max-width: 16ch; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+  .hero-cinematic h1 { color: var(--on-photo, #fff); margin-bottom: 20px; max-width: 16ch; }
   .hero-cinematic h1 em { color: var(--on-photo, #fff); opacity: .92; }
-  .cine-lede { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; color: var(--on-photo, #fff); max-width: 50ch; text-shadow: 0 1px 12px rgba(0,0,0,.3); }
-  .cine-meta { display: flex; gap: 10px 28px; flex-wrap: wrap; margin-top: 30px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-photo, #fff); font-weight: {{ pair.body.medium }}; }
+  .cine-lede { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; color: var(--on-photo, #fff); max-width: 46ch; }
+  .cine-meta { display: flex; gap: 10px 28px; flex-wrap: wrap; margin-top: 30px; font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-photo, #fff); font-weight: {{ pair.body.medium }}; }
   .cine-meta b { font-weight: {{ pair.body.medium }}; }
   .cine-meta span::before { content: "·"; margin-right: 12px; opacity: .8; }
   .cine-meta span:first-child::before { content: none; }
@@ -32,14 +32,17 @@
     .cine-inner { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); }
   }
   @media (max-width: 860px) {
-    .cine-stage { min-height: 0; }
-{% if not no_scrim %}
-    .cine-stage::after { background: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.20) 18%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.35) 100%); }
-{% endif %}
-    .cine-inner { grid-template-columns: 1fr; padding-top: 150px; gap: 28px; }
-    .cine-meta { gap: 8px 18px; margin-top: 24px; font-size: 12.5px; }
+    .hero-cinematic { color: var(--ink); }
+    .cine-stage { display: block; min-height: 0; }
+    .cine-stage::after { display: none; }
+    .cine-media { position: relative; inset: auto; z-index: 0; height: min(66svh, 520px); min-height: 300px; }
+    .cine-inner { grid-template-columns: 1fr; padding-top: 28px; padding-bottom: 36px; gap: 26px; }
+    .cine-kicker { color: var(--accent-text); } .cine-kicker::before { background: var(--accent-text); }
+    .hero-cinematic h1, .hero-cinematic h1 em { color: var(--ink); opacity: 1; }
+    .cine-lede { color: var(--ink-soft); }
+    .cine-meta { color: var(--ink-soft); gap: 8px 18px; margin-top: 22px; font-size: 12.5px; }
+    .cine-meta b { color: var(--ink); }
     .cine-meta span::before { content: none; margin: 0; }
-    .cine-side .card { margin-left: calc(-1 * var(--gutter) + 12px); margin-right: calc(-1 * var(--gutter) + 12px); }
   }
   @media (prefers-reduced-motion: reduce) {
     .cine-copy .hero-anim, .cine-side.hero-anim { animation: none; opacity: 1; transform: none; }

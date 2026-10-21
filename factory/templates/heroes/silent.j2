@@ -2,7 +2,7 @@
    outlined Inquire; the date band follows (4.3). Needs lead >= 2400 px with subject = building (the builder checks). #}
 <section class="hero hero-silent" data-hero="silent" data-hero-framing="{{ dialect.hero_framing if dialect else 'silent' }}" aria-labelledby="hero-title">
   <div class="silent-media">
-    <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+    <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(max-width: 860px) 180vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
   </div>
   <div class="silent-foot">
     <div class="container silent-bar">
