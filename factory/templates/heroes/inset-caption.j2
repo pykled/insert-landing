@@ -1,0 +1,26 @@
+{# inset-caption (editorial, coastal): inset 16:9 photo with 48-80 px margins; small-caps kicker and the headline on paper
+   below the photo, bottom-left; lede + facts right; date band under it (4.3). Nothing sits on the photo. #}
+<section class="hero hero-inset-caption" data-hero="inset-caption" data-hero-framing="{{ dialect.hero_framing if dialect else 'inset' }}" aria-labelledby="hero-title">
+  <div class="icap-wrap">
+    <figure class="icap-fig">
+      <div class="ph icap-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1400px) calc(100vw - 160px), (min-width: 861px) calc(100vw - 11vw), calc(100vw - 48px)" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <figcaption>{{ photos[lead].caption }}</figcaption>
+    </figure>
+    <div class="icap-below">
+      <div class="icap-head">
+        <p class="icap-kicker">{{ copy.hero_kicker }}</p>
+        <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+      </div>
+      <div class="icap-aside">
+        <p class="icap-lede">{{ copy.hero_lede }}</p>
+        {% include 'heroes/_facts.j2' %}
+      </div>
+    </div>
+  </div>
+  <div class="hero-dateband">
+    <div class="container">
+      <p class="icap-datefine">{{ copy.date_sub or copy.date_title }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+  </div>
+</section>

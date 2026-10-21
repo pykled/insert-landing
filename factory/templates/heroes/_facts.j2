@@ -1,0 +1,8 @@
+{# Shared by the 2B heroes: the content facts the baseline wants in the first screen (E19). Values come from `v` only;
+   each number is wrapped in data-fact so qa.py can count it. Null facts are omitted. #}
+<ul class="hero-facts" aria-label="At a glance">
+  {% if v.vibe and v.vibe.era %}<li><b data-fact="year">{{ v.vibe.era }}</b><span>Built</span></li>{% endif %}
+  {% if v.tagline_facts.acres %}<li><b data-fact="acres">{{ v.tagline_facts.acres }}</b><span>Acres</span></li>{% endif %}
+  {% if v.tagline_facts.max_guests %}<li><b data-fact="guests">{{ v.tagline_facts.max_guests }}</b><span>Guests at most</span></li>{% endif %}
+  {% if v.tagline_facts.space_count %}<li><b data-fact="spaces">{{ v.tagline_facts.space_count }}</b><span>Spaces</span></li>{% endif %}
+</ul>

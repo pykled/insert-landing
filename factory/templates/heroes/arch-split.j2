@@ -1,0 +1,17 @@
+{# arch-split (botanical): 50/50; the photo in an arch mask left, copy + facts + the date card right on paper. The
+   watercolour wash behind the copy renders only when the site's ornament is watercolour-wash (one device per page). #}
+<section class="hero hero-arch-split" data-hero="arch-split" data-hero-framing="{{ dialect.hero_framing if dialect else 'split' }}" aria-labelledby="hero-title">
+  <div class="container arch-grid">
+    <figure class="arch-fig">
+      <div class="ph arch-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1140px) 520px, (min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <figcaption>{{ photos[lead].caption }}</figcaption>
+    </figure>
+    <div class="arch-copy">
+      <p class="kicker arch-kicker">{{ copy.hero_kicker }}</p>
+      <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+      <p class="arch-lede">{{ copy.hero_lede }}</p>
+      {% include 'heroes/_facts.j2' %}
+      {% include 'partials/date-card.j2' %}
+    </div>
+  </div>
+</section>

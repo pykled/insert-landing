@@ -1,0 +1,21 @@
+{#- Headline rule for the 2B heroes. Include with `sel` (selector) and optional `vw`, `maxpx`, `caps_vw`:
+    - display_case caps (or a caps-only pairing with no secondary): tracked caps 22-40 px (spec 3.4, E5 <= 60 chars).
+    - otherwise sentence case in the display face, or the pairing's secondary face when the primary is caps-/wordmark-only;
+      never below pair.display.min_px (contract 3.2); thin 400-weight faces with min_px >= 36 get a 48 px floor on mobile
+      so the 1x hairline probe passes. -#}
+{% set sec = pair.secondary if ((pair.display.caps_only or pair.display.wordmark_only) and pair.secondary) else None %}
+{% set caps = (dialect and t.display_case == 'caps') or (pair.display.caps_only and not sec) %}
+{% if caps %}
+  {{ sel }} { font-family: var(--display); font-weight: var(--display-weight); text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.2; font-size: clamp({{ [pair.display.min_px, 22]|max }}px, {{ caps_vw|default(2.6) }}vw, 40px); text-wrap: balance; }
+  {{ sel }} em { font-style: normal; font-weight: var(--display-weight); }
+{% else %}
+  {% set fam = ("'" ~ sec.family ~ "', " ~ sec.fallback) if sec else 'var(--display)' %}
+  {% set w = sec.weight if sec else pair.display.weight %}
+  {% set mn = [(sec.min_px if sec else pair.display.min_px), 40]|max %}
+  {% set thin = (w <= 400) and (mn >= 36) %}
+  {{ sel }} { font-family: {{ fam|safe }}; font-weight: {{ w }}; letter-spacing: {{ sec.tracking if sec else 'var(--display-track)' }}; line-height: {{ sec.line_height if sec else 'var(--display-lh)' }}; text-transform: none; font-size: clamp({{ mn }}px, {{ vw|default(5.4) }}vw, {{ maxpx|default(80) }}px); {% if sec %}font-variation-settings: normal; font-optical-sizing: auto;{% endif %} }
+  {% if sec %}{{ sel }} em { font-weight: {{ sec.italic_weight }}; }{% endif %}
+  @media (max-width: 600px) {
+    {{ sel }} { font-size: clamp({{ 48 if thin else mn }}px, 10.5vw, 60px); }
+  }
+{% endif %}

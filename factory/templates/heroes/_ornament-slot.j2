@@ -1,0 +1,3 @@
+{# The hero slot of the site's ornament (contract 1.4). Heroes include this where the device belongs (crest above the
+   name, double-line frame around the panel copy). base.html.j2 must not also render slot='hero'. #}
+{% if ornament and ornament != 'none' %}{% with slot='hero' %}{% include 'ornaments/' ~ ornament ~ '.j2' ignore missing %}{% endwith %}{% endif %}

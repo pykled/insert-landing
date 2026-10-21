@@ -1,0 +1,26 @@
+{# panel (candlelit): 50/50 photo + deep panel carrying the ornament's hero slot (double-line frame), kicker, headline,
+   two buttons and the date form (contract 1.1: form in the panel). Panel colours come from the deep tokens. #}
+<section class="hero hero-panel" data-hero="panel" data-hero-framing="{{ dialect.hero_framing if dialect else 'split' }}" aria-labelledby="hero-title">
+  <div class="panel-grid">
+    <figure class="panel-fig">
+      <div class="ph panel-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 861px) 50vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+    </figure>
+    <div class="panel-copy band-deep">
+      {% include 'heroes/_ornament-slot.j2' %}
+      <div class="panel-inner">
+        <p class="kicker panel-kicker">{{ copy.hero_kicker }}</p>
+        <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+        <p class="panel-lede">{{ copy.hero_lede }}</p>
+        {% include 'heroes/_facts.j2' %}
+        <div class="panel-actions">
+          <a class="btn panel-btn" href="#tour">{{ copy.tour_cta }}</a>
+          <a class="btn panel-btn" href="#guide">{{ copy.guide_cta }}</a>
+        </div>
+        <div class="panel-form">
+          <p class="panel-form-title">{{ copy.date_title }}</p>
+          {% include 'partials/date-inline.j2' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

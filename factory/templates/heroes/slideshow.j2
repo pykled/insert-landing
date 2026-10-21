@@ -1,0 +1,64 @@
+{# slideshow (coastal, modern-luxe): three equal landscape photos that cross-fade on the user's click only
+   (data-autoplay="off"; nothing advances by itself; static under reduced motion). The counter "1 — 3", the arrows
+   and the caption sit on paper under the photo, so no text sits on the photo and no scrim is needed. The hero does not
+   expose window.__slideTo / [data-counter]: those belong to the slideshow-counter moment (contract 1.3). #}
+{% set ns = namespace(slides=[lead]) %}
+{% for n, ph in photos.items() if n != lead and ph.width > ph.height and ns.slides|length < 3 %}{% set ns.slides = ns.slides + [n] %}{% endfor %}
+{% for n, ph in photos.items() if n != lead and n not in ns.slides and ns.slides|length < 3 %}{% set ns.slides = ns.slides + [n] %}{% endfor %}
+{% set slides = ns.slides %}
+<section class="hero hero-slideshow" data-hero="slideshow" data-hero-framing="{{ dialect.hero_framing if dialect else 'bleed' }}" aria-labelledby="hero-title">
+  <div class="show-stage" id="hero-show" data-autoplay="off" data-slide-count="{{ slides|length }}" data-slide-index="0" aria-roledescription="slideshow" aria-label="{{ v.name }} in {{ slides|length }} photographs">
+    {% for n in slides %}
+    <figure class="show-slide" data-slide="{{ loop.index0 }}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+      <img src="{{ photos[n].src }}" srcset="{{ photos[n].srcset }}" sizes="100vw" width="{{ photos[n].width }}" height="{{ photos[n].height }}" alt="{{ photos[n].alt }}" style="object-position: {{ photos[n].focal }}" {% if loop.first %}fetchpriority="high"{% endif %} decoding="async">
+    </figure>
+    {% endfor %}
+  </div>
+  <div class="show-bar">
+    <div class="container show-bar-inner">
+      <p class="show-caption" data-slide-caption aria-live="polite">{{ photos[slides[0]].caption }}</p>
+      <div class="show-controls" role="group" aria-label="Photographs">
+        <button class="show-btn" type="button" data-slide-prev aria-label="Previous photograph"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="show-counter" data-slide-counter aria-live="polite"><span data-slide-current>1</span><span class="show-dash" aria-hidden="true">—</span><span>{{ slides|length }}</span></span>
+        <button class="show-btn" type="button" data-slide-next aria-label="Next photograph"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="container show-below">
+    <div class="show-head">
+      <p class="show-kicker">{{ copy.hero_kicker }}</p>
+      <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+    </div>
+    <div class="show-aside">
+      <p class="show-lede">{{ copy.hero_lede }}</p>
+      {% include 'heroes/_facts.j2' %}
+    </div>
+  </div>
+  <div class="hero-dateband">
+    <div class="container">
+      <p class="show-datefine">{{ copy.date_title }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+  </div>
+  <script>
+  (function () {
+    var stage = document.getElementById('hero-show'); if (!stage) return;
+    var slides = stage.querySelectorAll('.show-slide');
+    var i = 0, n = slides.length;
+    var capEl = stage.parentNode.querySelector('[data-slide-caption]'), cur = stage.parentNode.querySelector('[data-slide-current]');
+    var texts = [{% for s in slides %}{{ photos[s].caption|tojson }}{% if not loop.last %}, {% endif %}{% endfor %}];
+    function go(k) {
+      i = (k + n) % n;
+      slides.forEach(function (s, j) { s.classList.toggle('is-on', j === i); if (j === i) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true'); });
+      stage.setAttribute('data-slide-index', String(i));
+      if (cur) cur.textContent = String(i + 1);
+      if (capEl) capEl.textContent = texts[i] || '';
+    }
+    slides[0].classList.add('is-on');
+    var prev = stage.parentNode.querySelector('[data-slide-prev]'), next = stage.parentNode.querySelector('[data-slide-next]');
+    if (prev) prev.addEventListener('click', function () { go(i - 1); });
+    if (next) next.addEventListener('click', function () { go(i + 1); });
+    stage.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(i - 1); if (e.key === 'ArrowRight') go(i + 1); });
+  })();
+  </script>
+</section>

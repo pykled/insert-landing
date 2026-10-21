@@ -1,0 +1,24 @@
+{# cinematic: port of previews/stonehurst/index.html. Full-bleed lead photo, copy bottom-left, date card right.
+   Scrim: two soft gradients, every stop <= 35% black (E9); none when the dialect is candlelit and the lead is a night photo. #}
+<section class="hero hero-cinematic" data-hero="cinematic" data-hero-framing="{{ dialect.hero_framing if dialect else 'bleed' }}" aria-labelledby="hero-title">
+  <div class="cine-stage">
+    <div class="cine-media" aria-hidden="false">
+      <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+    </div>
+    <div class="container cine-inner">
+      <div class="cine-copy">
+        <p class="kicker cine-kicker hero-anim">{{ copy.hero_kicker }}</p>
+        <h1 id="hero-title" class="hero-anim">{{ copy.hero_headline }}</h1>
+        <p class="cine-lede hero-anim">{{ copy.hero_lede }}</p>
+        <div class="cine-meta hero-anim">
+          {% for u in v.tagline_facts.uses %}<span>{{ u }}</span>{% endfor %}
+          {% if v.tagline_facts.max_guests %}<span>Up to <b data-fact="guests">{{ v.tagline_facts.max_guests }}</b> guests</span>{% endif %}
+          {% if v.tagline_facts.acres %}<span><b data-fact="acres">{{ v.tagline_facts.acres }}</b> acres</span>{% endif %}
+        </div>
+      </div>
+      <div class="cine-side hero-anim">
+        {% include 'partials/date-card.j2' %}
+      </div>
+    </div>
+  </div>
+</section>

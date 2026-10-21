@@ -1,0 +1,26 @@
+  /* hero: arch-split (botanical): the glasshouse arch */
+{% include 'heroes/_shared.css.j2' %}
+  .hero-arch-split { padding: clamp(28px, 4vw, 56px) 0 clamp(36px, 5vw, 72px); position: relative; }
+{% if ornament == 'watercolour-wash' %}
+  /* the wash: accent at 8% alpha, radial, behind the copy only (E11 allows exactly this in botanical) */
+  .arch-copy::before { content: ""; position: absolute; inset: -40px -60px -40px -80px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 35% 30%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, color-mix(in srgb, var(--accent) 3%, transparent) 45%, transparent 72%); }
+{% endif %}
+  .arch-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .arch-fig { margin: 0; max-width: 520px; width: 100%; justify-self: end; }
+  .arch-ph { aspect-ratio: 4 / 5; border-radius: 999px 999px 0 0; }
+  .arch-ph img { aspect-ratio: 4 / 5; }
+  .arch-ph::after { border-radius: 999px 999px 0 0; }
+  .arch-fig figcaption { text-align: center; margin-top: 14px; font-family: var(--display); font-style: italic; font-weight: {{ pair.display.italic_weight }}; font-size: 16.5px; color: var(--ink-soft); {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .arch-copy { position: relative; z-index: 0; max-width: 560px; }
+{% with sel='.hero-arch-split h1', vw=4.6, maxpx=68 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
+  .hero-arch-split h1 { max-width: 16ch; }
+  .arch-lede { margin-top: 18px; font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 44ch; }
+  .hero-arch-split .hero-facts { margin: 22px 0 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .hero-arch-split .card { max-width: 480px; }
+  @media (max-width: 860px) {
+    .arch-grid { grid-template-columns: 1fr; gap: 28px; }
+    .arch-fig { justify-self: center; max-width: min(100%, 420px); }
+    .arch-ph, .arch-ph img { aspect-ratio: 4 / 5; }
+    .arch-copy { max-width: none; }
+    .hero-arch-split .card { max-width: none; }
+  }

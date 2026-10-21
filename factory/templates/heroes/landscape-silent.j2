@@ -1,0 +1,23 @@
+{# landscape-silent (modern-luxe, ranch): a full-height photo of the land with nothing on it; the headline arrives directly
+   below on paper with the lede and facts; date band (4.3). Needs lead >= 2400 px, subject place/grounds/building. #}
+<section class="hero hero-landscape-silent" data-hero="landscape-silent" data-hero-framing="{{ dialect.hero_framing if dialect else 'silent' }}" aria-labelledby="hero-title">
+  <figure class="lsil-media">
+    <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+  </figure>
+  <div class="container lsil-below">
+    <div class="lsil-head">
+      <p class="lsil-kicker">{{ copy.hero_kicker }}</p>
+      <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+    </div>
+    <div class="lsil-aside">
+      <p class="lsil-lede">{{ copy.hero_lede }}</p>
+      {% include 'heroes/_facts.j2' %}
+    </div>
+  </div>
+  <div class="hero-dateband">
+    <div class="container">
+      <p class="lsil-datefine">{{ copy.date_title }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+  </div>
+</section>

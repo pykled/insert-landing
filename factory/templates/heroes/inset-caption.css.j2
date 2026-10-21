@@ -1,0 +1,21 @@
+  /* hero: inset-caption (editorial, coastal): the margin is the frame */
+{% include 'heroes/_shared.css.j2' %}
+  .hero-inset-caption { padding: clamp(20px, 2.5vw, 36px) 0 0; }
+  .icap-wrap { padding: 0 clamp(24px, 5.5vw, 80px); max-width: 1600px; margin: 0 auto; }
+  .icap-ph { aspect-ratio: 16 / 9; max-height: 62vh; border-radius: 0; }
+  .icap-ph img { aspect-ratio: 16 / 9; max-height: 62vh; }
+  .icap-fig figcaption { margin-top: 12px; }
+  .icap-below { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); gap: clamp(28px, 5vw, 80px); align-items: end; padding: clamp(24px, 3vw, 44px) 0 clamp(28px, 3.5vw, 48px); }
+  .icap-kicker { font-variant: small-caps; letter-spacing: 0.14em; font-size: 15.5px; color: var(--accent-text); font-weight: {{ pair.body.medium }}; margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+{% if dialect and dialect.id == 'coastal' %}
+  .icap-kicker::before { content: ""; width: 48px; height: 1px; background: var(--accent-text); }
+{% endif %}
+{% with sel='.hero-inset-caption h1', vw=5.6, maxpx=84 %}{% include 'heroes/_h1.css.j2' %}{% endwith %}
+  .hero-inset-caption h1 { max-width: 15ch; }
+  .icap-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 42ch; margin-bottom: 18px; }
+  .icap-aside .hero-facts { padding-top: 16px; border-top: 1px solid var(--line); }
+  .icap-datefine { font-size: 17px; color: var(--ink-soft); }
+  @media (max-width: 860px) {
+    .icap-ph, .icap-ph img { aspect-ratio: 4 / 3; max-height: none; }
+    .icap-below { grid-template-columns: 1fr; gap: 22px; align-items: start; }
+  }

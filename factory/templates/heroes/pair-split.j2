@@ -1,0 +1,38 @@
+{# pair-split (deco): headline band on the paper, the date check as an inline row, then a b/w + colour photo pair at 4:5.
+   The b/w photo is one tagged mono: true in content; failing that, an architectural photo (building/interior/detail,
+   spec 2.8) rendered through the deco mono filter. The lead stays in colour. #}
+{% set ns = namespace(mono=None) %}
+{% for n, ph in photos.items() if ns.mono is none and n != lead and ph.mono %}{% set ns.mono = n %}{% endfor %}
+{% for n, ph in photos.items() if ns.mono is none and n != lead and ph.subject in ('building', 'interior', 'detail') %}{% set ns.mono = n %}{% endfor %}
+{% for n, ph in photos.items() if ns.mono is none and n != lead %}{% set ns.mono = n %}{% endfor %}
+{% set mono = ns.mono %}
+<section class="hero hero-pair-split" data-hero="pair-split" data-hero-framing="{{ dialect.hero_framing if dialect else 'split' }}" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="pair-head">
+      <div>
+        <p class="kicker pair-kicker">{{ copy.hero_kicker }}</p>
+        <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+      </div>
+      <div class="pair-aside">
+        <p class="pair-lede">{{ copy.hero_lede }}</p>
+        {% include 'heroes/_facts.j2' %}
+      </div>
+    </div>
+    <div class="pair-dates">
+      <p class="pair-dates-title">{{ copy.date_title }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+    <div class="pair-photos">
+      {% if mono %}
+      <figure class="pair-fig pair-mono">
+        <div class="ph pair-ph"><img src="{{ photos[mono].src }}" srcset="{{ photos[mono].srcset }}" sizes="(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw" width="{{ photos[mono].width }}" height="{{ photos[mono].height }}" alt="{{ photos[mono].alt }}" style="object-position: {{ photos[mono].focal }}" decoding="async"></div>
+        <figcaption><span class="pair-num">01</span>{{ photos[mono].caption }}</figcaption>
+      </figure>
+      {% endif %}
+      <figure class="pair-fig">
+        <div class="ph pair-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+        <figcaption><span class="pair-num">{{ '02' if mono else '01' }}</span>{{ photos[lead].caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

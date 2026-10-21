@@ -1,0 +1,23 @@
+{# inset-wide (modern-luxe): inset 2:1 panorama under the header; headline on paper beneath at 40-56 px, no kicker;
+   tracked-caps caption under the photo; lede + facts right; date band (4.3). #}
+<section class="hero hero-inset-wide" data-hero="inset-wide" data-hero-framing="{{ dialect.hero_framing if dialect else 'inset' }}" aria-labelledby="hero-title">
+  <div class="container">
+    <figure class="iwide-fig">
+      <div class="ph iwide-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1200px) 1120px, calc(100vw - 2 * var(--gutter))" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <figcaption class="iwide-cap"><span>{{ photos[lead].caption }}</span><span>{{ copy.hero_kicker }}</span></figcaption>
+    </figure>
+    <div class="iwide-below">
+      <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+      <div class="iwide-aside">
+        <p class="iwide-lede">{{ copy.hero_lede }}</p>
+        {% include 'heroes/_facts.j2' %}
+      </div>
+    </div>
+  </div>
+  <div class="hero-dateband">
+    <div class="container">
+      <p class="iwide-datefine">{{ copy.date_title }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+  </div>
+</section>

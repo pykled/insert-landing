@@ -1,0 +1,27 @@
+{# silent (candlelit): a full-height photo with nothing on it; a bar at the foot of the hero carries the headline and one
+   outlined Inquire; the date band follows (4.3). Needs lead >= 2400 px with subject = building (the builder checks). #}
+<section class="hero hero-silent" data-hero="silent" data-hero-framing="{{ dialect.hero_framing if dialect else 'silent' }}" aria-labelledby="hero-title">
+  <div class="silent-media">
+    <img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async">
+  </div>
+  <div class="silent-foot">
+    <div class="container silent-bar">
+      <div class="silent-text">
+        <h1 id="hero-title">{{ copy.hero_headline }}</h1>
+        <p class="silent-meta">
+          <span>{{ copy.hero_kicker }}</span>
+          {% if v.tagline_facts.max_guests %}<span>Up to <b data-fact="guests">{{ v.tagline_facts.max_guests }}</b> guests</span>{% endif %}
+          {% if v.tagline_facts.space_count %}<span><b data-fact="spaces">{{ v.tagline_facts.space_count }}</b> rooms</span>{% endif %}
+          {% if v.tagline_facts.acres %}<span><b data-fact="acres">{{ v.tagline_facts.acres }}</b> acres</span>{% endif %}
+        </p>
+      </div>
+      <a class="btn silent-inquire" href="#check">{{ copy.nav_cta }}</a>
+    </div>
+  </div>
+  <div class="hero-dateband">
+    <div class="container">
+      <p class="silent-lede">{{ copy.hero_lede }}</p>
+      {% include 'partials/date-inline.j2' %}
+    </div>
+  </div>
+</section>
