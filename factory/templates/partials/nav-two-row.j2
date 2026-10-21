@@ -1,10 +1,7 @@
 {#- nav `two-row` (modern-luxe, deco): wordmark row + hairlined sub-nav row. <= 8 links in the header (brand + at most
-    six section links + the CTA), no dropdowns (E14). The CSS rides inside the partial because base.html.j2 includes
-    only the nav .j2 (see STAGE-2B-NOTES-sections.md). -#}
+    six section links + the CTA), no dropdowns (E14). The CSS is included in <head> by base.html.j2
+    (partials/nav-<style>.css.j2, stage 2C). -#}
 {% set nav_items = (sections|selectattr('nav')|list)[:6] %}
-<style>
-{% include 'partials/nav-two-row.css.j2' %}
-</style>
 <header class="site nav-two-row" id="top">
   <div class="container nav nav-row1">
     <a class="brand" href="#top" aria-label="{{ v.name }}, home"><span class="brand-word">{{ v.short_name }}</span></a>

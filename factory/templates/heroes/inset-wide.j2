@@ -3,7 +3,7 @@
 <section class="hero hero-inset-wide" data-hero="inset-wide" data-hero-framing="{{ dialect.hero_framing if dialect else 'inset' }}" aria-labelledby="hero-title">
   <div class="container">
     <figure class="iwide-fig">
-      <div class="ph iwide-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1200px) 1120px, calc(100vw - 2 * var(--gutter))" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <div class="ph iwide-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1200px) 1120px, 92vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
       <figcaption class="iwide-cap"><span>{{ photos[lead].caption }}</span><span>{{ copy.hero_kicker }}</span></figcaption>
     </figure>
     <div class="iwide-below">

@@ -27,6 +27,20 @@ VERSION = '0.1'
 WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 12: 'twelve'}
 
 
+# Preload `imagesizes` per hero: must equal the lead <img sizes> in templates/heroes/<id>.j2, or Chrome preloads one
+# width and then fetches another. Dialect builds only; pre-dialect builds keep the original three-way rule (byte-identical).
+HERO_SIZES = {
+    'masthead': '100vw', 'frame': '(min-width: 1140px) 1040px, 92vw', 'cover-type': '(min-width: 861px) 46vw, 100vw',
+    'cinematic': '(max-width: 860px) 140vw, 100vw', 'crest-centred': '(max-width: 860px) 180vw, 100vw',
+    'silent': '(max-width: 860px) 180vw, 100vw', 'landscape-silent': '(max-width: 860px) 160vw, 100vw',
+    'slideshow': '(max-width: 860px) 160vw, 100vw', 'panel': '(min-width: 861px) 50vw, 100vw',
+    'inset-caption': '(min-width: 1400px) calc(100vw - 160px), (min-width: 861px) calc(100vw - 11vw), calc(100vw - 48px)',
+    'inset-wide': '(min-width: 1200px) 1120px, 92vw',
+    'arch-split': '(min-width: 1140px) 520px, (min-width: 861px) 46vw, 100vw',
+    'pair-split': '(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw',
+}
+
+
 def wordnum(n):
     try:
         return WORDS.get(int(n), str(n))
@@ -222,7 +236,7 @@ def main():
     ap.add_argument('--out', required=True)
     ap.add_argument('--personality', help='formality=..,scale=..,era=..,density=..,temperature=..,voice=.. (dialect builds: optional, defaults to the dialect centre, always clamped)')
     ap.add_argument('--dialect', default='auto', help='auto (score photos + vibe), a dialect id (human override), or none (pre-dialect build, no clamping)')
-    ap.add_argument('--force', action='append', default=[], help='dim=id (pairing, hero, spaces, story, faq, tour, gallery, moment, voice, ornament, rhythm, tone)')
+    ap.add_argument('--force', action='append', default=[], help='dim=id (pairing, hero, spaces, story, faq, tour, gallery, moment, voice, ornament, rhythm, tone, nav)')
     ap.add_argument('--lead', help='lead photo name')
     ap.add_argument('--palette-photos', help='comma list of photo names used for palette extraction')
     ap.add_argument('--accent-hue', type=float, help='human override: force the accent hue (degrees, OKLCH)')
@@ -360,6 +374,9 @@ def main():
         used_ornament = used_ornament or 'none'
         if rec:
             fallbacks.append(rec)
+        nav_forced = forced.pop('nav', None)
+        if nav_forced and nav_forced not in dialect['nav']:
+            ap.error('--force nav=%s is not in dialect %s (allowed: %s)' % (nav_forced, dialect['id'], ', '.join(dialect['nav'])))
         rv_ids = [r['id'] for r in dialect['rhythm_variants']]
         rv_id = forced.pop('rhythm', None) or rv_ids[len(same) % len(rv_ids)]
         rhythm_variant = next(r for r in dialect['rhythm_variants'] if r['id'] == rv_id)
@@ -419,8 +436,13 @@ def main():
             print('  WARNING: hero %s forced on lead %s (copy zone %.2f:1 < %.1f); darker leads: %s' % (used['hero'], lead, copy_zone[lead][zone], P.COPY_ZONE_MIN, ', '.join(darker) or 'none'))
     nav_style = 'minimal' if p['era'] >= 85 else ('centered' if (p['formality'] >= 75 and p['voice'] >= 60) else 'bar')
     if dialect:
-        if nav_style not in dialect['nav']:
-            nav_style = dialect['nav'][0]
+        # nav is a variation knob (spec 4.14): the axis formula's style first, then rotate through the dialect's list by
+        # the number of registered same-dialect sites (like the rhythm variant); --force nav=<id> overrides
+        navs = dialect['nav']
+        start = navs.index(nav_style) if nav_style in navs else 0
+        nav_style = navs[(start + len(same)) % len(navs)]
+        if nav_forced:
+            nav_style = nav_forced
         if nav_style == 'two-row':
             nav_used = next((n for n in dialects_doc['fallbacks']['nav']['two-row'] if os.path.exists(os.path.join(HERE, 'templates', 'partials', 'nav-%s.j2' % n))), 'bar')
             if not os.path.exists(os.path.join(HERE, 'templates', 'partials', 'nav-two-row.j2')):
@@ -513,7 +535,7 @@ def main():
                        'light_shift_default': dialect.get('light_shift_default', 'noon'), 'fallbacks': fallbacks}
     ctx = dict(v=v, t=axis_tokens, pair=pair, ch=ch_ids, copy=copy_, photos=photos, lead=lead,
                sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo='reception' if 'reception' in photos else lead,
-               hero_sizes='100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw'),
+               hero_sizes=(HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
                spaces_by_id={s['id']: s for s in v['spaces']}, story_second='bungalow' if 'bungalow' in photos else lead, light_photos=light_photos,
                uses_band='ink' if p['density'] >= 80 else 'deep', looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},

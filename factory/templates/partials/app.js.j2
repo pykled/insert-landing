@@ -122,7 +122,12 @@
 
   // --- pricing guide (client-side mock) ---
   var guideForm = document.getElementById('guide-form'), guideWrap = document.getElementById('guide-wrap'), guideErr = document.getElementById('guide-error');
+{% if dialect %}
+  // 2C: some dialect rhythms have no guide block (modern-luxe); a missing form must not abort the rest of this script
+  if (guideForm) guideForm.addEventListener('submit', function (ev) {
+{% else %}
   guideForm.addEventListener('submit', function (ev) {
+{% endif %}
     ev.preventDefault();
     var e = document.getElementById('g-email').value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { guideErr.textContent = 'Enter a valid email address.'; guideErr.hidden = false; return; }

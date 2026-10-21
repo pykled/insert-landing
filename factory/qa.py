@@ -198,6 +198,9 @@ def stroke_probe(page, scale, sel='h1'):
             'hairline_share_1px': round(thin1, 3), 'thin_share_1_5px': round(thin15, 3)}
 
 
+MOMENT_ROOTED = ('slideshow-counter', 'numbers-count', 'candle-count', 'then-now', 'pairs-counter', 'hours-dial', 'crest-reveal', 'sprig-draw')
+
+
 def run(pw, name, width, height, scale, mobile):
     ctx = pw.chromium.launch().new_context(viewport={'width': width, 'height': height}, device_scale_factor=scale, is_mobile=mobile, has_touch=mobile)
     page = ctx.new_page(); errors = []; transferred = []
@@ -368,27 +371,39 @@ def run(pw, name, width, height, scale, mobile):
     page.click('#date-again'); page.wait_for_timeout(150)
     if not page.is_visible('#date-form'): problems.append('%s: date form did not reset' % name)
     # --- tour ---
-    if page.locator('#tour-open').count():
+    has_tour = bool(page.locator('#scheduler').count())
+    if not has_tour:
+        info.setdefault('skipped', []).append('%s: tour flow (no #scheduler on this page)' % name)
+    if has_tour and page.locator('#tour-open').count():
         page.click('#tour-open'); page.wait_for_timeout(150)
         if not page.is_visible('#scheduler'): problems.append('%s: tour panel did not open' % name)
-    page.click('#cal-next'); page.wait_for_timeout(80)
-    page.locator('#cal button:not([disabled])').first.click(); page.locator('#slots button').first.click()
-    if page.is_disabled('#book'): problems.append('%s: book button still disabled after picking day + slot' % name)
-    check_contrast(page, name, 'tour picked', '#scheduler', scale)
-    page.click('#book'); page.wait_for_timeout(250)
-    if not page.is_visible('#tour-confirm') or 'on the calendar' not in page.inner_text('#tour-confirm'): problems.append('%s: tour confirmation not shown' % name)
-    check_contrast(page, name, 'tour confirm', '#scheduler', scale)
-    page.click('#tour-again'); page.wait_for_timeout(150)
-    if not page.is_visible('#cal'): problems.append('%s: tour scheduler did not reset' % name)
-    # --- guide ---
-    page.fill('#g-email', 'nope'); page.click('#guide-form button[type=submit]')
-    if page.evaluate("document.getElementById('guide-error').hidden"): problems.append('%s: guide form accepted an invalid email' % name)
-    check_contrast(page, name, 'guide error', '#guide-wrap', scale)
-    page.fill('#g-email', 'sam@example.com'); page.click('#guide-form button[type=submit]'); page.wait_for_timeout(250)
-    if not page.is_visible('#guide-confirm') or 'sam@example.com' not in page.inner_text('#guide-confirm'): problems.append('%s: guide confirmation not shown' % name)
-    check_contrast(page, name, 'guide confirm', '#guide-wrap', scale)
+    if has_tour: page.click('#cal-next'); page.wait_for_timeout(80)
+    if has_tour:
+        page.locator('#cal button:not([disabled])').first.click(); page.locator('#slots button').first.click()
+        if page.is_disabled('#book'): problems.append('%s: book button still disabled after picking day + slot' % name)
+        check_contrast(page, name, 'tour picked', '#scheduler', scale)
+        page.click('#book'); page.wait_for_timeout(250)
+        if not page.is_visible('#tour-confirm') or 'on the calendar' not in page.inner_text('#tour-confirm'): problems.append('%s: tour confirmation not shown' % name)
+        check_contrast(page, name, 'tour confirm', '#scheduler', scale)
+        page.click('#tour-again'); page.wait_for_timeout(150)
+        if not page.is_visible('#cal'): problems.append('%s: tour scheduler did not reset' % name)
+    # --- guide (some dialect rhythms have no guide block: skipped and recorded, never a crash) ---
+    has_guide = bool(page.locator('#guide-form').count())
+    if not has_guide:
+        info.setdefault('skipped', []).append('%s: guide flow (no #guide-form on this page)' % name)
+    if has_guide:
+        page.fill('#g-email', 'nope'); page.click('#guide-form button[type=submit]')
+        if page.evaluate("document.getElementById('guide-error').hidden"): problems.append('%s: guide form accepted an invalid email' % name)
+        check_contrast(page, name, 'guide error', '#guide-wrap', scale)
+        page.fill('#g-email', 'sam@example.com'); page.click('#guide-form button[type=submit]'); page.wait_for_timeout(250)
+        if not page.is_visible('#guide-confirm') or 'sam@example.com' not in page.inner_text('#guide-confirm'): problems.append('%s: guide confirmation not shown' % name)
+        check_contrast(page, name, 'guide confirm', '#guide-wrap', scale)
     # --- signature moment ---
     moment = page.evaluate("document.body.getAttribute('data-moment')")
+    if moment and moment != 'none' and moment in MOMENT_ROOTED and not page.locator('[data-moment-root]').count():
+        # --force moment= skips needs; a moment whose data is missing renders no section. Flag it, skip its hook step.
+        (problems if DIALECT_MODE else warnings).append('%s: moment %s chosen but rendered nothing (no [data-moment-root]; needs not met?)' % (name, moment))
+        moment = 'skipped'
     if moment == 'light-shift':
         for k in ('golden', 'night'):
             page.evaluate("window.__setLight('%s')" % k); page.wait_for_timeout(150)

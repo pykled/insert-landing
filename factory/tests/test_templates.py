@@ -104,3 +104,16 @@ def test_forcing_outside_the_dialect_is_rejected(tmp_path):
 
 if __name__ == '__main__':
     sys.exit(_util.run_module(sys.modules[__name__]))
+
+
+def test_hero_preload_sizes_match_hero_img_sizes():
+    """Stage 2C: build.HERO_SIZES (the <link rel=preload imagesizes>) must equal each hero's lead <img sizes>."""
+    import re, importlib.util
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    spec = importlib.util.spec_from_file_location('factory_build', os.path.join(here, 'build.py'))
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    for hid, want in mod.HERO_SIZES.items():
+        src = open(os.path.join(here, 'templates', 'heroes', hid + '.j2')).read()
+        got = re.findall(r'<img src="\{\{ photos\[(?:lead|n)\]\.src \}\}"[^>]*?sizes="([^"]*)"', src)
+        assert got and got[0] == want, (hid, got, want)
+        assert 'var(' not in want, hid   # sizes cannot read CSS custom properties
