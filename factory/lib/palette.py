@@ -342,7 +342,8 @@ def dark_tokens(paper_L, paper_C, paper_h, accent_h, accent_C, metal=None, text_
     L, t['accent-text'] = C.fit_lightness(min(accent_C, 0.10), accent_h, t['paper-3'], 7.0, False, max(0.70, text_min_L))
     L, t['metal'] = C.fit_lightness(mC, mH, t['paper-3'], 7.0, False, mL)
     t['on-accent'] = C.lch_to_hex(0.18, 0.01, paper_h)
-    L, t['accent-fill'] = C.fit_lightness(accent_C, accent_h, t['on-accent'], 7.0, False, 0.60)
+    # 2C: same 7.3 target as the light set's accent-fill: 7.0 exactly measured 6.98 in qa.py (hex rounding + AA)
+    L, t['accent-fill'] = C.fit_lightness(accent_C, accent_h, t['on-accent'], 7.3, False, 0.60)
     L, t['accent'] = C.fit_lightness(accent_C, accent_h, t['on-accent'], 5.0, False, 0.58)
     t['deep'] = C.lch_to_hex(max(0.11, paper_L - 0.06), paper_C, paper_h)
     t['on-deep'] = t['ink']
