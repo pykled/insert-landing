@@ -289,6 +289,62 @@
     "strip": "6ed5cec0bec04cdd401fb626b760139245bbbf60932264bfd03b3e4064eccad3",
     "captured": "2026-10-20"
    }
+  },
+  {
+   "id": "stonehurst-proof-botanical",
+   "fingerprint": {
+    "display_family": "Fraunces",
+    "display_class": "soft-serif",
+    "body_family": "Karla",
+    "accent_hue": 128.1,
+    "paper_temperature": "cool",
+    "hero": "arch-split",
+    "hero_family": "split",
+    "spaces": "stack",
+    "story": "timeline",
+    "faq": "accordion-split",
+    "tour": "scheduler-split",
+    "section_order": [
+     "hero",
+     "statement",
+     "spaces",
+     "story",
+     "featured",
+     "sprig-draw",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "sprig-draw",
+    "button_style": "square-outline-caps",
+    "radius": 3,
+    "lead_photo": "hero",
+    "dialect": "botanical",
+    "pairing": "botanical-fraunces",
+    "voice": "romantic",
+    "paper_tone": "light",
+    "hero_framing": "split",
+    "display_case": "sentence",
+    "ornament": "botanical-line",
+    "body_px": 19,
+    "photo_edge": "arch",
+    "motion_device": "draw-in",
+    "nav_style": "bar",
+    "ornament_wanted": "botanical-line"
+   },
+   "meta": {
+    "path": ".factory-check/proof/botanical",
+    "built": "2026-10-21T02:09:13",
+    "personality": {
+     "formality": 65.0,
+     "scale": 52.5,
+     "era": 40.0,
+     "density": 42.5,
+     "temperature": 37.5,
+     "voice": 25.0
+    }
+   }
   }
  ],
  "schema_version": 2
