@@ -75,7 +75,10 @@ def test_copy_candidates_and_no_invented_facts():
 def test_dialect_build_falls_back_and_records(tmp_path):
     out = os.path.join(str(tmp_path), 'site')
     reg = os.path.join(str(tmp_path), 'registry.json')
-    shutil.copy(os.path.join(_util.FACTORY, 'data', 'registry.json'), reg)
+    # only the pre-dialect sites: registered proof builds would make the guard refuse this build (2C)
+    doc = json.load(open(os.path.join(_util.FACTORY, 'data', 'registry.json')))
+    doc['sites'] = [s for s in doc['sites'] if s['fingerprint'].get('dialect', 'none') == 'none']
+    json.dump(doc, open(reg, 'w'))
     cmd = [sys.executable, 'build.py', 'content/stonehurst.json', '--variant', 'test-estate', '--out', out, '--dialect', 'estate',
            '--lead', 'greenhouse', '--force', 'hero=crest-centred', '--offline-fonts', '--registry', reg]
     r = subprocess.run(cmd, cwd=_util.FACTORY, capture_output=True, text=True, timeout=300)
@@ -92,7 +95,7 @@ def test_dialect_build_falls_back_and_records(tmp_path):
     assert [r_['id'] for r_ in meta['dialect']['scores']][0] == meta['dialect']['scored_winner']
     html = open(os.path.join(out, 'index.html')).read()
     assert '{' + 'era}' not in html and 'None' not in html.split('<body')[1][:20000]
-    assert json.load(open(reg)) == json.load(open(os.path.join(_util.FACTORY, 'data', 'registry.json')))   # no --register: untouched
+    assert json.load(open(reg)) == doc   # no --register: untouched
 
 
 def test_forcing_outside_the_dialect_is_rejected(tmp_path):
