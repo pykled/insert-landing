@@ -1,0 +1,14 @@
+{% include 'moments/numbers-count.css.j2' %}
+  /* moment: candle count (candlelit): brass numerals, centred ledger, brass hairlines; --metal is text-safe (7:1) in the dark set */
+  .mo-candle-count .mo-nums-head { text-align: center; }
+  .mo-candle-count .mo-nums-head h2 { margin-left: auto; margin-right: auto; }
+  .mo-candle-count .mo-nums-list { border-top: 1px solid var(--metal, var(--accent)); border-bottom: 1px solid var(--metal, var(--accent)); }
+  .mo-candle-count .mo-num { align-items: center; text-align: center; padding: clamp(28px, 4vw, 48px) 12px; border-right-color: var(--line); }
+  .mo-candle-count .mo-num + .mo-num { padding-left: 12px; }
+  .mo-candle-count .mo-num-val { color: var(--metal, var(--accent-text)); font-weight: var(--display-weight); letter-spacing: 0; }
+  .mo-candle-count .mo-num-label { font-variant: small-caps; letter-spacing: .08em; font-size: 18px; color: var(--ink-soft); }
+  @media (max-width: 860px) {
+    .mo-candle-count .mo-num { padding: 24px 8px; }
+    .mo-candle-count .mo-num:nth-child(even) { padding-left: 8px; }
+    .mo-candle-count .mo-num:nth-child(n+3) { border-bottom: 0; }
+  }

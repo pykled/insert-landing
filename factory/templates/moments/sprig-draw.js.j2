@@ -1,0 +1,3 @@
+{# Inlined right after the moment's own section (mo_inline set there) so the hooks exist even if app.js throws
+   earlier in base.html.j2's single end-of-body <script>; base's own include of this file renders nothing. #}
+{% if mo_inline is defined %}{% include 'partials/draw-in.js.j2' %}{% endif %}

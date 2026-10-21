@@ -1,0 +1,39 @@
+{# then-now (deco): the venue's archival photo (photo `archival: true` with `rights`) over today's view of the same
+   subject; a brass handle splits the two. Keyboard: the range input (arrow keys, Home/End). Root data-split = pct.
+   "Now" = the first non-archival photo with the archival photo's subject, else the lead. Renders nothing without an
+   archival photo with rights (the builder's `needs: archival` normally prevents selection). Year from the photo's
+   own `year` when the content supplies it; never invented. #}
+{% set _items = v.photos['items'] %}
+{% set tn = namespace(then=None, now=None) %}
+{% for n, m in _items.items() if m.archival and m.rights and n in photos and not tn.then %}{% set tn.then = n %}{% endfor %}
+{% if tn.then %}
+{% set tm = _items[tn.then] %}
+{% set _tags = (tm.tags or [])|reject('in', ['wide', 'detail', 'portrait'])|list %}
+{% for n, m in _items.items() if not m.archival and n in photos and m.subject == tm.subject and (m.tags or [])|select('in', _tags)|list and not tn.now %}{% set tn.now = n %}{% endfor %}
+{% for n, m in _items.items() if not m.archival and n in photos and m.subject and m.subject == tm.subject and not tn.now %}{% set tn.now = n %}{% endfor %}
+{% set now_name = tn.now or lead %}
+{% set A = photos[tn.then] %}{% set B = photos[now_name] %}
+<section id="then-now" class="mo-tn" data-moment-root data-split="50" aria-labelledby="tn-title">
+  <div class="container">
+    <div class="mo-tn-head">
+      <p class="kicker">Then and now</p>
+      <h2 id="tn-title">{{ v.short_name or v.name }}{% if tm.year %}, {{ tm.year }} and today{% else %}, as it was and as it is{% endif %}.</h2>
+    </div>
+    <figure class="mo-tn-fig">
+      <div class="mo-tn-stage" style="--split: 50%">
+        <img class="mo-tn-now" src="{{ B.src }}" srcset="{{ B.srcset }}" sizes="(min-width: 1200px) 1100px, 100vw" width="{{ B.width }}" height="{{ B.height }}" alt="Today: {{ B.alt }}" style="object-position: {{ B.focal }}" loading="lazy" decoding="async">
+        <img class="mo-tn-then" src="{{ A.src }}" srcset="{{ A.srcset }}" sizes="(min-width: 1200px) 1100px, 100vw" width="{{ A.width }}" height="{{ A.height }}" alt="Archival: {{ A.alt }}" style="object-position: {{ A.focal }}" loading="lazy" decoding="async">
+        <span class="mo-tn-handle" aria-hidden="true"><svg class="mo-tn-knob" viewBox="0 0 44 44" width="44" height="44" focusable="false"><circle cx="22" cy="22" r="21.5" /><path d="M15 17l-5 5 5 5M29 17l5 5-5 5" /></svg></span>
+        <input class="mo-tn-range" type="range" min="0" max="100" step="1" value="50" aria-label="Compare the archival photo with today: share of the archival photo shown" aria-valuetext="50% archival">
+      </div>
+      <figcaption class="mo-tn-cap">
+        <span><b>Then</b>{% if tm.year %} · {{ tm.year }}{% endif %} · {{ tm.rights }}</span>
+        <span><b>Now</b> · {{ B.caption }}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/then-now.js.j2' %}
+</script>
+{% endif %}

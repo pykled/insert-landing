@@ -1,0 +1,7 @@
+{% include 'moments/slideshow-counter.css.j2' %}
+  /* moment: pairs counter (editorial): two 3:2 photos per step, 24-40 px gap, captions under each */
+  .mo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); align-items: start; }
+  .mo-pair figure { margin: 0; }
+  .mo-pairs .mo-ss-item .ph { aspect-ratio: 3 / 2; }
+  .mo-pair figcaption { flex-direction: column; }
+  @media (max-width: 600px) { .mo-pair { grid-template-columns: 1fr; gap: 24px; } }

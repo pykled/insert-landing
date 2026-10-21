@@ -1,0 +1,18 @@
+{# Inlined right after the moment's own section (mo_inline set there) so the hooks exist even if app.js throws
+   earlier in base.html.j2's single end-of-body <script>; base's own include of this file renders nothing. #}
+{% if mo_inline is defined %}
+/* then-now: the range sets the split; window.__thenNow(pct) for QA. No animation of its own (static under reduced motion). */
+(function () {
+  var root = document.querySelector('.mo-tn[data-moment-root]'); if (!root) return;
+  var stage = root.querySelector('.mo-tn-stage'), range = root.querySelector('.mo-tn-range');
+  function set(p) {
+    p = Math.max(0, Math.min(100, Math.round(Number(p) || 0)));
+    stage.style.setProperty('--split', p + '%');
+    root.setAttribute('data-split', String(p));
+    if (String(range.value) !== String(p)) range.value = p;
+    range.setAttribute('aria-valuetext', p + '% archival');
+  }
+  range.addEventListener('input', function () { set(range.value); });
+  window.__thenNow = set;
+})();
+{% endif %}

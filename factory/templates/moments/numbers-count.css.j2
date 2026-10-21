@@ -1,0 +1,19 @@
+  /* moment: numbers count (ledger of the venue's own figures) */
+  .mo-nums-head { margin-bottom: clamp(28px, 4vw, 52px); }
+  .mo-nums-head h2 { font-size: clamp({{ pair.display.min_px|default(32) }}px, 3.4vw, 50px); margin-top: 10px; max-width: 20ch; }
+  .mo-nums-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat({{ [(v.numbers or [])|length, 4]|min }}, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .mo-num { padding: clamp(22px, 3vw, 36px) clamp(14px, 2vw, 28px) 4px 0; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+  .mo-num + .mo-num { padding-left: clamp(14px, 2vw, 28px); }
+  .mo-num:last-child { border-right: 0; }
+  .mo-num-val { font-family: var(--display); font-weight: var(--display-weight); font-size: clamp(56px, 7vw, 104px); line-height: .95; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums lining-nums; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .mo-num-label { font-size: 17px; line-height: 1.4; color: var(--ink-soft); max-width: 22ch; }
+  [data-count="ready"] .mo-num-val[data-count-to] { opacity: .0; }
+  .mo-num-val { transition: opacity {{ [t.motion_device_ms|default(1200), 600]|max }}ms var(--ease); }
+  @media (max-width: 860px) {
+    .mo-nums-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mo-num { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; }
+    .mo-num + .mo-num { padding-left: 0; }
+    .mo-num:nth-child(odd) { padding-right: 16px; }
+    .mo-num:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  }
+  @media (prefers-reduced-motion: reduce) { .mo-num-val { transition: none; opacity: 1; } }

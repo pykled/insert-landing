@@ -1,0 +1,55 @@
+{# hours-dial (estate, candlelit, coastal): the venue's rental day as a brass arc, gates open (left) to breakdown
+   complete (right), the event span in brass and breakdown in a hairline. A range input (labelled, arrow keys) moves a
+   hand along the day; root data-dial-hour = the hour (24 h, after-midnight hours run past 24). Facts from v.day only:
+   gates_open, event_end, breakdown_end (+ rental_hours, included, requirement when present). Renders nothing
+   without v.day.gates_open and v.day.event_end. #}
+{% macro hr(s) %}{% set p = (s or '')|trim|upper %}{% set ap = 'PM' if p.endswith('PM') else ('AM' if p.endswith('AM') else '') %}{% set hm = p.replace('AM', '').replace('PM', '')|trim %}{% set hh = (hm.split(':')[0]|int(-1)) %}{% set mm = (hm.split(':')[1]|int(0)) if ':' in hm else 0 %}{% if hh < 0 or hh > 24 %}-1{% else %}{{ ((hh % 12) + (12 if ap == 'PM' else 0) + (0 if ap else (12 if hh == 12 else 0)) + mm / 60)|round(2) }}{% endif %}{% endmacro %}
+{% set d = v.day or {} %}
+{% set h0 = hr(d.gates_open)|float %}{% set h1 = hr(d.event_end)|float %}{% set h2 = hr(d.breakdown_end)|float if d.breakdown_end else h1 %}
+{% if h0 >= 0 and h1 >= 0 %}
+{% if h1 <= h0 %}{% set h1 = h1 + 24 %}{% endif %}
+{% if h2 < h1 %}{% set h2 = h2 + 24 %}{% endif %}
+{% set span = (h2 - h0) or 1 %}
+{% set fe = ((h1 - h0) / span * 100)|round(2) %}
+{% set start_h = ((h0 + h1) / 2)|round(0, 'floor')|int %}
+{% set whole = (h0 == h0|int and h1 == h1|int and h2 == h2|int) %}
+<section id="hours-dial" class="mo-dial" data-moment-root data-dial-hour="{{ start_h }}" data-h0="{{ h0 }}" data-h1="{{ h1 }}" data-h2="{{ h2 }}" aria-labelledby="dial-title">
+  <div class="container mo-dial-grid">
+    <div class="mo-dial-copy">
+      <p class="kicker">The day</p>
+      <h2 id="dial-title">{% if d.rental_hours %}{{ d.rental_hours|wordnum|capitalize }} hours, gates to last light.{% else %}One day, gates to last light.{% endif %}</h2>
+      <dl class="mo-dial-times">
+        <div><dt>Gates open</dt><dd>{{ d.gates_open }}</dd></div>
+        <div><dt>Event ends</dt><dd>{{ d.event_end }}</dd></div>
+        {% if d.breakdown_end %}<div><dt>Breakdown complete</dt><dd>{{ d.breakdown_end }}</dd></div>{% endif %}
+      </dl>
+      {% if d.included %}<p class="mo-dial-inc"><span>Included</span> {{ d.included|join(' · ') }}</p>{% endif %}
+      {% if d.requirement %}<p class="mo-dial-req">{{ d.requirement }}.</p>{% endif %}
+    </div>
+    <div class="mo-dial-face">
+      <div class="mo-dial-arc">
+      <svg class="mo-dial-svg" viewBox="0 0 400 226" aria-hidden="true" focusable="false">
+        <path class="mo-dial-track" d="M20 210A180 180 0 0 1 380 210" pathLength="100" />
+        <path class="mo-dial-event" d="M20 210A180 180 0 0 1 380 210" pathLength="100" stroke-dasharray="{{ fe }} 100" />
+        {% for k in range(0, (h2 - h0)|int + 1) %}<line class="mo-dial-tick{% if (h0 + k) in (h0, h1, h2) %} key{% endif %}" x1="200" y1="{{ 12 if (h0 + k) in (h0, h1, h2) else 18 }}" x2="200" y2="{{ 42 if (h0 + k) in (h0, h1, h2) else 30 }}" transform="rotate({{ (-90 + k / span * 180)|round(2) }} 200 210)" />{% endfor %}
+        <g class="mo-dial-hand" style="transform: rotate({{ (-90 + (start_h - h0) / span * 180)|round(2) }}deg)">
+          <line x1="200" y1="90" x2="200" y2="40" />
+          <circle cx="200" cy="30" r="9" />
+        </g>
+      </svg>
+      <div class="mo-dial-read" aria-live="polite" aria-atomic="true">
+        <p class="mo-dial-time" data-dial-time>{{ start_h }}</p>
+        <p class="mo-dial-phase" data-dial-phase>The event</p>
+      </div>
+      </div>
+      <label class="mo-dial-ctl">
+        <span>Move through the day</span>
+        <input type="range" min="{{ h0 }}" max="{{ h2 }}" step="{{ 1 if whole else 0.25 }}" value="{{ start_h }}">
+      </label>
+    </div>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/hours-dial.js.j2' %}
+</script>
+{% endif %}

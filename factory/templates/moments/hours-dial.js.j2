@@ -1,0 +1,32 @@
+{# Inlined right after the moment's own section (mo_inline set there) so the hooks exist even if app.js throws
+   earlier in base.html.j2's single end-of-body <script>; base's own include of this file renders nothing. #}
+{% if mo_inline is defined %}
+/* hours-dial: the range moves the hand; window.__dialSet(hour) for QA (24 h; after-midnight hours run past 24). */
+(function () {
+  var root = document.querySelector('.mo-dial[data-moment-root]'); if (!root) return;
+  var h0 = parseFloat(root.getAttribute('data-h0')), h1 = parseFloat(root.getAttribute('data-h1')), h2 = parseFloat(root.getAttribute('data-h2'));
+  var span = (h2 - h0) || 1, hand = root.querySelector('.mo-dial-hand'), input = root.querySelector('input[type=range]');
+  var tEl = root.querySelector('[data-dial-time]'), pEl = root.querySelector('[data-dial-phase]');
+  function label(h) {
+    var x = ((h % 24) + 24) % 24, hh = Math.floor(x), mm = Math.round((x - hh) * 60);
+    if (!mm && hh === 0) return 'Midnight'; if (!mm && hh === 12) return 'Noon';
+    var ap = hh < 12 ? 'AM' : 'PM', h12 = hh % 12 || 12;
+    return h12 + (mm ? ':' + (mm < 10 ? '0' : '') + mm : '') + ' ' + ap;
+  }
+  function phase(h) {
+    if (h <= h0) return 'Gates open'; if (h < h1) return 'The event'; if (h === h1) return 'The event ends';
+    if (h < h2) return 'Breakdown'; return h2 > h1 ? 'Breakdown complete' : 'The event ends';
+  }
+  function set(h) {
+    h = Math.max(h0, Math.min(h2, Number(h))); if (!isFinite(h)) h = h0;
+    root.setAttribute('data-dial-hour', String(h));
+    hand.style.transform = 'rotate(' + (-90 + (h - h0) / span * 180).toFixed(2) + 'deg)';
+    tEl.textContent = label(h); pEl.textContent = phase(h);
+    if (parseFloat(input.value) !== h) input.value = h;
+    input.setAttribute('aria-valuetext', label(h) + ', ' + phase(h).toLowerCase());
+  }
+  input.addEventListener('input', function () { set(parseFloat(input.value)); });
+  window.__dialSet = set;
+  set(parseFloat(root.getAttribute('data-dial-hour')));
+})();
+{% endif %}

@@ -1,0 +1,28 @@
+{# numbers-count (modern-luxe, ranch, deco) and candle-count (candlelit, sets nc_id first and includes this file).
+   The venue's figures count up once as the ledger comes into view. Values and labels from v.numbers only (up to
+   four); the markup carries the final value, so no-JS and reduced motion show the settled ledger. A four-digit year
+   (1700-2099) is never counted, it fades in. Screen readers get the settled value and label once (.sr). #}
+{% set nc_id = nc_id|default('numbers-count') %}
+{% set nums = (v.numbers or [])[:4] %}
+{% if nums %}
+<section id="{{ nc_id }}" class="mo-nums mo-{{ nc_id }}" data-moment-root data-count-ms="{{ [[t.motion_device_ms|default(1200), 900]|max, 1600]|min }}" aria-labelledby="{{ nc_id }}-title">
+  <div class="container">
+    <div class="mo-nums-head">
+      <p class="kicker">{{ v.short_name or v.name }}</p>
+      <h2 id="{{ nc_id }}-title">{{ 'By candlelight, by the numbers.' if nc_id == 'candle-count' else 'The place, in figures.' }}</h2>
+    </div>
+    <ul class="mo-nums-list" data-n="{{ nums|length }}">
+      {% for n in nums %}
+      <li class="mo-num">
+        <span class="mo-num-val" data-count-to="{{ n.value }}" aria-hidden="true">{{ n.value }}</span>
+        <span class="mo-num-label" aria-hidden="true">{{ n.label }}</span>
+        <span class="sr-only">{{ n.value }} {{ n.label|lower }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/numbers-count.js.j2' %}
+</script>
+{% endif %}

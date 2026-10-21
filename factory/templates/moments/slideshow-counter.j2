@@ -1,0 +1,40 @@
+{# slideshow-counter (modern-luxe, coastal): one photo at a time, cross-fade, "01 — 04" counter. User-advanced only
+   (data-autoplay="off"): previous / next buttons, arrow keys on the stage. Needs 3 photos besides the lead. #}
+{% set run_max = 4 %}
+{# photo run: each space's own photo first (title = space name, note = capacity label), then the rest; never the lead #}
+{% set run = namespace(items=[], seen=[lead]) %}
+{% for s in v.spaces if s.photo in photos and s.photo not in run.seen and run.items|length < run_max %}
+{% set run.items = run.items + [{'name': s.photo, 'title': s.name, 'note': s.capacity_label}] %}{% set run.seen = run.seen + [s.photo] %}
+{% endfor %}
+{% for n in photos if n not in run.seen and run.items|length < run_max %}
+{% set run.items = run.items + [{'name': n, 'title': photos[n].caption, 'note': ''}] %}{% set run.seen = run.seen + [n] %}
+{% endfor %}
+{% set S = run.items %}
+{% if S|length >= 3 %}
+<section id="slideshow-counter" class="mo-ss" data-moment-root data-autoplay="off" aria-labelledby="ss-title">
+  <div class="container">
+    <div class="mo-ss-head">
+      <div>
+        <p class="kicker">The spaces</p>
+        <h2 id="ss-title">{{ v.short_name or v.name }}, one room at a time.</h2>
+      </div>
+      <div class="mo-ss-ctl">
+        <p class="mo-counter" data-counter data-pad="2" aria-live="polite" aria-atomic="true"><span class="sr-only">Photo </span><b>01</b> — {{ '%02d' % S|length }}</p>
+        <button type="button" class="mo-step" data-step="-1" aria-label="Previous photo" disabled><span aria-hidden="true">←</span></button>
+        <button type="button" class="mo-step" data-step="1" aria-label="Next photo"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <div class="mo-ss-stage" tabindex="0" role="group" aria-label="Photos of {{ v.short_name or v.name }}; use the arrow keys to move">
+      {% for it in S %}{% set ph = photos[it.name] %}
+      <figure class="mo-ss-item{% if loop.first %} on{% endif %}" data-i="{{ loop.index0 }}" data-motion-device="cross-fade"{% if not loop.first %} aria-hidden="true"{% endif %}>
+        <div class="ph"><img src="{{ ph.src }}" srcset="{{ ph.srcset }}" sizes="(min-width: 1200px) 1100px, 100vw" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="object-position: {{ ph.focal }}" loading="lazy" decoding="async"></div>
+        <figcaption><span class="mo-ss-t">{{ it.title }}</span>{% if it.note %}<span class="mo-ss-n">{{ it.note }}</span>{% endif %}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/slideshow-counter.js.j2' %}
+</script>
+{% endif %}

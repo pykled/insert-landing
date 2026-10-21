@@ -1,0 +1,49 @@
+/* draw-in: strokes of every [data-motion-device="draw-in"] element draw themselves once, when first in view.
+   Shared by moments/crest-reveal and moments/sprig-draw (and any ornament that marks itself draw-in). Idempotent.
+   Final state is the markup's own state: without JS, or under prefers-reduced-motion, nothing is hidden or animated.
+   Per element: data-draw-ms (default {{ t.motion_device_ms|default(1200) }}), data-draw-stagger (ms between strokes). */
+(function () {
+  if (window.__drawIn) { window.__drawIn(); return; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EASE = '{{ t.ease|default("cubic-bezier(.2,.7,.2,1)") }}', DEF_MS = {{ t.motion_device_ms|default(1200) }};
+  var SHAPES = 'path, circle, ellipse, line, polyline, polygon, rect';
+  function clampMs(n) { return Math.max(600, Math.min(1600, n || DEF_MS)); }
+  function strokes(el) { return [].slice.call(el.querySelectorAll(SHAPES)).filter(function (s) { return !s.closest('[data-draw-skip]'); }); }
+  function prime(el) {
+    strokes(el).forEach(function (s) {
+      s.setAttribute('pathLength', '1');
+      s.style.strokeDasharray = '1 1';
+      s.style.strokeDashoffset = '1';
+    });
+    el.setAttribute('data-draw', 'ready');
+  }
+  function settle(el) {
+    strokes(el).forEach(function (s) { s.style.strokeDashoffset = '0'; s.style.strokeDasharray = 'none'; });
+    el.setAttribute('data-draw', 'done');
+  }
+  function play(el) {
+    if (el.getAttribute('data-draw') !== 'ready') return;
+    el.setAttribute('data-draw', 'running');
+    var ms = clampMs(parseInt(el.getAttribute('data-draw-ms'), 10)), gap = parseInt(el.getAttribute('data-draw-stagger'), 10) || 0;
+    var list = strokes(el), left = list.length;
+    if (!left || !list[0].animate) { settle(el); return; }
+    list.forEach(function (s, i) {
+      var a = s.animate([{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: ms, delay: i * gap, easing: EASE, fill: 'forwards' });
+      a.onfinish = function () { s.style.strokeDashoffset = '0'; s.style.strokeDasharray = 'none'; a.cancel(); if (--left === 0) el.setAttribute('data-draw', 'done'); };
+    });
+  }
+  var io = (!reduce && 'IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); play(e.target); } });
+  }, { threshold: 0.35 }) : null;
+  function scan() {
+    document.querySelectorAll('[data-motion-device="draw-in"]').forEach(function (el) {
+      if (el.hasAttribute('data-draw')) return;
+      if (!io) { el.setAttribute('data-draw', 'done'); return; }
+      prime(el); io.observe(el);
+    });
+  }
+  window.__drawIn = scan;
+  window.__drawFinish = function () { document.querySelectorAll('[data-motion-device="draw-in"]').forEach(function (el) { el.getAnimations({ subtree: true }).forEach(function (a) { a.finish(); }); if (el.getAttribute('data-draw') !== 'done') settle(el); }); };
+  scan();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', scan);
+})();

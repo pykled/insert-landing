@@ -1,0 +1,42 @@
+{# Inlined right after the moment's own section (mo_inline set there) so the hooks exist even if app.js throws
+   earlier in base.html.j2's single end-of-body <script>; base's own include of this file renders nothing. #}
+{% if mo_inline is defined %}
+/* numbers-count / candle-count: count each [data-count-to] up from zero once, when the ledger is in view.
+   Settled text always equals the attribute. window.__countFinish() settles everything now (QA). */
+(function () {
+  var root = document.querySelector('.mo-nums[data-moment-root]'); if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var MS = parseInt(root.getAttribute('data-count-ms'), 10) || 1200, raf = 0, done = false;
+  var els = [].slice.call(root.querySelectorAll('[data-count-to]'));
+  function parse(s) {
+    var m = /^(\D*?)([\d,]*\.?\d+)(.*)$/.exec(s); if (!m) return null;
+    var raw = m[2], n = parseFloat(raw.replace(/,/g, '')), dec = (raw.split('.')[1] || '').length;
+    if (!isFinite(n) || (/^\d{4}$/.test(raw) && n >= 1700 && n < 2100)) return null;
+    return { pre: m[1], n: n, dec: dec, comma: raw.indexOf(',') > -1, post: m[3] };
+  }
+  function fmt(p, x) { var s = x.toFixed(p.dec); if (p.comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); return p.pre + s + p.post; }
+  var items = els.map(function (el) { return { el: el, to: el.getAttribute('data-count-to'), p: parse(el.getAttribute('data-count-to')) }; });
+  function finish() {
+    done = true; if (raf) cancelAnimationFrame(raf); raf = 0;
+    items.forEach(function (it) { it.el.textContent = it.to; it.el.classList.remove('is-counting'); });
+    root.setAttribute('data-count', 'done');
+  }
+  window.__countFinish = finish;
+  if (reduce || !('IntersectionObserver' in window) || !window.requestAnimationFrame) { root.setAttribute('data-count', 'done'); return; }
+  items.forEach(function (it) { if (it.p) { it.el.textContent = fmt(it.p, 0); it.el.classList.add('is-counting'); } });
+  root.setAttribute('data-count', 'ready');
+  function ease(x) { return 1 - Math.pow(1 - x, 3); }
+  function run() {
+    if (done) return;
+    root.setAttribute('data-count', 'running');
+    var t0 = performance.now();
+    (function step(now) {
+      var k = Math.min(1, (now - t0) / MS), e = ease(k);
+      items.forEach(function (it) { if (it.p) it.el.textContent = fmt(it.p, it.p.dec ? it.p.n * e : Math.round(it.p.n * e)); });
+      if (k < 1 && !done) raf = requestAnimationFrame(step); else finish();
+    })(t0);
+  }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); run(); } }); }, { threshold: 0.4 });
+  io.observe(root);
+})();
+{% endif %}

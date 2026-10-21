@@ -1,0 +1,46 @@
+{# sprig-draw (botanical): a line drawing of the plant the venue's own photo is tagged with (photo `flora`) draws
+   itself once, beside that photo and the space it belongs to. Six generic sprigs (olive, fig, fern, lavender, oak,
+   eucalyptus; anything else draws as olive), never a trace of the photo. Renders nothing without a flora photo
+   (the builder's `needs: flora` check normally prevents selection). Facts only from v.spaces / v.photos. #}
+{% set _items = v.photos['items'] %}
+{% set fl = namespace(name=None) %}
+{% for n, m in _items.items() if m.flora and n in photos and not fl.name and n != lead %}{% set fl.name = n %}{% endfor %}
+{% for n, m in _items.items() if m.flora and n in photos and not fl.name %}{% set fl.name = n %}{% endfor %}
+{% if fl.name %}
+{% set flora = _items[fl.name].flora|lower %}
+{% set sp = (v.spaces|selectattr('photo', 'equalto', fl.name)|list or [None])[0] %}
+{% set ph = photos[fl.name] %}
+{% set LEAF = {
+  'olive': 'M0 0C-5-12-5-28 0-44C5-28 5-12 0 0ZM0-4V-38',
+  'eucalyptus': 'M0 0C-15-3-15-27 0-31C15-27 15-3 0 0ZM0-3V-26',
+  'fig': 'M0 0C-9-2-21-8-17-18C-25-22-20-34-10-31C-10-40-3-46 0-48C3-46 10-40 10-31C20-34 25-22 17-18C21-8 9-2 0 0ZM0-3V-42M0-18L-12-24M0-18L12-24',
+  'oak': 'M0 0C-6-4-10-8-8-12C-12-14-12-20-8-22C-12-26-10-32-6-34C-6-40-2-44 0-46C2-44 6-40 6-34C10-32 12-26 8-22C12-20 12-14 8-12C10-8 6-4 0 0ZM0-3V-40',
+  'fern': 'M0 0C-3-6-3-14 0-21C3-14 3-6 0 0Z',
+  'lavender': 'M0 0C-4-3-4-9 0-12C4-9 4-3 0 0Z'} %}
+{% set leaf_d = LEAF.get(flora, LEAF['olive']) %}
+{% set POS = [(82,272,-50),(84,250,46),(83,222,-44),(85,198,42),(84,170,-40),(85,146,38),(84,118,-34),(84,94,32),(84,66,-24),(84,44,22),(84,30,0)] %}
+{% set pick = {'fig': [0,3,4,7,10], 'eucalyptus': [0,1,2,3,4,5,6,7,10], 'oak': [1,2,5,6,9,10]}.get(flora, range(POS|length)) %}
+{% set scale = {'fig': 1.25, 'oak': 1.05, 'eucalyptus': 0.9, 'fern': 0.85, 'lavender': 1}.get(flora, 1) %}
+<section id="sprig-draw" class="mo-sprig" data-moment-root data-flora="{{ flora }}" aria-labelledby="sprig-title">
+  <div class="container mo-sprig-grid">
+    <figure class="mo-sprig-photo">
+      <div class="ph"><img src="{{ ph.src }}" srcset="{{ ph.srcset }}" sizes="(min-width: 861px) 44vw, 100vw" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="object-position: {{ ph.focal }}" loading="lazy" decoding="async"></div>
+    </figure>
+    <div class="mo-sprig-copy">
+      <svg class="mo-sprig-mark" data-motion-device="draw-in" data-draw-ms="{{ t.motion_device_ms|default(1600) }}" data-draw-stagger="60" viewBox="0 0 168 320" width="120" height="228" aria-hidden="true" focusable="false">
+        <path d="M82 316C80 252 90 170 84 26" />
+        {% for i in pick %}{% set p0 = POS[i] %}
+        <path d="{{ leaf_d }}" transform="translate({{ p0[0] }} {{ p0[1] }}) rotate({{ p0[2] }}) scale({{ scale }})" />
+        {% endfor %}
+      </svg>
+      <p class="kicker">{{ flora|capitalize }}{% if sp %} · {{ sp.name }}{% endif %}</p>
+      <h2 id="sprig-title">{{ sp.journey_step if sp and sp.journey_step else (sp.name if sp else ph.caption) }}</h2>
+      {% if sp %}<p class="mo-sprig-text">{{ sp.blurb }}</p>
+      <p class="mo-sprig-cap">{{ sp.capacity_label }}{% if sp.capacity_kind %}, {{ sp.capacity_kind }}{% endif %}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/sprig-draw.js.j2' %}
+</script>
+{% endif %}

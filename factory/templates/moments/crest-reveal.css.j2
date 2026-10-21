@@ -1,0 +1,12 @@
+  /* moment: crest reveal (estate) */
+  .mo-crest { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .mo-crest-in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .mo-crest-mark { width: clamp(132px, 14vw, 168px); height: auto; overflow: visible; margin-bottom: clamp(24px, 3vw, 36px); }
+  .mo-crest-mark circle, .mo-crest-mark path { fill: none; stroke: var(--metal, var(--accent)); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .mo-crest-mark .mo-crest-laurel { stroke-linecap: round; stroke-linejoin: round; }
+  .mo-crest-mono { font-family: var(--display); font-weight: var(--display-weight); font-size: 64px; letter-spacing: .04em; color: var(--ink); fill: currentColor; }
+  .mo-crest-name { font-family: var(--body); font-size: 15px; font-weight: {{ pair.body.medium }}; letter-spacing: .32em; text-transform: uppercase; line-height: 1.6; color: var(--ink); margin: 0; }
+  .mo-crest-rule { display: block; width: 64px; height: 6px; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); margin: 18px auto 26px; }
+  .mo-crest-line { font-family: var(--display); font-style: italic; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.3; color: var(--ink); max-width: 28ch; margin: 0 auto; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .mo-crest-place { margin-top: 22px; font-size: 17px; color: var(--ink-soft); }
+  .mo-crest-figs { margin-top: 6px; font-size: 17px; color: var(--accent-text); font-variant-numeric: lining-nums; }

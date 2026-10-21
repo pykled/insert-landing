@@ -1,0 +1,30 @@
+{# crest-reveal (estate): the venue's crest draws its rings once as it comes into view, then the name and one line
+   of the venue's own story. Facts only from v: initials from v.short_name, line from v.story.lead, place and figures
+   from v.tagline_facts (each omitted when null). Draw-in: partials/draw-in.js.j2 via crest-reveal.js.j2. #}
+{% set tf = v.tagline_facts or {} %}
+{% set _w = (v.short_name or v.name).replace('The ', '').split() %}
+{% set initials = (_w[0][:1] ~ (_w[1][:1] if _w|length > 1 else ''))|upper %}
+{% set place = [tf.locality, tf.region]|select|join(', ') %}
+<section id="crest-reveal" class="mo-crest" data-moment-root aria-labelledby="crest-title">
+  <div class="container mo-crest-in">
+    <svg class="mo-crest-mark" data-motion-device="draw-in" data-draw-ms="{{ t.motion_device_ms|default(1200) }}" data-draw-stagger="140" viewBox="0 0 200 200" width="168" height="168" aria-hidden="true" focusable="false">
+      <circle cx="100" cy="100" r="95" />
+      <circle cx="100" cy="100" r="85" />
+      <path d="M100 5v10M100 185v10M5 100h10M185 100h10" />
+      <path class="mo-crest-laurel" d="M58 140c14 12 28 16 42 16s28-4 42-16M70 148c-6-2-10-7-11-13 6 1 10 6 11 13zm60 0c6-2 10-7 11-13-6 1-10 6-11 13z" />
+      <text class="mo-crest-mono" x="100" y="100" text-anchor="middle" dominant-baseline="central">{{ initials }}</text>
+    </svg>
+    <h2 id="crest-title" class="mo-crest-name">{{ v.name }}</h2>
+    <span class="mo-crest-rule" aria-hidden="true"></span>
+    {% if v.story and v.story.lead %}<p class="mo-crest-line">{{ v.story.lead }}</p>{% endif %}
+    {% if place %}<p class="mo-crest-place">{{ place }}{% if tf.state %}, {{ tf.state }}{% endif %}</p>{% endif %}
+    {% set figs = [] %}
+    {% if tf.acres %}{% set _ = figs.append(tf.acres ~ ' acres') %}{% endif %}
+    {% if tf.space_count %}{% set _ = figs.append(tf.space_count ~ ' spaces') %}{% endif %}
+    {% if tf.max_guests %}{% set _ = figs.append('up to ' ~ tf.max_guests ~ ' guests') %}{% endif %}
+    {% if figs %}<p class="mo-crest-figs">{{ figs|join(' · ') }}</p>{% endif %}
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/crest-reveal.js.j2' %}
+</script>

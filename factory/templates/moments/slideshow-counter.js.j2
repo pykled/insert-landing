@@ -1,0 +1,32 @@
+{# Inlined right after the moment's own section (mo_inline set there) so the hooks exist even if app.js throws
+   earlier in base.html.j2's single end-of-body <script>; base's own include of this file renders nothing. #}
+{% if mo_inline is defined %}
+/* slideshow-counter / pairs-counter: user-advanced stepper (never autoplays). Buttons, arrow keys / Home / End on the
+   stage. Cross-fade is a CSS opacity transition, removed under reduced motion. Hooks: __slideTo(i), __pairsTo(i). */
+(function () {
+  var root = document.querySelector('.mo-ss[data-moment-root], .mo-pairs[data-moment-root]'); if (!root) return;
+  var items = [].slice.call(root.querySelectorAll('.mo-ss-item')), stage = root.querySelector('.mo-ss-stage');
+  var counter = root.querySelector('[data-counter] b'), pad = parseInt(root.querySelector('[data-counter]').getAttribute('data-pad'), 10) || 1;
+  var prev = root.querySelector('.mo-step[data-step="-1"]'), next = root.querySelector('.mo-step[data-step="1"]'), cur = 0;
+  function go(i) {
+    i = Math.max(0, Math.min(items.length - 1, Number(i) || 0));
+    cur = i;
+    items.forEach(function (el, k) {
+      el.classList.toggle('on', k === i);
+      if (k === i) { el.removeAttribute('aria-hidden'); el.inert = false; } else { el.setAttribute('aria-hidden', 'true'); el.inert = true; }
+      if (Math.abs(k - i) <= 1) el.querySelectorAll('img[loading="lazy"]').forEach(function (im) { im.loading = 'eager'; });
+    });
+    var s = String(i + 1); while (s.length < pad) s = '0' + s;
+    counter.textContent = s;
+    prev.disabled = i === 0; next.disabled = i === items.length - 1;
+    root.setAttribute('data-index', String(i));
+  }
+  root.querySelectorAll('.mo-step').forEach(function (b) { b.addEventListener('click', function () { go(cur + Number(b.getAttribute('data-step'))); }); });
+  stage.addEventListener('keydown', function (e) {
+    var k = e.key, to = k === 'ArrowRight' ? cur + 1 : k === 'ArrowLeft' ? cur - 1 : k === 'Home' ? 0 : k === 'End' ? items.length - 1 : null;
+    if (to === null) return; e.preventDefault(); go(to);
+  });
+  go(0);
+  if (root.id === 'pairs-counter') window.__pairsTo = go; else window.__slideTo = go;
+})();
+{% endif %}

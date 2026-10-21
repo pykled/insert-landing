@@ -1,0 +1,14 @@
+  /* moment: sprig draw (botanical) */
+  .mo-sprig-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .mo-sprig-photo { margin: 0; }
+  .mo-sprig-photo .ph { aspect-ratio: 4 / 5; }
+  .mo-sprig-mark { display: block; width: clamp(96px, 9vw, 132px); height: auto; overflow: visible; margin-bottom: clamp(20px, 3vw, 32px); }
+  .mo-sprig-mark path { fill: none; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+  .mo-sprig-copy h2 { font-size: clamp({{ pair.display.min_px|default(32) }}px, 3.4vw, 48px); margin: 10px 0 18px; max-width: 16ch; }
+  .mo-sprig-text { font-size: max(17px, var(--body-size, 17px)); color: var(--ink-soft); max-width: 46ch; }
+  .mo-sprig-cap { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 17px; color: var(--accent-text); max-width: 46ch; }
+  @media (max-width: 860px) {
+    .mo-sprig-grid { grid-template-columns: 1fr; }
+    .mo-sprig-copy { order: -1; }
+    .mo-sprig-photo .ph { aspect-ratio: 4 / 3; }
+  }

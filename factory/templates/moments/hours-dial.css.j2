@@ -1,0 +1,31 @@
+  /* moment: hours dial (the rental day as a brass arc) */
+  .mo-dial { border-top: 1px solid var(--line); }
+  .mo-dial-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .mo-dial-copy h2 { font-size: clamp({{ pair.display.min_px|default(32) }}px, 3.4vw, 50px); margin: 10px 0 26px; max-width: 16ch; }
+  .mo-dial-times { margin: 0; border-top: 1px solid var(--ink); }
+  .mo-dial-times div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+  .mo-dial-times dt { color: var(--ink-soft); }
+  .mo-dial-times dd { margin: 0; color: var(--ink); font-weight: {{ pair.body.medium }}; font-variant-numeric: tabular-nums lining-nums; }
+  .mo-dial-inc, .mo-dial-req { margin-top: 18px; font-size: 17px; color: var(--ink-soft); max-width: 52ch; }
+  .mo-dial-inc span { display: block; color: var(--accent-text); font-size: 13.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: {{ pair.body.medium }}; margin-bottom: 4px; }
+  .mo-dial-req { margin-top: 10px; }
+  .mo-dial-face { position: relative; max-width: 560px; width: 100%; justify-self: center; }
+  .mo-dial-svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .mo-dial-svg path, .mo-dial-svg line { fill: none; vector-effect: non-scaling-stroke; }
+  .mo-dial-track { stroke: var(--line-strong); stroke-width: 1; }
+  .mo-dial-event { stroke: var(--metal, var(--accent)); stroke-width: 3; }
+  .mo-dial-tick { stroke: var(--line-strong); stroke-width: 1; }
+  .mo-dial-tick.key { stroke: var(--metal, var(--accent)); stroke-width: 1.5; }
+  .mo-dial-hand { transform-box: view-box; transform-origin: 200px 210px; transition: transform .45s var(--ease); }
+  .mo-dial-hand line { stroke: var(--ink); stroke-width: 1; }
+  .mo-dial-hand circle { fill: var(--metal, var(--accent)); stroke: var(--paper); stroke-width: 2; }
+  .mo-dial-arc { position: relative; }
+  .mo-dial-read { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; pointer-events: none; }
+  .mo-dial-time { font-family: var(--display); font-weight: var(--display-weight); font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--ink); font-variant-numeric: lining-nums; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
+  .mo-dial-phase { margin-top: 8px; font-size: 17px; color: var(--accent-text); }
+  .mo-dial-ctl { display: block; margin-top: 28px; }
+  .mo-dial-ctl span { display: block; font-size: 15px; color: var(--ink-soft); margin-bottom: 6px; text-align: center; }
+  .mo-dial-ctl input { display: block; width: 100%; height: 44px; margin: 0; accent-color: var(--ink); cursor: pointer; }
+  .mo-dial-ctl input:focus-visible { outline: 2px solid var(--focus, var(--ink)); outline-offset: 3px; }
+  @media (max-width: 860px) { .mo-dial-grid { grid-template-columns: 1fr; } .mo-dial-face { order: -1; } }
+  @media (prefers-reduced-motion: reduce) { .mo-dial-hand { transition: none; } }

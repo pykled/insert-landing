@@ -1,0 +1,45 @@
+{# pairs-counter (editorial): photos in pairs at 3:2 with captions, "1 — 3" counter, previous / next only, no
+   autoplay. Needs 4 photos besides the lead; an odd photo out is dropped. #}
+{% set run_max = 6 %}
+{# photo run: each space's own photo first (title = space name, note = capacity label), then the rest; never the lead #}
+{% set run = namespace(items=[], seen=[lead]) %}
+{% for s in v.spaces if s.photo in photos and s.photo not in run.seen and run.items|length < run_max %}
+{% set run.items = run.items + [{'name': s.photo, 'title': s.name, 'note': s.capacity_label}] %}{% set run.seen = run.seen + [s.photo] %}
+{% endfor %}
+{% for n in photos if n not in run.seen and run.items|length < run_max %}
+{% set run.items = run.items + [{'name': n, 'title': photos[n].caption, 'note': ''}] %}{% set run.seen = run.seen + [n] %}
+{% endfor %}
+{% set N = (run.items|length // 2) * 2 %}
+{% set P = run.items[:N]|batch(2)|list %}
+{% if P|length >= 2 %}
+<section id="pairs-counter" class="mo-pairs" data-moment-root data-autoplay="off" aria-labelledby="pairs-title">
+  <div class="container">
+    <div class="mo-ss-head">
+      <div>
+        <p class="kicker">In pairs</p>
+        <h2 id="pairs-title">Two views of {{ v.short_name or v.name }}, side by side.</h2>
+      </div>
+      <div class="mo-ss-ctl">
+        <p class="mo-counter" data-counter aria-live="polite" aria-atomic="true"><span class="sr-only">Pair </span><b>1</b> — {{ P|length }}</p>
+        <button type="button" class="mo-step" data-step="-1" aria-label="Previous pair" disabled><span aria-hidden="true">←</span></button>
+        <button type="button" class="mo-step" data-step="1" aria-label="Next pair"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <div class="mo-ss-stage" tabindex="0" role="group" aria-label="Photo pairs; use the arrow keys to move">
+      {% for pr in P %}
+      <div class="mo-ss-item mo-pair{% if loop.first %} on{% endif %}" data-i="{{ loop.index0 }}" data-motion-device="cross-fade"{% if not loop.first %} aria-hidden="true"{% endif %}>
+        {% for it in pr %}{% set ph = photos[it.name] %}
+        <figure>
+          <div class="ph"><img src="{{ ph.src }}" srcset="{{ ph.srcset }}" sizes="(min-width: 861px) 46vw, 50vw" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="object-position: {{ ph.focal }}" loading="lazy" decoding="async"></div>
+          <figcaption><span class="mo-ss-t">{{ it.title }}</span>{% if it.note %}<span class="mo-ss-n">{{ it.note }}</span>{% endif %}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% set mo_inline = true %}<script>
+{% include 'moments/slideshow-counter.js.j2' %}
+</script>
+{% endif %}
