@@ -34,11 +34,22 @@
     --ease: {{ t.ease|default('cubic-bezier(.2,.7,.2,1)') }};
     --reveal-ms: {{ t.reveal_ms|default(900) }}ms;
     --reveal-offset: {{ t.reveal_offset_px|default(0) }}px;
-    /* display floors: never below the pairing minimum; weight-400 sentence faces hold >= 48 px on mobile (hairline probe) */
-    --h1-floor: {{ [pair.display.min_px, 48 if thin_face else (40 * t.display_scale)|round|int]|max }}px;
+    /* display floors: never below the pairing minimum; weight-400 sentence faces hold >= 48 px on mobile (hairline probe).
+       Measured 2026-10-21 (qa stroke probe, 1x/2x): Forum, Libre Caslon Display, Italiana and Instrument Serif still fail
+       at 48 px and pass at 56 px; Cardo, Gloock, DM Serif Display pass at 48. Stage 3: move this into pairings.json `hairline_floor_px`. */
+{% set hairline_floor = pair.display.hairline_floor_px|default(56 if pair.display.family in ('Forum', 'Libre Caslon Display', 'Italiana', 'Instrument Serif') else 48) %}
+{% if t.display_case == 'caps' %}
+    /* caps display case: the hero sets its own tracked-caps h1 (14-40 px); section h2s stay sentence case (E5) */
+    --h1-floor: {{ [pair.display.min_px, 28]|max }}px;
+    --h2-floor: {{ [pair.display.min_px, (32 * t.display_scale)|round|int]|max }}px;
+    --h1: clamp(var(--h1-floor), 2.8vw, {{ [40, pair.display.min_px]|max }}px);
+    --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);
+{% else %}
+    --h1-floor: {{ [pair.display.min_px, hairline_floor if thin_face else (40 * t.display_scale)|round|int]|max }}px;
     --h2-floor: {{ [pair.display.min_px, (32 * t.display_scale)|round|int]|max }}px;
     --h1: clamp(var(--h1-floor), {{ (6.2 * t.display_scale)|round(1) }}vw, {{ [(84 * t.display_scale)|round|int, pair.display.max_px|default(96)]|min }}px);
     --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);
+{% endif %}
     --h3: clamp({{ [22, pair.display.min_px if pair.display.min_px <= 24 else 22]|max }}px, 2.2vw, 28px);
 {% else %}
     --ease: cubic-bezier(.2,.7,.2,1);

@@ -29,21 +29,21 @@
 <body data-variant="{{ build.variant }}" data-hero="{{ ch.hero }}" data-moment="{{ ch.moment }}"{% if dialect %} data-dialect="{{ dialect.id }}" data-ornament="{{ ornament }}" data-motion="{{ t.motion_device }}" data-paper="{{ palette_mode }}" data-paper-tone="{{ t.paper_tone }}" data-photo-edge="{{ t.photo_edge }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 {% include 'partials/nav-' ~ nav_style ~ '.j2' %}
-{% if orn_tpl %}{% with slot='header' %}{% include orn_tpl ignore missing %}{% endwith %}
+{% if orn_tpl %}{% with slot='header', from_base=true %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}
 <main id="main">
 {% include 'heroes/' ~ ch.hero ~ '.j2' %}
-{% if orn_tpl %}{% with slot='hero', section_index=1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% if orn_tpl %}{% with slot='hero', from_base=true, section_index=1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}
 {% for s in sections %}
-{% if orn_tpl and s.id in ('story', 'tour') %}{% with slot=s.id, section_label=s.nav, section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% if orn_tpl and s.id in ('story', 'tour') %}{% with slot=s.id, from_base=true, section_label=s.nav, section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}
 {% include s.template ~ '.j2' %}
-{% if orn_tpl and s.id in ('facts-strip', 'glance') %}{% with slot='facts', section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
+{% if orn_tpl and s.id in ('facts-strip', 'glance') %}{% with slot='facts', from_base=true, section_index=loop.index + 1, section_total=sections|length + 1 %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}
 {% endfor %}
 </main>
-{% if orn_tpl %}{% with slot='footer' %}{% include orn_tpl ignore missing %}{% endwith %}
+{% if orn_tpl %}{% with slot='footer', from_base=true %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}
 {% include 'partials/footer.j2' %}
 <script>

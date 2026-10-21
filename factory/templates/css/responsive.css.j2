@@ -16,12 +16,26 @@
   }{% if dialect %}
 
   /* stage 2B dialect overrides (this file is included last, so they win over section css) */
-  .glance-item p, .tour-notes, .sched-notes li, .foot-grid p, .foot-grid li { font-size: 16.5px; }
+  /* E16: running copy >= 16.5 px in the legacy sections that still size it smaller */
+  .glance-item p, .tour-notes, .sched-notes li, .foot-grid p, .foot-grid li, .index-row .use, .index-row .blurb, .mo-tn-cap { font-size: 16.5px; }
   .card .sub { font-size: 16.5px; }
-{% if pair.secondary and pair.display.weight <= 400 and not pair.display.caps_only %}
+  /* dark set: legacy section/moment css still hard-codes #fff on deep bands */
+  .guide-band .confirm h3, .light[data-light="night"] h2, .light[data-light="night"] h3 { color: var(--on-deep, #fff); }
+  .guide-band .check { background: color-mix(in srgb, var(--on-deep, #fff) 14%, transparent); color: var(--on-deep, #fff); }
+  .guide-band .btn-solid { background: var(--on-deep, #fff); color: var(--deep); border-color: var(--on-deep, #fff); }
+  .guide-band .btn-solid:hover { background: var(--on-deep-accent); border-color: var(--on-deep-accent); color: var(--deep); }
+  .guide-band .field input { background: var(--field, #fff); }
+  .light[data-light="night"] .light-ctl button[aria-pressed="true"] { background: var(--on-deep, #fff); color: var(--deep); }
+{% if true %}
+  /* display floors on mobile (contract 3.2): h1 >= --h1-floor, h2 >= --h2-floor. A hero/section that wants a larger
+     size sets --h1-size / --h2-size on the heading; the floor still applies. Desktop sizes stay with the template. */
   @media (max-width: 600px) {
+    body[data-dialect] h1 { font-size: max(var(--h1-floor), var(--h1-size, var(--h1-floor))); }
+    body[data-dialect] h2:not(.card h2):not(.card-title):not(.display-2) { font-size: max(var(--h2-floor), var(--h2-size, var(--h2-floor))); }
+{% if pair.secondary and pair.display.weight <= 400 and not pair.display.caps_only %}
     /* the mobile h1 moves to the secondary face: the primary fails the 1x/2x hairline probe below ~48 px */
     h1 { font-family: var(--display-2); font-weight: var(--display-2-weight); letter-spacing: {{ pair.secondary.tracking|default('0') }}; line-height: {{ pair.secondary.line_height|default(1.1) }}; {% if pair.secondary.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.secondary.vars|safe }};{% endif %} }
+{% endif %}
   }
 {% endif %}
 {% endif %}
