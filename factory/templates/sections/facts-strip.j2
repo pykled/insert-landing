@@ -1,6 +1,8 @@
 {#- section `facts-strip` (estate, editorial, candlelit, ranch, deco): year, acres, guests, spaces from v.tagline_facts and
     v.vibe.era; nulls omitted; topped up to four from v.numbers (skipping values already shown). Every value carries
     data-fact. Labels here are template words; every number comes from the content file. -#}
+{# 3A: the frame hero already prints these facts under its headline; the strip would repeat them #}
+{% if ch.hero != 'frame' %}
 {% set tf = v.tagline_facts %}
 {% set facts = [] %}
 {% if v.vibe and v.vibe.era %}{% set _ = facts.append(('year', v.vibe.era, 'Established')) %}{% endif %}
@@ -25,4 +27,5 @@
     {% if ornament != 'none' %}{% with slot='facts' %}{% include 'ornaments/' ~ ornament ~ '.j2' ignore missing %}{% endwith %}{% endif %}
   </div>
 </section>
+{% endif %}
 {% endif %}

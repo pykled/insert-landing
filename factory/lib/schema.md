@@ -15,7 +15,7 @@ or a capacity; if a field is null the templates say so ("Capacity on request") o
 | `story` | object | `kicker`, `lead`, `paragraphs[]`, `credit`, `timeline[] {year, text, source}`, `photo`, `source` |
 | `numbers[]` | `{value, label, source}` | 3-4 big figures (acres, spaces, events per day, a date) |
 | `spaces[]` | object | `id`, `name`, `photo`, `capacity` (int or null), `capacity_label`, `capacity_kind`, optional `capacity_ceremony`, `use`, `blurb`, `features[]`, `journey_step`, `source` |
-| `journey` | object | `note` (how the order was derived from stated uses), `steps[]` of space ids |
+| `journey` | object | `note` (how the order was derived from stated uses; reviewer provenance, never rendered), `steps[]` of space ids |
 | `day` | object | `rental_hours`, `gates_open`, `event_end`, `breakdown_end`, `included[]`, `requirement`, `spaces_per_event`, `source` |
 | `faqs[]` | `{q, a, source}` | verbatim or lightly paraphrased from the venue's FAQ |
 | `featured_in[]` | string | plain text names only; never logo files |

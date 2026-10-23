@@ -611,6 +611,177 @@
     "strip": "6f07af053b1bb3726074ec4c69cdbb0317232d0f45ad6c4492f2925ac4b9c4ed",
     "captured": "2026-10-23"
    }
+  },
+  {
+   "id": "homestead-demo",
+   "exposure": "demo",
+   "fingerprint": {
+    "display_family": "Bricolage Grotesque",
+    "display_class": "grotesk",
+    "body_family": "Hanken Grotesk",
+    "accent_hue": 88.1,
+    "paper_temperature": "warm",
+    "hero": "frame",
+    "hero_family": "photo-matted",
+    "spaces": "stack-olive",
+    "story": "timeline",
+    "faq": "accordion-split",
+    "tour": "scheduler-split",
+    "section_order": [
+     "hero",
+     "facts-strip",
+     "story",
+     "spaces",
+     "journey",
+     "tour",
+     "guide",
+     "faq"
+    ],
+    "moment": "guest-journey",
+    "button_style": "soft-solid",
+    "radius": 4,
+    "lead_photo": "hero",
+    "dialect": "ranch",
+    "pairing": "ranch-display-sans",
+    "voice": "warm-host",
+    "paper_tone": "tinted",
+    "hero_framing": "inset",
+    "display_case": "sentence",
+    "ornament": "olive-band",
+    "body_px": 19,
+    "photo_edge": "keyline",
+    "motion_device": "band-fade",
+    "nav_style": "bar",
+    "ornament_wanted": "olive-band",
+    "bottom": "almanac"
+   },
+   "meta": {
+    "path": ".factory-check/demos/homestead",
+    "built": "2026-10-23T16:37:31",
+    "personality": {
+     "formality": 52.5,
+     "scale": 65.0,
+     "era": 35.0,
+     "density": 37.5,
+     "temperature": 20.0,
+     "voice": 37.5
+    }
+   }
+  },
+  {
+   "id": "lindley-scott-demo",
+   "exposure": "demo",
+   "fingerprint": {
+    "display_family": "Libre Caslon Display",
+    "display_class": "garalde",
+    "body_family": "Libre Caslon Text",
+    "accent_hue": 123.4,
+    "paper_temperature": "cool",
+    "hero": "frame",
+    "hero_family": "photo-matted",
+    "spaces": "index",
+    "story": "pullquote",
+    "faq": "accordion-split",
+    "tour": "scheduler-split",
+    "section_order": [
+     "hero",
+     "facts-strip",
+     "spaces",
+     "story",
+     "crest-reveal",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "crest-reveal",
+    "button_style": "square-outline-caps",
+    "radius": 0,
+    "lead_photo": "hero",
+    "dialect": "estate",
+    "pairing": "estate-caslon",
+    "voice": "heritage",
+    "paper_tone": "light",
+    "hero_framing": "inset",
+    "display_case": "sentence",
+    "ornament": "double-rule",
+    "body_px": 19,
+    "photo_edge": "keyline",
+    "motion_device": "draw-in",
+    "nav_style": "bar",
+    "ornament_wanted": "double-rule",
+    "bottom": "almanac"
+   },
+   "meta": {
+    "path": ".factory-check/demos/lindley-scott",
+    "built": "2026-10-23T16:37:35",
+    "personality": {
+     "formality": 85.0,
+     "scale": 70.0,
+     "era": 25.0,
+     "density": 52.5,
+     "temperature": 35.0,
+     "voice": 62.5
+    }
+   }
+  },
+  {
+   "id": "stonehurst-demo",
+   "exposure": "demo",
+   "fingerprint": {
+    "display_family": "Cardo",
+    "display_class": "garalde",
+    "body_family": "Nunito Sans",
+    "accent_hue": 128.1,
+    "paper_temperature": "cool",
+    "hero": "arch-split",
+    "hero_family": "split",
+    "spaces": "stack",
+    "story": "timeline",
+    "faq": "accordion-split",
+    "tour": "scheduler-split",
+    "section_order": [
+     "hero",
+     "statement",
+     "story",
+     "featured",
+     "spaces",
+     "sprig-draw",
+     "tour",
+     "guide",
+     "faq",
+     "uses"
+    ],
+    "moment": "sprig-draw",
+    "button_style": "square-outline-caps",
+    "radius": 3,
+    "lead_photo": "hero",
+    "dialect": "botanical",
+    "pairing": "botanical-cardo",
+    "voice": "romantic",
+    "paper_tone": "light",
+    "hero_framing": "split",
+    "display_case": "sentence",
+    "ornament": "leaf-rule",
+    "body_px": 19,
+    "photo_edge": "arch",
+    "motion_device": "draw-in",
+    "nav_style": "centered",
+    "ornament_wanted": "leaf-rule",
+    "bottom": "letterpress"
+   },
+   "meta": {
+    "path": ".factory-check/demos/stonehurst",
+    "built": "2026-10-23T16:37:44",
+    "personality": {
+     "formality": 65.0,
+     "scale": 52.5,
+     "era": 40.0,
+     "density": 42.5,
+     "temperature": 37.5,
+     "voice": 25.0
+    }
+   }
   }
  ],
  "schema_version": 2

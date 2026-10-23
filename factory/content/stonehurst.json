@@ -4,6 +4,7 @@
   "name": "The Stonehurst",
   "short_name": "Stonehurst",
   "legal_name": "Stonehurst, LLC",
+  "copy_overrides": {"_note": "3A 2026-10-23: wedding-first lines built from stated facts only (weddings are the venue's lead use; spaces and the 200-guest maximum from this file).", "hero_kicker": "Weddings · Shadow Hills, Los Angeles County", "hero_lede": "Weddings in the greenhouse, barn, flower garden, bamboo garden, terrace and bungalow, for up to 200 guests.", "spaces_title": "Six places for a wedding day."},
   "tagline_facts": {
     "locality": "Shadow Hills",
     "region": "Los Angeles County",
@@ -19,8 +20,8 @@
   "website": "https://www.thestonehurst.com/",
   "platform_note": "Wix; homepage HTML 640 KB before media (NOTES.md)",
   "contact": {
-    "email": "hello@thestonehurst.com",
-    "email_note": "PLACEHOLDER domain address. The venue's only real contact is thestonehurst@gmail.com (site footer). Swap before any real use.",
+    "email": "thestonehurst@gmail.com",
+    "email_note": "The venue's only published address (site footer, thestonehurst.com). 3A 2026-10-23: replaced the placeholder domain address.",
     "phone": null,
     "phone_note": "No phone number anywhere on the venue site. Do not invent one.",
     "address_line": "Corner of Sunland & Stonehurst Ave",

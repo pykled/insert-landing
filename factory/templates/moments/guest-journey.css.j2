@@ -2,7 +2,7 @@
   .journey { background: var(--paper-2); }
   .journey-grid { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
   .journey-stage { position: sticky; top: 96px; }
-  .jstage-ph { aspect-ratio: 4 / 5; }
+  .jstage-ph { aspect-ratio: var(--ar, 4 / 5); }
   .jstage-img { position: absolute; inset: 0; opacity: 0; transition: opacity .7s var(--ease); }
   .jstage-img.on { opacity: 1; }
   .journey-steps { list-style: none; }

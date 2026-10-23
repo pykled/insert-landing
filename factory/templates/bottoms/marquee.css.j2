@@ -4,13 +4,13 @@
   .mq-cell { padding: clamp(28px, 4vw, 48px) 0 0; }
   .mq-side { border-left: 1px solid var(--on-deep-soft); padding-left: clamp(24px, 4vw, 56px); }
   .mq-title { padding-right: clamp(24px, 4vw, 56px); }
-  .mq-label { font-family: var(--body); font-size: 13.5px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: {{ pair.body.medium }}; margin-bottom: 18px; }
+  .mq-label { font-family: var(--body); font-size: 13.5px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: {{ pair.body.medium }}; margin-bottom: 18px; overflow-wrap: anywhere; min-width: 0; }
   .guide-mq .mq-label { color: var(--on-deep-accent); }
   .guide-mq h2 { font-size: clamp(var(--h2-floor), 4.4vw, max(64px, var(--h2-floor))); max-width: 14ch; }
   .guide-mq .lede { max-width: 44ch; }
   .uses-mq .mq-uses { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
   .uses-mq .mq-uses > div { padding: clamp(32px, 4.5vw, 60px) clamp(24px, 4vw, 56px); }
-  .uses-mq .mq-uses-label { border-right: 1px solid var(--on-ink-soft); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+  .uses-mq .mq-uses-label { min-width: 0; border-right: 1px solid var(--on-ink-soft); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
   .uses-mq .mq-label { color: var(--paper); }
   .uses-mq .mq-count { font-size: 16.5px; color: var(--on-ink-soft); }
   .uses-mq .mq-count b { display: block; font-family: var(--display); font-weight: var(--display-weight); font-size: {{ [pair.display.min_px, 56]|max }}px; line-height: 1; color: var(--paper); {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars }};{% endif %} }
@@ -32,7 +32,7 @@
   @media (max-width: 860px) {
     .mq-grid, .uses-mq .mq-uses { grid-template-columns: 1fr; }
     .mq-side { border-left: 0; padding-left: 0; border-top: 1px solid var(--on-deep-soft); margin-top: 28px; }
-    .uses-mq .mq-uses-label { border-right: 0; border-bottom: 1px solid var(--on-ink-soft); }
+    .uses-mq .mq-uses-label { min-width: 0; border-right: 0; border-bottom: 1px solid var(--on-ink-soft); }
     .mq-foot-grid { grid-template-columns: 1fr 1fr; }
     .mq-foot-grid > div:nth-child(odd) { border-left: 0; padding-left: 0; }
   }
