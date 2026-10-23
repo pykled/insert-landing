@@ -239,3 +239,36 @@ def test_faq_answer_cut_at_repeated_theme_footer():
     vibe = {'type': None, 'era': None, 'era_source': None, 'words': [], 'evidence': {}, 'type_evidence': {}}
     draft, _ = I.build_draft('t', ROOT, pages, [], vibe, 'photos/t')
     assert [f['a'] for f in draft['faqs'] if f['q'] == 'Can we use the lawn?'] == ['No.']
+
+
+def _wf_pages(bodies):
+    out = []
+    for path, body in bodies:
+        html = '<html><head><title>T</title></head><body>%s</body></html>' % body
+        out.append({'url': ROOT + path, 'blocks': X.extract_page(html, ROOT + path)[1]['blocks']})
+    return out
+
+
+def test_wedding_first_primary_and_flag():
+    from intake import wedding as W
+    wed = _wf_pages([('', '<h1>Garden weddings</h1><p>Your wedding ceremony on the lawn, then the reception.</p>'),
+                     ('weddings/', '<h2>Ceremonies</h2><p>Vows under the oak for the bride and groom.</p>'),
+                     ('testimonials/', '<p>"We got married here and our wedding day was perfect, thank you all so much."</p>'),
+                     ('film/', '<h2>Filming</h2><p>Film shoots and photo shoots by arrangement.</p>')])
+    r = W.check(wed)
+    assert r['verdict'] == 'primary' and not r['flag']
+    assert r['shares']['pages'] == 0.75 and r['shares']['reviews'] == 1.0
+    corp = _wf_pages([('', '<h1>Meetings and retreats</h1><p>Corporate offsites, conferences and galas.</p>'),
+                      ('events/', '<h2>Private events</h2><p>Birthdays, fundraisers and holiday parties.</p>'),
+                      ('weddings/', '<h2>Weddings</h2><p>We also host the occasional wedding.</p>')])
+    r2 = W.check(corp)
+    assert r2['verdict'] == 'not primary' and r2['flag']
+    assert '## Wedding-first check' in W.report_md(r2)[0]
+
+
+def test_draft_puts_weddings_first():
+    html = '<html><body><p>Corporate events, corporate retreats, corporate meetings and corporate dinners. We host weddings.</p></body></html>'
+    facts, info = X.extract_page(html, ROOT)
+    vibe = {'type': None, 'era': None, 'era_source': None, 'words': [], 'evidence': {}, 'type_evidence': {}}
+    draft, _ = I.build_draft('t', ROOT, [{'url': ROOT, 'html': html, 'facts': facts, 'info': info}], [], vibe, 'photos/t')
+    assert draft['tagline_facts']['uses'][0] == 'Weddings'

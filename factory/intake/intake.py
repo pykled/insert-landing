@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FACTORY = os.path.dirname(HERE)
 if sys.path[0] != FACTORY:
     sys.path.insert(0, FACTORY)
-from intake import extract as X, photos as PH, crawl as CR  # noqa: E402
+from intake import extract as X, photos as PH, crawl as CR, wedding as W  # noqa: E402
 
 MIN_WIDTH = 800
 MAX_KEEP_WIDTH = 4000
@@ -285,6 +285,9 @@ def build_draft(slug, url, pages, kept, vibe, photo_rel):
             uses_c[f['value']] += f.get('count', 1)
             uses_src.setdefault(f['value'], f['source'])
     uses = [u for u, _ in uses_c.most_common(4)]
+    # wedding-first pipeline: Weddings always lead when the site says weddings at all; other uses are secondary lines
+    if uses_c.get('Weddings'):
+        uses = ['Weddings'] + [u for u, _ in uses_c.most_common() if u != 'Weddings'][:3]
     socials = dedupe([f for f in allf if f['field'] == 'social'], lambda f: f['value']['url'].lower())
     tools = dedupe([f for f in allf if f['field'] == 'tool'], lambda f: f['value']['name'])
     faq_f = dedupe([f for f in allf if f['field'] == 'faq'], lambda f: f['value']['q'].lower())
@@ -337,6 +340,8 @@ def build_draft(slug, url, pages, kept, vibe, photo_rel):
         review.append({'field': 'tagline_facts.max_guests', 'reason': 'no capacity stated; leave null'})
     else:
         review.append({'field': 'tagline_facts.max_guests', 'reason': 'largest stated figure %d ("%s"); confirm it is the venue maximum' % (caps[0]['value'], caps[0]['phrase'])})
+    review.append({'field': 'tagline_facts.uses', 'reason': 'wedding-first: Weddings leads (uses[0] is the headline offer); keep other uses only as secondary lines the site itself states%s' % ('' if uses_c.get('Weddings') else '. NO wedding wording found on any page')})
+    review.append({'field': 'copy_overrides', 'reason': 'write hero_kicker / hero_headline / hero_lede and spaces_title as wedding-first lines from stated facts; never lead with filming, corporate or private events'})
     review.append({'field': 'story', 'reason': 'write lead + paragraphs as short paraphrases of the history excerpts (never copy)'})
     review.append({'field': 'vibe', 'reason': 'suggested from word counts; a human confirms the three words'})
     draft = {
@@ -389,14 +394,16 @@ def score_table_md(rows, n=8):
     return out
 
 
-def report(slug, url, draft, F, kept, skipped, skipped_detail, ngroups, sc, vibe, log, timings, fetcher):
+def report(slug, url, draft, F, kept, skipped, skipped_detail, ngroups, sc, vibe, log, timings, fetcher, wf=None):
     L = ['# Intake report: %s' % (draft['name'] or slug), '',
          'Start URL: %s · crawled %s · %d pages · %d requests · %d distinct images seen, %d photos kept' %
          (url, draft['_intake']['crawled_at'], len(draft['_intake']['pages']), fetcher.requests, ngroups, len(kept)), '',
          'Timings (automated): ' + ', '.join('%s %.0fs' % kv for kv in timings.items()), '',
          'Everything below was extracted from the pages listed in the crawl log. Nothing is inferred. `confidence` is how the',
-         'value was found (structured data / link = high, pattern on page = medium, heading heuristics = low).', '',
-         '## Facts', '', '| field | value | source | confidence | how |', '|---|---|---|---|---|']
+         'value was found (structured data / link = high, pattern on page = medium, heading heuristics = low).', '']
+    if wf:
+        L += W.report_md(wf)
+    L += ['## Facts', '', '| field | value | source | confidence | how |', '|---|---|---|---|---|']
     rows = []
     for k in ('name', 'email', 'phone', 'address', 'meta'):
         if F[k]:
@@ -483,6 +490,10 @@ def main(argv=None):
         print('scorer (signals only) failed:', e)
     vibe = suggest_vibe(pages, dialects_doc['vibe_words'], pre['signals_only'] if pre else [], [f for f in allf if f['field'] == 'history'])
     draft, F = build_draft(a.slug, CR.normalise(a.url), pages, kept, vibe, photo_rel)
+    wf = W.check([{'url': pg['url'], 'blocks': pg['info']['blocks']} for pg in pages])
+    draft['_intake']['wedding_first'] = {'verdict': wf['verdict'], 'shares': wf['shares'], 'other_terms_top': wf['other_terms_top']}
+    if wf['flag']:
+        draft['review'].insert(0, {'field': 'wedding_first', 'reason': 'FLAG: weddings are %s on this site (shares %s); confirm the venue fits the wedding-first pipeline before building' % (wf['verdict'], wf['shares'])})
     sc = None
     try:
         sc = score(draft, kept, photo_dir, P, PERS, dialects_doc, registry)
@@ -494,11 +505,12 @@ def main(argv=None):
     dpath = os.path.join(a.out, a.slug + '.draft.json')
     json.dump(draft, open(dpath, 'w'), indent=1, ensure_ascii=False)
     rpath = os.path.join(a.out, a.slug + '.intake-report.md')
-    open(rpath, 'w').write(report(a.slug, a.url, draft, F, kept, skipped, skipped_detail, ngroups, sc, vibe, log, timings, fetcher))
+    open(rpath, 'w').write(report(a.slug, a.url, draft, F, kept, skipped, skipped_detail, ngroups, sc, vibe, log, timings, fetcher, wf))
     from lib import schema as S
     errs, warns = S.validate_content(draft, dialects_doc['vibe_words'])
     print('draft: %s (%d schema errors, %d warnings; drafts are expected to need review)' % (os.path.relpath(dpath), len(errs), len(warns)))
     print('report: %s' % os.path.relpath(rpath))
+    print('wedding-first: %s %s%s' % (wf['verdict'], wf['shares'], '  <- FLAG' if wf['flag'] else ''))
     if sc:
         print('dialect shortlist: ' + ', '.join('%s %d' % (r['id'], r['score']) for r in sc['with_vibe'][:3]))
     print('total automated: %.0fs, %d requests' % (sum(timings.values()), fetcher.requests))
