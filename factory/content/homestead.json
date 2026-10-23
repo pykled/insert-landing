@@ -1,0 +1,177 @@
+{
+  "$schema": "../lib/schema.md",
+  "slug": "homestead",
+  "name": "The HomeStead",
+  "short_name": "HomeStead",
+  "legal_name": "The HomeStead at Wilshire Ranch",
+  "_review": "Reviewed 2026-10-23 by the demo-pipeline Maker against the live pages (intake draft homestead.draft.json, report homestead.intake-report.md) and the venue's own 2027 overview booklet linked from its homepage (cited as the PDF URL). Short paraphrases only; nothing inferred. legal_name: no company name is published; the site's own long name is used.",
+  "tagline_facts": {
+    "locality": "Oak Glen",
+    "region": null,
+    "state": "CA",
+    "acres": 5.5,
+    "space_count": 4,
+    "max_guests": 180,
+    "events_per_day": 1,
+    "uses": ["Weddings", "Micro weddings", "Private events"],
+    "_note": "region: the site names Wilshire Peak and the San Bernardino Mountains but never a county or region, so it stays null. space_count = the four areas the About page describes as event spaces (ceremony, reception, beverage area, cottage & cabin); the site states no count. max_guests: '~180' in the overview booklet FAQ."
+  },
+  "vibe": {"type": "ranch", "era": null, "words": ["rustic", "land", "romantic"],
+           "_note": "Reviewed: a family ranch homestead kept in its original feel with vintage décor (rustic), 5.5 acres under Wilshire Peak with oaks, sycamores, apple trees and a lilac field (land), and the site's own repeated word (romantic). Intake suggested rustic/land/evening. era null: the site says 'more than a hundred years ago' but gives no build year."},
+  "website": "https://homesteadoakglen.com/",
+  "platform_note": "Showit (WordPress blog); Meta Pixel; pricing in three package PDFs behind a download, tours by appointment, no scheduler",
+  "contact": {
+    "email": "info@homesteadoakglen.com",
+    "email_note": "Contact page, footer and booklet.",
+    "phone": "(909) 790-8010",
+    "phone_note": "Contact page lists both (909) 790-8010 and (951) 840-6974; the booklet adds call/text (951) 807-2512.",
+    "address_line": "11951 Oak Glen Road, Oak Glen, CA 92399",
+    "address_note": "Contact page.",
+    "hours": "Tours by appointment",
+    "source": "https://homesteadoakglen.com/contact"
+  },
+  "awards": ["The Knot Best of Weddings 2024"],
+  "_awards_source": "https://homesteadoakglen.com/",
+  "facts": [
+    {"id": "family-estate", "text": "A family-owned private estate in Oak Glen, hosting one event per day in an open-air venue", "source": "https://homesteadoakglen.com/"},
+    {"id": "owners", "text": "Owners: Don and Paula Christante", "source": "https://homesteadoakglen.com/about"},
+    {"id": "wilshire", "text": "More than a hundred years ago Blackie Wilshire and his family made the glen their home; pieces of the original homestead still stand", "source": "https://homesteadoakglen.com/about"},
+    {"id": "acres", "text": "5.5 acres in Oak Glen, beneath Wilshire Peak and the San Bernardino Mountains", "source": "https://homesteadoakglen.com/about"},
+    {"id": "trees", "text": "Oaks, sycamores, heirloom apple trees and a lilac field; the property overlooks the valley below", "source": "https://homesteadoakglen.com/about"},
+    {"id": "ranch-feel", "text": "The original feel of the family ranch is preserved, with modern amenities added", "source": "https://homesteadoakglen.com/information"},
+    {"id": "ceremony", "text": "Open-air ceremony site under oak and sycamore trees, built for a grand entrance and leading to a terraced stage", "source": "https://homesteadoakglen.com/about"},
+    {"id": "reception", "text": "Guests dine outdoors with mountain views and dance under string lights and stars", "source": "https://homesteadoakglen.com/about"},
+    {"id": "beverage", "text": "A handcrafted self-serve beverage station sits between the ceremony and reception spaces", "source": "https://homesteadoakglen.com/about"},
+    {"id": "fire", "text": "A fire pit for gathering and s'mores in the evening", "source": "https://homesteadoakglen.com/about"},
+    {"id": "lighting", "text": "Gas and electric lamps and strings of café lights light the evening", "source": "https://homesteadoakglen.com/about"},
+    {"id": "suites", "text": "The Cottage and the Cabin are private getting-ready spaces with a refrigerator, ice and a microwave", "source": "https://homesteadoakglen.com/information"},
+    {"id": "amenities", "text": "Modern restrooms, full ADA access, room for RVs, a designated outdoor smoking lounge and lit on-site parking", "source": "https://homesteadoakglen.com/about"},
+    {"id": "all-inclusive", "text": "All-inclusive weddings: staff and in-house vendors plan, prepare and produce; in-house coordination, set-up and clean-up, rehearsal and a large décor collection", "source": "https://homesteadoakglen.com/information"},
+    {"id": "packages", "text": "Packages: WeekDay Essentials, WeekEnd Essentials and All-Inclusive Premier (2027 PDFs)", "source": "https://homesteadoakglen.com/"},
+    {"id": "one-wedding", "text": "Only one wedding per day; a private estate not open to the public", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"id": "max-180", "text": "Comfortably accommodates a maximum of about 180 guests", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"id": "outside-vendors", "text": "Outside vendors are welcome, to add to or replace package vendors, with no extra fee", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"id": "no-fees", "text": "Tax included in all pricing; no service, administrative or corkage fees", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"id": "payments", "text": "Non-refundable deposit holds the date; signed contract within 3 weeks; thirds due 210, 150 and 60 days before the event", "source": "https://homesteadoakglen.com/information"},
+    {"id": "elevation", "text": "Oak Glen sits at 4,734 ft and is usually about 10 degrees cooler than inland cities", "source": "https://homesteadoakglen.com/guests"},
+    {"id": "tours", "text": "Tours by appointment only", "source": "https://homesteadoakglen.com/information"},
+    {"id": "award", "text": "The Knot Best of Weddings 2024 (badge on the homepage)", "source": "https://homesteadoakglen.com/"}
+  ],
+  "story": {
+    "kicker": "The glen",
+    "lead": "A family ranch in Oak Glen, kept the way it always felt.",
+    "paragraphs": [
+      "More than a hundred years ago Blackie Wilshire and his family made this glen their home, and pieces of the original homestead still stand on the property.",
+      "Owners Don and Paula Christante have kept the feel of the family ranch and added modern comforts. The 5.5 acres sit under Wilshire Peak and the San Bernardino Mountains, among oaks, sycamores, heirloom apple trees and a lilac field, looking over the valley below."
+    ],
+    "credit": null,
+    "timeline": [
+      {"year": "A century ago", "text": "Blackie Wilshire and his family make the glen their home.", "source": "https://homesteadoakglen.com/about"},
+      {"year": "Today", "text": "One wedding a day on 5.5 acres.", "source": "https://homesteadoakglen.com/"}
+    ],
+    "photo": "sawmill",
+    "source": "https://homesteadoakglen.com/about"
+  },
+  "numbers": [
+    {"value": "5.5", "label": "Acres in the glen", "source": "https://homesteadoakglen.com/about"},
+    {"value": "1", "label": "Wedding per day", "source": "https://homesteadoakglen.com/"},
+    {"value": "180", "label": "Guests, at most", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"value": "4,734", "label": "Feet above sea level", "source": "https://homesteadoakglen.com/guests"}
+  ],
+  "spaces": [
+    {
+      "id": "ceremony", "name": "The Ceremony Area", "photo": "ceremony",
+      "capacity": null, "capacity_label": "Capacity on request", "capacity_kind": null,
+      "use": "Open-air ceremonies",
+      "blurb": "Under the spreading arms of old oaks and sycamores: a long aisle built for a grand entrance, ending at a terraced stage.",
+      "features": ["Terraced stage", "Oak and sycamore canopy"],
+      "journey_step": "Vows under the oaks",
+      "source": "https://homesteadoakglen.com/about"
+    },
+    {
+      "id": "reception", "name": "The Reception Area", "photo": "tables",
+      "capacity": null, "capacity_label": "Capacity on request", "capacity_kind": null,
+      "use": "Outdoor dinner and dancing",
+      "blurb": "Dinner outdoors with the mountains in view, then dancing under string lights and stars, with the fire pit nearby for s'mores.",
+      "features": ["Mountain views", "String lights", "Fire pit"],
+      "journey_step": "Dinner under the lights",
+      "source": "https://homesteadoakglen.com/about"
+    },
+    {
+      "id": "bar", "name": "The Beverage Area", "photo": "bar",
+      "capacity": null, "capacity_label": null, "capacity_kind": null,
+      "use": "Self-serve beverage station",
+      "blurb": "A handcrafted, self-serve beverage station set between the ceremony and the reception.",
+      "features": ["Self-serve", "Between ceremony and reception"],
+      "journey_step": "A drink between the two",
+      "source": "https://homesteadoakglen.com/about"
+    },
+    {
+      "id": "cottage", "name": "The Cottage & Cabin", "photo": "oakcottage",
+      "capacity": null, "capacity_label": "For the wedding party", "capacity_kind": null,
+      "use": "Getting ready",
+      "blurb": "Two private getting-ready spaces, one for each party, far enough for a quiet moment and close to the celebration. Refrigerator, ice and microwave inside.",
+      "features": ["Private", "Refrigerator, ice, microwave"],
+      "journey_step": "Get ready in the Cottage and Cabin",
+      "source": "https://homesteadoakglen.com/information",
+      "_note": "The photo is one of the property's cottages; the site does not label which building is the Cottage or the Cabin."
+    }
+  ],
+  "journey": {
+    "note": "Order from the Information page process (getting ready in the Cottage and Cabin) and the About page (ceremony, beverage area between ceremony and reception, outdoor reception).",
+    "steps": ["cottage", "ceremony", "bar", "reception"]
+  },
+  "day": {
+    "rental_hours": null,
+    "gates_open": null,
+    "event_end": null,
+    "breakdown_end": null,
+    "guest_arrival": "No earlier than 30 minutes before the ceremony",
+    "included": ["In-house coordination", "Set-up and clean-up", "Rehearsal and walk-through", "Décor from the house collection", "Cottage and Cabin for getting ready"],
+    "requirement": null,
+    "spaces_per_event": null,
+    "source": "https://homesteadoakglen.com/information",
+    "_note": "Event hours vary by package and are left blank in the booklet text; no rental length, end time or breakdown window is published. Sections that need rental_hours/event_end must not be chosen (or must null-guard)."
+  },
+  "faqs": [
+    {"q": "How many weddings do you host per day?", "a": "Only one. The HomeStead is a private estate and is not open to the public.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "How many guests can you host?", "a": "Up to about 180, comfortably.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "Can we bring outside vendors?", "a": "Yes, to add to the package or replace one of the preferred vendors, with no extra fee.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "Are there hidden costs?", "a": "No. Tax is included in all pricing, and there are no service, administrative or corkage fees.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "Can we bring our own DJ?", "a": "Generally, no.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "What if the weather turns?", "a": "It is an outdoor venue with room for a 40 by 60 ft tent, rented through the house or on your own. Whether to tent is your call.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "When can guests arrive?", "a": "No earlier than 30 minutes before the ceremony starts.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "Can our dog be in the wedding?", "a": "Yes, pets are welcome.", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"q": "How do payments work?", "a": "A non-refundable deposit holds your date and a signed contract is due within three weeks. The balance is paid in thirds, 210, 150 and 60 days before the event; other schedules can be discussed.", "source": "https://homesteadoakglen.com/information"},
+    {"q": "What should guests bring?", "a": "A layer. Oak Glen sits at 4,734 ft and is usually about 10 degrees cooler than inland cities: a sweater for May or June evenings, a jacket for fall. There are no gas stations in Oak Glen.", "source": "https://homesteadoakglen.com/guests"},
+    {"q": "How do we tour?", "a": "Tours are by appointment only. Download the wedding pricing pamphlet first, then call or email.", "source": "https://homesteadoakglen.com/information"}
+  ],
+  "featured_in": [],
+  "photos": {
+    "source_dir": "photos/homestead",
+    "manifest": "photos/homestead/manifest.json",
+    "credit": "photography: The HomeStead galleries (Darcy Walls, Van Grouw, Kwon Photo, Christine Marie and others)",
+    "_note": "14 of 119 collected photos (28 more were not downloaded: --max-photos cap). Most gallery photos lead with couples or guests and were excluded; every chosen photo was checked by eye for people (none in frame). faces: unchecked (no OpenCV). No people-free photo of the mountain view exists in the set (the sunset dinner shot has dancing guests). Gitignored; recreate with `python3 factory/intake/curate.py homestead --refetch`.",
+    "items": {
+      "hero":         {"alt": "The ceremony aisle set with rows of honey-wood folding chairs on a brick-paved path under big oak and sycamore trees, lanterns with white flowers at the aisle ends, leading to a white board building with a wreath over its open doors.", "caption": "The aisle under the oaks", "focal": "45% 45%", "light": "day", "tags": ["ceremony", "aisle", "wide"], "subject": "grounds", "flora": "oak"},
+      "ceremony":     {"alt": "Looking down the stone-paved aisle between wooden chairs, scattered yellow petals on the ground, tall trees overhead and the wreathed white building at the far end.", "caption": "Yellow petals down the aisle", "focal": "50% 50%", "light": "day", "tags": ["ceremony", "aisle"], "subject": "grounds"},
+      "barn":         {"alt": "A white board building with a gabled roof and a green wreath, its weathered double doors open onto potted plants, a lamp and a small table set to one side.", "caption": "Doors open at the end of the aisle", "focal": "50% 50%", "light": "day", "tags": ["building", "ceremony"], "subject": "building"},
+      "stonecottage": {"alt": "A small stone cottage with a white gable and a ladder on its wall, beside a huge pale sycamore trunk, a stone fireplace and beds of shrubs and grasses.", "caption": "A stone cottage under the sycamore", "focal": "60% 55%", "light": "day", "tags": ["cottage", "garden"], "subject": "building"},
+      "rockgarden":   {"alt": "A rock garden of pale boulders and shrubs, white cottages and a sycamore behind, and an old iron saw rig on the lawn.", "caption": "Boulders, cottages and an old saw", "focal": "50% 55%", "light": "day", "tags": ["garden", "grounds"], "subject": "grounds"},
+      "sawmill":      {"alt": "An antique sawmill rig with iron wheels and a big circular blade lettered Wilshire Ranch, set among grasses in front of a stone cottage and a sycamore.", "caption": "Wilshire Ranch, lettered on an old saw", "focal": "60% 60%", "light": "day", "tags": ["detail", "history"], "subject": "detail"},
+      "ivycottage":   {"alt": "A white cottage with a steep gable and a grey-green door, its porch half covered in red autumn creeper, birch trunks behind.", "caption": "A cottage in autumn", "focal": "40% 55%", "light": "day", "tags": ["cottage", "autumn"], "subject": "building"},
+      "oakcottage":   {"alt": "A small cream cottage with a red door at the foot of a massive oak trunk, a weathered wood fence and stone wall in front, in deep leafy shade.", "caption": "A cottage at the foot of an oak", "focal": "60% 60%", "light": "day", "tags": ["cottage", "shade"], "subject": "building", "flora": "oak"},
+      "pavilion":     {"alt": "A covered wooden pavilion on a stone base with steps, set with a sweetheart table, curtains and potted topiary, above a wide wood dance floor, green hills behind.", "caption": "The pavilion and dance floor", "focal": "50% 55%", "light": "day", "tags": ["reception", "structure"], "subject": "grounds"},
+      "bar":          {"alt": "A rustic wooden bar under a corrugated roof at night, two table lamps glowing on shelves of vintage jars, scales and enamelware.", "caption": "The beverage area after dark", "focal": "50% 50%", "light": "night", "tags": ["bar", "evening", "detail"], "subject": "detail"},
+      "watertower":   {"alt": "A wooden water tower on heavy timber legs above a curving concrete path, white roses and greenery along the edge and a stacked-log wall behind.", "caption": "The water tower path", "focal": "50% 40%", "light": "day", "tags": ["structure", "path", "portrait"], "subject": "grounds"},
+      "tables":       {"alt": "Round reception tables in natural linen with dark wood chairs and small floral centrepieces, a wooden water tower, string lights and green hills under a blue sky behind.", "caption": "Tables set under the water tower", "focal": "50% 60%", "light": "day", "tags": ["reception", "tables", "portrait"], "subject": "grounds"},
+      "drive":        {"alt": "The gravel drive running under a canopy of oaks, edged with logs and stones, a metal water tank among the trees ahead.", "caption": "The drive in under the oaks", "focal": "50% 60%", "light": "day", "tags": ["arrival", "trees"], "subject": "grounds", "flora": "oak"},
+      "desk":         {"alt": "An antique wooden secretary desk set outdoors as a guest station with jars, a lantern and a small sign, a stack of old books in a wire cage beside it and an upholstered chair.", "caption": "Vintage pieces from the décor collection", "focal": "50% 55%", "light": "day", "tags": ["detail", "decor"], "subject": "detail"}
+    }
+  },
+  "preview": {
+    "private": true,
+    "disclaimer": "Concept preview by Insert · photography © The HomeStead and its photographers · not affiliated with the venue",
+    "meta_description": "Concept homepage for The HomeStead in Oak Glen, a family-owned 5.5-acre ranch wedding venue under the San Bernardino Mountains hosting one wedding a day. Prepared by Insert as an unsolicited design preview. Not affiliated with the venue."
+  }
+}

@@ -1,0 +1,1776 @@
+{
+ "$schema": "../lib/schema.md",
+ "slug": "homestead",
+ "name": "The HomeStead in Oak Glen",
+ "short_name": "The HomeStead in Oak Glen",
+ "legal_name": null,
+ "tagline_facts": {
+  "locality": "Oak Glen",
+  "region": null,
+  "state": "CA",
+  "acres": null,
+  "space_count": 1,
+  "max_guests": null,
+  "events_per_day": null,
+  "uses": [
+   "Weddings",
+   "Receptions",
+   "Ceremonies"
+  ]
+ },
+ "vibe": {
+  "type": "ranch",
+  "era": null,
+  "words": [
+   "rustic",
+   "land",
+   "evening"
+  ],
+  "era_source": null,
+  "_note": "SUGGESTED by intake from word counts on the site ({'rustic': 57, 'land': 10, 'evening': 8}); a human must confirm"
+ },
+ "website": "https://homesteadoakglen.com/",
+ "contact": {
+  "email": "info@homesteadoakglen.com",
+  "email_note": null,
+  "phone": "(909) 790-8010",
+  "phone_note": null,
+  "address_line": "11951 Oak Glen Road, Oak Glen, CA 92399",
+  "address_note": null,
+  "hours": "Our tours are by appointment only so we can personally show you all the features and details, answer your questions, and get to know your vision for your wedding day.",
+  "source": "https://homesteadoakglen.com/contact"
+ },
+ "facts": [
+  {
+   "id": "name_hint-1",
+   "text": "The HomeStead in Oak Glen",
+   "source": "https://homesteadoakglen.com/sample-page/",
+   "confidence": "low",
+   "how": "most repeated <title> segment",
+   "review": true
+  },
+  {
+   "id": "email-2",
+   "text": "info@homesteadoakglen.com",
+   "source": "https://homesteadoakglen.com/",
+   "confidence": "high",
+   "how": "mailto link",
+   "review": true
+  },
+  {
+   "id": "phone-3",
+   "text": "(909) 790-8010",
+   "source": "https://homesteadoakglen.com/",
+   "confidence": "high",
+   "how": "tel link",
+   "review": true
+  },
+  {
+   "id": "address-4",
+   "text": "11951 Oak Glen Road, Oak Glen, CA 92399",
+   "source": "https://homesteadoakglen.com/contact",
+   "confidence": "medium",
+   "how": "printed address",
+   "review": true
+  },
+  {
+   "id": "rule-5",
+   "text": "The venue is fully ADA accessible, with the option to accommodate RVs and a designated outdoor smoking lounge to ensure everyone feels at home.",
+   "source": "https://homesteadoakglen.com/about",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-6",
+   "text": "Our staff and in-house vendors plan, prepare and produce so you don’t have to juggle all the wedding crazies.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-7",
+   "text": "*Any last minute additions must be paid 5 days prior to your event date.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-8",
+   "text": "You will have time to meet and discuss details with your DJ, florist, caterer, cake-maker and of course, your in-house all-round wedding coordinator.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-9",
+   "text": "We must receive this document within 3 weeks of booking or your date will not be held.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-10",
+   "text": "The following payment schedule (less booking deposit applies:",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-11",
+   "text": "Now, to secure your date, a non-refundable deposit must be received.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-12",
+   "text": "Your deposit is what holds your date!",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-13",
+   "text": "This deposit will be paid toward your HomeStead wedding.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-14",
+   "text": "Our tours are by appointment only so we can personally show you all the features and details, answer your questions, and get to know your vision for your wedding day.",
+   "source": "https://homesteadoakglen.com/information",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  }
+ ],
+ "story": {
+  "kicker": null,
+  "lead": null,
+  "paragraphs": [],
+  "credit": null,
+  "timeline": [],
+  "photo": null,
+  "source": "https://homesteadoakglen.com/about"
+ },
+ "numbers": [],
+ "spaces": [
+  {
+   "id": "in-house-coordination",
+   "name": "In-House Coordination",
+   "photo": null,
+   "capacity": null,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://homesteadoakglen.com/information",
+   "_excerpt": "From all angles of our venue you will feel surrounded by the beauty of nature. You'll dance under the twinkle of string lights and stars, laugh with friends in our eclectic bar area, snuggle up to the fire and wonder around the apple trees.",
+   "_capacities_stated": [],
+   "_confidence": "low"
+  }
+ ],
+ "journey": {
+  "note": null,
+  "steps": []
+ },
+ "day": {
+  "source": null
+ },
+ "faqs": [],
+ "featured_in": [],
+ "photos": {
+  "source_dir": "photos/homestead",
+  "manifest": "photos/homestead/manifest.json",
+  "credit": "photography © The HomeStead in Oak Glen",
+  "items": {
+   "p01": {
+    "alt": "6098D7E0-ED42-4B40-BC84-152C2E26C8B9",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p02": {
+    "alt": "3A8BDC4D-AFB9-44BE-8ADA-772ADDD09EE1_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p03": {
+    "alt": "6E87252C-BDA9-4DD3-BF0F-B8139196FB69_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p04": {
+    "alt": "IAN18_A89A5733",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p05": {
+    "alt": "Sewell A 1310",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p06": {
+    "alt": "19D7B2CA-8968-419C-97E8-EFD4A196EB46_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p07": {
+    "alt": "B952A1ED-4D72-4D50-A913-A1201BBB63AD",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p08": {
+    "alt": "DSC07855",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p09": {
+    "alt": "C00A1160-E7DD-43A6-96CA-44A19066F3BD_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p10": {
+    "alt": "2EBC90FE-AA48-4EC1-8483-46B38A890D0A_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p11": {
+    "alt": "desertbornstudios-The homestead at oak glen -Wedding_-22_websize",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": "grounds",
+    "flora": "oak",
+    "_faces": "unchecked",
+    "_possible_stock": true,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p12": {
+    "alt": "B61E5AAB-A9CC-4BC4-8F04-D56902C537F3_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p13": {
+    "alt": "21E9B91F-609D-47FA-B150-15A13DA006D6",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p14": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p15": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p16": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/"
+   },
+   "p17": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/guests"
+   },
+   "p18": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/guests"
+   },
+   "p19": {
+    "alt": "99A3599F-B388-43BB-8CA8-0325B208DF16_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p20": {
+    "alt": "105D5253-F7FA-49F8-9F44-24F0477D7888_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p21": {
+    "alt": "A5C438A4-D76F-4C37-896D-FA78186469D3_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p22": {
+    "alt": "399ECAA7-F95A-4162-BF97-4E1FE273D776_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p23": {
+    "alt": "386FC4DC-EA2B-4E42-B9EB-AE4165DD9DC6_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p24": {
+    "alt": "Lozolla E. 1539",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p25": {
+    "alt": "Patalan P 0254",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p26": {
+    "alt": "Patalan P 1642",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p27": {
+    "alt": "Sewell A 1582",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p28": {
+    "alt": "Lozolla E. 0057",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p29": {
+    "alt": "Lozolla E. 0123",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p30": {
+    "alt": "earlynight88",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p31": {
+    "alt": "IAN18_A89A7362",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p32": {
+    "alt": "Lozolla E. 1038",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p33": {
+    "alt": "IAN18_earlynight128",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p34": {
+    "alt": "Patalan P 1621",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p35": {
+    "alt": "Sewell A 0318",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p36": {
+    "alt": "Patalan P 0720",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p37": {
+    "alt": "Sewell A 0133",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p38": {
+    "alt": "Sewell A 0209",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p39": {
+    "alt": "Lozolla E. 1379",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p40": {
+    "alt": "DWP6-15-18_1982",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p41": {
+    "alt": "Patalan P 1027",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p42": {
+    "alt": "Lozolla E. 0962",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p43": {
+    "alt": "DWP6-15-18_2175",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p44": {
+    "alt": "DWP6-15-18_1892",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p45": {
+    "alt": "DWP6-15-18_0254",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p46": {
+    "alt": "Sewell A 1671",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p47": {
+    "alt": "Sewell A 0980",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p48": {
+    "alt": "IAN18_A89A5699",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p49": {
+    "alt": "IAN18_A89A7306",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p50": {
+    "alt": "Lozolla E. 1651",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p51": {
+    "alt": "IAN18_A89A7414",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p52": {
+    "alt": "DWP6-15-18_1890",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p53": {
+    "alt": "IAN18_A89A7420",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p54": {
+    "alt": "Lozolla E. 1044",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p55": {
+    "alt": "IAN18_A89A7331",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p56": {
+    "alt": "Patalan P 0257",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p57": {
+    "alt": "Lozolla E. 0883",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p58": {
+    "alt": "Lozolla E. 1055",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p59": {
+    "alt": "IAN18_earlynight92",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p60": {
+    "alt": "0A522338-6198-49A3-9342-82FF22FF2FC5_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p61": {
+    "alt": "63955F6D-05A2-4901-BF53-2038EBF861F2_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p62": {
+    "alt": "8688D394-08EC-44BB-B41C-31E741ABA895_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p63": {
+    "alt": "765AFCDF-4D67-4B35-B708-217C09A4BDBF_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p64": {
+    "alt": "B3A397C6-F3B8-44AD-9004-D03ABC8511C6_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p65": {
+    "alt": "545A055D-7D01-477B-96A4-494463BCEEA2_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p66": {
+    "alt": "IAN18_01-1062",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p67": {
+    "alt": "Patalan P 0002",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p68": {
+    "alt": "Patalan P 0012",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p69": {
+    "alt": "Risdon D_0002",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p70": {
+    "alt": "Risdon D_0084",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p71": {
+    "alt": "Sewell A 0021",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p72": {
+    "alt": "Sewell A 1193",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p73": {
+    "alt": "Sewell A 1769",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p74": {
+    "alt": "Tamayo Z 0019",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p75": {
+    "alt": "330AADDF-9433-4F93-82AB-643A62ACF5BD_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p76": {
+    "alt": "A5D17789-2B0E-40EE-ADF1-00FEBB2F981B_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p77": {
+    "alt": "7B1CD95E-F3EC-48EB-AFF5-C23B1DA731E7_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p78": {
+    "alt": "01470E32-8C90-47D7-915E-671B50EF8A0B_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p79": {
+    "alt": "3302C22E-B7A5-4084-BB62-7A863B08981A_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p80": {
+    "alt": "F537563F-B26F-46C8-82D3-17EABCD78460_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p81": {
+    "alt": "6BD72723-A0BF-4AC4-861C-71FE6B8B0103_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p82": {
+    "alt": "679B1F58-F272-4059-BAD3-42C08EA7EDAF_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p83": {
+    "alt": "DB0CA865-E0F4-4A8D-88BF-AE99C99D9840_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p84": {
+    "alt": "7C25309E-BF78-448F-8D8A-3D68A1D55EE5_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p85": {
+    "alt": "AA2BE7C8-56F2-47BA-9A8F-37F2F10EE7B0_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p86": {
+    "alt": "5865C675-EDC2-4AF2-A342-418DAB9FC0CE_1_105_c",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p87": {
+    "alt": "Patalan P 1043",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p88": {
+    "alt": "IAN18_01-1082",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p89": {
+    "alt": "fall cabin",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p90": {
+    "alt": "Sewell A 1339",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p91": {
+    "alt": "Sewell A 0020",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p92": {
+    "alt": "Risdon D_0004",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p93": {
+    "alt": "Patalan P 0013",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p94": {
+    "alt": "Patalan P 0004",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p95": {
+    "alt": "Sewell A 0438",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p96": {
+    "alt": "Patalan P 0031",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p97": {
+    "alt": "Sewell A 0012",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p98": {
+    "alt": "Risdon D_0005",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p99": {
+    "alt": "0025",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p100": {
+    "alt": "DSC_6791 copy",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p101": {
+    "alt": "email only_DP12_0142",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p102": {
+    "alt": "Glaser+Wedding-60-2888124097-O",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p103": {
+    "alt": "Grout_Wed_0803",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p104": {
+    "alt": "IMG_0061",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p105": {
+    "alt": "IMG_2173",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p106": {
+    "alt": "IMG_2197",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p107": {
+    "alt": "UNADJUSTEDNONRAW_thumb_1be3",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p108": {
+    "alt": "UNADJUSTEDNONRAW_thumb_33f8",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p109": {
+    "alt": "Patalan P 1351",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p110": {
+    "alt": "Patalan P 1035",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p111": {
+    "alt": "IAN18_01-815",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p112": {
+    "alt": "IAN18_01-1039",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p113": {
+    "alt": "Patalan P 1002",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p114": {
+    "alt": "Patalan P 0025",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p115": {
+    "alt": "Patalan P 1042",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p116": {
+    "alt": "Risdon D_0014",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p117": {
+    "alt": "Patalan P 0051",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p118": {
+    "alt": "Lozolla E. 0031",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   },
+   "p119": {
+    "alt": "Lozolla E. 0040",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://homesteadoakglen.com/galleries"
+   }
+  }
+ },
+ "preview": {
+  "private": true,
+  "disclaimer": "Concept preview by Insert · photography © The HomeStead in Oak Glen · not affiliated with the venue",
+  "meta_description": null
+ },
+ "review": [
+  {
+   "field": "name",
+   "reason": "from most repeated <title> segment \"The HomeStead in Oak Glen\" (trimmed at the first separator); confirm the venue name"
+  },
+  {
+   "field": "spaces",
+   "reason": "1 candidate spaces from headings; keep only real spaces, write use/blurb as short paraphrases, assign photos"
+  },
+  {
+   "field": "photos.items",
+   "reason": "choose 8-14, rename (curate.py), write alt + caption from what is shown, confirm subject/light; never a people photo as lead"
+  },
+  {
+   "field": "tagline_facts.region",
+   "reason": "county/region is never inferred; fill only if the site states it"
+  },
+  {
+   "field": "tagline_facts.max_guests",
+   "reason": "no capacity stated; leave null"
+  },
+  {
+   "field": "story",
+   "reason": "write lead + paragraphs as short paraphrases of the history excerpts (never copy)"
+  },
+  {
+   "field": "vibe",
+   "reason": "suggested from word counts; a human confirms the three words"
+  }
+ ],
+ "_intake": {
+  "crawled_at": "2026-10-23T02:53:02",
+  "start_url": "https://homesteadoakglen.com/",
+  "pages": [
+   "https://homesteadoakglen.com/",
+   "https://homesteadoakglen.com/home",
+   "https://homesteadoakglen.com/about",
+   "https://homesteadoakglen.com/guests",
+   "https://homesteadoakglen.com/contact",
+   "https://homesteadoakglen.com/galleries",
+   "https://homesteadoakglen.com/information",
+   "https://homesteadoakglen.com/wedding-pricing",
+   "https://homesteadoakglen.com/blog",
+   "https://homesteadoakglen.com/sample-page/",
+   "https://homesteadoakglen.com/contact-form",
+   "https://homesteadoakglen.com/2018/10/09/dont-forget-these-15-items-on-your-wedding-day/",
+   "https://homesteadoakglen.com/2018/10/08/5-ways-that-weve-got-your-back-on-your-wedding-day/",
+   "https://homesteadoakglen.com/2018/10/08/3-reasons-why-you-should-have-a-signature-cocktail-at-your-wedding/"
+  ],
+  "meta_description": null,
+  "socials": [
+   {
+    "network": "theknot",
+    "url": "https://www.theknot.com/marketplace/the-homestead-in-oak-glen-oak-glen-ca-633708"
+   },
+   {
+    "network": "instagram",
+    "url": "https://www.instagram.com/thehomesteadinoakglen"
+   },
+   {
+    "network": "facebook",
+    "url": "https://www.facebook.com/TheHomeSteadoakglen"
+   }
+  ],
+  "tools": [
+   {
+    "name": "Showit",
+    "kind": "builder",
+    "evidence": "static.showit.co"
+   },
+   {
+    "name": "Meta Pixel",
+    "kind": "analytics",
+    "evidence": "connect.facebook.net"
+   },
+   {
+    "name": "WordPress",
+    "kind": "builder",
+    "evidence": "/wp-includes/"
+   }
+  ],
+  "history_excerpts": [
+   {
+    "text": "Rooted in history and rich with charm, The Homestead carries stories that span generations. More than a hundred years ago, Blackie Wilshire and his spirited family made this glen their home. Today, pieces of that original homestead still stand thoughtfully woven into the experience we offer, where e",
+    "years": [],
+    "source": "https://homesteadoakglen.com/about"
+   },
+   {
+    "text": "\"Everything was perfect and the team they have there at the HomeStead are so supportive and friendly and they made the day something I couldn't have even begun to dream about. If you're thinking about booking here, seriously take a tour and see everything they have to offer it took me less than 5 mi",
+    "years": [],
+    "source": "https://homesteadoakglen.com/about"
+   },
+   {
+    "text": "Here at The HomeStead we make every effort to make your wedding planning and event a true success. We've worked hard to preserve the original feel of the family ranch, while adding a few modern amenities so that you feel at home and fully satisfied in your special day - a day that we hope you'll be ",
+    "years": [],
+    "source": "https://homesteadoakglen.com/about"
+   },
+   {
+    "text": "Tucked away on 5.5 scenic acres in Oak Glen, The Homestead at Wilshire Ranch is surrounded by the beauty of Wilshire Peak and the San Bernardino Mountains. Towering oaks, sweeping sycamores, heirloom apple trees, and a blooming lilac field bring natural elegance to the grounds. Overlooking the quiet",
+    "years": [],
+    "source": "https://homesteadoakglen.com/about"
+   }
+  ],
+  "featured_raw": [
+   {
+    "heading": "The Knot best of Weddings 2024",
+    "names": [],
+    "source": "https://homesteadoakglen.com/"
+   },
+   {
+    "heading": "A special thanks to the photographers featured in our galleries:",
+    "names": [],
+    "source": "https://homesteadoakglen.com/galleries"
+   }
+  ],
+  "uses_sources": {
+   "Weddings": "https://homesteadoakglen.com/",
+   "Receptions": "https://homesteadoakglen.com/about",
+   "Ceremonies": "https://homesteadoakglen.com/about"
+  },
+  "capacities": [],
+  "jsonld_types": [],
+  "dialect_shortlist": [
+   {
+    "id": "ranch",
+    "score": 7
+   },
+   {
+    "id": "candlelit",
+    "score": 3
+   },
+   {
+    "id": "deco",
+    "score": 1
+   }
+  ],
+  "timings_s": {
+   "crawl": 180.4,
+   "photos": 60.8,
+   "extract+score": 0.9
+  }
+ }
+}

@@ -1,0 +1,171 @@
+{
+  "$schema": "../lib/schema.md",
+  "slug": "lindley-scott",
+  "name": "The Lindley-Scott House",
+  "short_name": "Lindley-Scott",
+  "legal_name": "The Lindley-Scott House",
+  "_review": "Reviewed 2026-10-23 by the demo-pipeline Maker against the live pages (intake draft lindley-scott.draft.json, report lindley-scott.intake-report.md). Every fact below is a short paraphrase of the cited page; nothing inferred. legal_name: the footer copyright names 'Lindley Scott House' only; no company name is published.",
+  "tagline_facts": {
+    "locality": "Azusa",
+    "region": "San Gabriel Valley",
+    "state": "CA",
+    "acres": 4,
+    "space_count": 3,
+    "max_guests": 200,
+    "events_per_day": 1,
+    "uses": ["Weddings", "Receptions", "Quinceañeras", "Film shoots"]
+  },
+  "vibe": {"type": "estate", "era": 1911, "words": ["heritage", "garden", "grand"], "era_source": "https://lindleyscotthouse.com/about-us/",
+           "_note": "Reviewed: a 1911 house kept close to its original state (heritage), ceremonies on the lawn among old trees on 4 acres of gardens (garden), foyer and grand staircase (grand). Intake suggested heritage/land/garden with type garden; 'land' dropped (no ranch or farmland on the site), type set to estate (a historic residence)."},
+  "website": "https://lindleyscotthouse.com/",
+  "platform_note": "WordPress (Salient/WPBakery theme); contact form via Gravity Forms; no CRM or scheduler detected",
+  "contact": {
+    "email": "historicallindleyscotthouse@gmail.com",
+    "email_note": "The only published address (contact page and footer).",
+    "phone": "(626) 334-5215",
+    "phone_note": "Office line. The contact page also lists a cell, (626) 665-4235.",
+    "address_line": "720 East Foothill Boulevard, Azusa, CA 91702",
+    "address_note": "Footer and contact page.",
+    "hours": "Tours by appointment, Monday to Sunday",
+    "source": "https://lindleyscotthouse.com/contact-us/"
+  },
+  "facts": [
+    {"id": "built-1911", "text": "Built in 1911 for Charles Lindley, president of the Foothill Ranch", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "anderson-1924", "text": "In 1924 Mabelle Scott Anderson, owner of the Mabelle Scott Rancho School for Girls, acquired the house; it is named after both owners", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "since-1978", "text": "Has hosted weddings, receptions, banquets and catering since 1978, open year-round", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "four-acres", "text": "4 acres of gardens in Azusa, close to the San Gabriel Mountains", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "little-changed", "text": "Gardens, rockwork, house and winding driveway are little changed since construction finished in 1911", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "hitching-post", "text": "An original hitching post stands between the house and the Carriage House", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "ceremony-lawn", "text": "Ceremonies are held on the front lawn among old trees, including a cypress and a California live oak", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "ceremony-arch", "text": "The ceremony lawn centres on a wedding arch with the residence behind it, faces the San Gabriel Mountains and is ringed by trees and hedgerows", "source": "https://lindleyscotthouse.com/weddings/"},
+    {"id": "garden-200", "text": "The garden holds up to 200 seated", "source": "https://lindleyscotthouse.com/weddings/"},
+    {"id": "house-rooms", "text": "Rooms in the residence are available for bridal photos before the ceremony: a foyer with antique furniture and a grand staircase up to a Victorian-style dressing room", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "carriage-2003", "text": "The Carriage House was built in 2003 to match the house, seats 200, and is a two-minute walk through the gardens from the ceremony", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"id": "receptions-carriage", "text": "All receptions are held in the Carriage House, maximum seating 200", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"id": "one-event", "text": "Only one event per day", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"id": "kitchen", "text": "The Carriage House has its own commercial kitchen; meals are cooked on site by the house chef and served by staff", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"id": "outside-food", "text": "Outside vendors may add food only after the main entrée has been served", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"id": "package", "text": "The wedding package covers what a reception needs; options are available on request", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"id": "times", "text": "Ceremonies run an hour and a half and receptions five hours; extra time can be purchased", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "setup-11", "text": "Vendors and couples may arrive from 11 AM to set up at no charge; set-up does not count against booked time", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "coordinator", "text": "The house coordinator runs the on-site coordination; a personal coordinator may join in addition", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "deposit", "text": "Generally a 25% non-refundable deposit at booking, negotiable depending on circumstances", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "service-charge", "text": "20% service charge on the meal cost", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "restrictions", "text": "No open flames in the house or Carriage House; no rice, birdseed or confetti; real petals only; smoking outdoors in designated areas; amplified music indoors, outdoors with volume and time limits", "source": "https://lindleyscotthouse.com/faq/"},
+    {"id": "wedding-includes", "text": "Wedding facility includes a rehearsal, an in-house host, white garden chairs with set-up, a bridal arch, a dressing room, and the entry hall and grand staircase for pictures", "source": "https://lindleyscotthouse.com/weddings/"},
+    {"id": "film", "text": "Movie scenes, television episodes and commercials have been filmed at the house; on-site parking takes production vehicles and trailers", "source": "https://lindleyscotthouse.com/film-shoots/"},
+    {"id": "other-events", "text": "Also hosts quinceañeras, corporate events, birthdays, anniversaries and fundraisers", "source": "https://lindleyscotthouse.com/additional-services/"},
+    {"id": "extras", "text": "Extras at additional cost include extra time, valet parking, coloured linens, cocktail tables, hot hors d'oeuvres and chiavari chairs", "source": "https://lindleyscotthouse.com/additional-services/"},
+    {"id": "tours", "text": "Open for tours, by appointment", "source": "https://lindleyscotthouse.com/"}
+  ],
+  "story": {
+    "kicker": "The house",
+    "lead": "A 1911 house, kept close to the day it was finished.",
+    "paragraphs": [
+      "Built in 1911 for Charles Lindley, president of the Foothill Ranch, the house passed in 1924 to Mabelle Scott Anderson, who ran the Mabelle Scott Rancho School for Girls. It carries both their names.",
+      "The gardens, rockwork and winding drive have changed little since, and the original hitching post still stands between the house and the Carriage House. Weddings have been held here since 1978."
+    ],
+    "credit": null,
+    "timeline": [
+      {"year": "1911", "text": "The house is built for Charles Lindley.", "source": "https://lindleyscotthouse.com/about-us/"},
+      {"year": "1924", "text": "Mabelle Scott Anderson acquires the house.", "source": "https://lindleyscotthouse.com/about-us/"},
+      {"year": "1978", "text": "The first weddings and receptions.", "source": "https://lindleyscotthouse.com/about-us/"},
+      {"year": "2003", "text": "The Carriage House is built to match.", "source": "https://lindleyscotthouse.com/about-us/"}
+    ],
+    "photo": "facade",
+    "source": "https://lindleyscotthouse.com/about-us/"
+  },
+  "numbers": [
+    {"value": "1911", "label": "Year the house was built", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"value": "4", "label": "Acres of gardens", "source": "https://lindleyscotthouse.com/about-us/"},
+    {"value": "200", "label": "Seated in the Carriage House", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"value": "1", "label": "Event per day", "source": "https://lindleyscotthouse.com/receptions/"}
+  ],
+  "spaces": [
+    {
+      "id": "lawn", "name": "The Front Lawn", "photo": "arch",
+      "capacity": 200, "capacity_label": "Up to 200 seated", "capacity_kind": "ceremony, seated",
+      "use": "Ceremonies",
+      "blurb": "The ceremony lawn in front of the house: a wedding arch with the residence behind it, old trees and hedgerows around, the San Gabriel Mountains ahead.",
+      "features": ["Bridal arch", "White garden chairs", "Old oak and cypress"],
+      "journey_step": "Ceremony on the front lawn",
+      "source": "https://lindleyscotthouse.com/weddings/"
+    },
+    {
+      "id": "house", "name": "The House", "photo": "staircase",
+      "capacity": null, "capacity_label": "For the wedding party", "capacity_kind": null,
+      "use": "Getting ready and portraits before the ceremony",
+      "blurb": "Inside the 1911 residence: a foyer with antique furniture and a grand staircase up to a Victorian-style dressing room, used for photos before the ceremony.",
+      "features": ["Entry hall and grand staircase", "Dressing room"],
+      "journey_step": "Portraits on the staircase",
+      "source": "https://lindleyscotthouse.com/about-us/"
+    },
+    {
+      "id": "carriage", "name": "The Carriage House", "photo": "reception",
+      "capacity": 200, "capacity_label": "Up to 200 seated", "capacity_kind": "seated reception",
+      "use": "Receptions",
+      "blurb": "Built in 2003 to match the house, a two-minute walk through the gardens from the ceremony, with a bar and its own commercial kitchen.",
+      "features": ["Own commercial kitchen", "Bar", "Two minutes from the lawn"],
+      "journey_step": "Dinner in the Carriage House",
+      "source": "https://lindleyscotthouse.com/about-us/"
+    }
+  ],
+  "journey": {
+    "note": "Order from the About page: rooms in the house before the ceremony, the ceremony on the front lawn, then the garden path to the Carriage House for the reception.",
+    "steps": ["house", "lawn", "carriage"]
+  },
+  "day": {
+    "rental_hours": null,
+    "gates_open": "11 AM",
+    "event_end": null,
+    "breakdown_end": null,
+    "ceremony_hours": 1.5,
+    "reception_hours": 5,
+    "included": ["Rehearsal", "In-house host", "White garden chairs and set-up", "Bridal arch", "Dressing room", "Entry hall and staircase for photos"],
+    "requirement": "The house coordinator runs the day; your own coordinator may join",
+    "spaces_per_event": null,
+    "source": "https://lindleyscotthouse.com/faq/",
+    "_note": "No single rental length, end time or breakdown window is published: ceremonies are 1.5 h and receptions 5 h, placed within the house's framework (FAQ). gates_open = vendors and couples may arrive from 11 AM. 'included' is the Weddings page list. Sections that need rental_hours/event_end must not be chosen (or must null-guard)."
+  },
+  "faqs": [
+    {"q": "How long are ceremonies and receptions?", "a": "Ceremonies run an hour and a half and receptions five hours, placed within the house's schedule. Extra time can be purchased.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "How early can vendors arrive to set up?", "a": "From 11 AM, at no charge, and set-up does not count against your booked time. The bridal room opens at your scheduled arrival.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Can we bring our own coordinator?", "a": "Yes, in addition to the house coordinator, who handles the on-site coordination.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Can the reception be held on one of the lawns?", "a": "No. All receptions are held in the Carriage House.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Is the catering in-house?", "a": "Yes. Meals are cooked on site in the Carriage House kitchen and served by the house staff. Outside vendors may add food after the main entrée.", "source": "https://lindleyscotthouse.com/receptions/"},
+    {"q": "Can I arrive by horse and carriage?", "a": "Yes, with notice of your plans in advance.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Is there outdoor lighting?", "a": "Yes. The buildings, patio, gazebo, trees and some potted plants are lit.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "What deposit do you ask for?", "a": "Generally 25% at booking, non-refundable, though it can be negotiated depending on circumstances.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Is there a service charge?", "a": "Yes, 20% on the meal cost.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "What isn't allowed?", "a": "Open flames in the house or Carriage House; rice, birdseed and confetti; artificial petals. Smoking is outdoors in designated areas, and amplified music outdoors has volume and time limits.", "source": "https://lindleyscotthouse.com/faq/"},
+    {"q": "Can we take photos here without holding the wedding here?", "a": "Yes. Contact the house to arrange it.", "source": "https://lindleyscotthouse.com/faq/"}
+  ],
+  "featured_in": [],
+  "photos": {
+    "source_dir": "photos/lindley-scott",
+    "manifest": "photos/lindley-scott/manifest.json",
+    "credit": "photography © The Lindley-Scott House",
+    "_note": "14 of 41 collected photos. Excluded: people-led shots (p11 p14 p17 p21 p25 p27 p34), a stock image (p08, filename interior-romantic-restaurant-modern-design-classic-style), uplit/decor-heavy reception shots, duplicates. faces: unchecked (no OpenCV); people checked by eye on every chosen photo. Gitignored; recreate with `python3 factory/intake/curate.py lindley-scott --refetch`.",
+    "items": {
+      "hero":          {"alt": "The Lindley-Scott House from its gravel drive: a long two-storey yellow house with green shutters, a dark hipped roof and a white columned porch, palms and old trees around it under a clear sky.", "caption": "The house from the drive", "focal": "45% 50%", "light": "day", "tags": ["house", "exterior", "wide"], "subject": "building"},
+      "facade":        {"alt": "The shingled yellow facade up close: tall white-framed windows with green shutters, clipped topiary along the wall and oak branches across the top of the frame.", "caption": "Shingles, shutters and topiary", "focal": "50% 55%", "light": "day", "tags": ["house", "detail"], "subject": "building"},
+      "frontlawn":     {"alt": "The front lawn in sun and shade, the house behind it with its white portico, two stone benches on the grass and branches overhead.", "caption": "The front lawn and portico", "focal": "50% 60%", "light": "day", "tags": ["lawn", "house", "wide"], "subject": "grounds"},
+      "arch":          {"alt": "A ceremony set on a paved square under a wide old oak: a copper arch hung with orange flowers, white chairs either side, and the yellow house behind.", "caption": "The ceremony arch under the oak", "focal": "50% 60%", "light": "day", "tags": ["ceremony", "lawn", "wide"], "subject": "grounds", "flora": "oak"},
+      "aisle":         {"alt": "A ceremony aisle strewn with pink and white petals between rows of white folding chairs, leading to a floral arch in front of a tall hedge and trees.", "caption": "Petals down the aisle", "focal": "50% 55%", "light": "day", "tags": ["ceremony", "aisle"], "subject": "grounds"},
+      "gazebo":        {"alt": "A white wooden gazebo on the lawn in dappled shade, with drooping trees and a clipped hedge behind it.", "caption": "The gazebo", "focal": "30% 60%", "light": "day", "tags": ["gazebo", "lawn"], "subject": "grounds"},
+      "gardenwall":    {"alt": "Lawn and shade trees beside a rough stone wall, with the house glimpsed through the branches.", "caption": "Stone wall and shade trees", "focal": "50% 55%", "light": "day", "tags": ["garden", "stone"], "subject": "grounds"},
+      "evergreen":     {"alt": "A broad old evergreen tree spreading over a lawn, with a stone bench beneath it and a clipped hedge behind.", "caption": "An old evergreen over the lawn", "focal": "45% 50%", "light": "day", "tags": ["tree", "lawn"], "subject": "grounds"},
+      "carriage":      {"alt": "The Carriage House by day: a yellow building with rows of French doors, a lawn edged with river stones and a tall pale-trunked tree in front.", "caption": "The Carriage House", "focal": "50% 55%", "light": "day", "tags": ["carriage-house", "exterior"], "subject": "building"},
+      "carriagenight": {"alt": "The Carriage House at night, its windows and doors glowing gold, a few small figures on the dark lawn in front and trees against the night sky.", "caption": "The Carriage House at night", "focal": "50% 60%", "light": "night", "tags": ["carriage-house", "evening"], "subject": "building"},
+      "reception":     {"alt": "The Carriage House set for dinner: round tables in white linen with green centrepieces, gold chiavari chairs, chandeliers and pale yellow walls.", "caption": "Set for dinner in the Carriage House", "focal": "50% 60%", "light": "day", "tags": ["reception", "interior", "tables"], "subject": "interior"},
+      "staircase":     {"alt": "The entry hall: a grand staircase with a white-spindled banister rising past rose-patterned wallpaper, a wing chair and lamp by the front door.", "caption": "The entry hall and staircase", "focal": "60% 50%", "light": "day", "tags": ["interior", "staircase"], "subject": "interior"},
+      "vanityroom":    {"alt": "A room in the house with striped floral wallpaper, a painted vanity desk and mirror between two curtained windows, and a wooden floor.", "caption": "A room in the house", "focal": "50% 50%", "light": "day", "tags": ["interior", "detail"], "subject": "interior"},
+      "dining":        {"alt": "A dining room in the house: a dark oval table and chairs under a brass chandelier, tall windows with green swagged curtains.", "caption": "The dining room", "focal": "50% 55%", "light": "day", "tags": ["interior"], "subject": "interior"}
+    }
+  },
+  "preview": {
+    "private": true,
+    "disclaimer": "Concept preview by Insert · photography © The Lindley-Scott House · not affiliated with the venue",
+    "meta_description": "Concept homepage for the Lindley-Scott House, a 1911 house on four acres of gardens in Azusa, San Gabriel Valley, for weddings and receptions. Prepared by Insert as an unsolicited design preview. Not affiliated with the venue."
+  }
+}

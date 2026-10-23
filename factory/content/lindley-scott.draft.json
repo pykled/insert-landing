@@ -1,0 +1,1091 @@
+{
+ "$schema": "../lib/schema.md",
+ "slug": "lindley-scott",
+ "name": "Lindley Scott House",
+ "short_name": "Lindley Scott House",
+ "legal_name": null,
+ "tagline_facts": {
+  "locality": "Azusa",
+  "region": null,
+  "state": "CA",
+  "acres": null,
+  "space_count": 5,
+  "max_guests": 200,
+  "events_per_day": null,
+  "uses": [
+   "Weddings",
+   "Receptions",
+   "Quinceañeras",
+   "Filming"
+  ]
+ },
+ "vibe": {
+  "type": "garden",
+  "era": 1911,
+  "words": [
+   "heritage",
+   "land",
+   "garden"
+  ],
+  "era_source": "https://lindleyscotthouse.com/",
+  "_note": "SUGGESTED by intake from word counts on the site ({'heritage': 38, 'land': 8, 'garden': 8}); a human must confirm"
+ },
+ "website": "https://lindleyscotthouse.com/",
+ "contact": {
+  "email": "historicallindleyscotthouse@gmail.com",
+  "email_note": null,
+  "phone": "(626) 334-5215",
+  "phone_note": null,
+  "address_line": "720 East Foothill Boulevard, Azusa, CA 91702",
+  "address_note": null,
+  "hours": "Mon-Sun by Appointment Only",
+  "source": "https://lindleyscotthouse.com/"
+ },
+ "facts": [
+  {
+   "id": "name-1",
+   "text": "Lindley Scott House - Historic Wedding and Reception Venue in Azusa, Los Angeles",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "high",
+   "how": "JSON-LD organization",
+   "review": true
+  },
+  {
+   "id": "email-2",
+   "text": "historicallindleyscotthouse@gmail.com",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "high",
+   "how": "mailto link",
+   "review": true
+  },
+  {
+   "id": "phone-3",
+   "text": "(626) 334-5215",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "high",
+   "how": "tel link",
+   "review": true
+  },
+  {
+   "id": "address-4",
+   "text": "720 East Foothill Boulevard, Azusa, CA 91702",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "medium",
+   "how": "printed address",
+   "review": true
+  },
+  {
+   "id": "meta_description-5",
+   "text": "The Historic Lindley-Scott House is open year-round, and has been serving the San Gabriel Valley including Azusa, Duarte, Glendora, Arcadia, Monrovia, Pasadena, Glendale, Burbank, San Dimas, La Verne, Pomona, Diamond Bar and surrounding areas with personalized weddings, wedding receptions, Banquet Facilities and Catering since 1978.",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "high",
+   "how": "meta tag",
+   "review": true
+  },
+  {
+   "id": "capacity-6",
+   "text": "200",
+   "source": "https://lindleyscotthouse.com/about-us/",
+   "confidence": "medium",
+   "how": "capacity phrase",
+   "review": true
+  },
+  {
+   "id": "capacity-7",
+   "text": "200",
+   "source": "https://lindleyscotthouse.com/weddings/",
+   "confidence": "medium",
+   "how": "capacity phrase",
+   "review": true
+  },
+  {
+   "id": "capacity-8",
+   "text": "200",
+   "source": "https://lindleyscotthouse.com/receptions/",
+   "confidence": "medium",
+   "how": "capacity phrase",
+   "review": true
+  },
+  {
+   "id": "capacity-9",
+   "text": "150",
+   "source": "https://lindleyscotthouse.com/testimonials/",
+   "confidence": "medium",
+   "how": "capacity phrase",
+   "review": true
+  },
+  {
+   "id": "rule-10",
+   "text": "Smoking is allowed outside only in designated areas.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-11",
+   "text": "Amplified music is OK indoors, outside with volume and time limitations.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-12",
+   "text": "Open flames of any kind are not permitted in the Lindley-Scott House or the Carriage House.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-13",
+   "text": "We do not permit rice, birdseed, or confetti – this includes no confetti of any type to be placed on tables in the Carriage House.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-14",
+   "text": "Artificial or silk petals are not permitted; Flower girls may use real petals.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-15",
+   "text": "Yes, but you must notify The Lindley-Scott House in advance as to your specific plans and ideas.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-16",
+   "text": "We generally ask for a 25% non-refundable deposit at the time of booking.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-17",
+   "text": "About us page The Historic Lindley-Scott House has been serving the San Gabriel Valley and surrounding areas since 1978 with personalized weddings, wedding receptions, Banquet Facilities, and Catering.",
+   "source": "https://lindleyscotthouse.com/about-us/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-18",
+   "text": "\" * \" indicates required fields",
+   "source": "https://lindleyscotthouse.com/contact-us/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-19",
+   "text": "We do facilitate outside catering for couples who would like vendors to provide additional food after the main entree has been served.",
+   "source": "https://lindleyscotthouse.com/receptions/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "rule-20",
+   "text": "Catering costs vary depending on the meal and day of the week that you choose to host your event.",
+   "source": "https://lindleyscotthouse.com/receptions/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-21",
+   "text": "Mon-Sun by Appointment Only",
+   "source": "https://lindleyscotthouse.com/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-22",
+   "text": "Mon-Thur by Appointment Only",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-23",
+   "text": "Fri, Sat and Sun 10:00am – 11:00am",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-24",
+   "text": "Viewing the Lindley-Scott House is by appointment Wedding clients may choose where they wish to place their hours within our framework Additional time may be purchased",
+   "source": "https://lindleyscotthouse.com/receptions/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  },
+  {
+   "id": "hours-25",
+   "text": "Mon-Sun by appointment only Wedding ceremonies are for 1 and 1/2 half hours Receptions are for 5 hours Wedding clients may choose where they wish to place their hours within our framework Additional time may be purchased",
+   "source": "https://lindleyscotthouse.com/information/",
+   "confidence": "medium",
+   "how": "sentence match",
+   "review": true
+  }
+ ],
+ "story": {
+  "kicker": null,
+  "lead": null,
+  "paragraphs": [],
+  "credit": null,
+  "timeline": [],
+  "photo": null,
+  "source": "https://lindleyscotthouse.com/"
+ },
+ "numbers": [],
+ "spaces": [
+  {
+   "id": "historic-lindley-scott-house",
+   "name": "Historic Lindley-Scott House",
+   "photo": null,
+   "capacity": null,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://lindleyscotthouse.com/",
+   "_excerpt": "The Historic Lindley-Scott House is open year-round, and has been serving the San Gabriel Valley including Azusa, Duarte, Glendora, Arcadia, Monrovia, Pasadena, Glendale, Burbank, San Dimas, La Verne, Pomona, Diamond Bar and surrounding are",
+   "_capacities_stated": [],
+   "_confidence": "low"
+  },
+  {
+   "id": "carriage-house",
+   "name": "Carriage House",
+   "photo": null,
+   "capacity": null,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://lindleyscotthouse.com/",
+   "_excerpt": "Learn More",
+   "_capacities_stated": [],
+   "_confidence": "low"
+  },
+  {
+   "id": "the-historic-lindley-scott-house",
+   "name": "The Historic Lindley-Scott House",
+   "photo": null,
+   "capacity": 200,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://lindleyscotthouse.com/about-us/",
+   "_excerpt": "About us page The Historic Lindley-Scott House has been serving the San Gabriel Valley and surrounding areas since 1978 with personalized weddings, wedding receptions, Banquet Facilities, and Catering. Our Wedding Chapel is open year-round,",
+   "_capacities_stated": [
+    "seats 200 guests"
+   ],
+   "_confidence": "medium"
+  },
+  {
+   "id": "entry-hall-and-grand-staircase-for-pictu",
+   "name": "Entry hall and grand staircase for pictures",
+   "photo": null,
+   "capacity": null,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://lindleyscotthouse.com/weddings/",
+   "_excerpt": "The Historic Lindley-Scott House is open year-round, and has been serving the San Gabriel Valley including Azusa, Duarte, Glendora, Arcadia, Monrovia, Pasadena, Glendale, Burbank, San Dimas, La Verne, Pomona, Diamond Bar and surrounding are",
+   "_capacities_stated": [],
+   "_confidence": "low"
+  },
+  {
+   "id": "the-lindley-scott-house-performs-only-on",
+   "name": "The Lindley-Scott House performs only one event per day.",
+   "photo": null,
+   "capacity": null,
+   "capacity_label": null,
+   "capacity_kind": null,
+   "use": null,
+   "blurb": null,
+   "features": [],
+   "journey_step": null,
+   "source": "https://lindleyscotthouse.com/receptions/",
+   "_excerpt": "Viewing the Lindley-Scott House is by appointment Wedding clients may choose where they wish to place their hours within our framework Additional time may be purchased",
+   "_capacities_stated": [],
+   "_confidence": "low"
+  }
+ ],
+ "journey": {
+  "note": null,
+  "steps": []
+ },
+ "day": {
+  "source": null
+ },
+ "faqs": [
+  {
+   "q": "How early can my vendors or I come to set up?",
+   "a": "We open at 11:00 AM for vendors and/ or brides, there is no charge and set up does not count against your time. There is no access to the bridal room, however, until your scheduled arrival time. In addition, we cannot offer the assistance of our employees to help with any set up by vendors or bride.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Can we arrive extra early for our photography?",
+   "a": "No. Upon your reservation, you booked a specific time. Our preparation and staff arrival is based on this time frame. You could, however, book extra time for an extra early arrival.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Can I have my wedding or engagement photos taken at the Lindley-Scott House even if I’m not getting married or having my reception there?",
+   "a": "Yes. Please contact us.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Can I have a horse and carriage?",
+   "a": "Yes, but you must notify The Lindley-Scott House in advance as to your specific plans and ideas.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Can I have my own coordinator and not use the one provided by the Lindley-Scott House?",
+   "a": "No, but you may have your own coordinator in addition to the coordinator provided by the Lindley-Scott House. We suggest that the bride’s personal coordinator attend to the immediate needs of the bride and allow our coordinator, who is familiar with functionality and policy of the Lindley-Scott House, do the on site coordination and activities.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Can I have an aisle runner and how long should it be?",
+   "a": "Yes you may, however, keep in mind several concerns should be addressed when you or your florist provide an aisle runner. Aisle runners over grass tend to bunch up or get pierced by high heels. Aisle runners over grass or cement can be displaced by even the slightest of breezes. Even the slightest of traffic by your guests will show the dirt.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Is there outside lighting?",
+   "a": "Yes. Buildings, patio, gazebo, trees, and some potted plants have ample lighting for your guests’ convenience.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "What kind of a deposit do you require?",
+   "a": "We generally ask for a 25% non-refundable deposit at the time of booking. This cost, however, could be negotiated depending on the circumstances.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Do you charge any gratuity or service charge?",
+   "a": "Yes, there is an 20% service charge on the meal cost.",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  },
+  {
+   "q": "Could I have an outside reception on one of the lawns?",
+   "a": "No",
+   "source": "https://lindleyscotthouse.com/faq/",
+   "_confidence": "medium"
+  }
+ ],
+ "featured_in": [],
+ "photos": {
+  "source_dir": "photos/lindley-scott",
+  "manifest": "photos/lindley-scott/manifest.json",
+  "credit": "photography © Lindley Scott House",
+  "items": {
+   "p01": {
+    "alt": "New website #4",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p02": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p03": {
+    "alt": "movie#3",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p04": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p05": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p06": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p07": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p08": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": "interior",
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": true,
+    "_source_page": "https://lindleyscotthouse.com/"
+   },
+   "p09": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/faq/"
+   },
+   "p10": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/vendors/"
+   },
+   "p11": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/about-us/"
+   },
+   "p12": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/about-us/"
+   },
+   "p13": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/about-us/"
+   },
+   "p14": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p15": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p16": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p17": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p18": {
+    "alt": "Movie #2",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p19": {
+    "alt": "wedding 18",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p20": {
+    "alt": "new website #7",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p21": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/weddings/"
+   },
+   "p22": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/contact-us/"
+   },
+   "p23": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/receptions/"
+   },
+   "p24": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/receptions/"
+   },
+   "p25": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/receptions/"
+   },
+   "p26": {
+    "alt": "new wesbite #16",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/receptions/"
+   },
+   "p27": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/quinceanera/"
+   },
+   "p28": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/quinceanera/"
+   },
+   "p29": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/film-shoots/"
+   },
+   "p30": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/film-shoots/"
+   },
+   "p31": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/film-shoots/"
+   },
+   "p32": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/testimonials/"
+   },
+   "p33": {
+    "alt": "wedding 19",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p34": {
+    "alt": "new website photo #1",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p35": {
+    "alt": "Quinceanera #3",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p36": {
+    "alt": "new website #17",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p37": {
+    "alt": "new website #12",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "night",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p38": {
+    "alt": "wedding #27",
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/carriage-house/"
+   },
+   "p39": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/additional-services/"
+   },
+   "p40": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "golden",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/additional-services/"
+   },
+   "p41": {
+    "alt": null,
+    "caption": null,
+    "focal": "50% 50%",
+    "light": "day",
+    "tags": [],
+    "subject": null,
+    "flora": null,
+    "_faces": "unchecked",
+    "_possible_stock": false,
+    "_source_page": "https://lindleyscotthouse.com/additional-services/"
+   }
+  }
+ },
+ "preview": {
+  "private": true,
+  "disclaimer": "Concept preview by Insert · photography © Lindley Scott House · not affiliated with the venue",
+  "meta_description": null
+ },
+ "review": [
+  {
+   "field": "name",
+   "reason": "from JSON-LD organization \"Lindley Scott House - Historic Wedding and Reception Venue in Azusa, Los Angeles\" (trimmed at the first separator); confirm the venue name"
+  },
+  {
+   "field": "spaces",
+   "reason": "5 candidate spaces from headings; keep only real spaces, write use/blurb as short paraphrases, assign photos"
+  },
+  {
+   "field": "photos.items",
+   "reason": "choose 8-14, rename (curate.py), write alt + caption from what is shown, confirm subject/light; never a people photo as lead"
+  },
+  {
+   "field": "tagline_facts.region",
+   "reason": "county/region is never inferred; fill only if the site states it"
+  },
+  {
+   "field": "tagline_facts.max_guests",
+   "reason": "largest stated figure 200 (\"seats 200 guests\"); confirm it is the venue maximum"
+  },
+  {
+   "field": "story",
+   "reason": "write lead + paragraphs as short paraphrases of the history excerpts (never copy)"
+  },
+  {
+   "field": "vibe",
+   "reason": "suggested from word counts; a human confirms the three words"
+  }
+ ],
+ "_intake": {
+  "crawled_at": "2026-10-23T02:49:22",
+  "start_url": "https://lindleyscotthouse.com/",
+  "pages": [
+   "https://lindleyscotthouse.com/",
+   "https://lindleyscotthouse.com/faq/",
+   "https://lindleyscotthouse.com/vendors/",
+   "https://lindleyscotthouse.com/about-us/",
+   "https://lindleyscotthouse.com/weddings/",
+   "https://lindleyscotthouse.com/contact-us/",
+   "https://lindleyscotthouse.com/receptions/",
+   "https://lindleyscotthouse.com/quinceanera/",
+   "https://lindleyscotthouse.com/film-shoots/",
+   "https://lindleyscotthouse.com/information/",
+   "https://lindleyscotthouse.com/testimonials/",
+   "https://lindleyscotthouse.com/carriage-house/",
+   "https://lindleyscotthouse.com/additional-services/"
+  ],
+  "meta_description": "The Historic Lindley-Scott House is open year-round, and has been serving the San Gabriel Valley including Azusa, Duarte, Glendora, Arcadia, Monrovia, Pasadena, Glendale, Burbank, San Dimas, La Verne, Pomona, Diamond Bar and surrounding areas with personalized weddings, wedding receptions, Banquet Facilities and Catering since 1978.",
+  "socials": [
+   {
+    "network": "facebook",
+    "url": "https://www.facebook.com/Lindley-Scott-House-117787581570490"
+   },
+   {
+    "network": "instagram",
+    "url": "https://www.instagram.com/lindleyscotthouse"
+   },
+   {
+    "network": "yelp",
+    "url": "https://www.yelp.com/biz/lindley-scott-house-azusa"
+   },
+   {
+    "network": "weddingwire",
+    "url": "https://www.weddingwire.com/biz/lindley-scott-house-azusa/12b7e8f41490704d.html"
+   }
+  ],
+  "tools": [
+   {
+    "name": "WordPress",
+    "kind": "builder",
+    "evidence": "/wp-includes/"
+   }
+  ],
+  "history_excerpts": [
+   {
+    "text": "The Historic Lindley-Scott House is open year-round, and has been serving the San Gabriel Valley including Azusa, Duarte, Glendora, Arcadia, Monrovia, Pasadena, Glendale, Burbank, San Dimas, La Verne, Pomona, Diamond Bar and surrounding areas with personalized weddings, wedding receptions, Banquet F",
+    "years": [
+     "1978"
+    ],
+    "source": "https://lindleyscotthouse.com/"
+   },
+   {
+    "text": "The Lindley-Scott House was built in 1911 for Charles Lindley, president of the Foothill Ranch. Later, Mabelle Scott Anderson, owner of the Mabelle Scott Rancho School for Girls, acquired the house. The name of the house was derived from these two owners.",
+    "years": [
+     "1911"
+    ],
+    "source": "https://lindleyscotthouse.com/"
+   },
+   {
+    "text": "© 2026 Lindley Scott House - Historic Wedding and Reception Venue in Azusa, Los Angeles. All Rights Reserved. Website Developed by Caspian Services, Inc.",
+    "years": [
+     "2026"
+    ],
+    "source": "https://lindleyscotthouse.com/"
+   },
+   {
+    "text": "About us page The Historic Lindley-Scott House has been serving the San Gabriel Valley and surrounding areas since 1978 with personalized weddings, wedding receptions, Banquet Facilities, and Catering. Our Wedding Chapel is open year-round, located in the city of Azusa close to the San Gabriel Mount",
+    "years": [
+     "1978"
+    ],
+    "source": "https://lindleyscotthouse.com/about-us/"
+   },
+   {
+    "text": "The house and grounds are maintained with an eye to preserving this history. As a time capsule to the past, gardens, rockwork, house, and elegant, winding driveway are little changed from that day in 1911 when construction finished. Between the Lindley Scott House and the Carriage House, an original",
+    "years": [
+     "1911"
+    ],
+    "source": "https://lindleyscotthouse.com/about-us/"
+   },
+   {
+    "text": "The Carriage House, built in 2003, seats 200 guests, and matches the architectural vision of the Lindley-Scott House. The reception site is a two minute walk from the ceremony area. Once the ceremony concludes, guests will follow the enchanting path through the gardens to the carriage house, where t",
+    "years": [
+     "2003"
+    ],
+    "source": "https://lindleyscotthouse.com/about-us/"
+   }
+  ],
+  "featured_raw": [],
+  "uses_sources": {
+   "Weddings": "https://lindleyscotthouse.com/",
+   "Receptions": "https://lindleyscotthouse.com/",
+   "Ceremonies": "https://lindleyscotthouse.com/",
+   "Quinceañeras": "https://lindleyscotthouse.com/",
+   "Filming": "https://lindleyscotthouse.com/",
+   "Birthdays": "https://lindleyscotthouse.com/quinceanera/",
+   "Corporate events": "https://lindleyscotthouse.com/additional-services/",
+   "Anniversaries": "https://lindleyscotthouse.com/additional-services/"
+  },
+  "capacities": [
+   {
+    "n": 200,
+    "phrase": "seats 200 guests",
+    "source": "https://lindleyscotthouse.com/about-us/"
+   },
+   {
+    "n": 200,
+    "phrase": "holds up to 200 seated",
+    "source": "https://lindleyscotthouse.com/weddings/"
+   },
+   {
+    "n": 200,
+    "phrase": "capacity of 200",
+    "source": "https://lindleyscotthouse.com/receptions/"
+   },
+   {
+    "n": 150,
+    "phrase": "150 guests",
+    "source": "https://lindleyscotthouse.com/testimonials/"
+   }
+  ],
+  "jsonld_types": [
+   "breadcrumblist",
+   "organization",
+   "webpage",
+   "website"
+  ],
+  "dialect_shortlist": [
+   {
+    "id": "botanical",
+    "score": 5
+   },
+   {
+    "id": "estate",
+    "score": 4
+   },
+   {
+    "id": "ranch",
+    "score": 3
+   }
+  ],
+  "timings_s": {
+   "crawl": 16.6,
+   "photos": 5.2,
+   "extract+score": 0.5
+  }
+ }
+}
