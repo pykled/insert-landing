@@ -11,7 +11,7 @@
         {% for ptxt in v.story.paragraphs %}<p>{{ ptxt }}</p>{% endfor %}
         {% if v.story.credit %}<cite>{{ v.story.credit }}</cite>{% endif %}
         <figure class="ledger-fig">
-          <div class="ph ledger-ph"><img src="{{ photos[v.story.photo].src }}" srcset="{{ photos[v.story.photo].srcset }}" sizes="(min-width: 861px) 300px, 60vw" width="{{ photos[v.story.photo].width }}" height="{{ photos[v.story.photo].height }}" alt="{{ photos[v.story.photo].alt }}" loading="lazy" decoding="async"></div>
+          {% set _ar = fit_ratio(photos[v.story.photo], '3 / 4') %}<div class="ph ledger-ph" style="--ar: {{ _ar }}"><img src="{{ photos[v.story.photo].src }}" srcset="{{ photos[v.story.photo].srcset }}" sizes="{{ '(min-width: 861px) 300px, 60vw'|cover(photos[v.story.photo], _ar) }}" width="{{ photos[v.story.photo].width }}" height="{{ photos[v.story.photo].height }}" alt="{{ photos[v.story.photo].alt }}" loading="lazy" decoding="async"></div>
           <figcaption>{{ photos[v.story.photo].caption }}</figcaption>
         </figure>
       </div>

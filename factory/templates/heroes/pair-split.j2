@@ -25,12 +25,12 @@
     <div class="pair-photos">
       {% if mono %}
       <figure class="pair-fig pair-mono">
-        <div class="ph pair-ph"><img src="{{ photos[mono].src }}" srcset="{{ photos[mono].srcset }}" sizes="(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw" width="{{ photos[mono].width }}" height="{{ photos[mono].height }}" alt="{{ photos[mono].alt }}" style="object-position: {{ photos[mono].focal }}" decoding="async"></div>
+        <div class="ph pair-ph"><img src="{{ photos[mono].src }}" srcset="{{ photos[mono].srcset }}" sizes="{{ '(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw'|cover(photos[mono], '4 / 5') }}" width="{{ photos[mono].width }}" height="{{ photos[mono].height }}" alt="{{ photos[mono].alt }}" style="object-position: {{ photos[mono].focal }}" decoding="async"></div>
         <figcaption><span class="pair-num">01</span>{{ photos[mono].caption }}</figcaption>
       </figure>
       {% endif %}
       <figure class="pair-fig">
-        <div class="ph pair-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+        <div class="ph pair-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="{{ '(min-width: 1140px) 540px, (min-width: 861px) 46vw, 100vw'|cover(photos[lead], '4 / 5') }}" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
         <figcaption><span class="pair-num">{{ '02' if mono else '01' }}</span>{{ photos[lead].caption }}</figcaption>
       </figure>
     </div>

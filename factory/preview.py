@@ -16,7 +16,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 PREVIEWS = os.path.join(REPO, 'private-previews')
 BASE_URL = 'https://insert-landing-production.up.railway.app/private-previews'
-MAX_IMG = 400 * 1024
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import images as I  # noqa: E402
+MAX_IMG = I.MAX_BYTES   # one budget: lib/images.py writes nothing larger
 SLUG = re.compile(r'^[a-z0-9][a-z0-9-]{0,60}$')
 ROBOTS = '<meta name="robots" content="noindex, nofollow">'
 CHIP_TEXT = 'Concept preview by Insert'

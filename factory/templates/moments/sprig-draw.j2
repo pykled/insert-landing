@@ -24,7 +24,7 @@
 <section id="sprig-draw" class="mo-sprig" data-moment-root data-flora="{{ flora }}" aria-labelledby="sprig-title">
   <div class="container mo-sprig-grid">
     <figure class="mo-sprig-photo">
-      <div class="ph"><img src="{{ ph.src }}" srcset="{{ ph.srcset }}" sizes="(min-width: 861px) 44vw, 100vw" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="object-position: {{ ph.focal }}" loading="lazy" decoding="async"></div>
+      {% set _ar = fit_ratio(ph, '4 / 5') %}<div class="ph" style="--ar: {{ _ar }}"><img src="{{ ph.src }}" srcset="{{ ph.srcset }}" sizes="{{ '(min-width: 861px) 44vw, 100vw'|cover(ph, _ar) }}" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="object-position: {{ ph.focal }}" loading="lazy" decoding="async"></div>
     </figure>
     <div class="mo-sprig-copy">
       <svg class="mo-sprig-mark" data-motion-device="draw-in" data-draw-ms="{{ t.motion_device_ms|default(1600) }}" data-draw-stagger="60" viewBox="0 0 168 320" width="120" height="228" aria-hidden="true" focusable="false">

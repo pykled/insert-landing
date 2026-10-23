@@ -100,3 +100,34 @@ def test_title_is_venue_and_place_without_concept_suffix(tmp_path):
     import build
     assert build.page_title({'name': 'X', 'seo': {'title': 'X | Garden weddings'}}) == 'X | Garden weddings'
     assert build.page_title({'name': 'X', 'tagline_facts': {'locality': None, 'state': None}}) == 'X | Weddings'
+
+
+# --- item 5: one image budget, measured quality, sizes that match the drawn width ---------------------------------
+
+def test_renditions_fit_preview_budget_with_ssim_and_never_upscale(tmp_path):
+    from PIL import Image
+    from lib import images as I
+    import preview
+    assert preview.MAX_IMG == I.MAX_BYTES == 400 * 1024
+    rng = np.random.default_rng(3)
+    base = rng.integers(0, 255, (60, 90, 3)).astype(np.uint8)        # detailed photo-like texture, upsampled
+    src = tmp_path / 'p.jpg'; Image.fromarray(base).resize((2600, 1733), Image.BICUBIC).save(src, quality=95)
+    info = I.build_set(str(src), 'p', 'hero', str(tmp_path / 'img'))
+    assert info['variants'] and all(w <= 2600 for w, _, _ in info['variants'])
+    for w, h, size in info['variants']:
+        f = tmp_path / 'img' / ('p-%d.webp' % w)
+        meta = json.load(open(str(f) + '.json'))
+        assert size == os.path.getsize(f) <= I.MAX_BYTES and meta['ssim'] >= I.MIN_SSIM
+    small = tmp_path / 's.jpg'; Image.fromarray(base).resize((900, 600)).save(small)
+    assert max(w for w, _, _ in I.build_set(str(small), 's', 'large', str(tmp_path / 'img'))['variants']) <= 900
+
+
+def test_cover_sizes_and_fit_ratio():
+    from lib import images as I
+    land = {'width': 1800, 'height': 1192}                              # 3:2-ish landscape
+    assert I.cover_factor(land, '3 / 4') == pytest.approx((1800 / 1192) / 0.75)
+    assert I.cover_sizes('(min-width: 861px) 400px, 100vw', land, '3 / 4') == '(min-width: 861px) 806px, 202vw'
+    assert I.cover_sizes('(min-width: 861px) 400px, 100vw', {'width': 900, 'height': 1200}, '3 / 4') == '(min-width: 861px) 400px, 100vw'
+    r = I.fit_ratio(land, '3 / 4')
+    assert r != '3 / 4' and I.cover_factor(land, r) <= I.MAX_CROP
+    assert I.fit_ratio({'width': 900, 'height': 1200}, '3 / 4') == '3 / 4'

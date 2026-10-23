@@ -9,6 +9,6 @@
   .ledger-text p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 14px; max-width: 52ch; }
   .ledger-text cite { display: block; font-style: normal; font-size: 13px; color: var(--ink-faint); }
   .ledger-fig { margin-top: 32px; max-width: 300px; }
-  .ledger-ph { aspect-ratio: 3 / 4; }
-  .ledger-ph img { aspect-ratio: 3 / 4; }
+  .ledger-ph { aspect-ratio: var(--ar, 3 / 4); }
+  .ledger-ph img { aspect-ratio: var(--ar, 3 / 4); }
   @media (max-width: 860px) { .ledger-grid { grid-template-columns: 1fr; } }

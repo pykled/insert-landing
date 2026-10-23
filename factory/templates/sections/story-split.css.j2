@@ -16,8 +16,8 @@
   .story-copy cite { display: block; font-style: normal; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink-faint); margin-top: 8px; max-width: 48ch; }
   .story-media { max-width: 440px; justify-self: end; width: 100%; position: relative; }
   .story-frame { position: relative; display: block; }
-  .story-ph { display: block; aspect-ratio: 3 / 4; }
-  .story-ph img { aspect-ratio: 3 / 4; }
+  .story-ph { display: block; aspect-ratio: var(--ar, 3 / 4); }
+  .story-ph img { aspect-ratio: var(--ar, 3 / 4); }
   .story-frame::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--metal, var(--line-strong)); border-radius: var(--radius-img); z-index: 0; pointer-events: none; }
   .story-frame .ph { z-index: 1; }
   .story-media figcaption { margin-top: 34px; letter-spacing: 0.02em; }

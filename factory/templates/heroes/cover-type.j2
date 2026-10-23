@@ -13,7 +13,7 @@
         {% include 'partials/date-inline.j2' %}
       </div>
       <figure class="cover-fig">
-        <div class="ph cover-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+        <div class="ph cover-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="{{ '(min-width: 861px) 46vw, 100vw'|cover(photos[lead], '4 / 5') }}" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
         <figcaption>{{ photos[lead].caption }}</figcaption>
       </figure>
     </div>

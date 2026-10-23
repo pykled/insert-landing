@@ -15,7 +15,7 @@
         </div>
       </div>
       <figure class="story-media reveal d2">
-        <span class="story-frame"><span class="ph story-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 440px, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"></span></span>
+        <span class="story-frame">{% set _ar = fit_ratio(sp, '3 / 4') %}<span class="ph story-ph" style="--ar: {{ _ar }}"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="{{ '(min-width: 861px) 440px, 100vw'|cover(sp, _ar) }}" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"></span></span>
         <figcaption>{{ sp.caption }}</figcaption>
       </figure>
     </div>

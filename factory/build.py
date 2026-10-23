@@ -29,6 +29,8 @@ WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'sev
 
 # Preload `imagesizes` per hero: must equal the lead <img sizes> in templates/heroes/<id>.j2, or Chrome preloads one
 # width and then fetches another. Dialect builds only; pre-dialect builds keep the original three-way rule (byte-identical).
+# 3A item 5: heroes whose lead sits in a fixed-ratio cover box; their <img sizes> (and so the preload) is cover-scaled
+HERO_COVER_RATIO = {'arch-split': '4 / 5', 'cover-type': '4 / 5', 'pair-split': '4 / 5'}
 HERO_SIZES = {
     'masthead': '100vw', 'frame': '(min-width: 1140px) 1040px, 92vw', 'cover-type': '(min-width: 861px) 46vw, 100vw',
     'cinematic': '(max-width: 860px) 200vw, 100vw', 'crest-centred': '(max-width: 860px) 180vw, 100vw',
@@ -634,6 +636,8 @@ def main():
     t1 = time.time()
     env = Environment(loader=FileSystemLoader(os.path.join(HERE, 'templates')), autoescape=select_autoescape(['html', 'j2']), trim_blocks=True, lstrip_blocks=True)
     env.filters['wordnum'] = wordnum
+    env.filters['cover'] = I.cover_sizes   # 3A item 5: sizes = the drawn width of a cover-fitted photo
+    env.globals['fit_ratio'] = I.fit_ratio
     voice = voices[ch['voice']['id']]
     cta_set = voice['cta_sets'][cta_index] if cta_index is not None else None
     try:
@@ -659,7 +663,7 @@ def main():
                        'light_shift_default': dialect.get('light_shift_default', 'noon'), 'fallbacks': fallbacks, 'bottom': bottom}
     ctx = dict(v=v, t=axis_tokens, pair=pair, ch=ch_ids, copy=copy_, photos=photos, lead=lead,
                sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo=roles['guide'],
-               hero_sizes=(HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
+               hero_sizes=(I.cover_sizes(HERO_SIZES[hid], photos[lead], HERO_COVER_RATIO[hid]) if dialect and hid in HERO_COVER_RATIO else None) or (HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
                spaces_by_id={s['id']: s for s in v['spaces']}, story_second=roles['story_second'], light_photos=light_photos,
                uses_band='ink' if p['density'] >= 80 else 'deep', secondary_uses=secondary_uses(v),
                secondary_uses_sentence=and_join(secondary_uses(v)).lower().capitalize(),

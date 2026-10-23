@@ -118,5 +118,7 @@ def test_hero_preload_sizes_match_hero_img_sizes():
     for hid, want in mod.HERO_SIZES.items():
         src = open(os.path.join(here, 'templates', 'heroes', hid + '.j2')).read()
         got = re.findall(r'<img src="\{\{ photos\[(?:lead|n)\]\.src \}\}"[^>]*?sizes="([^"]*)"', src)
+        if hid in mod.HERO_COVER_RATIO:   # 3A: sizes="{{ '<want>'|cover(photos[lead], '<ratio>') }}", same filter in build.py
+            got = [re.sub(r"^\{\{ '(.*?)'\|cover\(photos\[lead\], '%s'\) \}\}$" % re.escape(mod.HERO_COVER_RATIO[hid]), r'\1', g) for g in got]
         assert got and got[0] == want, (hid, got, want)
         assert 'var(' not in want, hid   # sizes cannot read CSS custom properties

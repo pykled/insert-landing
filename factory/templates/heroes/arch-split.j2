@@ -3,7 +3,7 @@
 <section class="hero hero-arch-split" data-hero="arch-split" data-hero-framing="{{ dialect.hero_framing if dialect else 'split' }}" aria-labelledby="hero-title">
   <div class="container arch-grid">
     <figure class="arch-fig">
-      <div class="ph arch-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="(min-width: 1140px) 520px, (min-width: 861px) 46vw, 100vw" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
+      <div class="ph arch-ph"><img src="{{ photos[lead].src }}" srcset="{{ photos[lead].srcset }}" sizes="{{ '(min-width: 1140px) 520px, (min-width: 861px) 46vw, 100vw'|cover(photos[lead], '4 / 5') }}" width="{{ photos[lead].width }}" height="{{ photos[lead].height }}" alt="{{ photos[lead].alt }}" style="object-position: {{ photos[lead].focal }}" fetchpriority="high" decoding="async"></div>
       <figcaption>{{ photos[lead].caption }}</figcaption>
     </figure>
     <div class="arch-copy">

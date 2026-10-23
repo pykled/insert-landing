@@ -8,8 +8,8 @@
   .rail li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper-2); border: 2px solid var(--accent); }
   .rail time { display: block; font-family: var(--display); font-weight: var(--display-weight); font-size: 22px; color: var(--ink); margin-bottom: 4px; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars|safe }};{% endif %} }
   .tl-media { max-width: 400px; justify-self: end; width: 100%; position: sticky; top: 100px; }
-  .tl-ph { aspect-ratio: 3 / 4; box-shadow: var(--shadow); }
-  .tl-ph img { aspect-ratio: 3 / 4; }
+  .tl-ph { aspect-ratio: var(--ar, 3 / 4); box-shadow: var(--shadow); }
+  .tl-ph img { aspect-ratio: var(--ar, 3 / 4); }
   @media (max-width: 860px) {
     .tl-grid { grid-template-columns: 1fr; }
     .tl-media { position: static; justify-self: start; }
