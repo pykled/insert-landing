@@ -40,8 +40,8 @@ python3 build.py content/stonehurst.json --variant e --out ../.factory-check/e -
 ```
 `--dialect auto` (default) picks the top of the score table, `--dialect <id>` is a recorded human override,
 `--dialect none` is the pre-dialect path (needs `--personality`). The score table, clamps, palette checks, every
-template fallback and the guard verdict land in `build-meta.json`. `--force dim=id` also accepts `ornament`, `rhythm`
-`tone` and `nav`, and must name an id the dialect allows. `--allow-close "<reason>"` registers past a refusal and stores the
+template fallback and the guard verdict land in `build-meta.json`. `--force dim=id` also accepts `ornament`, `rhythm`,
+`tone`, `nav` and `bottom`, and must name an id the dialect allows. `--allow-close "<reason>"` registers past a refusal and stores the
 reason. `--offline-fonts` skips the network check (cached verification only); `--strict-fonts` fails when an import
 cannot be verified at all.
 
@@ -58,7 +58,9 @@ What stage 2B still owes: `python3 lib/templates.py --missing`. Tests: `python3 
 
 Heroes that set copy on the photo declare `needs.copy_zone`; build.py measures every photo (`copy_zone` in build-meta) and
 excludes them, or switches crest-centred to copy on paper, when the lead is under 4.5:1 below the 35% scrim cap.
-Stage 2C integration notes: `STAGE-2C-NOTES.md`.
+Stage 2C integration notes: `STAGE-2C-NOTES.md`. Stage 2D (open items: candlelit pairings, measured hairline floors in
+pairings.json, page-bottom variants in `templates/bottoms/` via dialects.json `bottoms` + `--force bottom=`, archetype
+status refresh, cinematic blur veil): `STAGE-2D-NOTES.md`.
 
 Design docs: `../docs/venue-site-factory.md` (system; section 9 is the dialect layer), `../docs/venue-design-research.md`
 (research synthesis), `../docs/research/04-luxury-venue-vocabulary.md` + `05-luxury-dialects-spec.md` (dialects),
