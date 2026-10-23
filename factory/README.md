@@ -22,7 +22,7 @@ factory/
   lib/fonts.py          pairing rules + build-time Google Fonts verification (cached for offline builds)
   lib/images.py         responsive WebP ladders, never upscaled, size-budgeted
   data/dialects.json    the eight luxury dialects (axis clamps, palettes, allowed ids with status, rhythms, motion)
-  data/pairings.json    26 vetted Google-font pairings with pinned weights/opsz and legibility notes
+  data/pairings.json    29 vetted Google-font pairings with pinned weights/opsz and legibility notes
   data/archetypes.json  heroes, sections, moments, voices with axis positions and honest build status
   data/voices.json      copy presets (facts come from content slots, never from the preset); CTA sets
   data/registry.json    fingerprints + pHashes of every site built so far (schema 2)

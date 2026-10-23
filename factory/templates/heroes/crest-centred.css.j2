@@ -5,6 +5,9 @@
 {% set subfam = sec.family if sec else pair.display.family %}
 {# thin 400-weight faces fail the hairline probe below 48 px (56 for Forum / Libre Caslon Display / Italiana / Instrument Serif, measured by the base maker) #}
 {% set subfloor = (56 if subfam in ('Forum', 'Libre Caslon Display', 'Italiana', 'Instrument Serif') else 48) if (subw <= 400 and (sec.min_px if sec else pair.display.min_px) >= 36) else [(sec.min_px if sec else pair.display.min_px), 24]|max %}
+{# 2D: the measured floor of the face that sets the headline (pairings.json hairline_floor_px) wins over the rule above #}
+{% set subface = sec if sec else pair.display %}
+{% if subface.hairline_floor_px is defined %}{% set subfloor = subface.hairline_floor_px %}{% endif %}
   .hero-crest { padding: 0; }
   .crest-stage { position: relative; min-height: min(80vh, 740px); display: grid; align-items: center; isolation: isolate; color: var(--on-photo, #fff); text-align: center; }
   .crest-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: transparent; }

@@ -2,7 +2,7 @@
 import importlib, sys
 from tests import _util
 
-MODULES = ['test_palette', 'test_dialects', 'test_fingerprint', 'test_schema', 'test_exclusions', 'test_templates']
+MODULES = ['test_palette', 'test_dialects', 'test_fingerprint', 'test_schema', 'test_exclusions', 'test_templates', 'test_stage2d']
 
 if __name__ == '__main__':
     bad = 0

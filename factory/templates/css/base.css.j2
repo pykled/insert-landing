@@ -38,6 +38,10 @@
        Measured 2026-10-21 (qa stroke probe, 1x/2x): Forum, Libre Caslon Display, Italiana and Instrument Serif still fail
        at 48 px and pass at 56 px; Cardo, Gloock, DM Serif Display pass at 48. Stage 3: move this into pairings.json `hairline_floor_px`. */
 {% set hairline_floor = pair.display.hairline_floor_px|default(56 if pair.display.family in ('Forum', 'Libre Caslon Display', 'Italiana', 'Instrument Serif') else 48) %}
+{# 2D: measured floors live in pairings.json (display/secondary hairline_floor_px desktop, mobile_floor_px phones); a face
+   that declares one is held to it whatever its weight #}
+{% set floor_declared = pair.display.hairline_floor_px is defined %}
+{% set mobile_floor = [pair.display.mobile_floor_px|default(0), (pair.secondary or {}).mobile_floor_px|default(0)]|max %}
 {% if t.display_case == 'caps' %}
     /* caps display case: the hero sets its own tracked-caps h1 (14-40 px); section h2s stay sentence case (E5) */
     --h1-floor: {{ [pair.display.min_px, 28]|max }}px;
@@ -46,8 +50,8 @@
     --h1: clamp(var(--h1-floor), 2.8vw, {{ [40, pair.display.min_px]|max }}px);
     --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);
 {% else %}
-    --h1-floor: {{ [pair.display.min_px, hairline_floor if thin_face else (40 * t.display_scale)|round|int]|max }}px;
-    --h1-min: {{ [pair.display.min_px, (40 * t.display_scale)|round|int]|max }}px;   /* the pairing minimum alone; heroes adopt --h1-floor for the hairline-safe size */
+    --h1-floor: {{ [pair.display.min_px, hairline_floor if (thin_face or floor_declared) else (40 * t.display_scale)|round|int]|max }}px;
+    --h1-min: {{ [pair.display.min_px, (40 * t.display_scale)|round|int, mobile_floor]|max }}px;   /* the pairing minimum alone; heroes adopt --h1-floor for the hairline-safe size */
     --h2-floor: {{ [pair.display.min_px, (32 * t.display_scale)|round|int]|max }}px;
     --h1: clamp(var(--h1-floor), {{ (6.2 * t.display_scale)|round(1) }}vw, {{ [(84 * t.display_scale)|round|int, pair.display.max_px|default(96)]|min }}px);
     --h2: clamp(var(--h2-floor), {{ (4.4 * t.display_scale)|round(1) }}vw, {{ [(56 * t.display_scale)|round|int, pair.display.max_px|default(72)]|min }}px);

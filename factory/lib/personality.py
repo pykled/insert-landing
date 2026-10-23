@@ -40,7 +40,8 @@ def rank(items, p, needs_ok=lambda it: True, dialect_mode=False):
         ok_status = lambda it: it.get('status', 'built') in PLANNED
     else:
         ok_status = lambda it: it.get('status', 'built') == 'built' and not it.get('dialect_only')
-    rows = [(fit(it.get('axes', {}), p), it) for it in items if ok_status(it) and needs_ok(it)]
+    # `_use_penalty` (dialect builds only, set by build.py): spreads registered sites of one dialect over its pairings
+    rows = [(fit(it.get('axes', {}), p) + it.get('_use_penalty', 0.0), it) for it in items if ok_status(it) and needs_ok(it)]
     rows.sort(key=lambda r: r[0])
     return rows
 
@@ -314,6 +315,19 @@ def dialect_tokens(dialect, p, pairing, registry=None):
     edge = pick_in_range(dialect['photo']['edges'], p['formality'], flo, fhi)
     kicker = pick_in_range(dialect['type']['kicker_styles'], p['voice'], *dialect['axes']['voice'])
     return {'body_px': body_px, 'display_case': case, 'photo_edge': edge, 'kicker_style': kicker}
+
+
+USE_PENALTY = 0.04   # per registered same-dialect site already on a pairing; about a third of the fit spread inside a dialect
+
+
+def usage_penalised(items, used_counts, per_use=USE_PENALTY):
+    """Copies of `items` with `_use_penalty` = per_use x the number of registered same-dialect sites that use each id,
+    so rank() prefers the least-used option when fits are close (spec 4.3: vary the pairing inside a dialect)."""
+    out = []
+    for it in items:
+        n = used_counts.get(it['id'], 0)
+        out.append(dict(it, _use_penalty=per_use * n) if n else it)
+    return out
 
 
 def rotate_pick(options, used_counts, last=None):

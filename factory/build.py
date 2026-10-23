@@ -359,6 +359,10 @@ def main():
         last_pairing = same[-1]['fingerprint'].get('pairing') if same else None
         allowed = {key: [it['id'] for it in dialect[key]] for key in TPL.LIST_KINDS}
         libs['pairings'] = [x for x in pairings_all if x['id'] in allowed['pairings'] and (x['id'] != last_pairing or len(allowed['pairings']) == 1 or 'pairing' in forced)]
+        pair_counts = {}
+        for s_ in same:
+            pair_counts[s_['fingerprint'].get('pairing')] = pair_counts.get(s_['fingerprint'].get('pairing'), 0) + 1
+        libs['pairings'] = PERS.usage_penalised(libs['pairings'], pair_counts)
         for key in ('heroes', 'spaces', 'story', 'faq', 'tour', 'gallery', 'moments', 'voices'):
             libs[key] = [x for x in arch[key] if x['id'] in allowed[key]]
         for dim, key in (('pairing', 'pairings'), ('hero', 'heroes'), ('spaces', 'spaces'), ('story', 'story'), ('faq', 'faq'), ('tour', 'tour'),

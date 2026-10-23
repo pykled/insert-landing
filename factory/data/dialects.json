@@ -1262,7 +1262,9 @@
     "ink-soft on paper-2"
    ],
    "type": {
-    "headline_case": ["sentence"],
+    "headline_case": [
+     "sentence"
+    ],
     "body_px": [
      17
     ],
@@ -1273,6 +1275,18 @@
    "pairings": [
     {
      "id": "inscriptional-marcellus",
+     "status": "exists"
+    },
+    {
+     "id": "candlelit-brygada",
+     "status": "exists"
+    },
+    {
+     "id": "candlelit-castoro",
+     "status": "exists"
+    },
+    {
+     "id": "candlelit-baskerville",
      "status": "exists"
     }
    ],

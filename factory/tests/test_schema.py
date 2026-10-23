@@ -63,7 +63,7 @@ def test_strict_voices_state_no_facts():
 def test_pairing_rules():
     pairings = _util.data('pairings.json')['pairings']
     assert F.validate_pairings(pairings) == []
-    assert len(pairings) == 26
+    assert len(pairings) == 29   # 2D: three candlelit pairings (brygada, castoro, baskerville)
     p = copy.deepcopy(next(x for x in pairings if x['id'] == 'editorial-didone'))
     p['display']['weight'] = 300; p['risk'] = 'none'; p['display']['vars'] = None
     errs = F.validate_pairings([p])
