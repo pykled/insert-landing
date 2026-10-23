@@ -645,7 +645,14 @@
         loaded = true; frame.classList.remove('is-failed'); frame.classList.add('is-loaded');
       }
     });
-    setTimeout(() => { if (!loaded) frame.classList.add('is-failed'); }, 12000);
+    // The browser defers the offscreen iframe, so the 12 s clock starts when the calendar nears the viewport
+    const arm = () => setTimeout(() => { if (!loaded) frame.classList.add('is-failed'); }, 12000);
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) { io.disconnect(); arm(); }
+      }, { rootMargin: '400px 0px' });
+      io.observe(frame);
+    } else { arm(); }
   })();
 
   // Analytics (suppressed on private preview copies)
