@@ -158,6 +158,7 @@
   }
   .chapter:last-child { border-bottom: 1px solid var(--hair); }
   .chapter:nth-child(even) { grid-template-columns: 6fr 5fr; }
+  .chapter--lead { grid-template-columns: 4fr 6fr; }
   .chapter:nth-child(even) .chapter-text { order: 2; }
   .numeral { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--bronze); font-variation-settings: "opsz" 24; margin: 0 0 14px; }
   h3 { font-variation-settings: "opsz" 16; }
@@ -165,7 +166,19 @@
   .chapter-text p { color: var(--ink-soft); max-width: 30em; margin: 0; }
 
   /* Stationery: each automation shown as a printed card on a linen mount */
-  .mount { background: var(--linen); padding: clamp(28px, 5vw, 64px); border-radius: 2px; display: grid; place-items: center; }
+  .mount { background: var(--linen); padding: clamp(22px, 3.4vw, 44px); border-radius: 2px; display: grid; place-items: center; }
+  /* Rhythm: each chapter mounts its card differently so the four don't read as one block repeated */
+  .chapter--lead .mount { padding: clamp(28px, 4.6vw, 64px) clamp(22px, 4vw, 56px); }
+  .chapter--lead .card { max-width: 470px; }
+  .sample-tag { width: 100%; max-width: 470px; margin: 0 0 14px; font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bronze); }
+  .mount--bare { background: none; padding: 0; }
+  .mount--bare .card { max-width: 380px; text-align: center; outline: 1px solid var(--hair); outline-offset: -10px; box-shadow: 0 1px 2px rgba(31, 26, 20, 0.05), 0 18px 30px -24px rgba(31, 26, 20, 0.3); padding: 44px 40px 34px; }
+  .mount--bare .card-head, .mount--bare .card-foot { justify-content: center; }
+  .mount--tight { padding: clamp(18px, 2.6vw, 32px); place-items: center start; }
+  .mount--tight .card { max-width: 390px; }
+  .mount--photo { background: none; padding: 0; display: block; }
+  .mount--photo img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 2px; }
+  .mount--photo .card { position: relative; width: 80%; max-width: 400px; margin: -132px 28px 0 auto; }
   .card {
     width: 100%; max-width: 420px; background: var(--card); color: var(--ink);
     padding: 34px 34px 30px; border-radius: 2px;
@@ -179,7 +192,7 @@
   .card-foot { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 15px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
   .card-foot .em { color: var(--bronze); font-weight: 600; }
   .card u { text-decoration-color: var(--hair); text-underline-offset: 4px; }
-  .sample-note { margin: 28px 0 0; text-align: center; font-size: 16px; color: var(--ink-soft); font-style: italic; font-family: var(--serif); font-variation-settings: "opsz" 24; }
+  .sample-note, .section-head .sample-note { margin: 18px auto 0; text-align: center; font-size: 16px; color: var(--ink-soft); font-style: italic; font-family: var(--serif); font-variation-settings: "opsz" 24; }
 
   /* What stays yours */
   .yours { padding-top: 0; }
@@ -189,15 +202,15 @@
   .yours p { color: var(--ink-soft); }
 
   /* Charter invitation */
-  .charter { background: var(--card); border-top: 1px solid var(--linen); border-bottom: 1px solid var(--linen); }
+  .charter { background: var(--linen); }
   .invitation {
-    max-width: 760px; margin: 0 auto; text-align: center; background: var(--paper);
-    padding: clamp(44px, 7vw, 84px) clamp(24px, 7vw, 88px);
+    max-width: 840px; margin: 0 auto; text-align: center; background: var(--card);
+    padding: clamp(52px, 8vw, 104px) clamp(24px, 8vw, 104px);
     outline: 1px solid var(--hair); outline-offset: -14px; border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.05), 0 26px 34px -22px rgba(31, 26, 20, 0.3);
+    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.06), 0 40px 60px -34px rgba(31, 26, 20, 0.45);
   }
   .invitation .label { margin-top: 26px; }
-  .price { font-family: var(--serif); font-variation-settings: "opsz" 24; font-weight: 500; font-size: clamp(54px, 7vw, 80px); line-height: 1; margin: 6px 0 10px; letter-spacing: -0.02em; }
+  .price { font-family: var(--serif); font-variation-settings: "opsz" 24; font-weight: 500; font-size: clamp(60px, 8vw, 96px); line-height: 1; margin: 8px 0 12px; letter-spacing: -0.02em; }
   .price span { font-size: 0.34em; font-weight: 400; font-style: italic; letter-spacing: 0; }
   .price-note { font-size: 19px; color: var(--ink-soft); margin: 0 auto 34px; max-width: 26em; }
   .terms { list-style: none; padding: 0; margin: 0 auto 40px; max-width: 470px; text-align: left; }
@@ -210,7 +223,7 @@
   .charter-aside .label { margin-bottom: 10px; }
   .charter-aside p { color: var(--ink-soft); margin: 0; }
   .standard { max-width: 760px; margin: 48px auto 0; padding-top: 28px; border-top: 1px solid var(--hair); text-align: center; color: var(--ink-soft); }
-  .standard b { color: var(--ink); font-weight: 600; }
+  .standard b { color: var(--ink); font-weight: 600; white-space: nowrap; }
 
   /* Site Refresh add-on */
   .addon { padding: clamp(72px, 9vw, 120px) 0; }
@@ -219,11 +232,8 @@
     background: var(--card); border: 1px solid var(--linen); border-radius: 2px; overflow: hidden;
   }
   .addon-card .addon-art { background: var(--linen); display: grid; place-items: center; padding: 40px; }
-  .page-sketch { width: 100%; max-width: 280px; background: var(--card); padding: 18px; box-shadow: 0 1px 2px rgba(31,26,20,.06), 0 22px 34px -22px rgba(31,26,20,.38); border-radius: 2px; }
-  .page-sketch img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1px; }
-  .page-sketch .ln { height: 6px; background: var(--linen); margin-top: 12px; border-radius: 1px; }
-  .page-sketch .ln.t { height: 10px; width: 70%; background: var(--hair); margin-top: 16px; }
-  .page-sketch .ln.s { width: 55%; }
+  .print { width: 100%; max-width: 300px; margin: 0; background: var(--card); padding: 14px 14px 40px; box-shadow: 0 1px 2px rgba(31,26,20,.06), 0 26px 38px -24px rgba(31,26,20,.45); border-radius: 1px; }
+  .print img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
   .addon-body { padding: clamp(32px, 5vw, 56px); }
   .addon-body h3 { font-size: clamp(30px, 3vw, 38px); line-height: 1.1; margin-bottom: 6px; }
   .addon-body .from { font-family: var(--serif); font-variation-settings: "opsz" 24; font-style: italic; font-size: 21px; color: var(--bronze); margin: 0 0 18px; }
@@ -292,7 +302,7 @@
   /* Tablet */
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; gap: 28px; }
-    .chapter, .chapter:nth-child(even), .yours-grid { grid-template-columns: 1fr; gap: 32px; }
+    .chapter, .chapter:nth-child(even), .chapter--lead, .yours-grid { grid-template-columns: 1fr; gap: 32px; }
     .chapter:nth-child(even) .chapter-text { order: 0; }
     .contact-grid { grid-template-columns: 1fr; }
     .addon-card { grid-template-columns: 1fr; }
@@ -311,6 +321,13 @@
     .section-head { text-align: left; }
     .section-head p { font-size: 18px; margin-left: 0; }
     .card { padding: 26px 22px 22px; }
+    .card-head, .card-foot { font-size: 16px; }
+    .label { font-size: 16px; }
+    .mount--bare .card { padding: 38px 26px 28px; }
+    .mount--photo .card { width: auto; margin: -72px 16px 0; }
+    .mount--photo { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }
+    .mount--photo img { border-radius: 0; }
+    .mount--tight { place-items: center; }
     .card .serif { font-size: 18px; }
     .card .serif.big { font-size: 30px; }
     .mount { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); border-radius: 0; }
@@ -379,17 +396,19 @@
         <p class="label">The Venue Ops Stack</p>
         <h2>From the first hello <em>to a kind review.</em></h2>
         <p>Four automations, written in your voice and approved by you, that carry a couple from inquiry to review. They work with the tools you already use.</p>
+        <p class="sample-note">Shown below: Willow Creek Estate and its couple, an illustrative example.</p>
       </div>
 
       <ol class="chapters">
-        <li class="chapter reveal">
+        <li class="chapter chapter--lead reveal">
           <div class="chapter-text">
             <p class="numeral" aria-hidden="true">i.</p>
             <h3>A reply, usually within the minute</h3>
             <p>A couple writes at eleven on a Sunday night. We aim to have a personal answer with them in under a minute: their date, their guest count, and a link to choose a tour.</p>
           </div>
           <div class="mount">
-            <div class="card" role="img" aria-label="Sample email reply from Willow Creek Estate, sent 40 seconds after the inquiry.">
+            <p class="sample-tag" aria-hidden="true">Sample</p>
+            <div class="card" role="group" aria-label="Sample email reply from Willow Creek Estate, sent 40 seconds after the inquiry.">
               <div class="card-head"><b>Willow Creek Estate</b><span>Sunday, 11:02 pm</span></div>
               <p class="serif">Dear Maya and Jordan, congratulations!</p>
               <p class="serif">October 17 is open, and 120 guests suits our garden ceremony and barn reception beautifully. Choose a time to visit: <u>willowcreek.co/tour</u></p>
@@ -404,10 +423,10 @@
             <h3>The tour, arranged</h3>
             <p>They pick a time that suits them. Reminders follow, and a gentle reschedule note goes out if a visit is missed.</p>
           </div>
-          <div class="mount">
-            <div class="card" role="img" aria-label="Sample tour confirmation for Thursday, June 11 at 4 pm, with reminders the day before and two hours before.">
+          <div class="mount mount--bare">
+            <div class="card" role="group" aria-label="Sample tour confirmation for Thursday, June 11 at 4 pm, with reminders the day before and two hours before.">
               <div class="card-head"><b>Your visit</b><span>Confirmed</span></div>
-              <p class="serif big">Thursday, June 11 at&nbsp;4&nbsp;pm</p>
+              <p class="serif big">Thursday, June&nbsp;11 at&nbsp;4&nbsp;pm</p>
               <p class="serif">Park by the barn; Elena will meet you at the garden gate.</p>
               <div class="card-foot"><span>Reminders: the day before, two hours before</span></div>
             </div>
@@ -420,8 +439,8 @@
             <h3>A deposit request, through your own link</h3>
             <p>After the tour, a deposit request goes out while the evening is still fresh, with a reminder if it’s needed. Couples pay you directly through your own payment link; Insert never touches the money.</p>
           </div>
-          <div class="mount">
-            <div class="card" role="img" aria-label="Sample deposit request of $2,000 for October 17, 2027, paid to the venue through its own payment link.">
+          <div class="mount mount--tight">
+            <div class="card" role="group" aria-label="Sample deposit request of $2,000 for October 17, 2027, paid to the venue through its own payment link.">
               <div class="card-head"><b>Deposit request</b><span>October 17, 2027</span></div>
               <p class="serif big">$2,000</p>
               <p class="serif">Payable to Willow Creek Estate through the venue’s own payment link.</p>
@@ -436,8 +455,11 @@
             <h3>A thank-you, and a kind word</h3>
             <p>A week after the wedding, a warm note thanks them and asks for a few words on Google or The&nbsp;Knot.</p>
           </div>
-          <div class="mount">
-            <div class="card" role="img" aria-label="Sample thank-you text from Elena at Willow Creek, sent seven days after the wedding, with review links for Google and The Knot.">
+          <div class="mount mount--photo">
+            <img src="/assets/venues2-roses-700.webp" srcset="/assets/venues2-roses-700.webp 700w, /assets/venues2-roses-1000.webp 1000w"
+                 sizes="(min-width: 1320px) 610px, (min-width: 981px) 46vw, 100vw" width="1000" height="800" loading="lazy" decoding="async"
+                 alt="Close detail of a brass bowl of cream and peach garden roses with wheat, beside gold-rimmed glasses.">
+            <div class="card" role="group" aria-label="Sample thank-you text from Elena at Willow Creek, sent seven days after the wedding, with review links for Google and The Knot.">
               <div class="card-head"><b>Text message</b><span>Seven days after</span></div>
               <p class="serif">Hi Maya and Jordan, it’s Elena at Willow Creek. Still smiling about Saturday. A few words about your day would mean the world to us.</p>
               <div class="card-foot"><span>Review on Google</span><span>Review on The Knot</span></div>
@@ -445,7 +467,6 @@
           </div>
         </li>
       </ol>
-      <p class="sample-note reveal">Willow Creek Estate and its couple are an illustrative example.</p>
     </div>
   </section>
 
@@ -509,10 +530,9 @@
     <div class="wrap">
       <article class="addon-card reveal" aria-labelledby="refresh-h">
         <div class="addon-art" aria-hidden="true">
-          <div class="page-sketch">
-            <img src="/assets/venues2-evening-800.webp" width="800" height="446" loading="lazy" decoding="async" alt="">
-            <div class="ln t"></div><div class="ln"></div><div class="ln s"></div>
-          </div>
+          <figure class="print">
+            <img src="/assets/venues2-refresh-480.webp" srcset="/assets/venues2-refresh-480.webp 480w, /assets/venues2-refresh-800.webp 800w" sizes="300px" width="800" height="1000" loading="lazy" decoding="async" alt="">
+          </figure>
         </div>
         <div class="addon-body">
           <p class="label">Optional, and separate</p>
