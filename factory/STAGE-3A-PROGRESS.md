@@ -44,3 +44,4 @@ OPEN FOR PART 2: (1) focus ring on guide email input (F5); (2) botanical/editori
 
   next: item 9 preview staging
 - item 9 staging: DONE (local only, not committed, not deployed). preview.py refused an unchecked build (no QA record) and staged after --mark-qa-strict: private-previews/2d32be7dda6d361dd89ffdfd/demos/homestead/ (14 img, 2.8 MB, max 363 KB), .../demos/lindley-scott/ (14 img, 2.8 MB, max 385 KB), .../demos/stonehurst/ (23 img, 4.5 MB, max 360 KB); each has noindex + the 'Concept preview by Insert' chip. Left untracked: venue photos stay out of git; deploying is Dillon's call. next: item 10 docs
+- item 10 docs: DONE 5ed7d86 (README stage-3A rules, INTAKE build 16-28 s new / 4-12 s rebuild, qa 40-45 s, preview 1 s; STAGE-3A-NOTES.md). ALL ITEMS DONE.
