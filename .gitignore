@@ -8,3 +8,7 @@ __pycache__/
 
 # venue photos collected by factory/intake (private use only, never committed)
 factory/content/photos/
+
+# third-party site screenshots, internal analysis only
+docs/research/boards/*
+!docs/research/boards/README.md
