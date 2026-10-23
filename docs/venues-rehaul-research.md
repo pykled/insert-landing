@@ -66,9 +66,10 @@ are what make it read as software.
 
 ## Design principles for the rehaul
 
-1. **Ivory paper and ink, one muted accent.** Paper `#F5F0E6`, ink `#1E1C17`, deep olive `#3B4232` as the accent
-   (from the generated photography's hedges and olive branches), a bronze used only in hairlines and large type. Small
-   text stays ink or olive so every pair clears 7:1.
+1. **Ivory paper and ink, one muted accent.** Paper `#F4EFE6`, ink `#1F1A14`, a deep bronze `#5C4529` taken from
+   the brass candlesticks in the photography (labels, numerals, the monogram), a pale gilt `#D4B98C` only on the
+   dark closing band. Small text stays ink, ink-soft or bronze so every pair clears 7:1. (An olive accent was the
+   first plan; it moved to bronze when the imagery became candlelit, see the build note below.)
 2. **One serif, pinned.** Newsreader 500 with `opsz` pinned (24 for headings, so it can't go hairline at large
    sizes), sentence case, one italic phrase per heading at most. Body in Source Sans 3 (humanist) at 18 px, line
    height 1.65. Labels in small tracked caps of the body face. No monospace anywhere.
@@ -98,3 +99,15 @@ application, free build, $300/month locked for as long as the venue remains a pa
 to month, billing from go-live, 30-minute conversation); standard pricing for later partners, now worded so the
 $300 clearly continues; Site Refresh as a separate project from $2,500, upgraded to a card; the Calendly embed, the
 contact form (`/api/contact`, `data.business` tag) and `/api/track`; anchors `#stack`, `#charter`, `#book`.
+
+## Build note (2026-10-23)
+
+- Fonts as built: Newsreader 500 with `font-optical-sizing: none` and `opsz` pinned (24 for h1/h2, 16 for h3) +
+  Source Sans 3 at 18 px (17 px on phones). Measured hairline share (ink in strokes <= 1 CSS px, qa.py probe): h1
+  0.016 / 0.012 (1x / 2x), h2 0.064 / 0.060, h3 0.196 / 0.179 against limits of 0.20 / 0.25.
+- Imagery: new Gemini renders were blocked on 2026-10-23 (Railway token rejected, so no GEMINI_API_KEY from the
+  Stagewell backend; the local key's Google project is suspended). The page uses the existing native 2400 px Gemini
+  tablescape (`venues-banner-2400.webp`, re-encoded as `venues2-hero-*`, plus a 4:3 phone crop) and the 1600 px
+  long-table photo (`venues2-evening-*`, shown at most 660 CSS px wide, so no upscaling at 2x). To regenerate:
+  `scripts/generate-venues2-images.mjs <hero|table|path>`, then `scripts/convert-venues2-images.py --src-hero <png>`.
+- Verification: `scripts/verify-venues-rehaul.py` (1440 and 390 at 2x).

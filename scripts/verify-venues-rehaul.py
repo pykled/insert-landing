@@ -182,8 +182,6 @@ def view(pw, name, w, h, scale, mobile, shots=True):
     check_contrast(page, name, 'default', None, scale)
     # stroke probe on h1 and h2
     probes = {s: stroke_probe(page, scale, s) for s in ('h1', 'h2', 'h3')}
-    if shots:
-        fullshot(page, os.path.join(a.shots, f'venues-rehaul-{name}.png'))
     # anchors
     page.evaluate("document.documentElement.style.scrollBehavior='auto'")
     for anc in ('#stack', '#charter', '#book'):
@@ -211,6 +209,18 @@ def view(pw, name, w, h, scale, mobile, shots=True):
     b.close()
     return {'imgs': imgs, 'probes': probes, 'focus': foc, 'form_ok': form_ok}
 
+def shoot(pw, name, w, h, mobile):
+    # final screenshot with the real Calendly embed loaded (checks above run with it blocked)
+    b = pw.chromium.launch(); ctx = b.new_context(viewport={'width': w, 'height': h}, device_scale_factor=2, is_mobile=mobile, has_touch=mobile)
+    page = ctx.new_page(); page.route('**/api/**', lambda r: r.fulfill(status=200, body='{}'))
+    page.goto(a.base + a.path, wait_until='networkidle'); page.evaluate('document.fonts.ready'); reveal_all(page)
+    page.evaluate("document.querySelector('#book').scrollIntoView()"); page.wait_for_timeout(6000)
+    page.evaluate('window.scrollTo(0,0)'); page.wait_for_timeout(500)
+    H = page.evaluate('document.documentElement.scrollHeight')
+    png = page.screenshot(full_page=True)
+    open(os.path.join(a.shots, f'venues-rehaul-{name}.png'), 'wb').write(png)
+    b.close(); return H
+
 def reduced(pw):
     b = pw.chromium.launch(); ctx = b.new_context(viewport={'width': 1440, 'height': 900}, reduced_motion='reduce')
     page = ctx.new_page(); page.route('**/calendly.com/**', lambda r: r.abort()); page.route('**/api/**', lambda r: r.fulfill(status=200, body='{}'))
@@ -234,6 +244,7 @@ with sync_playwright() as pw:
     page.goto(a.base + a.path, wait_until='networkidle'); page.evaluate('document.fonts.ready'); page.wait_for_timeout(300)
     out['probe_1x'] = {s: stroke_probe(page, 1, s) for s in ('h1', 'h2', 'h3')}; b.close()
     out['reduced'] = reduced(pw); out['motion_duration'] = motion_on(pw)
+    out['shot_heights'] = [shoot(pw, 'desktop-1440', 1440, 900, False), shoot(pw, 'mobile-390', 390, 844, True)]
 
 # hairline limits from pairings.json notes: share of ink in strokes <= 1 css px: 1x <= 0.20, 2x <= 0.25
 for k, lim, src in (('probe_1x', 0.20, out['probe_1x']), ('probe_2x', 0.25, out['desktop']['probes'])):
