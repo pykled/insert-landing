@@ -331,11 +331,12 @@
     "photo_edge": "arch",
     "motion_device": "draw-in",
     "nav_style": "bar",
-    "ornament_wanted": "botanical-line"
+    "ornament_wanted": "botanical-line",
+    "bottom": "almanac"
    },
    "meta": {
     "path": ".factory-check/proof/botanical",
-    "built": "2026-10-21T02:30:02",
+    "built": "2026-10-23T02:13:24",
     "personality": {
      "formality": 65.0,
      "scale": 52.5,
@@ -347,8 +348,8 @@
    },
    "phash": {
     "fold": "3fc0c077c2371b901a9638874c774e7163fc43944a473fc698779e39e4f89388",
-    "strip": "3b90bf80364c944ec89448dfbf49389948d6bf01376abe6440b7689dc46f6277",
-    "captured": "2026-10-21"
+    "strip": "3f903b80944e944c489548dcbe493d9948d63b973762b66648b7c89fc46fc46f",
+    "captured": "2026-10-23"
    }
   },
   {
@@ -392,11 +393,12 @@
     "photo_edge": "keyline",
     "motion_device": "draw-in",
     "nav_style": "centered",
-    "ornament_wanted": "crest-roundel"
+    "ornament_wanted": "crest-roundel",
+    "bottom": "letterpress"
    },
    "meta": {
     "path": ".factory-check/proof/estate",
-    "built": "2026-10-21T02:30:03",
+    "built": "2026-10-23T02:13:26",
     "personality": {
      "formality": 85.0,
      "scale": 70.0,
@@ -407,9 +409,9 @@
     }
    },
    "phash": {
-    "fold": "01d801729db49aec72cd6213fc16fc861cca4b1beb33fd653ecc26ad839440f3",
-    "strip": "6ec58dc6133a003bc019689d3fe63fe60dc6eed9c43b113ac5326ec56bc495c2",
-    "captured": "2026-10-21"
+    "fold": "01d801f29db49aec72cd6211fc16fc861ccb4b93eb33dd673ecc26ad83944073",
+    "strip": "6ec52fc4113a903a403948992bc63fe63fe668d54c59903b913a0f376ec56fc5",
+    "captured": "2026-10-23"
    }
   },
   {
@@ -454,11 +456,12 @@
     "photo_edge": "keyline",
     "motion_device": "draw-in",
     "nav_style": "bar",
-    "ornament_wanted": "double-line-frame"
+    "ornament_wanted": "double-line-frame",
+    "bottom": "marquee"
    },
    "meta": {
     "path": ".factory-check/proof/candlelit",
-    "built": "2026-10-21T02:30:04",
+    "built": "2026-10-23T02:13:27",
     "personality": {
      "formality": 80.0,
      "scale": 75.0,
@@ -470,8 +473,8 @@
    },
    "phash": {
     "fold": "250a296a3b5ed450c462315e354acd724756d04e3df90d3e6f4aa2db98b72eb4",
-    "strip": "3760409b401fbf60ccb3449fb6e4409bb96bbf60409f449fbfe0c89b484f3f60",
-    "captured": "2026-10-21"
+    "strip": "37626893401fbf60cdbb449bb6e4405b6913b760689d409fbfe0c93b480b3f6c",
+    "captured": "2026-10-23"
    }
   },
   {
@@ -516,11 +519,12 @@
     "photo_edge": "flush",
     "motion_device": "cross-fade",
     "nav_style": "bar",
-    "ornament_wanted": "drop-cap"
+    "ornament_wanted": "drop-cap",
+    "bottom": "letterpress"
    },
    "meta": {
     "path": ".factory-check/proof/editorial",
-    "built": "2026-10-21T02:30:05",
+    "built": "2026-10-23T02:13:29",
     "personality": {
      "formality": 75.0,
      "scale": 57.5,
@@ -532,8 +536,69 @@
    },
    "phash": {
     "fold": "2bfe6bf69e05d601f098c8dc4814ca15ab5529f240f01aea56231faf67a91ceb",
-    "strip": "2fc4eacdc03bc13ebfe211e2b3f86a996ac5e8c7403b6a3993e23fc09528423a",
-    "captured": "2026-10-21"
+    "strip": "2fc46ac5c03bc13a33e237e2116a6ab96ad568c7c0ffc239133833e63fc09738",
+    "captured": "2026-10-23"
+   }
+  },
+  {
+   "id": "stonehurst-proof-modern-luxe",
+   "fingerprint": {
+    "display_family": "Instrument Serif",
+    "display_class": "transitional",
+    "body_family": "Manrope",
+    "accent_hue": 247.3,
+    "paper_temperature": "cool",
+    "hero": "inset-wide",
+    "hero_family": "photo-matted",
+    "spaces": "spec-sheet",
+    "story": "ledger",
+    "faq": "plain-list",
+    "tour": "scheduler-centered",
+    "section_order": [
+     "hero",
+     "statement",
+     "spaces",
+     "story",
+     "featured",
+     "fit",
+     "tour",
+     "faq",
+     "uses"
+    ],
+    "moment": "seat-picker",
+    "button_style": "square-solid",
+    "radius": 0,
+    "lead_photo": "bungalow",
+    "dialect": "modern-luxe",
+    "pairing": "luxe-tracked-sans",
+    "voice": "plainspoken",
+    "paper_tone": "light",
+    "hero_framing": "inset",
+    "display_case": "mixed",
+    "ornament": "hairline-grid",
+    "body_px": 19,
+    "photo_edge": "flush",
+    "motion_device": "cross-fade",
+    "nav_style": "minimal",
+    "ornament_wanted": "hairline-grid",
+    "bottom": "marquee"
+   },
+   "meta": {
+    "path": ".factory-check/proof/modern-luxe",
+    "built": "2026-10-23T02:18:23",
+    "personality": {
+     "formality": 80.0,
+     "scale": 67.5,
+     "era": 90.0,
+     "density": 85.0,
+     "temperature": 65.0,
+     "voice": 85.0
+    }
+   },
+   "phash": {
+    "fold": "6b426e4a94f2c2d24b5acbcbc9623916d1a4919669d2e3d220db3a5b3e4d9e2d",
+    "strip": "6f07af053b1bb3726074ec4c69cdbb0317232d0f45ad6c4492f2925ac4b9c4ed",
+    "captured": "2026-10-23"
    }
   }
  ],

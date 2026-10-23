@@ -30,4 +30,10 @@
     .fit-ctl { position: static; }
     .fit-row { grid-template-columns: 72px minmax(0, 1fr) auto; gap: 12px; }
     .fit-ph { width: 72px; }
+{% if dialect %}
+    /* 2D: body-size notes (16.5px) leave no room for a nowrap capacity column on phones: it moves under the name */
+    .fit-row { grid-template-columns: 72px minmax(0, 1fr); }
+    .fit-cap { grid-column: 2; text-align: left; }
+    .fit-cap b { white-space: normal; }
+{% endif %}
   }

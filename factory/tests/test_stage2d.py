@@ -103,6 +103,7 @@ def test_seat_picker_text_meets_body_floor_in_dialect_builds_only():
     off = tpl.render(dialect=None, pair=pair, t={}, v={}, tokens={})
     assert '.fit-body p { color: var(--ink-soft); font-size: 16.5px' in on and '.fit-summary { margin-top: 20px; font-size: 17px' in on
     assert '.fit-body p { color: var(--ink-soft); font-size: 14.5px' in off   # pre-dialect variant c stays byte-identical
+    assert '.fit-cap { grid-column: 2; text-align: left; }' in on and 'grid-column: 2' not in off   # phones: capacity under the name
 
 
 # --- 4. page-bottom variants -----------------------------------------------------------------------------------------
@@ -230,6 +231,17 @@ def test_veil_markup_only_in_veil_mode():
         assert ('backdrop-filter: blur(32px)' in css) == want, mode
         for stop in re.findall(r'rgba\(0,0,0,([0-9.]+)\)', css):
             assert float(stop) <= 0.25 + 1e-9, stop                    # candlelit cap, veil adds no darkening
+
+
+# --- 7. proofs ---------------------------------------------------------------------------------------------------------
+
+def test_every_built_dialect_proof_is_registered_with_phash():
+    reg = _util.data('registry.json')
+    proofs = {s['id']: s for s in reg['sites'] if s['id'].startswith('stonehurst-proof-')}
+    for name in ('botanical', 'estate', 'candlelit', 'editorial', 'modern-luxe'):
+        site = proofs['stonehurst-proof-' + name]
+        assert site.get('phash') and site['fingerprint'].get('bottom') in BOTTOMS, name
+        assert site['fingerprint']['dialect'] == name
 
 
 if __name__ == '__main__':
