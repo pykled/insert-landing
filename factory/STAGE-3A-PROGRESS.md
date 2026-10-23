@@ -15,3 +15,4 @@ OPEN FOR PART 2: (1) focus ring on guide email input (F5); (2) botanical/editori
 # Stage 3A-r2 PART 2 progress (Maker: Claude Opus 5.5, 2026-10-23)
 
 - item 1 focus (F5, F12): DONE fadd002 (lib/focus.py Tab-walk probe in qa.py; sweep .factory-check/3b/focus_sweep.py: 8 dialects x 3 venues x 1440/390 all pass, min margin 1.07; old CSS fails on every input; 112 tests). next: item 2 hero deck twice
+- item 2 hero deck once (F10): DONE 1095fc7 (duplicate-sentence lint in build+qa; optional copy/sections dropped when repeated; statement band gone when it only repeated the hero; 115 tests). next: item 4 titles, then 5/6, then 3 editorial after viewing
