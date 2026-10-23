@@ -28,6 +28,9 @@ initDb().catch(console.error);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Escape user input before it goes into the notification email's HTML.
+const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
 // --- Contact form ---
 app.post('/api/contact', async (req, res) => {
   const { name, email, business, message } = req.body;
@@ -36,14 +39,14 @@ app.post('/api/contact', async (req, res) => {
     await resend.emails.send({
       from: 'Insert Contact <onboarding@resend.dev>',
       to: 'pykledd@gmail.com',
-      reply_to: email,
-      subject: `New consultation request — ${name}`,
+      reply_to: String(email).replace(/[\r\n<>]+/g, '').slice(0, 200),
+      subject: `New consultation request — ${String(name).replace(/[\r\n]+/g, ' ').slice(0, 120)}`,
       html: `
         <h2>New message from Insert landing page</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Business type:</strong> ${business || '—'}</p>
-        <p><strong>Message:</strong><br>${message ? message.replace(/\n/g, '<br>') : '—'}</p>
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>Email:</strong> ${esc(email)}</p>
+        <p><strong>Business type:</strong> ${business ? esc(business) : '—'}</p>
+        <p><strong>Message:</strong><br>${message ? esc(message).replace(/\n/g, '<br>') : '—'}</p>
       `,
     });
     res.json({ ok: true });
