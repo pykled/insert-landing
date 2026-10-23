@@ -234,6 +234,9 @@ def run(pw, name, width, height, scale, mobile):
           ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => s.textContent), css: [...document.styleSheets].map(s => { try { return [...s.cssRules].map(r => r.cssText).join(' ') } catch (e) { return '' } }).join(' '),
           htmlBytes: new Blob([document.documentElement.outerHTML]).size, robots: (document.querySelector('meta[name=robots]')||{}).content || ''})""")
         if not b['title']: problems.append('no <title>')
+        _var = str((META or {}).get('id') or '').rsplit('-', 1)[-1]   # build id = <slug>-<variant>
+        if re.search(r'concept|proof|preview', b['title'], re.I) or (len(_var) > 1 and re.search(r'\b%s\b' % re.escape(_var), b['title'], re.I)):
+            problems.append('<title> carries a concept/proof/variant label: %r (the page chip says it; the title is the venue\'s)' % b['title'])
         if not b['desc']: problems.append('no meta description')
         if b['lang'] != 'en': problems.append('html lang missing')
         if 'width=device-width' not in b['viewport']: problems.append('viewport meta missing')

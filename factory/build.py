@@ -41,6 +41,16 @@ HERO_SIZES = {
 }
 
 
+
+def page_title(v):
+    """3A item 4: '<Venue> | Weddings in <place>' from the content file (seo.title wins when the reviewer wrote one).
+    No concept suffix or variant id: the page itself carries the 'Concept preview by Insert' chip."""
+    t = (v.get('seo') or {}).get('title')
+    if t: return t
+    tf = v.get('tagline_facts') or {}
+    place = ', '.join(x for x in (tf.get('locality'), tf.get('state')) if x)
+    return '%s | Weddings in %s' % (v['name'], place) if place else '%s | Weddings' % v['name']
+
 def wordnum(n):
     try:
         return WORDS.get(int(n), str(n))
@@ -654,7 +664,7 @@ def main():
                uses_band='ink' if p['density'] >= 80 else 'deep', secondary_uses=secondary_uses(v),
                secondary_uses_sentence=and_join(secondary_uses(v)).lower().capitalize(),
                uses_shoot=any(re.search(r'film|shoot|photo', u, re.I) for u in secondary_uses(v)), looks_sentence=and_join(looks),
-               seo={'title_tail': '%s in %s' % (((TYPE_NOUNS.get((v.get('vibe') or {}).get('type')) or '').title() + ' Wedding Venue').strip(), v['tagline_facts']['locality']), 'description': ''},   # 3A: from vibe.type, never a preset 'Garden Wedding Estate'
+               seo={'title': page_title(v), 'description': ''},   # 3A: from vibe.type, never a preset 'Garden Wedding Estate'
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
                dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on, veil_blur_px=P.VEIL_BLUR_PX,
                bottom=bottom, bottom_facts=bottom_facts(v) if bottom else [])

@@ -85,3 +85,18 @@ def test_botanical_and_editorial_print_the_hero_deck_once(tmp_path, dialect):
     assert rc == 0, log[-800:]
     html = open(tmp_path / dialect / 'index.html').read()
     assert LINT.duplicate_sentences(html) == []
+
+
+# --- item 4: titles come from the content file, no concept/proof/variant suffix -----------------------------------
+
+def test_title_is_venue_and_place_without_concept_suffix(tmp_path):
+    import re
+    rc, log = _build(SH, str(tmp_path / 'sh'), '--dialect', 'botanical')
+    assert rc == 0, log[-800:]
+    html = open(tmp_path / 'sh' / 'index.html').read()
+    title = re.search(r'<title>(.*?)</title>', html).group(1)
+    assert title == 'The Stonehurst | Weddings in Shadow Hills, CA'
+    assert 'Concept preview by Insert' in html          # the in-page chip stays
+    import build
+    assert build.page_title({'name': 'X', 'seo': {'title': 'X | Garden weddings'}}) == 'X | Garden weddings'
+    assert build.page_title({'name': 'X', 'tagline_facts': {'locality': None, 'state': None}}) == 'X | Weddings'

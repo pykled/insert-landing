@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% if v.preview.private %}<meta name="robots" content="noindex, nofollow">{% endif %}
-<title>{{ v.name }} — {{ seo.title_tail }}{% if v.preview.private %} (Concept {{ build.variant|upper }}){% endif %}</title>
+<title>{{ seo.title }}</title>
 <meta name="description" content="{{ v.preview.meta_description if v.preview.private else seo.description }}">
 <meta name="generator" content="Insert venue site factory {{ build.version }} · variant {{ build.variant }} · {{ build.fingerprint_short }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
