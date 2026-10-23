@@ -59,8 +59,10 @@
   }
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
+  /* Focus: 2 px ring, 3 px offset, in the accent that passes 3:1 on each surface (bronze on ivory, gilt on night) */
   :focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 2px; }
-  .night :focus-visible { outline-color: var(--gilt); }
+  .night :focus-visible, footer :focus-visible { outline-color: var(--gilt); }
+  .night .cal-frame :focus-visible { outline-color: var(--bronze); }
   .skip { position: absolute; left: -9999px; top: 12px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 50; text-decoration: none; }
   .skip:focus { left: 12px; }
 
@@ -259,7 +261,8 @@
   }
   .contact-form textarea { resize: vertical; min-height: 128px; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: #BDB199; }
-  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gilt); outline: none; box-shadow: 0 0 0 1px var(--gilt); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gilt); }
+  .contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid var(--gilt); outline-offset: 3px; }
   .btn-gilt { background: var(--gilt); color: var(--night); border: 1px solid var(--gilt); width: 100%; }
   .btn-gilt:hover { background: #E2CCA4; border-color: #E2CCA4; }
   .btn-gilt[disabled] { opacity: .7; cursor: wait; }
