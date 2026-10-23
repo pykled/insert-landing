@@ -157,5 +157,38 @@ def test_pre_dialect_bottom_is_the_old_markup():
     assert env.get_template('partials/footer.j2').render(**ctx).rstrip().endswith('</footer>')
 
 
+# --- 5. archetype statuses ---------------------------------------------------------------------------------------------
+
+PRE_DIALECT_POOL = {'heroes': ['cover-type', 'frame', 'masthead'], 'spaces': ['index', 'spec-sheet', 'stack'], 'story': ['ledger', 'pullquote', 'timeline'],
+                    'faq': ['accordion-split', 'numbered', 'plain-list'], 'tour': ['band-cta', 'scheduler-centered', 'scheduler-split'], 'gallery': ['none'],
+                    'moments': ['guest-journey', 'light-shift', 'seat-picker'], 'voices': ['editorial', 'plainspoken', 'romantic', 'warm-host']}
+
+
+def test_archetype_statuses_match_filesystem():
+    from lib import templates as TPL
+    arch = _util.data('archetypes.json'); deferred = set(DOC.get('deferred', []))
+    for key, kind in TPL.ARCH_KINDS.items():
+        for it in arch.get(key, []):
+            built = TPL.status(kind, it['id'], deferred) == 'exists'
+            assert (it.get('status', 'built') == 'built') == built, (key, it['id'], it.get('status'), 'run python3 lib/templates.py --refresh')
+
+
+def test_pre_dialect_pool_unchanged_by_the_refresh():
+    """The three committed variants select from built, non-dialect_only items; the 2D refresh must not widen that pool."""
+    arch = _util.data('archetypes.json')
+    for key, ids in PRE_DIALECT_POOL.items():
+        got = sorted(i['id'] for i in arch[key] if i.get('status', 'built') == 'built' and not i.get('dialect_only'))
+        assert got == ids, (key, got)
+
+
+def test_refresh_is_idempotent(tmp_path):
+    import shutil
+    from lib import templates as TPL
+    dst = os.path.join(str(tmp_path), 'archetypes.json')
+    shutil.copy(os.path.join(_util.FACTORY, 'data', 'archetypes.json'), dst)
+    assert TPL.refresh_archetypes(dst) == 0
+    assert open(dst).read() == open(os.path.join(_util.FACTORY, 'data', 'archetypes.json')).read()
+
+
 if __name__ == '__main__':
     sys.exit(_util.run_module(sys.modules[__name__]))

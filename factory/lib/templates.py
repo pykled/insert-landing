@@ -110,6 +110,33 @@ def refresh(path=os.path.join(DATA, 'dialects.json')):
     return changed
 
 
+ARCH_KINDS = {'heroes': 'hero', 'spaces': 'spaces', 'story': 'story', 'faq': 'faq', 'tour': 'tour', 'gallery': 'gallery',
+              'moments': 'moment', 'voices': 'voice', 'sections': 'section'}
+
+
+def refresh_archetypes(path=os.path.join(DATA, 'archetypes.json'), dialects_path=os.path.join(DATA, 'dialects.json')):
+    """Stage 2D: archetypes.json `status` follows the filesystem too. An item whose template exists becomes `built`; an item
+    that only now becomes built is also marked `dialect_only` (it was made for the dialect layer), so pre-dialect selection
+    (personality.rank: built and not dialect_only) and the three committed variants are unchanged. A `built` item whose
+    template is gone drops to `spec`. Returns the number of records changed."""
+    d = json.load(open(path))
+    deferred = set(json.load(open(dialects_path)).get('deferred', []))
+    changed = 0
+    for key, kind in ARCH_KINDS.items():
+        for item in d.get(key, []):
+            on_disk = status(kind, item['id'], deferred) == 'exists'
+            if on_disk and item.get('status') != 'built':
+                item['status'] = 'built'
+                if key != 'sections':
+                    item['dialect_only'] = True
+                changed += 1
+            elif not on_disk and item.get('status') == 'built':
+                item['status'] = 'spec'; changed += 1
+    json.dump(d, open(path, 'w'), indent=1, ensure_ascii=False)
+    open(path, 'a').write('\n')
+    return changed
+
+
 def missing(path=os.path.join(DATA, 'dialects.json')):
     d = json.load(open(path))
     deferred = set(d.get('deferred', []))
@@ -132,6 +159,7 @@ def missing(path=os.path.join(DATA, 'dialects.json')):
 if __name__ == '__main__':
     if '--refresh' in sys.argv:
         print('statuses changed:', refresh())
+        print('archetype statuses changed:', refresh_archetypes())
     elif '--missing' in sys.argv:
         rows = missing()
         for (kind, id_, s), ds in sorted(rows.items()):
