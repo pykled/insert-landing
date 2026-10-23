@@ -134,10 +134,24 @@ def quota(fp, registry, exclude_id=None):
     if not fp.get('dialect') or fp.get('dialect') == 'none':
         return 'ok', []
     key = (fp.get('dialect'), fp.get('pairing'), fp.get('hero_framing'))
-    ids = [s['id'] for s in registry.get('sites', []) if s['id'] != exclude_id and
+    ids = [s['id'] for s in registry.get('sites', []) if s['id'] != exclude_id and counts(s) and
            (s['fingerprint'].get('dialect'), s['fingerprint'].get('pairing'), s['fingerprint'].get('hero_framing')) == key]
     status = 'refuse' if len(ids) >= QUOTA_REFUSE else ('warn' if len(ids) >= QUOTA_WARN else 'ok')
     return status, ids
+
+
+EXPOSURES = ('demo', 'internal-proof')
+
+
+def exposure(site):
+    """3A item 7: 'demo' = may be shown to a prospect (the default, also for entries older than the field);
+    'internal-proof' = a factory proof that is never shown to anyone (lives under .factory-check/)."""
+    return site.get('exposure') or 'demo'
+
+
+def counts(site):
+    """Only sites that may be shown to prospects count toward the pairwise guard and the quota."""
+    return exposure(site) == 'demo'
 
 
 def load_registry(path):
@@ -149,9 +163,12 @@ def load_registry(path):
 def guard(fp, registry, exclude_id=None):
     """Full verdict: {'status', 'nearest', 'distance', 'driver', 'rows', 'quota'}. status is the worst of every rule;
     `driver` is the site (or quota) that set it, the nearest site when everything is ok."""
-    rows = []
+    rows, internal = [], []
     for s in registry.get('sites', []):
         if s['id'] == exclude_id:
+            continue
+        if not counts(s):   # 3A item 7: internal proofs are never shown to a prospect; listed, never counted
+            internal.append({'id': s['id'], 'distance': round(distance(fp, s['fingerprint']), 3), 'status': 'internal', 'exposure': exposure(s)})
             continue
         st, d, why, drivers = pair_verdict(fp, s['fingerprint'])
         shared = [k for k in WEIGHTS if k not in ('accent_hue', 'section_order', 'radius_bucket') and _norm(fp, k) == _norm(s['fingerprint'], k)]
@@ -160,7 +177,7 @@ def guard(fp, registry, exclude_id=None):
     rows.sort(key=lambda r: r['distance'])
     q_status, q_ids = quota(fp, registry, exclude_id)
     out = {'status': 'ok', 'nearest': rows[0]['id'] if rows else None, 'distance': rows[0]['distance'] if rows else 1.0,
-           'driver': None, 'rows': rows,
+           'driver': None, 'rows': rows, 'internal': sorted(internal, key=lambda r: r['distance']),
            'quota': {'status': q_status, 'sharing': q_ids, 'key': [fp.get('dialect'), fp.get('pairing'), fp.get('hero_framing')]}}
     for r in rows:
         if ORDER[r['status']] > ORDER[out['status']]:
@@ -177,13 +194,14 @@ def check(fp, registry, exclude_id=None):
     return g['status'], g['driver'], g['distance'], g['rows']
 
 
-def register(registry_path, site_id, fp, meta, allow_close=None, phash=None):
+def register(registry_path, site_id, fp, meta, allow_close=None, phash=None, exposure_='demo'):
     """Add or replace a site. allow_close: the human's reason when registering a site the guard refused.
     A stored pHash survives re-registration unless a new one is passed."""
     reg = load_registry(registry_path)
     old = next((s for s in reg['sites'] if s['id'] == site_id), None)
     reg['sites'] = [s for s in reg['sites'] if s['id'] != site_id]
-    entry = {'id': site_id, 'fingerprint': fp, 'meta': meta}
+    assert exposure_ in EXPOSURES, exposure_
+    entry = {'id': site_id, 'exposure': exposure_, 'fingerprint': fp, 'meta': meta}
     if allow_close:
         entry['allow_close'] = allow_close
     if phash or (old and old.get('phash')):
@@ -208,9 +226,10 @@ def matrix_lines(reg):
         for t in reg['sites']:
             d = distance(s['fingerprint'], t['fingerprint'])
             mark = '*' if (s is not t and same_dialect(s['fingerprint'], t['fingerprint'])) else ' '
+            mark += '' if counts(s) and counts(t) else '~'
             cells.append('%-14s' % ('%.3f%s' % (d, mark)))
         lines.append('%-26s' % s['id'][:25] + ''.join(cells))
-    lines.append('(* same dialect: refuse < %.2f, warn < %.2f, and >= %d of 7 key dims must differ; otherwise refuse < %.2f, warn < %.2f)'
+    lines.append('(* same dialect: refuse < %.2f, warn < %.2f, and >= %d of 7 key dims must differ; otherwise refuse < %.2f, warn < %.2f; ~ internal-proof in the pair: not counted)'
                  % (SAME_REFUSE, SAME_WARN, SAME_DIALECT_MIN_DIFF, REFUSE, WARN))
     return lines
 

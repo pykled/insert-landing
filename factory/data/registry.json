@@ -1,11 +1,13 @@
 {
  "_notes": [
   "Fingerprints of every site Insert has built. The two mock entries were transcribed by hand from previews/stonehurst/index.html and previews/lindley-scott-house/index.html; build.py appends generated sites automatically.",
-  "Schema 2 (2026-10-20, stage 2A): fingerprints add dialect, pairing, voice, paper_tone, hero_framing, display_case, ornament, body_px, photo_edge, motion_device, nav_style (lib/fingerprint.py); each site may carry phash {fold, strip} (256-bit DCT hashes, lib/phash.py) and allow_close (the human reason when registered past a refusal). All five sites were re-registered under schema 2; the three generated variants and the two mocks are dialect \"none\" (pre-dialect)."
+  "Schema 2 (2026-10-20, stage 2A): fingerprints add dialect, pairing, voice, paper_tone, hero_framing, display_case, ornament, body_px, photo_edge, motion_device, nav_style (lib/fingerprint.py); each site may carry phash {fold, strip} (256-bit DCT hashes, lib/phash.py) and allow_close (the human reason when registered past a refusal). All five sites were re-registered under schema 2; the three generated variants and the two mocks are dialect \"none\" (pre-dialect).",
+  "3A item 7 (2026-10-23): every site carries exposure. 'demo' = may be shown to a prospect; it counts in the pairwise guard and the quota (entries older than the field default to demo). 'internal-proof' = a factory proof that is never shown (the five Stonehurst dialect proofs under .factory-check/proof/); listed in the guard output, never counted. Thresholds unchanged. build.py --register --exposure demo|internal-proof."
  ],
  "sites": [
   {
    "id": "stonehurst-mock-v2",
+   "exposure": "demo",
    "fingerprint": {
     "display_family": "Bodoni Moda",
     "display_class": "didone",
@@ -60,6 +62,7 @@
   },
   {
    "id": "lindley-scott-mock",
+   "exposure": "demo",
    "fingerprint": {
     "display_family": "Cormorant Garamond",
     "display_class": "garalde",
@@ -110,6 +113,7 @@
   },
   {
    "id": "stonehurst-a",
+   "exposure": "demo",
    "fingerprint": {
     "display_family": "Newsreader",
     "display_class": "transitional",
@@ -171,6 +175,7 @@
   },
   {
    "id": "stonehurst-b",
+   "exposure": "demo",
    "fingerprint": {
     "display_family": "Fraunces",
     "display_class": "soft-serif",
@@ -232,6 +237,7 @@
   },
   {
    "id": "stonehurst-c",
+   "exposure": "demo",
    "fingerprint": {
     "display_family": "Instrument Sans",
     "display_class": "grotesk",
@@ -292,6 +298,7 @@
   },
   {
    "id": "stonehurst-proof-botanical",
+   "exposure": "internal-proof",
    "fingerprint": {
     "display_family": "Fraunces",
     "display_class": "soft-serif",
@@ -354,6 +361,7 @@
   },
   {
    "id": "stonehurst-proof-estate",
+   "exposure": "internal-proof",
    "fingerprint": {
     "display_family": "Libre Caslon Display",
     "display_class": "garalde",
@@ -416,6 +424,7 @@
   },
   {
    "id": "stonehurst-proof-candlelit",
+   "exposure": "internal-proof",
    "fingerprint": {
     "display_family": "Marcellus",
     "display_class": "inscriptional",
@@ -479,6 +488,7 @@
   },
   {
    "id": "stonehurst-proof-editorial",
+   "exposure": "internal-proof",
    "fingerprint": {
     "display_family": "Literata",
     "display_class": "transitional",
@@ -542,6 +552,7 @@
   },
   {
    "id": "stonehurst-proof-modern-luxe",
+   "exposure": "internal-proof",
    "fingerprint": {
     "display_family": "Instrument Serif",
     "display_class": "transitional",

@@ -166,3 +166,23 @@ def test_frame_hero_puts_facts_above_the_photo(tmp_path):
     html = open(tmp_path / 'hs' / 'index.html').read()
     hero = html[html.index('<section class="hero hero-frame"'):html.index('<div class="frame-below"')]
     assert hero.index('frame-facts') < hero.index('frame-fig') and hero.count('<li><b>') >= 2
+
+
+# --- item 7: registry exposure; the guard counts only sites that may be shown, thresholds unchanged ----------------
+
+def test_guard_counts_demo_sites_only_and_thresholds_are_unchanged():
+    from lib import fingerprint as FP
+    assert (FP.REFUSE, FP.WARN, FP.SAME_REFUSE, FP.SAME_WARN, FP.SAME_DIALECT_MIN_DIFF) == (0.35, 0.50, 0.32, 0.45, 4)
+    reg = FP.load_registry(os.path.join(FACTORY, 'data', 'registry.json'))
+    proof = next(s for s in reg['sites'] if s['id'] == 'stonehurst-proof-estate')
+    fp = dict(proof['fingerprint'])                        # an identical twin of an internal proof
+    assert FP.pair_verdict(fp, proof['fingerprint'])[0] == 'refuse'
+    g = FP.guard(fp, reg)
+    assert 'stonehurst-proof-estate' in [r['id'] for r in g['internal']]
+    assert 'stonehurst-proof-estate' not in [r['id'] for r in g['rows']]
+    as_demo = {'sites': [dict(proof, exposure='demo')]}
+    assert FP.guard(fp, as_demo)['status'] == 'refuse'       # the same site marked demo still refuses
+    legacy = {'sites': [{k: v for k, v in proof.items() if k != 'exposure'}]}
+    assert FP.guard(fp, legacy)['status'] == 'refuse'        # entries without the field count (default demo)
+    assert {FP.exposure(s) for s in reg['sites']} <= set(FP.EXPOSURES)
+    assert [s['id'] for s in reg['sites'] if FP.exposure(s) == 'internal-proof'] == [s['id'] for s in reg['sites'] if s['id'].startswith('stonehurst-proof-')]

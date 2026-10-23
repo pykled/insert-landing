@@ -341,6 +341,7 @@ def main():
     ap.add_argument('--accent-hue', type=float, help='human override: force the accent hue (degrees, OKLCH)')
     ap.add_argument('--copy', action='append', default=[], help='key=value copy override (voice slot)')
     ap.add_argument('--register', action='store_true')
+    ap.add_argument('--exposure', choices=('demo', 'internal-proof'), default='demo', help='registry exposure (3A): demo = may be shown to a prospect and counts in the guard; internal-proof = never shown, not counted')
     ap.add_argument('--allow-close', nargs='?', const='(no reason given)', default=None, metavar='REASON', help='register even if the guard refuses; the reason is stored with the registration')
     ap.add_argument('--offline-fonts', action='store_true', help='skip the Google Fonts network check (cached verification only)')
     ap.add_argument('--strict-fonts', action='store_true', help='fail when the pairing import cannot be verified (offline and never cached)')
@@ -732,7 +733,7 @@ def main():
         print('  quota: %s (%s)' % (g['quota']['status'], ', '.join(g['quota']['sharing'])))
     print('  guard: %s (driver %s; nearest %s at %.3f)' % (status.upper(), nid, g['nearest'], dist))
     if a.register and (status != 'refuse' or a.allow_close):
-        FP.register(a.registry, site_id, fp, {'path': os.path.relpath(out_dir, os.path.dirname(HERE)), 'built': meta['built'], 'personality': p}, allow_close=a.allow_close if status == 'refuse' else None)
+        FP.register(a.registry, site_id, fp, {'path': os.path.relpath(out_dir, os.path.dirname(HERE)), 'built': meta['built'], 'personality': p}, allow_close=a.allow_close if status == 'refuse' else None, exposure_=a.exposure)
         print('  registered as', site_id)
     if status == 'refuse' and not a.allow_close:
         print('  REFUSED: too close to %s. Change a forced dimension or pass --allow-close "<reason>".' % nid)

@@ -83,6 +83,8 @@ def compare(hashes, registry, exclude_id=None):
         f, st = hamming(hashes.get('fold'), ph.get('fold')), hamming(hashes.get('strip'), ph.get('strip'))
         m = min(x for x in (f, st) if x is not None)
         status = 'refuse' if m <= REFUSE else ('warn' if m <= WARN else 'ok')
+        if (s.get('exposure') or 'demo') != 'demo':   # 3A item 7: internal proofs are listed, never counted
+            status = 'internal'
         rows.append({'id': s['id'], 'fold': f, 'strip': st, 'min': m, 'status': status})
     rows.sort(key=lambda r: r.get('min', 999))
     worst = 'ok'
