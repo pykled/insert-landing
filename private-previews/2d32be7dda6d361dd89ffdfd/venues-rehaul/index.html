@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venue Ops Stack · Insert for Wedding Venues</title>
+<meta name="description" content="Insert for wedding venues: every inquiry answered personally within a minute, tours booked, deposit links sent and reviews requested. Two Charter Venue Partner seats, by application.">
+<link rel="canonical" href="https://useinsert.com/venues">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your front desk, always on · Insert for Wedding Venues">
+<meta property="og:description" content="Every inquiry greeted like a guest. Four quiet automations that carry a couple from first inquiry to a signed date and a kind review.">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:url" content="https://useinsert.com/venues">
+<meta property="og:site_name" content="Insert">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your front desk, always on · Insert for Wedding Venues">
+<meta name="twitter:description" content="Every inquiry greeted like a guest, even at eleven on a Sunday night.">
+<meta name="twitter:image" content="/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%23F4EFE6'/><text x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='%231F1A14'>I</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F4EFE6;
+    --linen: #E9E1D2;
+    --card: #FBF8F2;
+    --ink: #1F1A14;
+    --ink-soft: #4A4136;
+    --bronze: #5C4529;
+    --hair: #CDBFA6;
+    --night: #1B1712;
+    --night-2: #241F18;
+    --on-night: #F1EADC;
+    --on-night-soft: #CDC1A7;
+    --gilt: #D4B98C;
+
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans: 'Source Sans 3', 'Gill Sans', 'Helvetica Neue', Arial, sans-serif;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+    --wrap: 1240px;
+    --gutter: clamp(20px, 5vw, 40px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 2px; }
+  .night :focus-visible { outline-color: var(--gilt); }
+  .skip { position: absolute; left: -9999px; top: 12px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 50; text-decoration: none; }
+  .skip:focus { left: 12px; }
+
+  .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Display type: Newsreader pinned so large sizes keep the sturdy text cut, never the hairline 72 master */
+  h1, h2, h3, .serif {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 24;
+    letter-spacing: -0.012em;
+    margin: 0;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  h1 em, h2 em, h3 em { font-style: italic; font-weight: 400; }
+  .label {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin: 0 0 22px;
+  }
+  p { margin: 0 0 1em; }
+
+  /* The one ornament: a small monogram I between hairlines (header, invitation, footer) */
+  .monogram { display: inline-flex; align-items: center; gap: 14px; color: var(--bronze); }
+  .monogram::before, .monogram::after { content: ""; width: 44px; height: 1px; background: var(--hair); }
+  .monogram span { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1; font-variation-settings: "opsz" 24; }
+
+  /* Header */
+  .site-header { padding: 26px 0; }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-mark {
+    width: 40px; height: 40px; border: 1px solid var(--hair); border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--bronze);
+    font-variation-settings: "opsz" 24; line-height: 1;
+  }
+  .brand-name { font-family: var(--serif); font-size: 23px; font-weight: 500; letter-spacing: 0.01em; font-variation-settings: "opsz" 24; }
+  .brand-name small { display: block; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-top: 1px; }
+  .nav { display: flex; align-items: center; gap: 34px; }
+  .nav a { text-decoration: none; font-size: 16px; color: var(--ink-soft); }
+  .nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+  .nav a.btn:hover { text-decoration: none; }
+
+  /* Buttons: quiet rectangles */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 50px; padding: 13px 26px;
+    font-family: var(--sans); font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
+    text-decoration: none; border-radius: 2px; cursor: pointer;
+    transition: background-color 400ms var(--ease), color 400ms var(--ease), border-color 400ms var(--ease);
+  }
+  .btn-ink { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+  .btn-ink:hover { background: #3A3127; border-color: #3A3127; }
+  .btn-line { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn-line:hover { background: var(--ink); color: var(--paper); }
+  .nav .btn { min-height: 44px; padding: 10px 20px; font-size: 15px; color: var(--ink); }
+  .nav .btn:hover { color: var(--paper); }
+  .link {
+    font-size: 16px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink);
+    text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; text-decoration-color: var(--hair);
+    transition: text-decoration-color 400ms var(--ease);
+  }
+  .link:hover { text-decoration-color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: clamp(36px, 7vw, 88px) 0 0; }
+  .hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: end; }
+  .hero h1 { font-size: clamp(46px, 6.4vw, 88px); line-height: 1.02; letter-spacing: -0.02em; }
+  .hero .lede { font-size: 20px; line-height: 1.6; color: var(--ink-soft); max-width: 30em; margin-bottom: 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px; }
+  .hero-note { margin: 22px 0 0; font-size: 16px; color: var(--ink-soft); }
+  .hero-figure { margin: clamp(44px, 6vw, 72px) 0 0; }
+  .hero-figure img { width: 100%; aspect-ratio: 2400 / 1018; object-fit: cover; border-radius: 2px; }
+
+  /* Sections */
+  section { padding: clamp(80px, 11vw, 150px) 0; }
+  .section-head { max-width: 760px; margin: 0 auto clamp(56px, 7vw, 96px); text-align: center; }
+  .section-head h2 { font-size: clamp(36px, 4.4vw, 60px); line-height: 1.08; }
+  .section-head p { margin: 24px auto 0; max-width: 36em; color: var(--ink-soft); font-size: 19px; }
+
+  /* The four chapters */
+  .chapters { list-style: none; margin: 0; padding: 0; }
+  .chapter {
+    display: grid; grid-template-columns: 5fr 6fr; gap: clamp(40px, 7vw, 104px); align-items: center;
+    padding: clamp(48px, 6vw, 72px) 0; border-top: 1px solid var(--hair);
+  }
+  .chapter:last-child { border-bottom: 1px solid var(--hair); }
+  .chapter:nth-child(even) { grid-template-columns: 6fr 5fr; }
+  .chapter:nth-child(even) .chapter-text { order: 2; }
+  .numeral { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--bronze); font-variation-settings: "opsz" 24; margin: 0 0 14px; }
+  h3 { font-variation-settings: "opsz" 16; }
+  .chapter h3 { font-size: clamp(30px, 3vw, 40px); line-height: 1.12; margin-bottom: 18px; }
+  .chapter-text p { color: var(--ink-soft); max-width: 30em; margin: 0; }
+
+  /* Stationery: each automation shown as a printed card on a linen mount */
+  .mount { background: var(--linen); padding: clamp(28px, 5vw, 64px); border-radius: 2px; display: grid; place-items: center; }
+  .card {
+    width: 100%; max-width: 420px; background: var(--card); color: var(--ink);
+    padding: 34px 34px 30px; border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.06), 0 22px 34px -22px rgba(31, 26, 20, 0.38);
+  }
+  .card-head { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1px solid var(--hair); font-size: 15px; color: var(--ink-soft); }
+  .card-head b { font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+  .card .serif { font-size: 19px; line-height: 1.55; font-weight: 400; letter-spacing: 0; }
+  .card .serif + .serif { margin-top: 12px; }
+  .card .big { font-size: 34px; line-height: 1.1; font-weight: 500; margin: 6px 0 8px; }
+  .card-foot { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 15px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
+  .card-foot .em { color: var(--bronze); font-weight: 600; }
+  .card u { text-decoration-color: var(--hair); text-underline-offset: 4px; }
+  .sample-note { margin: 28px 0 0; text-align: center; font-size: 16px; color: var(--ink-soft); font-style: italic; font-family: var(--serif); font-variation-settings: "opsz" 24; }
+
+  /* What stays yours */
+  .yours { padding-top: 0; }
+  .yours-grid { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(40px, 7vw, 104px); align-items: center; }
+  .yours-grid img { width: 100%; aspect-ratio: 1600 / 893; object-fit: cover; border-radius: 2px; }
+  .yours h2 { font-size: clamp(34px, 3.8vw, 52px); line-height: 1.1; margin-bottom: 24px; }
+  .yours p { color: var(--ink-soft); }
+
+  /* Charter invitation */
+  .charter { background: var(--card); border-top: 1px solid var(--linen); border-bottom: 1px solid var(--linen); }
+  .invitation {
+    max-width: 760px; margin: 0 auto; text-align: center; background: var(--paper);
+    padding: clamp(44px, 7vw, 84px) clamp(24px, 7vw, 88px);
+    outline: 1px solid var(--hair); outline-offset: -14px; border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.05), 0 26px 34px -22px rgba(31, 26, 20, 0.3);
+  }
+  .invitation .label { margin-top: 26px; }
+  .price { font-family: var(--serif); font-variation-settings: "opsz" 24; font-weight: 500; font-size: clamp(54px, 7vw, 80px); line-height: 1; margin: 6px 0 10px; letter-spacing: -0.02em; }
+  .price span { font-size: 0.34em; font-weight: 400; font-style: italic; letter-spacing: 0; }
+  .price-note { font-size: 19px; color: var(--ink-soft); margin: 0 auto 34px; max-width: 26em; }
+  .terms { list-style: none; padding: 0; margin: 0 auto 40px; max-width: 470px; text-align: left; }
+  .terms li { padding: 16px 0; border-top: 1px solid var(--hair); }
+  .terms li:last-child { border-bottom: 1px solid var(--hair); }
+  .terms strong { display: block; font-family: var(--serif); font-variation-settings: "opsz" 24; font-weight: 500; font-size: 21px; line-height: 1.3; }
+  .terms span { color: var(--ink-soft); font-size: 17px; }
+  .apply-note { margin: 16px 0 0; font-size: 16px; color: var(--ink-soft); }
+  .charter-aside { max-width: 760px; margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .charter-aside .label { margin-bottom: 10px; }
+  .charter-aside p { color: var(--ink-soft); margin: 0; }
+  .standard { max-width: 760px; margin: 48px auto 0; padding-top: 28px; border-top: 1px solid var(--hair); text-align: center; color: var(--ink-soft); }
+  .standard b { color: var(--ink); font-weight: 600; }
+
+  /* Site Refresh add-on */
+  .addon { padding: clamp(72px, 9vw, 120px) 0; }
+  .addon-card {
+    max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.25fr;
+    background: var(--card); border: 1px solid var(--linen); border-radius: 2px; overflow: hidden;
+  }
+  .addon-card .addon-art { background: var(--linen); display: grid; place-items: center; padding: 40px; }
+  .page-sketch { width: 100%; max-width: 280px; background: var(--card); padding: 18px; box-shadow: 0 1px 2px rgba(31,26,20,.06), 0 22px 34px -22px rgba(31,26,20,.38); border-radius: 2px; }
+  .page-sketch img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1px; }
+  .page-sketch .ln { height: 6px; background: var(--linen); margin-top: 12px; border-radius: 1px; }
+  .page-sketch .ln.t { height: 10px; width: 70%; background: var(--hair); margin-top: 16px; }
+  .page-sketch .ln.s { width: 55%; }
+  .addon-body { padding: clamp(32px, 5vw, 56px); }
+  .addon-body h3 { font-size: clamp(30px, 3vw, 38px); line-height: 1.1; margin-bottom: 6px; }
+  .addon-body .from { font-family: var(--serif); font-variation-settings: "opsz" 24; font-style: italic; font-size: 21px; color: var(--bronze); margin: 0 0 18px; }
+  .addon-body p { color: var(--ink-soft); }
+  .addon-body .link { display: inline-block; margin-top: 6px; }
+
+  /* Closing band */
+  .night { background: var(--night); color: var(--on-night); }
+  .night .label { color: var(--gilt); }
+  .night .section-head p { color: var(--on-night-soft); }
+  .night h2 em { color: var(--gilt); }
+  .contact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+  .contact-col > .label { margin-bottom: 18px; }
+  .calendly-inline-widget { min-width: 280px; height: 640px; background: var(--night-2); border-radius: 2px; }
+  .contact-form { display: grid; gap: 22px; }
+  .contact-form label { display: block; font-size: 16px; color: var(--on-night-soft); margin-bottom: 8px; }
+  .contact-form input, .contact-form textarea {
+    width: 100%; font: inherit; font-size: 18px; color: var(--on-night);
+    background: var(--night-2); border: 1px solid #4B4234; border-radius: 2px; padding: 13px 15px;
+    transition: border-color 400ms var(--ease);
+  }
+  .contact-form textarea { resize: vertical; min-height: 128px; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: #BDB199; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gilt); outline: none; box-shadow: 0 0 0 1px var(--gilt); }
+  .btn-gilt { background: var(--gilt); color: var(--night); border: 1px solid var(--gilt); width: 100%; }
+  .btn-gilt:hover { background: #E2CCA4; border-color: #E2CCA4; }
+  .btn-gilt[disabled] { opacity: .7; cursor: wait; }
+  #contact-status { margin: 4px 0 0; font-size: 17px; display: none; }
+
+  /* Footer */
+  footer { background: var(--night); color: var(--on-night-soft); padding: 0 0 48px; }
+  .foot { border-top: 1px solid #3A3227; padding-top: 48px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+  .foot .monogram { color: var(--gilt); }
+  .foot .monogram::before, .foot .monogram::after { background: #5A4E3D; }
+  .foot p { margin: 18px 0 0; font-size: 16px; }
+  .foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; }
+  .foot a { font-size: 16px; text-decoration: none; color: var(--on-night); }
+  .foot a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .foot small { display: block; margin-top: 28px; font-size: 15px; }
+
+  /* Motion: one slow reveal, only when JS runs and motion is allowed */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 900ms var(--ease), transform 900ms var(--ease); }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+
+  /* Tablet */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .chapter, .chapter:nth-child(even), .yours-grid { grid-template-columns: 1fr; gap: 32px; }
+    .chapter:nth-child(even) .chapter-text { order: 0; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .addon-card { grid-template-columns: 1fr; }
+  }
+  /* Phone */
+  @media (max-width: 700px) {
+    body { font-size: 17px; }
+    .site-header { padding: 18px 0; }
+    .nav a:not(.btn) { display: none; }
+    .brand-name small { display: none; }
+    .hero h1 { font-size: 44px; line-height: 1.04; }
+    .hero .lede { font-size: 18px; }
+    .hero-actions .btn { width: 100%; }
+    .hero-figure { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }
+    .hero-figure img { aspect-ratio: 4 / 3; border-radius: 0; }
+    .section-head { text-align: left; }
+    .section-head p { font-size: 18px; margin-left: 0; }
+    .card { padding: 26px 22px 22px; }
+    .card .serif { font-size: 18px; }
+    .card .serif.big { font-size: 30px; }
+    .mount { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); border-radius: 0; }
+    .invitation { outline-offset: -9px; }
+    .charter-aside { grid-template-columns: 1fr; gap: 28px; }
+    .standard { text-align: left; }
+    .addon-card .addon-art { padding: 28px; }
+    .calendly-inline-widget { height: 680px; }
+    .foot { grid-template-columns: 1fr; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Insert home">
+      <span class="brand-mark" aria-hidden="true">I</span>
+      <span class="brand-name">Insert<small>For wedding venues</small></span>
+    </a>
+    <nav class="nav" aria-label="Page">
+      <a href="#stack">How it works</a>
+      <a href="#charter">Charter seats</a>
+      <a href="#book" class="btn btn-line">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <h1 class="reveal">Your front desk, <em>always&nbsp;on.</em></h1>
+        <div class="reveal">
+          <p class="lede">Every inquiry is greeted like a guest: a warm, personal reply within the minute, a tour on the calendar, and nothing left waiting until Monday.</p>
+          <div class="hero-actions">
+            <a href="#charter" class="btn btn-ink">Apply for a charter seat</a>
+            <a href="#stack" class="link">See how it works</a>
+          </div>
+          <p class="hero-note">Two charter seats, by application.</p>
+        </div>
+      </div>
+      <figure class="hero-figure reveal">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/assets/venues2-hero-m-800.webp 800w, /assets/venues2-hero-m-1200.webp 1200w" sizes="100vw">
+          <img src="/assets/venues2-hero-1800.webp"
+               srcset="/assets/venues2-hero-1200.webp 1200w, /assets/venues2-hero-1800.webp 1800w, /assets/venues2-hero-2400.webp 2400w"
+               sizes="(min-width: 1320px) 1240px, calc(100vw - 80px)"
+               width="2400" height="1018" fetchpriority="high"
+               alt="A candlelit wedding table at dusk: a single taper in a brass holder beside a low brass bowl of cream and peach garden roses, wheat and eucalyptus, with gold-rimmed glasses on dark linen.">
+        </picture>
+      </figure>
+    </div>
+  </div>
+
+  <!-- THE STACK -->
+  <section id="stack">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">The Venue Ops Stack</p>
+        <h2>From the first hello <em>to a signed date.</em></h2>
+        <p>Four automations, written in your voice and approved by you, that carry a couple from inquiry to review. They work with the tools you already use.</p>
+      </div>
+
+      <ol class="chapters">
+        <li class="chapter reveal">
+          <div class="chapter-text">
+            <p class="numeral" aria-hidden="true">i.</p>
+            <h3>A reply within the minute</h3>
+            <p>A couple writes at eleven on a Sunday night. Moments later they have a personal answer: their date, their guest count, and a link to choose a tour.</p>
+          </div>
+          <div class="mount">
+            <div class="card" role="img" aria-label="Sample email reply from Willow Creek Estate, sent 40 seconds after the inquiry.">
+              <div class="card-head"><b>Willow Creek Estate</b><span>Sunday, 11:02 pm</span></div>
+              <p class="serif">Dear Maya and Jordan, congratulations!</p>
+              <p class="serif">October 17 is open, and 120 guests suits our garden ceremony and barn reception beautifully. Choose a time to visit: <u>willowcreek.co/tour</u></p>
+              <div class="card-foot"><span>Re: October 17</span><span class="em">Replied in 40 seconds</span></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="chapter reveal">
+          <div class="chapter-text">
+            <p class="numeral" aria-hidden="true">ii.</p>
+            <h3>The tour, arranged</h3>
+            <p>They pick a time that suits them. Reminders follow, and if plans change, a gentle note offers another day.</p>
+          </div>
+          <div class="mount">
+            <div class="card" role="img" aria-label="Sample tour confirmation for Thursday, June 11 at 4 pm, with reminders the day before and two hours before.">
+              <div class="card-head"><b>Your visit</b><span>Confirmed</span></div>
+              <p class="serif big">Thursday, June 11 at&nbsp;4&nbsp;pm</p>
+              <p class="serif">Park by the barn; Elena will meet you at the garden gate.</p>
+              <div class="card-foot"><span>Reminders: the day before, two hours before</span></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="chapter reveal">
+          <div class="chapter-text">
+            <p class="numeral" aria-hidden="true">iii.</p>
+            <h3>Contract and deposit, through your own link</h3>
+            <p>After the tour, the contract and a deposit request arrive while the evening is still fresh. Couples pay you directly through your payment link, and you hear the moment it’s done.</p>
+          </div>
+          <div class="mount">
+            <div class="card" role="img" aria-label="Sample deposit request of $2,000 for October 17, 2027, paid to the venue through its own payment link.">
+              <div class="card-head"><b>Deposit request</b><span>October 17, 2027</span></div>
+              <p class="serif big">$2,000</p>
+              <p class="serif">Payable to Willow Creek Estate through the venue’s own payment link.</p>
+              <div class="card-foot"><span>Contract signed</span><span class="em">Deposit received</span></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="chapter reveal">
+          <div class="chapter-text">
+            <p class="numeral" aria-hidden="true">iv.</p>
+            <h3>A thank-you, and a kind word</h3>
+            <p>A week after the wedding, a warm note thanks them and asks for a few words on Google or The&nbsp;Knot.</p>
+          </div>
+          <div class="mount">
+            <div class="card" role="img" aria-label="Sample thank-you text from Elena at Willow Creek, sent seven days after the wedding, with review links for Google and The Knot.">
+              <div class="card-head"><b>Text message</b><span>Seven days after</span></div>
+              <p class="serif">Hi Maya and Jordan, it’s Elena at Willow Creek. Still smiling about Saturday. A few words about your day would mean the world to us.</p>
+              <div class="card-foot"><span>Review on Google</span><span>Review on The Knot</span></div>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <p class="sample-note reveal">Willow Creek Estate and its couple are an illustrative example.</p>
+    </div>
+  </section>
+
+  <!-- WHAT STAYS YOURS -->
+  <section class="yours" aria-labelledby="yours-h">
+    <div class="wrap yours-grid">
+      <img class="reveal" src="/assets/venues2-evening-1200.webp"
+           srcset="/assets/venues2-evening-800.webp 800w, /assets/venues2-evening-1200.webp 1200w, /assets/venues2-evening-1600.webp 1600w"
+           sizes="(min-width: 1320px) 660px, (min-width: 981px) 52vw, calc(100vw - 40px)"
+           width="1600" height="893" loading="lazy" decoding="async"
+           alt="A long wooden table set beneath an old oak at dusk, lit by tapers and votives, with string lights in the branches and white roses along a linen runner.">
+      <div class="reveal">
+        <p class="label">What stays yours</p>
+        <h2 id="yours-h">The room, the light, <em>the story of the place.</em></h2>
+        <p>You step in for the tour and the wedding day. Everything in between reaches you as a short note on your phone: a tour booked, a contract sent, a deposit paid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTER -->
+  <section id="charter" class="charter">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">An invitation</p>
+        <h2>Two charter seats, <em>by application.</em></h2>
+        <p>We are opening the Venue Ops Stack to two venues first, and building it closely with them.</p>
+      </div>
+
+      <div class="invitation reveal">
+        <div class="monogram" aria-hidden="true"><span>I</span></div>
+        <p class="label">Charter Venue Partner</p>
+        <p class="price">$300 <span>a month</span></p>
+        <p class="price-note">Locked for as long as you remain a partner.</p>
+        <ul class="terms">
+          <li><strong>The full build, at no cost</strong><span>All four automations, built and tested for your venue.</span></li>
+          <li><strong>Nothing to pay until you’re live</strong><span>Billing begins on your go-live date.</span></li>
+          <li><strong>Six months, then month to month</strong><span>A six-month minimum, then stay as long as it serves you.</span></li>
+          <li><strong>A direct line to the builder</strong><span>Changes handled by the people who built it.</span></li>
+        </ul>
+        <a href="#book" class="btn btn-ink">Apply for a charter seat</a>
+        <p class="apply-note">A 30-minute conversation to see whether we’re a fit.</p>
+      </div>
+
+      <div class="charter-aside reveal">
+        <div>
+          <p class="label">In return</p>
+          <p>Candid feedback in the first months, and a short testimonial in your own words once the stack is booking tours.</p>
+        </div>
+        <div>
+          <p class="label">Best suited to</p>
+          <p>An established venue with steady inquiries.</p>
+        </div>
+      </div>
+
+      <p class="standard reveal">Standard pricing for later partners: <b>$3,000–$4,500</b> build and <b>$500–$600</b> a month. Charter partners keep $300 and skip the build&nbsp;fee.</p>
+    </div>
+  </section>
+
+  <!-- SITE REFRESH -->
+  <div class="addon">
+    <div class="wrap">
+      <article class="addon-card reveal" aria-labelledby="refresh-h">
+        <div class="addon-art" aria-hidden="true">
+          <div class="page-sketch">
+            <img src="/assets/venues2-evening-800.webp" width="800" height="446" loading="lazy" decoding="async" alt="">
+            <div class="ln t"></div><div class="ln"></div><div class="ln s"></div>
+          </div>
+        </div>
+        <div class="addon-body">
+          <p class="label">Optional, and separate</p>
+          <h3 id="refresh-h">Site Refresh</h3>
+          <p class="from">from $2,500</p>
+          <p>If your website no longer looks like the place itself, we redesign it as its own project, quoted on its own. We’ll bring a homepage preview to the call.</p>
+          <a href="#book" class="link">Ask about a refresh</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- BOOK A CALL -->
+  <section class="night" id="book">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">Book a call</p>
+        <h2>Let’s talk about <em>your venue.</em></h2>
+        <p>Thirty minutes. We’ll show you the stack at your venue and tell you honestly whether it’s a fit.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-col">
+          <p class="label">Choose a time</p>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/dilldjie/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1&background_color=241f18&text_color=f1eadc&primary_color=d4b98c"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+        <div class="contact-col">
+          <p class="label">Or write to us</p>
+          <form class="contact-form" id="contact-form">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@yourvenue.com" required>
+            </div>
+            <div>
+              <label for="business">Venue name</label>
+              <input type="text" id="business" name="business" autocomplete="organization" placeholder="e.g. Oak Hollow Estate">
+            </div>
+            <div>
+              <label for="message">How do inquiries reach you today?</label>
+              <textarea id="message" name="message" rows="4" placeholder="Website form, The Knot, email… and roughly how quickly you reply."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gilt" id="contact-submit">Send message</button>
+            <p id="contact-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap"><div class="foot">
+    <div>
+      <div class="monogram" aria-hidden="true"><span>I</span></div>
+      <p>Insert. <em>Less busywork, more business.</em></p>
+    </div>
+    <ul>
+      <li><a href="#stack">How it works</a></li>
+      <li><a href="#charter">Charter seats</a></li>
+      <li><a href="#book">Book a call</a></li>
+      <li><a href="/">Insert home</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div></div>
+  <div class="wrap"><small>© 2026 Insert. All rights reserved.</small></div>
+</footer>
+
+<script>
+  // One slow reveal, once per element
+  (() => {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(el => el.classList.add('is-in')); return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Analytics (suppressed on private preview copies)
+  if (!location.pathname.includes('private-previews')) {
+    fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        page: location.pathname,
+        referrer: document.referrer,
+        device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+      }),
+    }).catch(() => {});
+  }
+
+  // Contact form
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('contact-submit');
+    const status = document.getElementById('contact-status');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.style.display = 'none';
+
+    const data = Object.fromEntries(new FormData(form));
+    data.business = 'Wedding venue (/venues)' + (data.business ? ' — ' + data.business : '');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        status.textContent = "Thank you. Your message is with us, and we’ll be in touch shortly.";
+        status.style.color = 'var(--gilt)';
+        form.reset();
+      } else {
+        const err = await res.json().catch(() => ({}));
+        status.textContent = err.error || 'Something went wrong. Please try again.';
+        status.style.color = '#EBB3A4';
+      }
+    } catch {
+      status.textContent = 'Network error. Please try again.';
+      status.style.color = '#EBB3A4';
+    }
+    status.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  });
+</script>
+
+</body>
+</html>
