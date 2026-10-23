@@ -204,3 +204,38 @@ def test_crawl_and_photos_end_to_end(tmp_path):
     assert all(s['source'] for s in draft['spaces']) and all(q['source'] for q in draft['faqs'])
     assert draft['preview']['private'] is True and any(r['field'] == 'vibe' for r in draft['review'])
     assert draft['story']['paragraphs'] == []   # history is never copied into rendered slots
+
+
+def test_rerun_reuses_downloads_and_keeps_curated_names(tmp_path):
+    routes = {'https://example-venue.test/wp-content/uploads/2024/01/barn-at-dusk.jpg': ('image/jpeg', _jpeg(1600, 1067, 1)),
+              'https://static.showit.co/v2/1/abc/photo-one.jpg/variant/3200/webp': ('image/jpeg', _jpeg(2000, 1333, 2))}
+    page = {'url': ROOT, 'html': fx('home.html'), 'facts': [], 'info': X.extract_page(fx('home.html'), ROOT)[1]}
+    d = str(tmp_path / 'ph')
+    f1 = FakeFetcher(routes)
+    I.fetch_photos([page], f1, d, 20, P, PHASH, f1.log)
+    man = json.load(open(os.path.join(d, 'manifest.json')))
+    named = dict(man[0], name='barn', kept_copy='barn.jpg', named_from=man[0]['name'])
+    json.dump(man + [named], open(os.path.join(d, 'manifest.json'), 'w'))
+    open(os.path.join(d, 'barn.jpg'), 'wb').write(open(os.path.join(d, man[0]['name'] + '.jpg'), 'rb').read())
+    f2 = FakeFetcher(routes)
+    kept, _, _, _ = I.fetch_photos([page], f2, d, 20, P, PHASH, f2.log)
+    assert not [c for c in f2.calls if c in routes]                       # nothing downloaded twice
+    assert [k['native'] for k in kept] == [[1600, 1067], [2000, 1333]]
+    man2 = json.load(open(os.path.join(d, 'manifest.json')))
+    assert 'barn' in {m['name'] for m in man2} and os.path.exists(os.path.join(d, 'barn.jpg'))
+    assert not os.path.exists(os.path.join(d, '_cache'))
+
+
+def test_faq_answer_cut_at_repeated_theme_footer():
+    footer = '<div class="ft"><p>Serving the whole valley with weddings since 1978, call us any time.</p></div>'
+    q = '<h3>Can we use the lawn?</h3><p>No.</p>' + footer
+    other = '<h3>A</h3><p>x</p>' + footer
+    pages = []
+    for i, body in enumerate([q, other, other]):
+        html = '<html><head><title>FAQ</title></head><body>%s</body></html>' % body
+        facts, info = X.extract_page(html, ROOT + 'faq%d/' % i)
+        pages.append({'url': ROOT + 'faq%d/' % i, 'html': html, 'facts': facts, 'info': info})
+    pages[0]['facts'].append(X.F('faq', {'q': 'Can we use the lawn?', 'a': 'No. Serving the whole valley with weddings since 1978, call us any time.'}, ROOT, 'medium', 't'))
+    vibe = {'type': None, 'era': None, 'era_source': None, 'words': [], 'evidence': {}, 'type_evidence': {}}
+    draft, _ = I.build_draft('t', ROOT, pages, [], vibe, 'photos/t')
+    assert [f['a'] for f in draft['faqs'] if f['q'] == 'Can we use the lawn?'] == ['No.']

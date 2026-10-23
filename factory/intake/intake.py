@@ -8,7 +8,7 @@ Writes (factory/content/):
   photos/<slug>/pNN.jpg      largest copy of each distinct photo (gitignored; private use only) + manifest.json
 Never guesses: a field the venue's own pages do not state stays null. See factory/INTAKE.md.
 """
-import argparse, collections, datetime, io, json, os, re, sys, time
+import argparse, collections, datetime, io, json, os, re, shutil, sys, time
 from urllib.parse import urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -70,9 +70,33 @@ def crawl_site(start, max_pages, fetcher):
     return pages
 
 
+def dump_pages(pages, d):
+    """Each crawled page's text blocks as <d>/_pages/NN-<path>.txt (gitignored, local review aid; never committed)."""
+    pd = os.path.join(d, '_pages')
+    os.makedirs(pd, exist_ok=True)
+    for i, pg in enumerate(pages):
+        name = '%02d-%s.txt' % (i + 1, slugify(urlparse(pg['url']).path) if urlparse(pg['url']).path.strip('/') else 'home')
+        with open(os.path.join(pd, name), 'w') as f:
+            f.write(pg['url'] + '\n\n')
+            for b in pg['info']['blocks']:
+                f.write(('## ' if b['heading'] else '') + ('[chrome] ' if b['chrome'] else '') + b['text'] + '\n')
+
+
 def fetch_photos(pages, fetcher, out_dir, max_photos, P, PHASH, log):
     from PIL import Image
+    import hashlib
     os.makedirs(out_dir, exist_ok=True)
+    # re-runs: previous pNN downloads move to _cache/ keyed by photo key (no second download); curated names survive
+    mpath = os.path.join(out_dir, 'manifest.json')
+    old = json.load(open(mpath)) if os.path.exists(mpath) else []
+    curated = [m for m in old if m.get('named_from')]
+    cache_dir = os.path.join(out_dir, '_cache')
+    os.makedirs(cache_dir, exist_ok=True)
+    ck = lambda key: os.path.join(cache_dir, hashlib.sha1(key.encode()).hexdigest()[:16] + '.jpg')
+    for m in old:
+        f = os.path.join(out_dir, m['name'] + '.jpg')
+        if not m.get('named_from') and m.get('key') and os.path.exists(f):
+            os.replace(f, ck(m['key']))
     cands = []
     for pg in pages:
         cands += PH.candidates(X.soup_of(pg['html']), pg['html'], pg['url'])
@@ -89,8 +113,13 @@ def fetch_photos(pages, fetcher, out_dir, max_photos, P, PHASH, log):
         if n >= max_photos:
             skipped['over --max-photos'] += 1
             continue
-        got = None
-        for u in PH.try_order(e)[:3]:
+        got, native = None, None
+        cached = next((m for m in old if m.get('key') == key and not m.get('named_from')), None)
+        if cached and os.path.exists(ck(key)):
+            im = Image.open(ck(key))
+            im.load()
+            got, native = (cached['source_url'], im), cached['native']
+        for u in ([] if got else PH.try_order(e)[:3]):
             same = CR.same_site(u, pages[0]['url'])
             st, ct, body, final = fetcher.get(u, check_robots=same)
             log.append({'url': u, 'status': st, 'note': 'photo'})
@@ -107,7 +136,7 @@ def fetch_photos(pages, fetcher, out_dir, max_photos, P, PHASH, log):
             skipped_detail.append((key, 'download failed'))
             continue
         u, im = got
-        w, h = im.size
+        w, h = native or im.size
         if w < MIN_WIDTH:
             skipped['< 800 px (downloaded)'] += 1
             skipped_detail.append((key, '%dx%d < 800 px wide' % (w, h)))
@@ -140,8 +169,39 @@ def fetch_photos(pages, fetcher, out_dir, max_photos, P, PHASH, log):
         text = ' '.join([k['alt_on_site'], k['key']])
         k['subject_guess'] = 'people' if a['faces'] == 'faces' else PH.guess_subject(text)
         k['flora_guess'] = PH.guess_flora(text)
-    json.dump(kept, open(os.path.join(out_dir, 'manifest.json'), 'w'), indent=1)
+    names = {k['name'] for k in kept}
+    json.dump(kept + [m for m in curated if m['name'] not in names], open(mpath, 'w'), indent=1)
+    shutil.rmtree(cache_dir, ignore_errors=True)
     return kept, skipped, skipped_detail, len(groups)
+
+
+GENERIC_TITLE = re.compile(r'^(home|about( us)?|contact( us)?|gallery|galleries|faq|blog|pricing|information|info|guests|'
+                           r'weddings?|events?|services|testimonials|welcome|sample page|page not found)$', re.I)
+
+
+def title_name(allf):
+    """No structured name and no og:site_name: the <title> segment repeated across most pages, never a generic word."""
+    c, src = collections.Counter(), {}
+    for f in allf:
+        if f['field'] == 'name_hint':
+            for part in re.split(r'\s+[|–—-]\s+', f['value']):
+                part = part.strip()
+                if part and not GENERIC_TITLE.match(part):
+                    c[part] += 1
+                    src.setdefault(part, f)
+    if not c:
+        return None
+    part = c.most_common(1)[0][0]
+    return dict(src[part], value=part, how='most repeated <title> segment')
+
+
+def boilerplate(pages):
+    """Text blocks repeated on at least half the pages (and 3+): site chrome that is not inside nav/header/footer."""
+    c = collections.Counter()
+    for pg in pages:
+        c.update({b['text'] for b in pg['info']['blocks']})
+    need = max(3, (len(pages) + 1) // 2)
+    return {t for t, n in c.items() if n >= need}
 
 
 def best(facts, field, prefer=None):
@@ -204,13 +264,15 @@ def build_draft(slug, url, pages, kept, vibe, photo_rel):
     allf = [f for pg in pages for f in pg['facts']]
     host = urlparse(url).netloc.replace('www.', '')
     review = []
-    name_f = best(allf, 'name') or best(allf, 'name_hint')
+    name_f = best(allf, 'name')
+    if not name_f:
+        og = [f for f in allf if f['field'] == 'name_hint' and f['how'] == 'og:site_name']
+        name_f = best(og, 'name_hint') if og else title_name(allf)
     name = None
     if name_f:
-        name = name_f['value']
-        if name_f['field'] == 'name_hint':
-            name = re.split(r'\s+[|–—-]\s+', name)[0].strip()
-            review.append({'field': 'name', 'reason': 'taken from %s, not structured data; confirm the venue name' % name_f['how']})
+        name = re.split(r'\s+[|–—-]\s+', name_f['value'])[0].strip()
+        if name_f['field'] == 'name_hint' or name != name_f['value']:
+            review.append({'field': 'name', 'reason': 'from %s "%s" (trimmed at the first separator); confirm the venue name' % (name_f['how'], name_f['value'][:80])})
     email_f = best(allf, 'email', prefer=lambda f: f['value'].endswith('@' + host))
     phone_f = best(allf, 'phone')
     addr_f = best(allf, 'address')
@@ -226,6 +288,11 @@ def build_draft(slug, url, pages, kept, vibe, photo_rel):
     socials = dedupe([f for f in allf if f['field'] == 'social'], lambda f: f['value']['url'].lower())
     tools = dedupe([f for f in allf if f['field'] == 'tool'], lambda f: f['value']['name'])
     faq_f = dedupe([f for f in allf if f['field'] == 'faq'], lambda f: f['value']['q'].lower())
+    boiler = boilerplate(pages)
+    for f in faq_f:   # an answer that ran into a theme footer (not a <footer>) is cut where the repeated block starts
+        a = f['value']['a']
+        cut = min([a.find(b) for b in boiler if len(b) >= 20 and a.find(b) > 0] or [len(a)])
+        f['value'] = dict(f['value'], a=a[:cut].strip())
     space_f = dedupe([f for f in allf if f['field'] == 'space'], lambda f: f['value']['name'].lower())
     hist = dedupe([f for f in allf if f['field'] == 'history'], lambda f: f['value'][:80])
     feat = dedupe([f for f in allf if f['field'] == 'featured'], lambda f: json.dumps(f['value'], sort_keys=True))
@@ -403,6 +470,7 @@ def main(argv=None):
     t = time.time()
     photo_rel = 'photos/' + a.slug
     photo_dir = os.path.join(a.out, photo_rel)
+    dump_pages(pages, photo_dir)
     kept, skipped, skipped_detail, ngroups = fetch_photos(pages, fetcher, photo_dir, a.max_photos, P, PHASH, log)
     timings['photos'] = time.time() - t
     print('photos: %d kept of %d distinct in %.0fs (%s)' % (len(kept), ngroups, timings['photos'], dict(skipped)))

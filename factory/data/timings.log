@@ -1,0 +1,9 @@
+# date	slug	stage	seconds	kind (automated = machine time; judgement = review by a person or reviewing agent)
+2026-10-23 02:32:20	homestead	intake	362s	automated (first run; robots Crawl-delay 10s; 14 pages, 191 images seen, 147 downloads)
+2026-10-23 02:32:20	lindley-scott	intake	200s	automated (first run; 13 pages, 60 images seen, 59 requests)
+2026-10-23 02:35:42	lindley-scott	review	317s	judgement (agent: page text check, 2 contact sheets + 2 detail sheets, 14 photos named, alt/captions, content file)
+2026-10-23 02:38:24	homestead	review	567s	judgement (agent: incl. 180s page-text re-dump now built into intake, PDF booklet read, 5 contact sheets + 3 detail sheets, 14 photos)
+2026-10-23 02:49:30	lindley-scott	intake	22s	automated (re-run, cached photos)
+2026-10-23 02:49:30	homestead	intake	242s	automated (re-run, cached photos; 180s is the robots crawl delay)
+2026-10-23 02:53:18	lindley-scott	validate	0s	automated
+2026-10-23 02:53:19	homestead	validate	1s	automated
