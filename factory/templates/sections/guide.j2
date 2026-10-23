@@ -1,4 +1,6 @@
-{% if guide_layout == 'photo' %}
+{% if dialect and bottom %}
+{% include 'bottoms/' ~ bottom ~ '-guide.j2' %}
+{% elif guide_layout == 'photo' %}
 <section class="guide guide-photo band-tint" id="guide" aria-labelledby="guide-title">
   <div class="container guide-grid">
     <figure class="guide-media reveal">

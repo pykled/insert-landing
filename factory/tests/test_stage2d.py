@@ -105,5 +105,57 @@ def test_seat_picker_text_meets_body_floor_in_dialect_builds_only():
     assert '.fit-body p { color: var(--ink-soft); font-size: 14.5px' in off   # pre-dialect variant c stays byte-identical
 
 
+# --- 4. page-bottom variants -----------------------------------------------------------------------------------------
+
+BOTTOMS = ('letterpress', 'almanac', 'marquee')
+TONE = {'estate': 'letterpress', 'editorial': 'letterpress', 'botanical': 'almanac', 'coastal': 'almanac', 'ranch': 'almanac',
+        'candlelit': 'marquee', 'deco': 'marquee', 'modern-luxe': 'marquee'}
+
+
+def test_every_dialect_lists_all_bottoms_in_tone_order():
+    for d in DOC['dialects']:
+        assert sorted(d['bottoms']) == sorted(BOTTOMS), d['id']
+        assert d['bottoms'][0] == TONE[d['id']], d['id']
+    for b in BOTTOMS:
+        for part in ('-guide.j2', '-uses.j2', '-footer.j2', '.css.j2'):
+            assert os.path.exists(os.path.join(_util.FACTORY, 'templates', 'bottoms', b + part)), (b, part)
+
+
+def _bottom_ctx(bottom):
+    B = _build_mod()
+    v = _util.content()
+    looks = [s['name'].replace('The ', '').lower() for s in v['spaces']]
+    return dict(v=v, dialect={'id': 'x'}, bottom=bottom, bottom_facts=B.bottom_facts(v), looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
+                copy={'guide_kicker': 'K', 'guide_title': 'T', 'guide_lede': 'L', 'guide_cta': 'C', 'footer_blurb': 'F', 'nav_cta': 'N'},
+                sections=[{'id': 'spaces', 'nav': 'Spaces'}], pair=PAIRINGS['estate-caslon'], guide_layout='band', uses_band='deep')
+
+
+def test_bottom_variants_differ_and_use_only_content_facts():
+    env = _env(); v = _util.content(); f = v['tagline_facts']
+    allowed_numbers = {str(f[k]) for k in ('max_guests', 'acres', 'space_count')}
+    seen = {}
+    for b in BOTTOMS:
+        ctx = _bottom_ctx(b)
+        html = ''.join(env.get_template(t).render(**ctx) for t in ('sections/guide.j2', 'sections/uses.j2', 'partials/footer.j2'))
+        assert html.count('data-bottom="%s"' % b) == 3, b
+        assert 'id="guide-form"' in html and 'id="guide-title"' in html and 'id="uses"' in html, b   # app.js + QA hooks
+        text = re.sub(r'<[^>]+>', ' ', html)
+        nums = set(re.findall(r'\b\d+\b', text)) - {'2026', '2025'}
+        assert nums <= allowed_numbers, (b, nums - allowed_numbers)
+        seen[b] = set(re.findall(r'class="([^"]+)"', html))
+    for a_ in BOTTOMS:
+        for b_ in BOTTOMS:
+            if a_ < b_:
+                assert len(seen[a_] ^ seen[b_]) >= 8, (a_, b_)          # different structure, not a restyle of one tree
+
+
+def test_pre_dialect_bottom_is_the_old_markup():
+    env = _env(); ctx = _bottom_ctx(None); ctx['dialect'] = None
+    for t in ('sections/guide.j2', 'sections/uses.j2', 'partials/footer.j2'):
+        out = env.get_template(t).render(**ctx)
+        assert 'data-bottom' not in out and out.strip(), t
+    assert env.get_template('partials/footer.j2').render(**ctx).rstrip().endswith('</footer>')
+
+
 if __name__ == '__main__':
     sys.exit(_util.run_module(sys.modules[__name__]))

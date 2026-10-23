@@ -57,6 +57,13 @@ def caption_from_alt(alt):
     return (c[:1].upper() + c[1:]).rstrip('.') + '.'
 
 
+def bottom_facts(v):
+    """Numbers for the page-bottom variants, only from content (tagline_facts); missing facts are left out."""
+    f = v.get('tagline_facts') or {}
+    rows = [(f.get('max_guests'), 'guests'), (f.get('acres'), 'acres'), (f.get('space_count'), 'spaces')]
+    return [(n, label) for n, label in rows if isinstance(n, (int, float)) and n > 0]
+
+
 CAPTION_MAX_CHARS, CAPTION_MAX_WORDS = 60, 14   # spec 5: tracked caps <= 60 characters (E5); copy <= 14 words
 _CLAUSE_RE = re.compile(r',|;| - | \u2014 | (?:with|where|its|leading|between|under|beside|framed|seen|set|lit|glowing|flanked)\b')
 
@@ -373,7 +380,7 @@ def main():
         libs[k] = arch[k]
     fallbacks = []
     exists = lambda kind, i: TPL.exists(kind, i)
-    used_ornament, rhythm_variant, cta_index, last_pairing = 'none', None, None, None
+    used_ornament, rhythm_variant, cta_index, last_pairing, bottom = 'none', None, None, None, None
     if dialect:
         same = [s for s in registry['sites'] if s['fingerprint'].get('dialect') == dialect['id'] and s['id'] != '%s-%s' % (v['slug'], a.variant)]
         last_pairing = same[-1]['fingerprint'].get('pairing') if same else None
@@ -401,6 +408,13 @@ def main():
         nav_forced = forced.pop('nav', None)
         if nav_forced and nav_forced not in dialect['nav']:
             ap.error('--force nav=%s is not in dialect %s (allowed: %s)' % (nav_forced, dialect['id'], ', '.join(dialect['nav'])))
+        # page bottom (guide band, filming band, footer): 2D knob. The dialect lists its variants in tone order; rotated by the
+        # number of registered same-dialect sites (like nav / rhythm); --force bottom=<id> overrides
+        bottoms = dialect.get('bottoms') or []
+        bottom_forced = forced.pop('bottom', None)
+        if bottom_forced and bottom_forced not in bottoms:
+            ap.error('--force bottom=%s is not in dialect %s (allowed: %s)' % (bottom_forced, dialect['id'], ', '.join(bottoms) or 'none'))
+        bottom = bottom_forced or (bottoms[len(same) % len(bottoms)] if bottoms else None)
         rv_ids = [r['id'] for r in dialect['rhythm_variants']]
         rv_id = forced.pop('rhythm', None) or rv_ids[len(same) % len(rv_ids)]
         rhythm_variant = next(r for r in dialect['rhythm_variants'] if r['id'] == rv_id)
@@ -549,6 +563,8 @@ def main():
     ch_ids = {k: (val['id'] if isinstance(val, dict) else val) for k, val in ch.items()}
     ch_ids.update(used)
     ch_ids['ornament'] = used_ornament
+    if dialect:
+        ch_ids['bottom'] = bottom or 'none'
     hid = used['hero']
     dialect_ctx = None
     if dialect:
@@ -556,7 +572,7 @@ def main():
                        'paper_mode': pal_meta.get('mode', 'light'), 'rhythm': rhythm_variant['id'], 'photo': dialect['photo'],
                        'display_case': dial_tokens['display_case'], 'photo_edge': dial_tokens['photo_edge'], 'body_px': dial_tokens['body_px'],
                        'kicker_style': dial_tokens['kicker_style'], 'hero_framing': hero_rec['fingerprint'].get('hero_framing'),
-                       'light_shift_default': dialect.get('light_shift_default', 'noon'), 'fallbacks': fallbacks}
+                       'light_shift_default': dialect.get('light_shift_default', 'noon'), 'fallbacks': fallbacks, 'bottom': bottom}
     ctx = dict(v=v, t=axis_tokens, pair=pair, ch=ch_ids, copy=copy_, photos=photos, lead=lead,
                sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo='reception' if 'reception' in photos else lead,
                hero_sizes=(HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
@@ -564,7 +580,8 @@ def main():
                uses_band='ink' if p['density'] >= 80 else 'deep', looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
-               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on)
+               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on,
+               bottom=bottom, bottom_facts=bottom_facts(v) if bottom else [])
     fp = {
         'display_family': pair['display']['family'], 'display_class': pair['display']['class'], 'body_family': pair['body']['family'],
         'accent_hue': pal_meta['accent_hue'], 'paper_temperature': pal_meta['temperature'],
@@ -583,6 +600,7 @@ def main():
     })
     if dialect:
         fp['ornament_wanted'] = ornament_wanted
+        fp['bottom'] = bottom or 'none'   # recorded, not weighted (lib/fingerprint.py WEIGHTS unchanged)
     ctx['build']['fingerprint_short'] = hashlib.sha1(json.dumps(fp, sort_keys=True).encode()).hexdigest()[:8]
     html = env.get_template('base.html.j2').render(**ctx)
     open(os.path.join(out_dir, 'index.html'), 'w').write(html)

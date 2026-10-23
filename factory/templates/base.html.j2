@@ -22,6 +22,8 @@
 {% endfor %}
 {% if orn_tpl %}{% include 'ornaments/' ~ ornament ~ '.css.j2' ignore missing %}
 {% endif %}
+{% if dialect and bottom %}{% include 'bottoms/' ~ bottom ~ '.css.j2' %}
+{% endif %}
 {% include 'partials/nav-' ~ nav_style ~ '.css.j2' ignore missing %}
 {% include 'css/responsive.css.j2' %}
 </style>

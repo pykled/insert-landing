@@ -1,0 +1,34 @@
+<footer class="foot-lp" data-bottom="letterpress">
+  <div class="container">
+    <div class="lp-mast">
+      <span class="brand-word">{{ v.short_name }}</span>
+      <p>{{ copy.footer_blurb }}</p>
+    </div>
+    <div class="lp-cols">
+      <div>
+        <h3 class="foot-h">Visit</h3>
+        <p>{{ v.contact.address_line }}<br>{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}<br>{{ v.contact.hours }}</p>
+      </div>
+      <div>
+        <h3 class="foot-h">Contact</h3>
+        <ul>
+          <li><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></li>
+          {% if v.contact.phone %}<li><a href="tel:{{ v.contact.phone }}">{{ v.contact.phone }}</a></li>{% endif %}
+          <li><a href="#check">{{ copy.nav_cta }}</a></li>
+          <li><a href="#tour">Schedule a tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-h">Explore</h3>
+        <ul>
+          {% for s in sections if s.nav %}<li><a href="#{{ s.id }}">{{ s.nav }}</a></li>{% endfor %}
+          <li><a href="#">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© {{ v.legal_name }}</span>
+      {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ v.preview.disclaimer }}</span>{% endif %}
+    </div>
+  </div>
+</footer>

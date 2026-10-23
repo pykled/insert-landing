@@ -1,0 +1,30 @@
+  /* page bottom: almanac (botanical / coastal / ranch register): asymmetric, left-aligned, a ruled margin, numerals ledger */
+  .al-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .guide-al .al-body { border-left: 1px solid var(--line-strong); padding-left: clamp(24px, 4vw, 56px); }
+  .guide-al .al-body .lede { margin-top: 6px; max-width: 48ch; }
+  .al-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .al-facts li { font-size: 16.5px; color: var(--ink-soft); }
+  .al-facts b { display: block; font-family: var(--display); font-weight: var(--display-weight); font-size: {{ [pair.display.min_px, 36]|max }}px; line-height: 1.05; color: var(--ink); font-variant-numeric: lining-nums; {% if pair.display.vars %}font-optical-sizing: none; font-variation-settings: {{ pair.display.vars }};{% endif %} }
+  .uses-al .al-strip { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) auto; gap: clamp(20px, 4vw, 56px); align-items: baseline; padding: clamp(28px, 4vw, 44px) 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+  .uses-al h2 { font-size: clamp(var(--h2-floor), 2.6vw, max(36px, var(--h2-floor))); }
+  .uses-al p { color: var(--ink-soft); max-width: 52ch; }
+  .al-link { font-size: 17px; color: var(--accent-text); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; white-space: nowrap; font-weight: {{ pair.body.medium }}; }
+  footer.foot-al { background: var(--paper-2); border-top: 0; padding: 72px 0 32px; }
+  .al-foot { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 6vw, 96px); }
+  .al-foot-brand .brand-word { font-family: var(--display); font-weight: var(--display-weight); font-size: clamp(32px, 3.4vw, 48px); line-height: 1.05; }
+  .al-foot-brand p { margin-top: 14px; max-width: 34ch; font-size: 16.5px; color: var(--ink-soft); }
+  .al-foot-brand .al-where { margin-top: 10px; color: var(--accent-text); font-size: 16px; }
+  .al-foot-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+  .al-foot-list > div { border-top: 1px solid var(--line-strong); padding-top: 14px; }
+  .al-foot-list dt { font-size: 16px; color: var(--accent-text); font-weight: {{ pair.body.medium }}; margin-bottom: 6px; }
+  .al-foot-list dd { font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+  .foot-al a { text-decoration: none; display: inline-block; padding: 3px 0; }
+  .foot-al a:hover { color: var(--accent-text); }
+  .foot-al .foot-bottom { grid-column: 1 / -1; margin-top: 24px; }
+  .foot-al .foot-bottom a { color: var(--ink-faint); }
+  @media (max-width: 860px) {
+    .al-grid, .al-foot { grid-template-columns: 1fr; }
+    .guide-al .al-body { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-strong); padding-top: 24px; }
+    .uses-al .al-strip { grid-template-columns: 1fr; gap: 14px; }
+    .al-foot-list { grid-template-columns: 1fr; gap: 20px; }
+  }

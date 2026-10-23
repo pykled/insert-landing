@@ -1,0 +1,13 @@
+<section class="guide guide-al band-tint" id="guide" aria-labelledby="guide-title" data-bottom="almanac">
+  <div class="container al-grid">
+    <div class="al-head">
+      <p class="kicker reveal">{{ copy.guide_kicker }}</p>
+      <h2 id="guide-title" class="reveal d1">{{ copy.guide_title }}</h2>
+      {% if bottom_facts %}<ul class="al-facts reveal d2">{% for n, label in bottom_facts %}<li><b>{{ n }}</b>{{ label }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+    <div class="al-body">
+      <p class="lede reveal d2">{{ copy.guide_lede }}</p>
+      {% include 'partials/guide-form.j2' %}
+    </div>
+  </div>
+</section>

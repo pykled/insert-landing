@@ -6,7 +6,8 @@
   "Every id carries status: exists (template/data present now), planned-2B (owed by stage 2B, see factory/STAGE-2B-CONTRACT.md) or deferred (named in the spec but not in the phase-2 inventory). Statuses are a snapshot; build.py checks the filesystem (lib/templates.py) and `python3 lib/templates.py --refresh` rewrites them.",
   "Colour values are OKLCH (L 0-1, C, H degrees). Ranges are [min, max]; H is a list of [min, max] ranges. paper.mode = light | dark; paper_dark is an alternate charcoal ground chosen from the photos. contrast_pairs name pairs that must pass 7:1 (lib/palette.py walks them).",
   "rhythm_variants: two section orders per dialect. blocks of kind role resolve to the selected archetype (spaces, story, moment, tour, faq) or the guide; kind section is a stand-alone block resolved via sections/<id>.j2 with the fallbacks below. featured (press names) is inserted after the story when content.featured_in is non-empty; uses closes the page.",
-  "fallbacks: nearest existing template per kind, tried in order (ids the dialect allows first). An empty chain means the block is omitted. Every fallback is recorded in build-meta.json fallbacks[] and flagged by qa.py."
+  "fallbacks: nearest existing template per kind, tried in order (ids the dialect allows first). An empty chain means the block is omitted. Every fallback is recorded in build-meta.json fallbacks[] and flagged by qa.py.",
+  "Stage 2D (2026-10-23): `bottoms` lists the page-bottom variants (guide band, filming band, footer: templates/bottoms/) in tone order: letterpress = estate / editorial, almanac = botanical / coastal / ranch, marquee = candlelit / deco / modern-luxe. build.py takes the first and rotates by the number of registered same-dialect sites (like nav and rhythm); --force bottom=<id>."
  ],
  "schema_version": 1,
  "shared_baseline": {
@@ -673,6 +674,11 @@
     "centered",
     "bar"
    ],
+   "bottoms": [
+    "letterpress",
+    "almanac",
+    "marquee"
+   ],
    "photo": {
     "edges": [
      "keyline"
@@ -1021,6 +1027,11 @@
    "nav": [
     "centered",
     "bar"
+   ],
+   "bottoms": [
+    "letterpress",
+    "marquee",
+    "almanac"
    ],
    "photo": {
     "edges": [
@@ -1378,6 +1389,11 @@
    ],
    "nav": [
     "bar"
+   ],
+   "bottoms": [
+    "marquee",
+    "letterpress",
+    "almanac"
    ],
    "photo": {
     "edges": [
@@ -1738,6 +1754,11 @@
     "minimal",
     "two-row"
    ],
+   "bottoms": [
+    "marquee",
+    "almanac",
+    "letterpress"
+   ],
    "photo": {
     "edges": [
      "flush"
@@ -2095,6 +2116,11 @@
     "centered",
     "bar"
    ],
+   "bottoms": [
+    "almanac",
+    "letterpress",
+    "marquee"
+   ],
    "photo": {
     "edges": [
      "flush"
@@ -2442,6 +2468,11 @@
    "nav": [
     "bar",
     "centered"
+   ],
+   "bottoms": [
+    "almanac",
+    "letterpress",
+    "marquee"
    ],
    "photo": {
     "edges": [
@@ -2796,6 +2827,11 @@
    ],
    "nav": [
     "bar"
+   ],
+   "bottoms": [
+    "almanac",
+    "letterpress",
+    "marquee"
    ],
    "photo": {
     "edges": [
@@ -3156,6 +3192,11 @@
    "nav": [
     "centered",
     "two-row"
+   ],
+   "bottoms": [
+    "marquee",
+    "letterpress",
+    "almanac"
    ],
    "photo": {
     "edges": [

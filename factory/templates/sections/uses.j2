@@ -1,3 +1,6 @@
+{% if dialect and bottom %}
+{% include 'bottoms/' ~ bottom ~ '-uses.j2' %}
+{% else %}
 <section class="uses" aria-label="Filming and private events" id="uses">
   <div class="container">
     <div class="uses-band {{ 'band-ink' if uses_band == 'ink' else 'band-deep' }} reveal">
@@ -8,4 +11,4 @@
       <a class="btn btn-light" href="mailto:{{ v.contact.email }}?subject=Filming%20or%20private%20event">Email about a shoot or event</a>
     </div>
   </div>
-</section>
+</section>{% endif %}

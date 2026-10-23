@@ -1,3 +1,6 @@
+{% if dialect and bottom %}
+{% include 'bottoms/' ~ bottom ~ '-footer.j2' %}
+{% else %}
 <footer>
   <div class="container">
     <div class="foot-grid">
@@ -35,4 +38,4 @@
       {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ v.preview.disclaimer }}</span>{% endif %}
     </div>
   </div>
-</footer>
+</footer>{% endif %}
