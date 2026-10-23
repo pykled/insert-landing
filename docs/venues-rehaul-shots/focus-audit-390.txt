@@ -1,0 +1,18 @@
+A        Skip to content        solid 2px off3px ring(92, 69, 41) bg(244, 239, 230) 7.84
+A        I
+      InsertFor wedd solid 2px off3px ring(92, 69, 41) bg(244, 239, 230) 7.84
+A        Book a call            solid 2px off3px ring(92, 69, 41) bg(244, 239, 230) 7.84
+A        Apply for a charter se solid 2px off3px ring(92, 69, 41) bg(244, 239, 230) 7.84
+A        See how it works       solid 2px off3px ring(92, 69, 41) bg(244, 239, 230) 7.84
+A        Apply for a charter se solid 2px off3px ring(92, 69, 41) bg(251, 248, 242) 8.47
+A        Ask about a refresh    solid 2px off3px ring(92, 69, 41) bg(251, 248, 242) 8.47
+INPUT    Your name              solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+INPUT    you@yourvenue.com      solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+INPUT    e.g. Oak Hollow Estate solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+TEXTAREA Website form, The Knot solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+BUTTON   Send message           solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+A        How it works           solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+A        Charter seats          solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+A        Book a call            solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+A        Insert home            solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
+A        Privacy                solid 2px off3px ring(212, 185, 140) bg(27, 23, 18) 9.44
