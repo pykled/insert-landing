@@ -73,3 +73,15 @@ largest photos + scorer signals, draft + report) -> human review (`intake/curate
 images under the private-previews token path; refuses without a strict QA pass or with images over 400 KB). Stage timings
 go to `data/timings.log`. Venue photos live in the gitignored `content/photos/<slug>/`. Rules, timings, what the reviewer
 checks and what is never allowed: `INTAKE.md`. Tests: `python3 -m pytest -q tests/test_intake.py`.
+
+## Stage 3A rules the gate enforces (2026-10-23)
+- Focus: `qa.py` Tab-walks every control at 1440 and 390 and fails one whose focused-vs-blurred pixels change < 3:1 over a
+  2 CSS px ring (`lib/focus.py`). Rings are two-tone (focus colour + halo) so they read on paper, deep bands and photos.
+- Copy: any sentence of 40+ characters printed twice fails the build lint; secondary copy (`data-optional-copy`) is dropped
+  when it repeats, and an optional section left empty goes with it.
+- Images: one budget (400 KB, SSIM >= 0.97); cover boxes ask for the drawn width (`|cover`) or take a less tall ratio
+  (`fit_ratio`) so nothing renders soft. Button fills hold 7:1 for both label colours.
+- Titles carry no concept/proof/variant label (the footer chip says it). Editorial is not selectable; Cinzel is retired.
+- Registry exposure: `demo` counts in the guard, `internal-proof` does not. Demos live in `.factory-check/demos/<slug>/`
+  and stage with `preview.py` into `private-previews/<token>/demos/<slug>/` (local; deploy is a separate approved step).
+- Notes and evidence: STAGE-3A-NOTES.md. Tools: `tools/focus_sweep.py` (focus across dialects), `tools/cinzel_probe.py`.

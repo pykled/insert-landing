@@ -28,8 +28,8 @@ Every stage appends `date  slug  stage  seconds  kind` to `factory/data/timings.
 | 1 | intake | `intake/intake.py <url> --slug <slug>` | automated | 200 s (13 pages, 41 photos) to 362 s (14 pages, 119 photos, robots.txt Crawl-delay 10 s); re-runs 22-242 s (photos cached) |
 | 2 | review | a person or reviewing agent, `intake/curate.py` | judgement | agent: 5.3 min and 9.5 min; a person doing the same checks: estimate 30-45 min (not yet measured) |
 | 3 | validate | `lib/schema.py` + `intake/score.py` | automated | 1 s |
-| 4 | build | `build.py --dialect auto` | automated | ~2 s plus font checks |
-| 5 | qa | `qa.py --strict` (local http.server :4821) then `preview.py --mark-qa-strict` | automated | ~35 s |
+| 4 | build | `build.py --dialect auto` | automated | 16-28 s into a new folder (SSIM quality search per rendition), 4-12 s on rebuilds (renditions cached) |
+| 5 | qa | `qa.py --strict` (local http.server :4821) then `preview.py --mark-qa-strict` | automated | 40-45 s each (incl. the focus Tab-walk); three in parallel 42 s |
 | 6 | preview | `preview.py <build> --name <slug>` | automated | < 1 s |
 
 So the automated part is about 4-7 minutes per venue and the hour is almost all review. Deploying the staged preview is a
@@ -105,12 +105,19 @@ referenced file outside the build, or any image over 400 KB. `preview.py --remov
 - Fixed 2026-10-23 for wedding-first: the closing uses band now shows only non-wedding uses from `uses[1:]` (and is left
   out when there are none, e.g. HomeStead), with shoot wording only when filming is among them; the nav bar falls back to
   the state when `region` is null; JSON-LD description and the tour list no longer print "None"; `copy_slots` null-guards
-  `day.spaces_per_event`. Still open: `seo.title_tail` is hard-coded "Garden Wedding Estate in <locality>" for every venue.
+  `day.spaces_per_event`. Still open: the title tail was hard-coded (fixed in 3A part 2: `build.page_title`).
 - `copy_overrides` are applied by `build.py` from 2026-10-23 (before that only `--copy` on the command line worked).
 - PDFs are skipped by the crawler; brochure facts (HomeStead's capacity, vendor rule, FAQ) are read by the reviewer.
 - No face detector offline here (OpenCV not installed): people are checked by eye on every chosen photo.
 - `--max-photos` (default 120) can stop before the end of large galleries (HomeStead: 28 not downloaded).
 - Some templates assume Stonehurst's `day` fields (`rental_hours`, `event_end`) and a non-null `region`; content without
   them must avoid those sections or the templates must null-guard (see the two content files' `_note`s).
-- Real builds currently fail `qa.py --strict` on some pairings (Cinzel hairlines) and `preview.py` refuses the existing
-  2400w WebP ladders (440-670 KB > 400 KB); the image budget in `lib/images.py` must drop under 400 KB per file.
+- Fixed 2026-10-23 (3A part 2): every rendition is <= 400 KB (`lib/images.MAX_BYTES`, the constant `preview.py` refuses on)
+  at SSIM >= 0.97 vs the source; widths that cannot meet both are not written, so detailed leads top out at 1500-1800 px
+  and full-bleed heroes (2160 px needed at 1440 @1.5) are out of reach for them: the scorer's inset heroes are what pass.
+  Cinzel is retired (hairlines), editorial is not selectable (reads as a magazine), titles are '<Venue> | Weddings in
+  <place>' (or `seo.title`), and `journey.note` is reviewer provenance, never printed.
+- Registry: `build.py --register --exposure demo` for anything that may be shown to a prospect; `internal-proof` for
+  factory proofs that never leave `.factory-check/` (listed by the guard, never counted). Thresholds are unchanged.
+- Still open: inscriptional-marcellus renders h3 at 20 px (< its 24 px minimum) and a 43% mobile h1 hairline; Lindley-Scott
+  was built with `--force pairing=estate-caslon`. The scorer should learn which pairings fail before it offers them.

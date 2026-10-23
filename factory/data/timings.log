@@ -7,3 +7,8 @@
 2026-10-23 02:49:30	homestead	intake	242s	automated (re-run, cached photos; 180s is the robots crawl delay)
 2026-10-23 02:53:18	lindley-scott	validate	0s	automated
 2026-10-23 02:53:19	homestead	validate	1s	automated
+2026-10-23 17:40:00	homestead	build	28s	automated (first build into a new dir: SSIM quality search per rendition; 12s on rebuild)
+2026-10-23 17:40:00	lindley-scott	build	16s	automated (4s on rebuild, renditions cached)
+2026-10-23 17:40:00	stonehurst	build	23s	automated (9s on rebuild)
+2026-10-23 17:41:00	all-3	qa	42s	automated (qa.py --strict, three in parallel; ~40-45s each incl. the Tab-walk focus probe)
+2026-10-23 17:45:00	all-3	preview	1s	automated (mark-qa-strict + stage, each)
