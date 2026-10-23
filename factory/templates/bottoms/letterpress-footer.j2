@@ -7,12 +7,12 @@
     <div class="lp-cols">
       <div>
         <h3 class="foot-h">Visit</h3>
-        <p>{{ v.contact.address_line }}<br>{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}<br>{{ v.contact.hours }}</p>
+        <p>{{ v.contact.address_line }}<br>{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}{% if v.contact.hours %}<br>{{ v.contact.hours }}{% endif %}</p>
       </div>
       <div>
         <h3 class="foot-h">Contact</h3>
         <ul>
-          <li><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></li>
+          {% if v.contact.email %}<li><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></li>{% endif %}
           {% if v.contact.phone %}<li><a href="tel:{{ v.contact.phone }}">{{ v.contact.phone }}</a></li>{% endif %}
           <li><a href="#check">{{ copy.nav_cta }}</a></li>
           <li><a href="#tour">Schedule a tour</a></li>

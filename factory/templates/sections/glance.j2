@@ -12,3 +12,13 @@
     </div>
   </div>
 </section>
+{% set D = v.day or {} %}{% set inc = D.included or [] %}
+    <div class="section-head">
+      <p class="kicker reveal">Your day at a glance</p>
+      <h2 class="reveal d1">{% if D.rental_hours %}{{ D.rental_hours|int|wordnum|capitalize }} hours at {{ v.short_name }}.{% else %}The day at {{ v.short_name }}.{% endif %}</h2>
+    </div>
+    <div class="glance-grid reveal d2">
+      {% if D.rental_hours %}<div class="glance-item"><small>Rental</small><b>{{ D.rental_hours }} hours</b><p>The standard rental, as the venue states it.</p></div>{% endif %}
+      {% if D.gates_open or D.event_end %}<div class="glance-item"><small>Timeline</small><b>{{ [D.gates_open, D.event_end]|select|join(' – ') }}</b><p>{% if D.gates_open %}Gates open at {{ D.gates_open|lower }}. {% endif %}{% if D.event_end %}Events end at {{ D.event_end }}{% if D.breakdown_end %}, with breakdown until {{ 'midnight' if D.breakdown_end == '12 AM' else D.breakdown_end }}{% endif %}.{% endif %}</p></div>{% endif %}
+      {% if inc %}<div class="glance-item"><small>Included</small><b>{{ inc[:2]|join(' · ') }}</b>{% if inc|length > 2 %}<p>Plus {{ inc[2:]|join(' and ')|lower }}.</p>{% endif %}</div>{% endif %}
+      {% if D.requirement %}<div class="glance-item"><small>Planning</small><b>Before you book</b><p>{{ D.requirement }}.</p></div>{% endif %}

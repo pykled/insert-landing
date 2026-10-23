@@ -5,7 +5,7 @@
       <h2 id="story-title" class="reveal d1">{{ v.story.lead }}</h2>
       <div class="reveal d2 tl-paras">
         {% for ptxt in v.story.paragraphs %}<p>{{ ptxt }}</p>{% endfor %}
-        <cite>{{ v.story.credit }}</cite>
+        {% if v.story.credit %}<cite>{{ v.story.credit }}</cite>{% endif %}
       </div>
       <ol class="rail reveal d2" aria-label="Timeline">
         {% for e in v.story.timeline %}<li><time>{{ e.year }}</time><span>{{ e.text }}</span></li>{% endfor %}

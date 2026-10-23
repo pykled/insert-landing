@@ -9,9 +9,9 @@
       {% include 'partials/scheduler.j2' %}
     </div>
     <ul class="tour-notes reveal d3">
-      <li>Walk all {{ v.tagline_facts.space_count }} spaces.</li>
-      <li>{{ v.contact.address_line }}, {{ v.tagline_facts.locality }}. Directions arrive with your confirmation.</li>
-      <li>{{ v.day.requirement }}.</li>
+      {% if v.spaces|length > 1 %}<li>Walk {{ 'all ' ~ v.tagline_facts.space_count ~ ' spaces' if v.tagline_facts.space_count else 'every space' }}.</li>{% endif %}
+      {% if v.contact.address_line %}<li>{% set ad = v.contact.address_line %}{% if ad %}{{ ad }}{% if v.tagline_facts.locality not in ad %}, {{ v.tagline_facts.locality }}{% endif %}.{% endif %}</li>{% endif %}
+      {% if v.day.requirement %}<li>{{ v.day.requirement }}.</li>{% endif %}
     </ul>
   </div>
 </section>

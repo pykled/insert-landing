@@ -24,7 +24,46 @@
     "faq_title": "Before you ask.",
     "faq_lede": "The answers couples ask for first. Anything else, send a note and a person replies.",
     "nav_cta": "Check your date",
-    "footer_blurb": "A {acres}-acre garden wedding and event estate in {locality}, {region}. {uses_sentence}."
+    "footer_blurb": "A {acres}-acre garden wedding and event estate in {locality}, {region}. {uses_sentence}.",
+    "_dialect": {
+      "_note": "3A: dialect builds (botanical, editorial) use these strict, fact-slot lines; the plain strings above stay for the pre-dialect Stonehurst variants a/b/c.",
+      "hero_kicker": [
+        "{locality} · {region}",
+        "{locality} · {state}",
+        "{locality}"
+      ],
+      "hero_headline": [
+        "{acres_words} acres in {locality}. <em>{events_per_day_words} wedding a day.</em>",
+        "{acres_words} acres in {locality}.",
+        "{name}, <em>{locality}.</em>"
+      ],
+      "hero_lede": [
+        "{space_list_cap}, for up to {max_guests} guests.",
+        "{space_list_cap}."
+      ],
+      "date_sub": "The date, the guest count, a way to reach you.",
+      "date_fine": "Asking holds nothing.",
+      "spaces_title": [
+        "{space_count_words} spaces on the property.",
+        "The spaces."
+      ],
+      "spaces_lede": [
+        "{space_list_cap}. {spaces_per_event}.",
+        "{space_list_cap}."
+      ],
+      "tour_title": "See it <em>in person.</em>",
+      "tour_lede": "Pick a day and a time to walk the grounds.",
+      "guide_lede": [
+        "What is included and how the {rental_hours}-hour day runs.",
+        "What is included and how the day runs."
+      ],
+      "faq_lede": "The questions couples ask first, answered as the venue publishes them.",
+      "footer_blurb": [
+        "{name}. {acres} acres in {locality}, {region}. {uses_sentence}.",
+        "{name}, {locality}, {region}. {uses_sentence}.",
+        "{name}, {locality}, {state}. {uses_sentence}."
+      ]
+    }
   },
   "warm-host": {
     "hero_kicker": "{locality}, {state}",
@@ -50,7 +89,44 @@
     "faq_title": "Things people ask first.",
     "faq_lede": "If it isn't here, send a note. A person replies, not a bot.",
     "nav_cta": "Check a date",
-    "footer_blurb": "A {acres}-acre garden in {locality}, {region}, for {uses_sentence_lc}."
+    "footer_blurb": "A {acres}-acre garden in {locality}, {region}, for {uses_sentence_lc}.",
+    "_dialect": {
+      "_note": "3A: strict lines for dialect builds (ranch).",
+      "hero_kicker": [
+        "{locality}, {state}",
+        "{locality}"
+      ],
+      "hero_headline": [
+        "{acres_words} acres, {space_count_words_lc} spaces, <em>{events_per_day_words_lc} wedding a day.</em>",
+        "{acres_words} acres, <em>{space_count_words_lc} spaces.</em>",
+        "{name}, <em>{locality}.</em>"
+      ],
+      "hero_lede": [
+        "Come see it: {space_list}.",
+        "Come see it in {locality}."
+      ],
+      "date_sub": "Tell us the day and roughly how many.",
+      "date_fine": "Asking holds nothing.",
+      "spaces_title": [
+        "{space_count_words} places to gather.",
+        "Places to gather."
+      ],
+      "spaces_lede": [
+        "{spaces_per_event}.",
+        "{space_list_cap}."
+      ],
+      "tour_title": "Pick a day, <em>come walk the grounds.</em>",
+      "tour_lede": "Choose a day and a time that suits you.",
+      "guide_lede": [
+        "What's included and how the {rental_hours}-hour day runs.",
+        "What's included and how the day runs."
+      ],
+      "faq_lede": "If it isn't here, send the venue a note.",
+      "footer_blurb": [
+        "A {acres}-acre {type_noun_lc} in {locality}, {region}, for {uses_sentence_lc}.",
+        "{name}, {locality}, {state}, for {uses_sentence_lc}."
+      ]
+    }
   },
   "editorial": {
     "hero_kicker": "{name} · {locality}, {region}",
@@ -76,7 +152,43 @@
     "faq_title": "Frequently asked.",
     "faq_lede": "Answers as published by the venue.",
     "nav_cta": "Date check",
-    "footer_blurb": "{name}. {acres} acres, {locality}, {region}. {uses_sentence}."
+    "footer_blurb": "{name}. {acres} acres, {locality}, {region}. {uses_sentence}.",
+    "_dialect": {
+      "_note": "3A: strict lines for dialect builds (deco).",
+      "hero_kicker": [
+        "{name} · {locality}, {region}",
+        "{name} · {locality}, {state}"
+      ],
+      "hero_headline": [
+        "{acres_words} acres. {space_count_words} spaces. <em>{events_per_day_words} event a day.</em>",
+        "{acres_words} acres. {space_count_words} spaces.",
+        "{space_count_words} spaces in {locality}.",
+        "{name}, <em>{locality}.</em>"
+      ],
+      "hero_lede": [
+        "{space_list_cap}. Up to {max_guests} guests.",
+        "{space_list_cap}."
+      ],
+      "date_fine": "A check holds nothing.",
+      "spaces_title": [
+        "The {space_count_words_lc} spaces, in order.",
+        "The spaces, in order."
+      ],
+      "spaces_lede": [
+        "{spaces_per_event}.",
+        "{space_list_cap}."
+      ],
+      "tour_title": "Tours. <em>Choose a slot.</em>",
+      "tour_lede": "Pick a day and a time.",
+      "guide_lede": [
+        "Inclusions and the {rental_hours}-hour schedule.",
+        "Inclusions and the schedule."
+      ],
+      "footer_blurb": [
+        "{name}. {acres} acres, {locality}, {region}. {uses_sentence}.",
+        "{name}, {locality}, {state}. {uses_sentence}."
+      ]
+    }
   },
   "plainspoken": {
     "hero_kicker": "{locality}, {state}",
@@ -102,7 +214,38 @@
     "faq_title": "Questions.",
     "faq_lede": "",
     "nav_cta": "Check a date",
-    "footer_blurb": "{name}. {acres} acres in {locality}, {region}."
+    "footer_blurb": "{name}. {acres} acres in {locality}, {region}.",
+    "_dialect": {
+      "_note": "3A: strict lines for dialect builds (modern-luxe).",
+      "hero_kicker": [
+        "{locality}, {state}",
+        "{locality}"
+      ],
+      "hero_headline": [
+        "A {acres_words_lc}-acre {type_noun_lc} in {locality}.",
+        "{name}, <em>{locality}.</em>"
+      ],
+      "hero_lede": [
+        "{space_count_words} spaces. Up to {max_guests} guests. {events_per_day_words} event a day.",
+        "{space_count_words} spaces. Up to {max_guests} guests.",
+        "{space_list_cap}."
+      ],
+      "date_fine": "Holds nothing.",
+      "spaces_title": [
+        "{space_count_words} spaces.",
+        "Spaces."
+      ],
+      "spaces_lede": [
+        "{spaces_per_event}.",
+        "{space_list_cap}."
+      ],
+      "tour_lede": "Pick a day and a time.",
+      "guide_lede": "Inclusions and schedule.",
+      "footer_blurb": [
+        "{name}. {acres} acres in {locality}, {region}.",
+        "{name}, {locality}, {state}."
+      ]
+    }
   },
   "heritage": {
     "_meta": {
@@ -113,7 +256,11 @@
         "estate"
       ]
     },
-    "hero_kicker": "{locality} · {region}",
+    "hero_kicker": [
+      "{locality} · {region}",
+      "{locality} · {state}",
+      "{locality}"
+    ],
     "hero_headline": [
       "{type_noun_cap} in {locality}, built {era}.",
       "{acres_words} acres. {events_per_day_words} wedding a day.",
@@ -124,32 +271,42 @@
       "{space_count_words} spaces for up to {max_guests} guests.",
       "{space_list_cap}."
     ],
-    "date_title": "Hold a date",
-    "date_sub": "Date, guests, contact. A reply from the house.",
+    "date_title": "Ask about a date",
+    "date_sub": "Date, guests, contact.",
     "date_cta": "Check the date",
-    "date_fine": "Checking holds nothing until you ask the house to.",
+    "date_fine": "Asking holds nothing.",
     "story_kicker": "The house",
     "spaces_kicker": "The grounds",
     "spaces_title": [
-      "The house, the gardens and the long table.",
-      "The rooms of the estate."
+      "The spaces of the {type_noun_lc}.",
+      "The spaces."
     ],
-    "spaces_lede": "{space_list_cap}. {spaces_per_event}.",
+    "spaces_lede": [
+      "{space_list_cap}. {spaces_per_event}.",
+      "{space_list_cap}."
+    ],
     "tour_kicker": "Visits",
-    "tour_title": "Arrange a visit <em>to the estate.</em>",
-    "tour_lede": "Choose a day and an hour. A confirmation follows at once.",
+    "tour_title": [
+      "Arrange a visit <em>to the {type_noun_lc}.</em>",
+      "Arrange <em>a visit.</em>"
+    ],
+    "tour_lede": "Choose a day and an hour.",
     "tour_cta": "Arrange a visit",
     "guide_kicker": "Pricing",
     "guide_title": "The pricing guide, <em>in full.</em>",
-    "guide_lede": "What is included, how the {rental_hours}-hour day runs, and how dates are held.",
+    "guide_lede": [
+      "What is included, how the {rental_hours}-hour day runs, and how dates are held.",
+      "What is included and how the day runs."
+    ],
     "guide_cta": "Request pricing",
     "faq_kicker": "Questions",
     "faq_title": "Before you write.",
-    "faq_lede": "The questions asked first, answered by the house.",
+    "faq_lede": "The questions asked first, answered as the house publishes them.",
     "nav_cta": "Request pricing",
     "footer_blurb": [
       "{name}. {acres} acres in {locality}, {region}. {uses_sentence}.",
-      "{name}, {locality}, {region}. {uses_sentence}."
+      "{name}, {locality}, {region}. {uses_sentence}.",
+      "{name}, {locality}, {state}. {uses_sentence}."
     ],
     "cta_sets": [
       {
@@ -160,14 +317,14 @@
       },
       {
         "nav_cta": "Arrange a visit",
-        "date_cta": "Hold a date",
+        "date_cta": "Ask about a date",
         "tour_cta": "Book a tour",
         "guide_cta": "Send the guide"
       },
       {
-        "nav_cta": "Hold a date",
+        "nav_cta": "Ask about a date",
         "date_cta": "See if it is open",
-        "tour_cta": "Visit the house",
+        "tour_cta": "Plan a visit",
         "guide_cta": "Request pricing"
       }
     ]
@@ -181,57 +338,67 @@
         "candlelit"
       ]
     },
-    "hero_kicker": "{locality} · {state}",
+    "hero_kicker": [
+      "{locality} · {state}",
+      "{locality}"
+    ],
     "hero_headline": [
-      "A {era} {type_noun_lc} for {max_guests} at dinner.",
-      "A {type_noun_lc} for {max_guests} at dinner.",
+      "A {era} {type_noun_lc} for up to {max_guests}.",
+      "A {type_noun_lc} for up to {max_guests}.",
       "{name}. After dark."
     ],
     "hero_lede": [
       "{space_count_words} rooms. Up to {max_guests} guests. {events_per_day_words} event an evening.",
       "{space_list_cap}."
     ],
-    "date_title": "Hold an evening",
-    "date_sub": "Date, guests, contact. A reply from a person.",
+    "date_title": "Ask about an evening",
+    "date_sub": "Date, guests, contact.",
     "date_cta": "Check the evening",
-    "date_fine": "Checking is free and holds nothing until you ask.",
-    "story_kicker": "The hall",
+    "date_fine": "Asking holds nothing.",
+    "story_kicker": "The story",
     "spaces_kicker": "The rooms",
     "spaces_title": [
-      "{space_count_words} rooms, lit for the night.",
-      "The rooms."
+      "{space_count_words} spaces, by evening.",
+      "The spaces."
     ],
-    "spaces_lede": "{space_list_cap}. {spaces_per_event}.",
+    "spaces_lede": [
+      "{space_list_cap}. {spaces_per_event}.",
+      "{space_list_cap}."
+    ],
     "tour_kicker": "Visit",
-    "tour_title": "See the hall <em>by appointment.</em>",
-    "tour_lede": "Pick a day and an hour. A confirmation arrives at once.",
-    "tour_cta": "See the hall",
+    "tour_title": "See it <em>in person.</em>",
+    "tour_lede": "Pick a day and an hour.",
+    "tour_cta": "Plan a visit",
     "guide_kicker": "Pricing",
     "guide_title": "The numbers, <em>before the visit.</em>",
-    "guide_lede": "Inclusions, the {rental_hours}-hour evening, and how dates are held.",
+    "guide_lede": [
+      "Inclusions, the {rental_hours}-hour evening, and how dates are held.",
+      "What is included and how the day runs."
+    ],
     "guide_cta": "Send the guide",
     "faq_kicker": "Questions",
     "faq_title": "Asked often.",
-    "faq_lede": "Anything else, write and a person replies.",
+    "faq_lede": "Anything else, write to the venue.",
     "nav_cta": "Inquire",
     "footer_blurb": [
-      "{name}, {locality}, {region}. {uses_sentence}."
+      "{name}, {locality}, {region}. {uses_sentence}.",
+      "{name}, {locality}, {state}. {uses_sentence}."
     ],
     "cta_sets": [
       {
         "nav_cta": "Inquire",
         "date_cta": "Check the evening",
-        "tour_cta": "See the hall",
+        "tour_cta": "Plan a visit",
         "guide_cta": "Send the guide"
       },
       {
-        "nav_cta": "See the hall",
-        "date_cta": "Hold an evening",
+        "nav_cta": "Plan a visit",
+        "date_cta": "Ask about an evening",
         "tour_cta": "Book a visit",
         "guide_cta": "Request pricing"
       },
       {
-        "nav_cta": "Hold an evening",
+        "nav_cta": "Ask about an evening",
         "date_cta": "Is it open?",
         "tour_cta": "Visit after dark",
         "guide_cta": "Get the guide"
@@ -247,10 +414,14 @@
         "coastal"
       ]
     },
-    "hero_kicker": "{locality} · {region}",
+    "hero_kicker": [
+      "{locality} · {region}",
+      "{locality} · {state}",
+      "{locality}"
+    ],
     "hero_headline": [
-      "{acres_words} acres by the water, for {max_guests}.",
-      "Lawns, light and the water at {locality}.",
+      "{acres_words} acres in {locality}, for up to {max_guests}.",
+      "Light and air at {locality}.",
       "{name}, {locality}."
     ],
     "hero_lede": [
@@ -258,37 +429,44 @@
       "{space_list_cap}."
     ],
     "date_title": "Check the date",
-    "date_sub": "Date, guests, contact. A reply from a person.",
+    "date_sub": "Date, guests, contact.",
     "date_cta": "Check the date",
-    "date_fine": "Checking is free and holds nothing until you ask.",
+    "date_fine": "Asking holds nothing.",
     "story_kicker": "The place",
     "spaces_kicker": "The grounds",
     "spaces_title": [
-      "{space_count_words} places to gather by the water.",
+      "{space_count_words} places to gather.",
       "The grounds."
     ],
-    "spaces_lede": "{space_list_cap}. {spaces_per_event}.",
+    "spaces_lede": [
+      "{space_list_cap}. {spaces_per_event}.",
+      "{space_list_cap}."
+    ],
     "tour_kicker": "Visit",
-    "tour_title": "Walk the lawn <em>with us.</em>",
-    "tour_lede": "Choose a day and a time. A confirmation follows right away.",
-    "tour_cta": "Walk the lawn",
+    "tour_title": "Walk the grounds <em>in person.</em>",
+    "tour_lede": "Choose a day and a time.",
+    "tour_cta": "Walk the grounds",
     "guide_kicker": "Proposal",
     "guide_title": "Ask for a proposal, <em>sent by email.</em>",
-    "guide_lede": "What is included, how the {rental_hours}-hour day runs, and how dates are held.",
+    "guide_lede": [
+      "What is included, how the {rental_hours}-hour day runs, and how dates are held.",
+      "What is included and how the day runs."
+    ],
     "guide_cta": "Request a proposal",
     "faq_kicker": "Questions",
     "faq_title": "Before you come.",
-    "faq_lede": "Anything else, write and a person replies.",
+    "faq_lede": "Anything else, write to the venue.",
     "nav_cta": "Request a proposal",
     "footer_blurb": [
       "{name}. {acres} acres in {locality}, {region}. {uses_sentence}.",
-      "{name}, {locality}, {region}. {uses_sentence}."
+      "{name}, {locality}, {region}. {uses_sentence}.",
+      "{name}, {locality}, {state}. {uses_sentence}."
     ],
     "cta_sets": [
       {
         "nav_cta": "Request a proposal",
         "date_cta": "Check the date",
-        "tour_cta": "Walk the lawn",
+        "tour_cta": "Walk the grounds",
         "guide_cta": "Request a proposal"
       },
       {
@@ -298,7 +476,7 @@
         "guide_cta": "Send the guide"
       },
       {
-        "nav_cta": "Walk the lawn",
+        "nav_cta": "Walk the grounds",
         "date_cta": "Hold the date",
         "tour_cta": "Come see it",
         "guide_cta": "Get the guide"

@@ -13,13 +13,13 @@
         <ul>
           <li>{{ v.contact.address_line }}</li>
           <li>{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}</li>
-          <li>{{ v.contact.hours }}</li>
+          {% if v.contact.hours %}<li>{{ v.contact.hours }}</li>{% endif %}
         </ul>
       </div>
       <div>
         <h3 class="foot-h">Contact</h3>
         <ul>
-          <li><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></li>
+          {% if v.contact.email %}<li><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></li>{% endif %}
           {% if v.contact.phone %}<li><a href="tel:{{ v.contact.phone }}">{{ v.contact.phone }}</a></li>{% endif %}
           <li><a href="#check">{{ copy.nav_cta }}</a></li>
           <li><a href="#tour">Schedule a tour</a></li>

@@ -9,7 +9,7 @@
       <p class="mast-dek display">{{ copy.hero_headline }}</p>
       <ul class="mast-facts" aria-label="At a glance">
         {% for n in v.numbers[:3] %}<li><b>{{ n.value }}</b><span>{{ n.label }}</span></li>{% endfor %}
-        <li><b>{{ v.tagline_facts.max_guests }}</b><span>Guests at most</span></li>
+        {% if v.tagline_facts.max_guests %}<li><b>{{ v.tagline_facts.max_guests }}</b><span>Guests at most</span></li>{% endif %}
       </ul>
     </div>
   </div>

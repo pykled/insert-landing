@@ -3,8 +3,8 @@
     <div class="lp-card reveal">
       {% if bottom_facts %}<p class="lp-label">{% for n, label in bottom_facts %}{{ n }} {{ label }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
       <h2>{{ secondary_uses_sentence }}.</h2>
-      <p>{{ v.tagline_facts.space_count }} distinct looks on one private property: {{ looks_sentence }}. Tell us about {{ 'the shoot or the celebration' if uses_shoot else 'your event' }} and we'll come back with dates.</p>
-      <a class="btn" href="mailto:{{ v.contact.email }}?subject={{ 'Filming%20or%20private%20event' if uses_shoot else 'Private%20event' }}">Email about {{ 'a shoot or event' if uses_shoot else 'your event' }}</a>
+      <p>{% if v.spaces|length > 1 %}{{ looks_sentence|capitalize }}, on one property. {% endif %}{% if v.contact.email %}Write to the venue about {{ 'a shoot or an event' if uses_shoot else 'your event' }}.{% endif %}</p>
+      {% if v.contact.email %}<a class="btn" href="mailto:{{ v.contact.email }}?subject={{ 'Filming%20or%20private%20event' if uses_shoot else 'Private%20event' }}">Email about {{ 'a shoot or event' if uses_shoot else 'your event' }}</a>{% endif %}
     </div>
   </div>
 </section>

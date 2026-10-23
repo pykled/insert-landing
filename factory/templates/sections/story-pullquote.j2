@@ -4,7 +4,7 @@
     <h2 id="story-title" class="pull reveal d1">{{ v.story.lead }}</h2>
     <div class="pull-cols reveal d2">
       {% for ptxt in v.story.paragraphs %}<p{% if loop.first %} class="drop"{% endif %}>{{ ptxt }}</p>{% endfor %}
-      <cite>{{ v.story.credit }}</cite>
+      {% if v.story.credit %}<cite>{{ v.story.credit }}</cite>{% endif %}
     </div>
     <div class="pull-photos reveal d2">
       <figure class="pp-a">

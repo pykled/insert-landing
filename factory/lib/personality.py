@@ -71,6 +71,33 @@ def tokens_from_axes(p):
     }
 
 
+def moment_needs_ok_for(m, content):
+    """Can this content feed the moment? (also used for template fallbacks: a fallback must meet its own needs)"""
+    items = (content.get('photos') or {}).get('items', {})
+    n = m.get('needs', {})
+    if n.get('journey') and not content.get('journey'):
+        return False
+    if n.get('photos_by_light'):
+        lights = {v.get('light') for v in content.get('photos', {}).get('items', {}).values()}
+        if not set(n['photos_by_light']).issubset(lights):
+            return False
+    if n.get('day') and not any((content.get('day') or {}).get(k) for k in ('gates_open', 'event_end', 'rental_hours')):
+        return False
+    if n.get('max_guests') and not (content.get('tagline_facts') or {}).get('max_guests'):
+        return False
+    if n.get('capacities') and sum(1 for s in content.get('spaces') or [] if s.get('capacity')) < 2:
+        return False
+    if n.get('photos') and len(items) < n['photos']:
+        return False
+    if n.get('numbers') and len(content.get('numbers') or []) < n['numbers']:
+        return False
+    if n.get('flora') and not any(m.get('flora') for m in items.values()):
+        return False
+    if n.get('archival') and not any(m.get('archival') for m in items.values()):
+        return False
+    return True
+
+
 def select(libs, p, registry_check, forced=None, content=None, top=3, dialect_mode=False, resolve=None):
     """libs: dict name -> list of items (pairings, heroes, spaces, story, faq, tour, moments, voices, gallery).
     registry_check: fn(fingerprint_dict) -> (status, nearest_id, distance).
@@ -101,25 +128,7 @@ def select(libs, p, registry_check, forced=None, content=None, top=3, dialect_mo
                 return False
         return True
 
-    def moment_needs_ok(m):
-        n = m.get('needs', {})
-        if n.get('journey') and not content.get('journey'):
-            return False
-        if n.get('photos_by_light'):
-            lights = {v.get('light') for v in content.get('photos', {}).get('items', {}).values()}
-            if not set(n['photos_by_light']).issubset(lights):
-                return False
-        if n.get('day') and not content.get('day'):
-            return False
-        if n.get('photos') and len(items) < n['photos']:
-            return False
-        if n.get('numbers') and len(content.get('numbers') or []) < n['numbers']:
-            return False
-        if n.get('flora') and not any(m.get('flora') for m in items.values()):
-            return False
-        if n.get('archival') and not any(m.get('archival') for m in items.values()):
-            return False
-        return True
+    moment_needs_ok = lambda m: moment_needs_ok_for(m, content)
 
     dm = dialect_mode
     ranked = {

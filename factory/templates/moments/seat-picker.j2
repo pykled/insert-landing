@@ -11,7 +11,7 @@
           <div class="fit-scale" aria-hidden="true"><span>10</span><span>{{ v.tagline_facts.max_guests }}</span></div>
         </div>
         <p class="fit-summary" id="fit-summary" aria-live="polite"></p>
-        <p class="fine">{{ v.day.spaces_per_event }}. The venue hosts up to {{ v.tagline_facts.max_guests }} guests and one event a day.</p>
+        <p class="fine">{% if v.day.spaces_per_event %}{{ v.day.spaces_per_event }}. {% endif %}The venue hosts up to {{ v.tagline_facts.max_guests }} guests{% if v.tagline_facts.events_per_day == 1 %} and one event a day{% endif %}.</p>
       </div>
       <ul class="fit-list" id="fit-list">
         {% for s in v.spaces %}
@@ -21,7 +21,7 @@
             <h3>{{ s.name }}</h3>
             <p>{{ s.use }}</p>
           </div>
-          <div class="fit-cap"><b>{{ s.capacity_label }}</b><span class="fit-tag" data-tag></span></div>
+          <div class="fit-cap"><b>{{ s.capacity_label or 'Capacity not stated' }}</b><span class="fit-tag" data-tag></span></div>
         </li>
         {% endfor %}
       </ul>

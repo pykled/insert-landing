@@ -4,7 +4,7 @@
     <div class="light-head">
       <div>
         <p class="kicker reveal">A day on the grounds</p>
-        <h2 id="light-title" class="reveal d1">Noon to midnight, <em>yours.</em></h2>
+        {% set D0 = v.day or {} %}<h2 id="light-title" class="reveal d1">{% if D0.gates_open and D0.breakdown_end %}{{ D0.gates_open }} to {{ 'midnight' if D0.breakdown_end == '12 AM' else D0.breakdown_end }}, <em>yours.</em>{% else %}Through the day, <em>into the night.</em>{% endif %}</h2>
       </div>
       <div class="light-ctl" role="group" aria-label="Time of day">
         <button type="button" data-light="noon" aria-pressed="true">Noon</button>
@@ -17,26 +17,25 @@
         {% for key in ['noon', 'golden', 'night'] %}{% set pname = L[key] %}<img class="light-img{% if loop.first %} on{% endif %}" data-light="{{ key }}" src="{{ photos[pname].src }}" srcset="{{ photos[pname].srcset }}" sizes="(min-width: 861px) 58vw, 100vw" width="{{ photos[pname].width }}" height="{{ photos[pname].height }}" alt="{{ photos[pname].alt }}" style="object-position: {{ photos[pname].focal }}" {% if not loop.first %}loading="lazy"{% endif %} decoding="async">{% endfor %}
       </div>
       <div class="light-aside">
-        <div class="light-note" data-light="noon">
-          <p class="light-time">{{ v.day.gates_open }}</p>
-          <h3>Gates open.</h3>
-          <p>The standard rental is {{ v.day.rental_hours }} hours including breakdown, and the gates open at {{ v.day.gates_open|lower }}. Ceremony under the fig in the Flower Garden, or in the Bamboo Garden for a smaller circle.</p>
+{# 3A: every line comes from the content file: the space shown in each photo, day times, inclusions. No preset venue copy. #}
+        {% set D = v.day or {} %}
+        {% set sp_by_photo = {} %}{% for s in v.spaces %}{% if s.photo and s.photo not in sp_by_photo %}{% set _ = sp_by_photo.update({s.photo: s}) %}{% endif %}{% endfor %}
+        {% set times = {'noon': D.gates_open or 'By day', 'golden': 'Golden hour', 'night': D.event_end or 'Evening'} %}
+        {% set fallback = {'noon': 'Gates open.' if D.gates_open else 'By day.', 'golden': 'Late afternoon.', 'night': 'After dark.'} %}
+        {% for key in ['noon', 'golden', 'night'] %}{% set s = sp_by_photo.get(L[key]) %}
+        <div class="light-note" data-light="{{ key }}"{% if not loop.first %} hidden{% endif %}>
+          <p class="light-time">{{ times[key] }}</p>
+          <h3>{{ (s.name ~ '.') if s else fallback[key] }}</h3>
+          <p>{% if key == 'noon' %}{% if D.gates_open %}Gates open at {{ D.gates_open|lower }}. {% endif %}{% if D.rental_hours %}The standard rental is {{ D.rental_hours }} hours. {% endif %}{% endif %}{% if s %}{{ s.use }}{% if s.capacity %}, up to {{ s.capacity }} guests{% endif %}. {% endif %}{% if key == 'night' %}{% if D.event_end %}Events end at {{ D.event_end }}{% if D.breakdown_end %}, with breakdown until {{ 'midnight' if D.breakdown_end == '12 AM' else D.breakdown_end }}{% endif %}. {% endif %}{% if D.included %}Included: {{ D.included[:-1]|join(', ') ~ (' and ' if D.included|length > 1 else '') ~ D.included[-1] }}.{% endif %}{% endif %}</p>
         </div>
-        <div class="light-note" data-light="golden" hidden>
-          <p class="light-time">Golden hour</p>
-          <h3>Cocktails, then the terrace.</h3>
-          <p>The Bamboo Garden takes a cocktail hour of up to 120. The grand terrace looks out over the mini desert garden and its cactus beds.</p>
-        </div>
-        <div class="light-note" data-light="night" hidden>
-          <p class="light-time">{{ v.day.event_end }}</p>
-          <h3>Dinner under glass.</h3>
-          <p>The Greenhouse holds up to 200 and is HVAC climate-controlled. Events end at {{ v.day.event_end }}, with breakdown until midnight. Valet, a site manager, luxe restrooms and security are included.</p>
-        </div>
+        {% endfor %}
+        {% if D.gates_open or D.event_end or D.breakdown_end %}
         <ul class="light-sched" aria-label="The rental day">
-          <li><b>{{ v.day.gates_open }}</b> Gates open</li>
-          <li><b>{{ v.day.event_end }}</b> Event ends</li>
-          <li><b>{{ 'Midnight' if v.day.breakdown_end == '12 AM' else v.day.breakdown_end }}</b> Breakdown complete</li>
+          {% if D.gates_open %}<li><b>{{ D.gates_open }}</b> Gates open</li>{% endif %}
+          {% if D.event_end %}<li><b>{{ D.event_end }}</b> Event ends</li>{% endif %}
+          {% if D.breakdown_end %}<li><b>{{ 'Midnight' if D.breakdown_end == '12 AM' else D.breakdown_end }}</b> Breakdown complete</li>{% endif %}
         </ul>
+        {% endif %}
       </div>
     </div>
   </div>

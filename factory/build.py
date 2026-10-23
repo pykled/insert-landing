@@ -21,7 +21,7 @@ from markupsafe import Markup
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from lib import palette as P, images as I, personality as PERS, fingerprint as FP, templates as TPL, schema as SCHEMA, fonts as FONTS
+from lib import palette as P, images as I, personality as PERS, fingerprint as FP, templates as TPL, schema as SCHEMA, fonts as FONTS, lint as LINT
 
 VERSION = '0.1'
 WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 12: 'twelve'}
@@ -95,13 +95,13 @@ def copy_slots(v):
     tf = v['tagline_facts']
     spaces = v['spaces']
     names = [s['name'].replace('The ', '').lower() for s in spaces]
-    space_list = ', '.join(names[:-1]) + ' and ' + names[-1]
+    space_list = and_join(names)
     uses = tf['uses']
     slots = {
         'name': v['name'], 'short_name': v['short_name'], 'locality': tf['locality'], 'region': tf['region'], 'state': tf['state'],
         'acres': tf['acres'], 'acres_words': wordnum(tf['acres']).capitalize(), 'acres_words_lc': wordnum(tf['acres']), 'space_count': tf['space_count'], 'space_count_words': wordnum(tf['space_count']).capitalize(), 'space_count_words_lc': wordnum(tf['space_count']),
         'max_guests': tf['max_guests'], 'space_list': space_list, 'space_list_cap': space_list[:1].upper() + space_list[1:],
-        'uses_sentence': ', '.join(uses[:-1]) + ' and ' + uses[-1].lower(), 'uses_sentence_lc': (', '.join(uses[:-1]) + ' and ' + uses[-1]).lower(),
+        'uses_sentence': and_join(uses[:-1] + [uses[-1].lower()]), 'uses_sentence_lc': and_join(uses).lower(),
         'rental_hours': v['day']['rental_hours'], 'spaces_per_event': v['day']['spaces_per_event'], 'spaces_per_event_lc': (v['day']['spaces_per_event'][:1].lower() + v['day']['spaces_per_event'][1:]) if v['day'].get('spaces_per_event') else None,
     }
     vibe = v.get('vibe') or {}
@@ -111,10 +111,13 @@ def copy_slots(v):
         'era': vibe.get('era'),
         'type_noun_lc': noun,
         'type_noun_cap': (('An ' if noun[0] in 'aeiou' else 'A ') + noun) if noun else None,
-        'events_per_day_words': wordnum(epd).capitalize() if epd else None,
+        'events_per_day_words': 'One' if epd == 1 else None, 'events_per_day_words_lc': 'one' if epd == 1 else None,   # only 'one ... a day' reads; other counts are stated elsewhere
     })
     if tf.get('acres') is None:
         for k in ('acres', 'acres_words', 'acres_words_lc'):
+            slots[k] = None
+    if tf.get('space_count') is None:
+        for k in ('space_count', 'space_count_words', 'space_count_words_lc'):
             slots[k] = None
     return slots
 
@@ -128,12 +131,15 @@ def _fill(tpl, slots):
     return None
 
 
-def resolve_copy(voice, v, overrides, cta_set=None):
+def resolve_copy(voice, v, overrides, cta_set=None, dialect_mode=False):
     """Voice preset + CTA set + human overrides -> copy. Plain-string slots in pre-dialect voices behave exactly as
     before; list candidates (stage 2A voices) take the first fillable one, and an unfillable or leftover {slot} stops
     the build: copy never ships with a placeholder or an invented fact."""
     slots = copy_slots(v)
     strict = (voice.get('_meta') or {}).get('strict_facts', False)
+    if dialect_mode:   # 3A: dialect builds are for any venue: legacy voices swap in their strict fact-slot lines
+        strict = True
+        voice = dict(voice, **{k: val for k, val in (voice.get('_dialect') or {}).items() if not k.startswith('_')})
     out = {}
     for k, tpl in voice.items():
         if k.startswith('_') or k == 'cta_sets':
@@ -154,6 +160,38 @@ def resolve_copy(voice, v, overrides, cta_set=None):
                 pass
         out[k] = Markup(s)
     return out
+
+
+LEAD_SUBJECTS = ('grounds', 'building')
+
+
+def and_join(xs):
+    xs = [x for x in xs if x]
+    return (', '.join(xs[:-1]) + ' and ' + xs[-1]) if len(xs) > 1 else ''.join(xs)
+
+
+def default_lead(items):
+    """No --lead: a photo literally named 'hero' (the intake convention), else the first wide place photo, else the first
+    place photo, else the first photo. Roles come from tags, never from one venue's photo names."""
+    if 'hero' in items:
+        return 'hero'
+    places = [n for n, m in items.items() if m.get('subject') in LEAD_SUBJECTS]
+    return next((n for n in places if 'wide' in items[n].get('tags', [])), None) or (places[0] if places else next(iter(items)))
+
+
+def photo_roles(items, lead):
+    """Secondary photo roles from subject / tags / light. Each falls back to another real photo, finally the lead, so a
+    one-photo venue still renders. Order of preference matches what the Stonehurst names used to hard-code."""
+    def first(pred, exclude=()):
+        return next((n for n, m in items.items() if n not in exclude and pred(m)), None)
+    tags = lambda m: m.get('tags', [])
+    others = [n for n in items if n != lead]
+    noon = first(lambda m: m.get('light') == 'day' and 'ceremony' in tags(m), (lead,)) or first(lambda m: m.get('light') == 'day', (lead,)) or lead
+    night = first(lambda m: m.get('light') == 'night') or (others[-1] if others else lead)
+    golden = first(lambda m: m.get('light') == 'golden') or first(lambda m: m.get('light') in ('day', None) and m.get('subject') == 'grounds', (lead, noon, night)) or noon
+    guide = first(lambda m: 'reception' in tags(m) and m.get('subject') == 'interior') or first(lambda m: 'reception' in tags(m), (lead,)) or lead
+    story_second = first(lambda m: m.get('subject') == 'building' and 'detail' in tags(m), (lead,)) or (others[0] if others else lead)
+    return {'light': {'noon': noon, 'golden': golden, 'night': night}, 'guide': guide, 'story_second': story_second}
 
 
 WEDDINGISH = re.compile(r'wedding|elop|ceremon|reception|vow', re.I)
@@ -194,6 +232,14 @@ def section_plan(p, ch, v):
     return order, rhythm
 
 
+def _prune(x):
+    if isinstance(x, dict):
+        return {k: _prune(val) for k, val in x.items() if val is not None and val != [] and val != {}}
+    if isinstance(x, list):
+        return [_prune(val) for val in x if val is not None]
+    return x
+
+
 def jsonld(v, out_url):
     tf = v['tagline_facts']
     places = []
@@ -207,18 +253,19 @@ def jsonld(v, out_url):
         '@graph': [
             {
                 '@type': ['EventVenue', 'LocalBusiness'], '@id': v['website'] + '#venue', 'name': v['name'], 'url': v['website'],
-                'description': '%s garden wedding and event venue in %s.' % ('A %s-acre' % tf['acres'] if tf.get('acres') is not None else 'A',
+                'description': '%s wedding and event venue in %s.' % ('A %s-acre' % tf['acres'] if tf.get('acres') is not None else 'A',
                                                                              ', '.join(x for x in (tf['locality'], tf.get('region')) if x)),
                 'email': v['contact']['email'],
                 'address': {'@type': 'PostalAddress', 'streetAddress': v['contact']['address_line'], 'addressLocality': tf['locality'], 'addressRegion': tf['state'], 'addressCountry': 'US'},
                 'maximumAttendeeCapacity': tf['max_guests'],
-                'amenityFeature': [{'@type': 'LocationFeatureSpecification', 'name': n, 'value': True} for n in v['day']['included']],
+                'amenityFeature': [{'@type': 'LocationFeatureSpecification', 'name': n, 'value': True} for n in (v['day'].get('included') or [])],
                 'containsPlace': places,
-                'openingHoursSpecification': {'@type': 'OpeningHoursSpecification', 'description': v['contact']['hours']},
+                'openingHoursSpecification': {'@type': 'OpeningHoursSpecification', 'description': v['contact']['hours']} if v['contact'].get('hours') else None,
             },
-            {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': f['q'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['a']}} for f in v['faqs']]},
+            {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': f['q'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['a']}} for f in v['faqs']]} if v.get('faqs') else None,
         ],
     }
+    data = _prune(data)   # 3A: an unstated fact is omitted, never published as null
     if v['contact'].get('phone'):
         data['@graph'][0]['telephone'] = v['contact']['phone']
     return json.dumps(data, indent=0).replace('</', '<\\/')
@@ -322,8 +369,12 @@ def main():
     manifest = {m['name']: m for m in load(os.path.normpath(os.path.join(cdir, v['photos']['manifest'])))}
     items = v['photos']['items']
     paths = {n: os.path.join(src_dir, n + '.jpg') for n in items}
-    lead = a.lead or 'hero'
+    lead = a.lead or default_lead(items)
     v['_lead_width'] = manifest[lead]['kept_copy_size'][0] if lead in manifest else 0
+    for owner, label in [(s, 'spaces.%s' % s.get('id')) for s in v['spaces']] + [(v.get('story') or {}, 'story')]:
+        if owner.get('photo') and owner['photo'] not in items:   # 3A: a reference to a photo the venue did not supply -> the lead
+            schema_warnings.append('%s.photo "%s" is not in photos.items; using the lead "%s"' % (label, owner['photo'], lead))
+            owner['photo'] = lead
     v['_lead'] = lead
     pal_names = a.palette_photos.split(',') if a.palette_photos else [lead] + [n for n in items if n != lead][:3]
     pal_paths = {n: paths[n] for n in pal_names}
@@ -394,7 +445,12 @@ def main():
     for k in ('heroes', 'spaces', 'story', 'faq', 'tour', 'gallery', 'moments', 'voices'):
         libs[k] = arch[k]
     fallbacks = []
-    exists = lambda kind, i: TPL.exists(kind, i)
+    def exists(kind, i):   # 3A: a fallback moment must also meet its own content needs (photos by light, journey, day...)
+        if not TPL.exists(kind, i):
+            return False
+        if kind == 'moment' and i in arch_by.get('moments', {}):
+            return PERS.moment_needs_ok_for(arch_by['moments'][i], v)
+        return True
     used_ornament, rhythm_variant, cta_index, last_pairing, bottom = 'none', None, None, None, None
     if dialect:
         same = [s for s in registry['sites'] if s['fingerprint'].get('dialect') == dialect['id'] and s['id'] != '%s-%s' % (v['slug'], a.variant)]
@@ -571,13 +627,12 @@ def main():
     voice = voices[ch['voice']['id']]
     cta_set = voice['cta_sets'][cta_index] if cta_index is not None else None
     try:
-        copy_ = resolve_copy(voice, v, copy_over, cta_set)
+        copy_ = resolve_copy(voice, v, copy_over, cta_set, dialect_mode=bool(dialect))
     except ValueError as e:
         print('  ERROR:', e); sys.exit(3)
     guide_layout = 'plain' if p['density'] >= 80 else ('photo' if p['density'] <= 40 else 'band')
-    light_photos = {'noon': next((n for n, m in items.items() if m.get('light') == 'day' and 'ceremony' in m.get('tags', []) and n != lead), 'flower'),
-                    'golden': next((n for n, m in items.items() if m.get('light') == 'golden'), 'terrace'),
-                    'night': next((n for n, m in items.items() if m.get('light') == 'night'), 'greenhouse')}
+    roles = photo_roles(items, lead)
+    light_photos = roles['light']
     looks = [s['name'].replace('The ', '').lower() for s in v['spaces']]
     ch_ids = {k: (val['id'] if isinstance(val, dict) else val) for k, val in ch.items()}
     ch_ids.update(used)
@@ -593,12 +648,12 @@ def main():
                        'kicker_style': dial_tokens['kicker_style'], 'hero_framing': hero_rec['fingerprint'].get('hero_framing'),
                        'light_shift_default': dialect.get('light_shift_default', 'noon'), 'fallbacks': fallbacks, 'bottom': bottom}
     ctx = dict(v=v, t=axis_tokens, pair=pair, ch=ch_ids, copy=copy_, photos=photos, lead=lead,
-               sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo='reception' if 'reception' in photos else lead,
+               sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo=roles['guide'],
                hero_sizes=(HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
-               spaces_by_id={s['id']: s for s in v['spaces']}, story_second='bungalow' if 'bungalow' in photos else lead, light_photos=light_photos,
+               spaces_by_id={s['id']: s for s in v['spaces']}, story_second=roles['story_second'], light_photos=light_photos,
                uses_band='ink' if p['density'] >= 80 else 'deep', secondary_uses=secondary_uses(v),
-               secondary_uses_sentence=(lambda u: ((', '.join(u[:-1]) + ' and ' + u[-1]) if len(u) > 1 else ''.join(u)).lower().capitalize())(secondary_uses(v)),
-               uses_shoot=any(re.search(r'film|shoot|photo', u, re.I) for u in secondary_uses(v)), looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
+               secondary_uses_sentence=and_join(secondary_uses(v)).lower().capitalize(),
+               uses_shoot=any(re.search(r'film|shoot|photo', u, re.I) for u in secondary_uses(v)), looks_sentence=and_join(looks),
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
                dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on, veil_blur_px=P.VEIL_BLUR_PX,
@@ -625,6 +680,12 @@ def main():
     ctx['build']['fingerprint_short'] = hashlib.sha1(json.dumps(fp, sort_keys=True).encode()).hexdigest()[:8]
     html = env.get_template('base.html.j2').render(**ctx)
     open(os.path.join(out_dir, 'index.html'), 'w').write(html)
+    lint_problems = LINT.lint_html(html)   # 3A: no None/null/undefined/NaN or empty-slot gaps in text, attributes, JS, JSON-LD
+    if lint_problems:
+        for e in lint_problems[:12]:
+            print('  LINT:', e)
+        print('  ERROR: rendered page failed the null/empty-slot lint (%d problems); fix the content guard in the template' % len(lint_problems))
+        sys.exit(5)
     timings['render_s'] = round(time.time() - t1, 2)
 
     # 10. fingerprint check

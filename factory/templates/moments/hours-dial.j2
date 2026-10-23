@@ -19,8 +19,8 @@
       <p class="kicker">The day</p>
       <h2 id="dial-title">{% if d.rental_hours %}{{ d.rental_hours|wordnum|capitalize }} hours, gates to last light.{% else %}One day, gates to last light.{% endif %}</h2>
       <dl class="mo-dial-times">
-        <div><dt>Gates open</dt><dd>{{ d.gates_open }}</dd></div>
-        <div><dt>Event ends</dt><dd>{{ d.event_end }}</dd></div>
+        {% if d.gates_open %}<div><dt>Gates open</dt><dd>{{ d.gates_open }}</dd></div>{% endif %}
+        {% if d.event_end %}<div><dt>Event ends</dt><dd>{{ d.event_end }}</dd></div>{% endif %}
         {% if d.breakdown_end %}<div><dt>Breakdown complete</dt><dd>{{ d.breakdown_end }}</dd></div>{% endif %}
       </dl>
       {% if d.included %}<p class="mo-dial-inc"><span>Included</span> {{ d.included|join(' · ') }}</p>{% endif %}

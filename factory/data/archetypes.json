@@ -652,7 +652,8 @@
     "density": 85
    },
    "needs": {
-    "capacities": true
+    "capacities": true,
+    "max_guests": true
    }
   },
   {

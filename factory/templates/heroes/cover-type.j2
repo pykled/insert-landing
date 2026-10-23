@@ -7,8 +7,8 @@
         <p class="lede">{{ copy.hero_lede }}</p>
         <dl class="ledger" aria-label="At a glance">
           {% for n in v.numbers %}<div><dt>{{ n.label }}</dt><dd>{{ n.value }}</dd></div>{% endfor %}
-          <div><dt>Rental</dt><dd>{{ v.day.rental_hours }} hours</dd></div>
-          <div><dt>Hours</dt><dd>{{ v.day.gates_open }} – {{ v.day.event_end }}</dd></div>
+          {% if v.day.rental_hours %}<div><dt>Rental</dt><dd>{{ v.day.rental_hours }} hours</dd></div>{% endif %}
+          {% if v.day.gates_open or v.day.event_end %}<div><dt>Hours</dt><dd>{{ [v.day.gates_open, v.day.event_end]|select|join(' – ') }}</dd></div>{% endif %}
         </dl>
         {% include 'partials/date-inline.j2' %}
       </div>

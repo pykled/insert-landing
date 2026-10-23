@@ -9,7 +9,7 @@
     <div class="row2">
       <div class="field">
         <label for="f-guests">Guest count</label>
-        <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" max="{{ v.tagline_facts.max_guests }}" placeholder="120" required>
+        <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1" {% if v.tagline_facts.max_guests %}max="{{ v.tagline_facts.max_guests }}" {% endif %}placeholder="{{ [120, v.tagline_facts.max_guests or 120]|min }}" required>
       </div>
       <div class="field">
         <label for="f-contact">Email or mobile</label>

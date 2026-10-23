@@ -13,7 +13,7 @@
       <article class="olive-row reveal" id="space-{{ s.id }}">
         <div class="ph olive-ph">
           <img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async">
-          <span class="cap">{{ s.capacity_label }}</span>
+          {% if s.capacity_label %}<span class="cap">{{ s.capacity_label }}</span>{% endif %}
         </div>
         <div class="olive-body">
           <p class="olive-kicker olive-num">{{ loop.index }} <span>of {{ v.spaces|length }}</span></p>

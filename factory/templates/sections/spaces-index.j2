@@ -15,7 +15,7 @@
             <p class="use">{{ s.use }}</p>
             <p class="blurb">{{ s.blurb }}</p>
           </div>
-          <span class="capn">{{ s.capacity_label }}</span>
+          {% if s.capacity_label %}<span class="capn">{{ s.capacity_label }}</span>{% endif %}
           <div class="ph row-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div>
         </li>
         {% endfor %}

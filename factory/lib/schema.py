@@ -110,15 +110,16 @@ def validate_voices(voices):
         if vid.startswith('_'):
             continue
         strict = (voice.get('_meta') or {}).get('strict_facts', False)
-        for key, val in voice.items():
-            if key.startswith('_') or key == 'cta_sets':
+        entries = [(key, val, strict) for key, val in voice.items()] + [('_dialect.' + key, val, True) for key, val in (voice.get('_dialect') or {}).items()]
+        for key, val, strict_k in entries:
+            if key.startswith('_') and not key.startswith('_dialect.') or key == 'cta_sets' or key.startswith('_dialect._'):
                 continue
             for s in (val if isinstance(val, list) else [val]):
                 bare = _strip_slots(re.sub(r'<[^>]+>', '', s))
                 hit = re.search(r'\d', bare) or re.search(NUMBER_WORDS, bare, re.I)
                 if hit:
                     msg = 'voice %s.%s states "%s" outside a {slot}: "%s"' % (vid, key, hit.group(0), s)
-                    (errors if strict else warnings).append(msg)
+                    (errors if strict_k else warnings).append(msg)
         sets = voice.get('cta_sets')
         if strict and (not isinstance(sets, list) or len(sets) != 3):
             errors.append('voice %s needs exactly three cta_sets' % vid)

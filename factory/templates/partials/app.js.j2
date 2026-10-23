@@ -29,7 +29,7 @@
   function longDate(d) { return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate(); }
   function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
   var today = new Date(); today.setHours(0, 0, 0, 0);
-  var MAXG = {{ v.tagline_facts.max_guests }};
+  var MAXG = {{ (v.tagline_facts.max_guests or 0)|int }};   // 0 = the venue states no maximum: no upper check
 
   // --- check your date (client-side mock) ---
   var dateInput = document.getElementById('f-date');
@@ -42,7 +42,7 @@
     if (!d) msg = 'Pick a date to check.';
     else if (parseISO(d) < today) msg = 'That date has already passed.';
     else if (!g || +g < 1) msg = 'Add an estimated guest count.';
-    else if (+g > MAXG) msg = 'We host up to ' + MAXG + ' guests. Try a smaller number.';
+    else if (MAXG && +g > MAXG) msg = 'We host up to ' + MAXG + ' guests. Try a smaller number.';
     else if (!/@|\d{7,}/.test(c)) msg = 'Add an email address or mobile number so we can reply.';
     if (msg) { dateErr.textContent = msg; dateErr.hidden = false; return; }
     dateErr.hidden = true;

@@ -11,12 +11,13 @@
   <div class="container daylight-grid">
     <figure class="daylight-media reveal">
       <div class="ph daylight-ph"><img src="{{ dp.src }}" srcset="{{ dp.srcset }}" sizes="(min-width: 861px) 54vw, 100vw" width="{{ dp.width }}" height="{{ dp.height }}" alt="{{ dp.alt }}" style="object-position: {{ dp.focal }}" loading="lazy" decoding="async"></div>
-      <figcaption>{{ dp.caption }}</figcaption>
+      {% if dp.caption %}<figcaption>{{ dp.caption }}</figcaption>{% endif %}
     </figure>
     <div class="daylight-copy">
       <p class="kicker reveal">By daylight</p>
       <h2 id="daylight-title" class="reveal d1">The same grounds, by day.</h2>
-      <p class="reveal d2">{{ v.day.rental_hours|int|wordnum|capitalize }} hours on the day: gates open at {{ v.day.gates_open }}, events end at {{ v.day.event_end }} and breakdown runs to {{ 'midnight' if v.day.breakdown_end == '12 AM' else v.day.breakdown_end }}.</p>
+      {% set D = v.day or {} %}{% set bits = [] %}{% if D.gates_open %}{% set _ = bits.append('gates open at ' ~ D.gates_open) %}{% endif %}{% if D.event_end %}{% set _ = bits.append('events end at ' ~ D.event_end) %}{% endif %}{% if D.breakdown_end %}{% set _ = bits.append('breakdown runs to ' ~ ('midnight' if D.breakdown_end == '12 AM' else D.breakdown_end)) %}{% endif %}
+      {% if D.rental_hours or bits %}<p class="reveal d2">{% if D.rental_hours %}{{ D.rental_hours|int|wordnum|capitalize }} hours on the day{% if bits %}: {% else %}.{% endif %}{% endif %}{% if bits %}{{ (bits[:-1]|join(', ') ~ ' and ' ~ bits[-1]) if bits|length > 1 else bits[0] }}{% if not D.rental_hours %}{% endif %}.{% endif %}</p>{% endif %}
       {% if v.day.included %}<ul class="daylight-list reveal d2" aria-label="Included">{% for i in v.day.included %}<li>{{ i }}</li>{% endfor %}</ul>{% endif %}
       {% if v.day.requirement %}<p class="fine reveal d2">{{ v.day.requirement }}.</p>{% endif %}
       <a class="link daylight-link reveal d3" href="#check">{{ copy.nav_cta }}</a>
