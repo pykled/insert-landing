@@ -416,12 +416,17 @@ def main():
     if a.dialect != 'none':
         signals = P.photo_signals(pal_paths, lead)
         _, _, pre_meta = P.derive(pal_paths, p, lead=lead)
-        winner, table = PERS.score_dialects(dialects_doc, signals, v, pre_meta, registry)
+        # 3A item 3: a dialect with selectable: false (reason in dialects.json) is never the scorer's pick; an explicit
+        # --dialect still builds it for development, and qa.py --strict refuses the result
+        sel_doc = dict(dialects_doc, dialects=[d for d in dialects_doc['dialects'] if d.get('selectable', True)])
+        winner, table = PERS.score_dialects(sel_doc, signals, v, pre_meta, registry)
         by_id = {d['id']: d for d in dialects_doc['dialects']}
         if a.dialect == 'auto':
             chosen, source = winner, 'scored (top of the table; ties -> fewer registered sites)'
         elif a.dialect in by_id:
             chosen, source = a.dialect, 'human override (--dialect %s; the scorer picked %s)' % (a.dialect, winner)
+            if not by_id[a.dialect].get('selectable', True):
+                print('  WARNING: dialect %s is not selectable (%s); qa.py --strict will refuse this build' % (a.dialect, by_id[a.dialect].get('not_selectable_reason', '')[:120]))
         else:
             ap.error('--dialect must be auto, none or one of: %s' % ', '.join(by_id))
         dialect = by_id[chosen]

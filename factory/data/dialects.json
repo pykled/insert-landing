@@ -1134,7 +1134,9 @@
     "parallax": false
    },
    "masthead_rule": "masthead only with a muted accent and the dateline replaced by the facts strip",
-   "tokens": {}
+   "tokens": {},
+   "selectable": false,
+   "not_selectable_reason": "2026-10-23 stage 3A (F8 + Maker review of 3 venues at 1440/390): reads as a magazine, not a wedding venue. The spaces arrive as a numbered index list, the first screen is a wide photo with the name pushed below it, small Newsreader-weight type over large empty paper, a press strip and a 'two views side by side' pairs block that leaves grey frames while it loads; the pacing is browse-a-feature rather than see-the-place-then-book. Botanical, ranch and estate cover the venues in the pipeline. Not offered by the scorer until it is reworked (warm photographic hero with the name on screen, sturdier display weight, venue pacing: place, spaces as photographs, the day, tour)."
   },
   {
    "id": "candlelit",

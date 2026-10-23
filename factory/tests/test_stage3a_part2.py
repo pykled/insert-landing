@@ -186,3 +186,18 @@ def test_guard_counts_demo_sites_only_and_thresholds_are_unchanged():
     assert FP.guard(fp, legacy)['status'] == 'refuse'        # entries without the field count (default demo)
     assert {FP.exposure(s) for s in reg['sites']} <= set(FP.EXPOSURES)
     assert [s['id'] for s in reg['sites'] if FP.exposure(s) == 'internal-proof'] == [s['id'] for s in reg['sites'] if s['id'].startswith('stonehurst-proof-')]
+
+
+# --- item 3: editorial is out of selection, with its reason recorded -------------------------------------------------
+
+def test_editorial_not_selectable_and_never_auto_picked(tmp_path):
+    from tests import _util
+    ed = [d for d in _util.data('dialects.json')['dialects'] if d['id'] == 'editorial'][0]
+    assert ed['selectable'] is False and 'magazine' in ed['not_selectable_reason']
+    for src in (LSH, HS, SH):
+        out = tmp_path / os.path.basename(src)
+        rc, log = _build(src, str(out), '--dialect', 'auto')
+        assert rc == 0, log[-800:]
+        assert json.load(open(out / 'build-meta.json'))['dialect']['id'] != 'editorial'
+    rc, log = _build(SH, str(tmp_path / 'ed'), '--dialect', 'editorial')
+    assert rc == 0 and 'not selectable' in log

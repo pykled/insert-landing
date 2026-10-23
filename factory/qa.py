@@ -527,6 +527,11 @@ with sync_playwright() as pw:
                     if ms and not (600 <= ms <= 1600): warnings.append('motion: device %s runs %d ms (dialect devices stay within 600-1600 ms)' % (d['id'], ms))
         ctx.close()
 
+# --- 3A item 3: a dialect taken out of selection (dialects.json selectable: false) never passes --strict ---
+if DIALECT_MODE:
+    _dd = {d['id']: d for d in json.load(open(os.path.join(HERE, 'data', 'dialects.json')))['dialects']}
+    if DIALECT in _dd and not _dd[DIALECT].get('selectable', True):
+        (problems if a.strict else warnings).append('dialect %s is not selectable: %s' % (DIALECT, _dd[DIALECT].get('not_selectable_reason', '')[:160]))
 # --- template fallbacks (stage 2B not built yet) ---
 for f in (META or {}).get('fallbacks', []):
     msg = 'template fallback: %s "%s" -> %s (%s)' % (f['kind'], f['wanted'], f['used'] or 'omitted', 'planned for stage 2B')
