@@ -68,6 +68,10 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body { background: var(--paper); color: var(--ink); font-family: var(--body); font-weight: {{ pair.body.weight }}; font-size: var(--body-size); line-height: var(--body-lh); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  /* 3A: a content word longer than its column (QUINCEAÑERAS in tracked caps at 390 px) wraps instead of overflowing; headings and buttons may break anywhere, running text breaks only words that do not fit */
+  h1, h2, h3, h4, .btn, .kicker, dt, dd, th, td, label, output, figcaption { overflow-wrap: anywhere; hyphens: auto; }
+  p, li, blockquote, cite, a { overflow-wrap: break-word; }
+  .btn { max-width: 100%; white-space: normal; text-align: center; }
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
   em { font-style: italic; }

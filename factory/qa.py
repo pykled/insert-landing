@@ -46,7 +46,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from lib import fingerprint as FP, exclusions as EX, phash as PH
+from lib import fingerprint as FP, exclusions as EX, phash as PH, overflow as OV
 
 ap = argparse.ArgumentParser()
 ap.add_argument('dir')
@@ -288,6 +288,8 @@ def run(pw, name, width, height, scale, mobile):
     page.add_style_tag(content="*,*::before,*::after{transition:none!important;animation:none!important}")
     page.wait_for_timeout(200)
     sw = page.evaluate('document.documentElement.scrollWidth'); iw = page.evaluate('window.innerWidth')
+    for o in OV.element_overflow(page):   # 3A: per element, incl. text wider than its own box and clipped spill-over
+        problems.append('%s: horizontal overflow, %s' % (name, o))
     if sw > iw:
         problems.append('%s: horizontal overflow scrollWidth=%d innerWidth=%d' % (name, sw, iw))
         problems.append('  offenders: %s' % page.evaluate("""() => [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > window.innerWidth + 1).slice(0, 8).map(e => e.tagName + '.' + e.className + ' right=' + Math.round(e.getBoundingClientRect().right))"""))

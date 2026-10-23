@@ -98,3 +98,48 @@ def test_new_venues_build_with_scorer_dialect_and_no_lead(tmp_path):
         rc, log = _build(src, str(tmp_path / os.path.basename(src)))
         assert rc == 0, log[-1500:]
         assert LINT.lint_html(open(tmp_path / os.path.basename(src) / 'index.html').read()) == []
+
+
+# --- item 2: horizontal overflow per element ---------------------------------------------------------------------
+
+LONG = 'QUINCEAÑERASQUINCEAÑERAS'
+
+
+def _overflow(html, width=390):
+    pw_mod = pytest.importorskip('playwright.sync_api')
+    from lib.overflow import element_overflow
+    with pw_mod.sync_playwright() as pw:
+        b = pw.chromium.launch()
+        try:
+            pg = b.new_page(viewport={'width': width, 'height': 844})
+            pg.set_content(html)
+            return element_overflow(pg)
+        finally:
+            b.close()
+
+
+def test_overflow_flags_long_word_in_its_own_box_past_viewport_and_clipped():
+    css = '<style>body{margin:0} h2{font:700 40px sans-serif;letter-spacing:.2em;text-transform:uppercase}</style>'
+    own = _overflow(css + '<section style="overflow:visible"><div style="width:300px"><h2>%s</h2></div></section>' % LONG)
+    assert any('text overflows box' in o and 'h2' in o for o in own), own
+    past = _overflow(css + '<div style="width:600px" class="band"><p>wide</p></div>')
+    assert any('past viewport' in o and 'div.band' in o for o in past), past
+    clipped = _overflow(css + '<div style="overflow:hidden;width:390px"><h2 style="white-space:nowrap">%s</h2></div>' % LONG)
+    assert clipped, clipped
+
+
+def test_overflow_clean_when_wrap_rules_apply():
+    css = '<style>body{margin:0} h2{font:700 40px sans-serif;letter-spacing:.2em;text-transform:uppercase;overflow-wrap:anywhere}</style>'
+    assert _overflow(css + '<div style="width:300px"><h2>%s</h2></div>' % LONG) == []
+
+
+def test_long_word_uses_band_does_not_overflow_in_any_bottom(tmp_path):
+    v = H.longword(LSH)
+    v['tagline_facts']['uses'] = ['Weddings', LONG, 'Extraordinarycelebrationsandfilmproductions']
+    src = H.write(v, str(tmp_path / 'llong.json'))
+    for d in ('estate', 'botanical', 'candlelit'):   # letterpress, almanac, marquee bottoms
+        out = tmp_path / d
+        rc, log = _build(src, str(out), '--dialect', d)
+        assert rc == 0, log[-800:]
+        html = open(out / 'index.html').read().replace('href="', 'data-x="')   # no network: CSS is inline, assets ignored
+        assert [o for o in _overflow(html) if 'uses' in o] == [], d
