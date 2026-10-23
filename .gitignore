@@ -5,3 +5,6 @@ docs/research/shots/
 .factory-check/
 __pycache__/
 .pytest_cache/
+
+# venue photos collected by factory/intake (private use only, never committed)
+factory/content/photos/
