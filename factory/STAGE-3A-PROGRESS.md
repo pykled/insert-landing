@@ -11,3 +11,7 @@
 - previews/stonehurst-variants a/b/c regenerate with copy-only diffs (JSON-LD 'garden' dropped, uses band, tour notes, light-shift, preview labels, whitespace): NOT committed (brief); republishing them is Dillon's call.
 
 OPEN FOR PART 2: (1) focus ring on guide email input (F5); (2) botanical/editorial hero deck printed twice (F10); (3) editorial dialect reads as a magazine (F8); (4) <title> suffix '(Concept PROOF-<NAME>)' / variant id visible; (5) image-size budget (1.2-3.3 MB at load) and soft story/timeline photos (ladder for role 'large' stops at 1200 px while portrait cover boxes need 1208-1409 px); (6) estate-cinzel mobile h1 hairline 51% (Cinzel 500 @ 28 px); (7) E19 'two facts in the first screen' on both new venues; (8) qa.py ROOT hard-coded (F12); (9) diversity guard refuses a second venue in an already-used dialect until 4 of 7 dims differ (by design, needs a policy decision).
+
+# Stage 3A-r2 PART 2 progress (Maker: Claude Opus 5.5, 2026-10-23)
+
+- item 1 focus (F5, F12): DONE fadd002 (lib/focus.py Tab-walk probe in qa.py; sweep .factory-check/3b/focus_sweep.py: 8 dialects x 3 venues x 1440/390 all pass, min margin 1.07; old CSS fails on every input; 112 tests). next: item 2 hero deck twice
