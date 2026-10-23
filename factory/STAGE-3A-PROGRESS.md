@@ -21,3 +21,25 @@ OPEN FOR PART 2: (1) focus ring on guide email input (F5); (2) botanical/editori
 - item 6 contrast/Cinzel/facts: DONE d3fa699 (fill fitted vs paper: paper+white labels >= 7 in all dialects/tones; estate-cinzel retired with probe table, factory/tools/cinzel_probe.py; frame facts above photo; homestead-ranch strict 0 problems, lindley estate only diversity refusal; 121 tests). next: item 7 registry policy
 - item 7 registry policy: DONE d68152d (exposure demo|internal-proof; 5 stonehurst-proof-* internal, rest demo; thresholds unchanged + asserted in a test; Lindley estate guard OK nearest stonehurst-b 0.645). next: item 3 editorial decision, then item 8 demos
 - item 3 editorial: DONE 7d38211 (removed from selection: selectable false + reason in dialects.json; auto never picks it; qa --strict refuses it; 123 tests). next: item 8 build the three demos
+- item 8 demos: DONE 995d9dc. .factory-check/demos/<slug>/ (shots/ = 1440 and 390 @2x full page): homestead ranch (frame, ranch-display-sans; scorer) | lindley-scott estate (frame, estate-caslon forced: scorer's inscriptional-marcellus failed min-size + mobile hairline 43%) | stonehurst botanical (arch-split, botanical-cardo; scorer). All qa --strict exit 0. Rejected on review: crest-centred for Lindley and cinematic for HomeStead (full-bleed needs 2160 px; the 400 KB/SSIM bar caps these leads at 1500-1800 px; cinematic text contrast 1.96). Distances:
+  - homestead-demo (ranch): WARN, nearest counted stonehurst-b 0.481; vs other demos: lindley-scott-demo 0.551, stonehurst-demo 0.768
+  - lindley-scott-demo (estate): OK, nearest counted homestead-demo 0.551; vs other demos: homestead-demo 0.551, stonehurst-demo 0.623
+  - stonehurst-demo (botanical): OK, nearest counted lindley-scott-demo 0.623; vs other demos: homestead-demo 0.768, lindley-scott-demo 0.623
+  - registry matrix (~ = internal-proof pair, not counted):
+                                  stonehurst-mo lindley-scott stonehurst-a  stonehurst-b  stonehurst-c  stonehurst-pr stonehurst-pr stonehurst-pr stonehurst-pr stonehurst-pr homestead-dem lindley-scott stonehurst-de 
+        stonehurst-mock-v2        0.000         0.717         0.804         0.665         0.734         0.821 ~       0.794 ~       0.707 ~       0.807 ~       0.925 ~       0.786         0.806         0.847         
+        lindley-scott-mock        0.717         0.000         0.830         0.669         0.712         0.703 ~       0.758 ~       0.788 ~       0.740 ~       0.880 ~       0.735         0.723         0.698         
+        stonehurst-a              0.804         0.830         0.000         0.830         0.626         0.846 ~       0.689 ~       0.823 ~       0.689 ~       0.699 ~       0.876         0.726         0.811         
+        stonehurst-b              0.665         0.669         0.830         0.000         0.747         0.522 ~       0.829 ~       0.765 ~       0.730 ~       0.859 ~       0.481         0.605         0.737         
+        stonehurst-c              0.734         0.712         0.626         0.747         0.000         0.767 ~       0.753 ~       0.793 ~       0.732 ~       0.624 ~       0.833         0.752         0.767         
+        stonehurst-proof-botanica 0.821 ~       0.703 ~       0.846 ~       0.522 ~       0.767 ~       0.000 ~       0.656 ~       0.788 ~       0.689 ~       0.820 ~       0.743 ~       0.628 ~       0.279*~       
+        stonehurst-proof-estate   0.794 ~       0.758 ~       0.689 ~       0.829 ~       0.753 ~       0.656 ~       0.000 ~       0.682 ~       0.635 ~       0.816 ~       0.773 ~       0.293*~       0.582 ~       
+        stonehurst-proof-candleli 0.707 ~       0.788 ~       0.823 ~       0.765 ~       0.793 ~       0.788 ~       0.682 ~       0.000 ~       0.746 ~       0.931 ~       0.773 ~       0.690 ~       0.822 ~       
+        stonehurst-proof-editoria 0.807 ~       0.740 ~       0.689 ~       0.730 ~       0.732 ~       0.689 ~       0.635 ~       0.746 ~       0.000 ~       0.597 ~       0.712 ~       0.503 ~       0.723 ~       
+        stonehurst-proof-modern-l 0.925 ~       0.880 ~       0.699 ~       0.859 ~       0.624 ~       0.820 ~       0.816 ~       0.931 ~       0.597 ~       0.000 ~       0.841 ~       0.715 ~       0.825 ~       
+        homestead-demo            0.786         0.735         0.876         0.481         0.833         0.743 ~       0.773 ~       0.773 ~       0.712 ~       0.841 ~       0.000         0.551         0.768         
+        lindley-scott-demo        0.806         0.723         0.726         0.605         0.752         0.628 ~       0.293*~       0.690 ~       0.503 ~       0.715 ~       0.551         0.000         0.623         
+        stonehurst-demo           0.847         0.698         0.811         0.737         0.767         0.279*~       0.582 ~       0.822 ~       0.723 ~       0.825 ~       0.768         0.623         0.000         
+        (* same dialect: refuse < 0.32, warn < 0.45, and >= 4 of 7 key dims must differ; otherwise refuse < 0.35, warn < 0.50; ~ internal-proof in the pair: not counted)
+
+  next: item 9 preview staging
