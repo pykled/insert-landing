@@ -15,7 +15,7 @@ the same palette, and a human can override any token in the build config.
 """
 import json
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 from . import color as C
 
 SEED = 7
@@ -313,6 +313,34 @@ def copy_zone_contrast(path, focal='50% 50%', scrim=COPY_ZONE_SCRIM, q=99, viewp
     for z, (l, t, r, b) in COPY_ZONES.items():
         y = float(np.percentile(Y[int(t * gh):int(b * gh), int(l * gw):int(r * gw)], q))
         out[z] = round(1.05 / (y * (1 - scrim) + 0.05), 2)
+    return out
+
+
+VEIL_BLUR_PX = 32     # 2D: cinematic "veil": a feathered backdrop-filter blur under the copy (heroes/cinematic.css.j2)
+VEIL_SCRIM = 0.25     # estimated at the strictest dialect cap (candlelit 25%), so the verdict holds in every dialect
+VEIL_ZONES = {'cinematic-veil': 'cinematic'}
+
+
+def copy_zone_veil(path, focal='50% 50%', blur=VEIL_BLUR_PX, scrim=VEIL_SCRIM, q=99, viewport=(1440, 860)):
+    """Worst-case white-copy contrast in each veil zone when the photo under the copy is blurred by `blur` css px
+    (Gaussian sigma, as CSS blur()) and darkened by at most `scrim`. Measured at the real 1440 px viewport, not the coarse
+    grid of copy_zone_contrast, because blur removes exactly the small highlights (lamps, sky gaps) that fail the p99.
+    The blur changes no colour and adds no flat wash (E9); qa.py re-measures the rendered page."""
+    im = Image.open(path).convert('RGB')
+    W, H = im.size
+    fx, fy = [float(s.strip('%')) / 100 for s in focal.split()]
+    ar = viewport[0] / float(viewport[1])
+    cw, ch = (H * ar, H) if W / float(H) > ar else (W, W / ar)
+    x0 = min(max(fx * W - cw / 2, 0), W - cw); y0 = min(max(fy * H - ch / 2, 0), H - ch)
+    crop = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize(viewport, Image.BILINEAR).filter(ImageFilter.GaussianBlur(blur))
+    with np.errstate(all='ignore'):   # spurious BLAS matmul warnings on macOS Accelerate; values are finite
+        Y = C.srgb_to_linear(np.asarray(crop, dtype=np.float64) / 255) @ np.array([0.2126, 0.7152, 0.0722])
+    gh, gw = Y.shape
+    out = {}
+    for vz, z in VEIL_ZONES.items():
+        l, t, r, b = COPY_ZONES[z]
+        y = float(np.percentile(Y[int(t * gh):int(b * gh), int(l * gw):int(r * gw)], q))
+        out[vz] = round(1.05 / (y * (1 - scrim) + 0.05), 2)
     return out
 
 

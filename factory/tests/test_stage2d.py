@@ -190,5 +190,47 @@ def test_refresh_is_idempotent(tmp_path):
     assert open(dst).read() == open(os.path.join(_util.FACTORY, 'data', 'archetypes.json')).read()
 
 
+# --- 6. cinematic veil -------------------------------------------------------------------------------------------------
+
+def _photo(name):
+    v = _util.content(); src = os.path.join(_util.FACTORY, 'content', v['photos']['source_dir'])
+    f = next(x for x in os.listdir(src) if x.startswith(name + '.'))
+    return os.path.join(src, f), v['photos']['items'][name].get('focal', '50% 50%')
+
+
+def test_veil_estimate_unlocks_dark_leads_only():
+    from lib import palette as P
+    assert P.VEIL_SCRIM <= 0.25 <= P.COPY_ZONE_SCRIM <= 0.35          # estimated at the strictest dialect cap; E9 untouched
+    gh = P.copy_zone_veil(*_photo('greenhouse'))['cinematic-veil']
+    assert gh >= P.COPY_ZONE_MIN > P.copy_zone_contrast(*_photo('greenhouse'))['cinematic']
+    assert P.copy_zone_veil(*_photo('flower'))['cinematic-veil'] < P.COPY_ZONE_MIN   # a bright daylight lead stays excluded
+    assert P.copy_zone_veil(*_photo('greenhouse')) == P.copy_zone_veil(*_photo('greenhouse'))   # deterministic
+
+
+def test_cinematic_eligible_through_the_veil():
+    arch = _util.data('archetypes.json')
+    cine = next(h for h in arch['heroes'] if h['id'] == 'cinematic')
+    assert cine['needs']['veil_zone'] == 'cinematic-veil'
+    stub = lambda i: {'id': i, 'status': 'built', 'axes': {}, 'fingerprint': {}}
+    libs = {'pairings': [PAIRINGS['inscriptional-marcellus']], 'heroes': [cine], 'spaces': [stub('index')], 'story': [stub('split')], 'faq': [stub('plain-list')],
+            'tour': [stub('band-cta')], 'gallery': [stub('none')], 'moments': [stub('candle-count')], 'voices': [stub('evening')]}
+    def ranked(cz):
+        content = {'photos': {'items': {'x': {'subject': 'grounds'}}}, '_lead': 'x', '_lead_width': 2400, '_copy_zone_min': 4.5, '_copy_zone': cz}
+        _, rep = PERS.select(libs, PERS.axes_centre(DIALECTS['candlelit']), lambda fp: ('ok', None, 1.0), content=content, dialect_mode=True)
+        return rep['needs_relaxed']
+    assert ranked({'cinematic': 2.0, 'cinematic-veil': 4.8}) == []          # eligible: the veil carries the copy
+    assert ranked({'cinematic': 2.0, 'cinematic-veil': 3.0}) == ['hero']    # excluded (needs had to be relaxed)
+    assert ranked({'cinematic': 5.0}) == []
+
+
+def test_veil_markup_only_in_veil_mode():
+    env = _env()
+    for mode, want in (('veil', True), ('photo', False), ('paper', False)):
+        css = env.get_template('heroes/cinematic.css.j2').render(hero_copy_on=mode, veil_blur_px=32, dialect={'id': 'candlelit'}, pair=PAIRINGS['candlelit-castoro'], t={'display_case': 'sentence'})
+        assert ('backdrop-filter: blur(32px)' in css) == want, mode
+        for stop in re.findall(r'rgba\(0,0,0,([0-9.]+)\)', css):
+            assert float(stop) <= 0.25 + 1e-9, stop                    # candlelit cap, veil adds no darkening
+
+
 if __name__ == '__main__':
     sys.exit(_util.run_module(sys.modules[__name__]))

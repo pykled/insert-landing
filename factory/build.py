@@ -31,7 +31,7 @@ WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'sev
 # width and then fetches another. Dialect builds only; pre-dialect builds keep the original three-way rule (byte-identical).
 HERO_SIZES = {
     'masthead': '100vw', 'frame': '(min-width: 1140px) 1040px, 92vw', 'cover-type': '(min-width: 861px) 46vw, 100vw',
-    'cinematic': '(max-width: 860px) 140vw, 100vw', 'crest-centred': '(max-width: 860px) 180vw, 100vw',
+    'cinematic': '(max-width: 860px) 200vw, 100vw', 'crest-centred': '(max-width: 860px) 180vw, 100vw',
     'silent': '(max-width: 860px) 180vw, 100vw', 'landscape-silent': '(max-width: 860px) 160vw, 100vw',
     'slideshow': '(max-width: 860px) 160vw, 100vw', 'panel': '(min-width: 861px) 50vw, 100vw',
     'inset-caption': '(min-width: 1400px) calc(100vw - 160px), (min-width: 861px) calc(100vw - 11vw), calc(100vw - 48px)',
@@ -324,6 +324,8 @@ def main():
     if a.dialect != 'none':
         # stage 2C: can the lead carry copy on the photo under the 35% scrim cap? (heroes' needs.copy_zone reads this)
         copy_zone = {n: P.copy_zone_contrast(paths[n], items[n].get('focal', '50% 50%')) for n in items}
+        for n in items:   # 2D: the same zones with the cinematic blur veil under the copy (palette.copy_zone_veil)
+            copy_zone[n].update(P.copy_zone_veil(paths[n], items[n].get('focal', '50% 50%')))
         v['_copy_zone'] = copy_zone[lead]
         v['_copy_zone_min'] = P.COPY_ZONE_MIN
 
@@ -467,7 +469,11 @@ def main():
     zone = hero_rec.get('needs', {}).get('copy_zone')
     if dialect and zone and copy_zone[lead][zone] < P.COPY_ZONE_MIN:
         darker = sorted((n for n in items if copy_zone[n][zone] >= P.COPY_ZONE_MIN), key=lambda n: -copy_zone[n][zone])
-        if hero_rec['needs'].get('paper_mode_ok'):
+        vz = hero_rec['needs'].get('veil_zone')
+        if vz and copy_zone[lead].get(vz, 0) >= P.COPY_ZONE_MIN:
+            hero_copy_on = 'veil'
+            print('  hero %s: lead %s measures %.2f:1 in the copy zone; %.2f:1 with the %dpx blur veil under the copy (scrims unchanged)' % (used['hero'], lead, copy_zone[lead][zone], copy_zone[lead][vz], P.VEIL_BLUR_PX))
+        elif hero_rec['needs'].get('paper_mode_ok'):
             hero_copy_on = 'paper'
             print('  hero %s: lead %s measures %.2f:1 in the copy zone under a 35%% scrim (< %.1f); copy set on paper' % (used['hero'], lead, copy_zone[lead][zone], P.COPY_ZONE_MIN))
         else:
@@ -580,7 +586,7 @@ def main():
                uses_band='ink' if p['density'] >= 80 else 'deep', looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
-               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on,
+               dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on, veil_blur_px=P.VEIL_BLUR_PX,
                bottom=bottom, bottom_facts=bottom_facts(v) if bottom else [])
     fp = {
         'display_family': pair['display']['family'], 'display_class': pair['display']['class'], 'body_family': pair['body']['family'],

@@ -20,7 +20,8 @@
    "needs": {
     "lead_min_width": 2400,
     "photos": 1,
-    "copy_zone": "cinematic"
+    "copy_zone": "cinematic",
+    "veil_zone": "cinematic-veil"
    },
    "fingerprint": {
     "hero_family": "photo-bleed",

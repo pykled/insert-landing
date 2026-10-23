@@ -11,6 +11,16 @@
   .cine-stage::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background:
     linear-gradient(90deg, rgba(0,0,0,{{ cap }}) 0%, rgba(0,0,0,{{ mid }}) 38%, rgba(0,0,0,0.04) 68%, rgba(0,0,0,0) 100%),
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,{{ cap }}) 58%, rgba(0,0,0,{{ cap }}) 100%); }
+{% if hero_copy_on == 'veil' %}
+  /* 2D veil: the lead is too bright under the copy for 4.5:1 at the scrim cap (build-meta copy_zone), so the photo under the
+     copy is blurred (lib/palette.copy_zone_veil, same radius) and feathered out over the last fifth of the box. No colour
+     is added: the gradients above stay the only darkening, every stop <= the cap (E9). Desktop only (mobile copy is on paper). */
+  .cine-veil { position: absolute; left: 0; bottom: 0; width: 70%; height: 72%; z-index: -1; pointer-events: none;
+    -webkit-backdrop-filter: blur({{ veil_blur_px }}px); backdrop-filter: blur({{ veil_blur_px }}px);
+    -webkit-mask-image: linear-gradient(to right, #000 78%, transparent 100%), linear-gradient(to top, #000 74%, transparent 100%);
+    -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, #000 78%, transparent 100%), linear-gradient(to top, #000 74%, transparent 100%); mask-composite: intersect; }
+  @media (max-width: 860px) { .cine-veil { display: none; } }
+{% endif %}
   .cine-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 440px); gap: clamp(28px, 5vw, 80px); align-items: end; padding-top: 110px; padding-bottom: clamp(40px, 6vw, 72px); width: 100%; }
   .cine-kicker { color: var(--on-photo, #fff); font-size: 13.5px; }
   .cine-kicker::before { background: var(--on-photo, #fff); }

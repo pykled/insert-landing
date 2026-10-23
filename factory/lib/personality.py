@@ -94,8 +94,11 @@ def select(libs, p, registry_check, forced=None, content=None, top=3, dialect_mo
         # copy on the photo: the lead must be dark enough in the copy zone (lib/palette.copy_zone_contrast), unless the
         # hero can set its copy on paper instead (crest-centred paper mode); build.py renders that mode
         z = n.get('copy_zone')
-        if z and not n.get('paper_mode_ok') and (content.get('_copy_zone') or {}).get(z, 99) < content.get('_copy_zone_min', 4.5):
-            return False
+        cz, zmin = content.get('_copy_zone') or {}, content.get('_copy_zone_min', 4.5)
+        if z and not n.get('paper_mode_ok') and cz.get(z, 99) < zmin:
+            # 2D: a hero that can lay a blur veil under its copy (cinematic) stays eligible when the veiled estimate passes
+            if not (n.get('veil_zone') and cz.get(n['veil_zone'], 0) >= zmin):
+                return False
         return True
 
     def moment_needs_ok(m):
