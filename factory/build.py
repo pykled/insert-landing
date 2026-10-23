@@ -352,7 +352,7 @@ def main():
     v = load(a.content)
     cdir = os.path.dirname(os.path.abspath(a.content))
     dialects_doc = load(os.path.join(HERE, 'data', 'dialects.json'))
-    pairings_all = load(os.path.join(HERE, 'data', 'pairings.json'))['pairings']
+    pairings_all = [x for x in load(os.path.join(HERE, 'data', 'pairings.json'))['pairings'] if not x.get('retired')]   # 3A: retired pairings (reason in the record) are never chosen
     arch = load(os.path.join(HERE, 'data', 'archetypes.json'))
     voices = load(os.path.join(HERE, 'data', 'voices.json'))
     registry = FP.load_registry(a.registry)

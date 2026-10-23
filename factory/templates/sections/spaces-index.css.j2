@@ -13,7 +13,7 @@
   .index-row .capn { font-size: 13px; color: var(--ink-soft); white-space: nowrap; padding-top: 6px; font-weight: {{ pair.body.medium }}; }
   .row-ph { display: none; grid-column: 1 / -1; aspect-ratio: 3 / 2; margin-top: 8px; }
   .index-stage { position: sticky; top: 96px; }
-  .stage-ph { aspect-ratio: 4 / 5; }
+  .stage-ph { aspect-ratio: var(--ar, 4 / 5); }
   .stage-img { position: absolute; inset: 0; opacity: 0; transition: opacity .6s var(--ease); }
   .stage-img.on { opacity: 1; }
   .stage-cap { font-size: 13.5px; color: var(--ink-faint); margin-top: 12px; }

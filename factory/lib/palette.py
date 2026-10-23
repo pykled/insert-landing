@@ -139,7 +139,9 @@ def derive(photo_paths, personality, lead=None, overrides=None, dialect=None, to
     # Accent for non-text uses (rails, dots, focus rings, range thumb): white >= 4.5 if anything sits on it.
     L, tokens['accent'] = C.fit_lightness(C_a, h_a, '#ffffff', 5.0, True, 0.62)
     # Accent for button fills with white labels: 7:1, same bar as every other small text on the page.
-    L, tokens['accent-fill'] = C.fit_lightness(C_a, h_a, '#ffffff', 7.3, True, fill_L0)
+    # 3A item 6: buttons swap white/paper labels across hover, focus and error states (and mid-transition a paper label
+    # sits on the fill), so the fill is fitted against the darker of the two: paper as it will finally be rendered.
+    L, tokens['accent-fill'] = C.fit_lightness(C_a, h_a, never_white(tokens['paper'], paper_h), 7.3, True, fill_L0)
     # Deep band colour and the text that sits on it.
     deep_C, deep_L0 = min(deep['C'], 0.08), 0.34
     if dialect and dialect.get('deep'):
@@ -172,6 +174,7 @@ def derive(photo_paths, personality, lead=None, overrides=None, dialect=None, to
         ('accent-text on paper-2', tokens['accent-text'], tokens['paper-2'], 7),
         ('white on accent', '#ffffff', tokens['accent'], 4.5),
         ('white on accent-fill', '#ffffff', tokens['accent-fill'], 7),
+        ('paper on accent-fill', tokens['paper'], tokens['accent-fill'], 7),
         ('paper on deep', tokens['paper'], tokens['deep'], 7),
         ('on-deep-soft on deep', tokens['on-deep-soft'], tokens['deep'], 7),
         ('on-deep-accent on deep', tokens['on-deep-accent'], tokens['deep'], 7),
@@ -371,7 +374,8 @@ def dark_tokens(paper_L, paper_C, paper_h, accent_h, accent_C, metal=None, text_
     L, t['metal'] = C.fit_lightness(mC, mH, t['paper-3'], 7.0, False, mL)
     t['on-accent'] = C.lch_to_hex(0.18, 0.01, paper_h)
     # 2C: same 7.3 target as the light set's accent-fill: 7.0 exactly measured 6.98 in qa.py (hex rounding + AA)
-    L, t['accent-fill'] = C.fit_lightness(accent_C, accent_h, t['on-accent'], 7.3, False, 0.60)
+    _lab = t['paper'] if C.luminance(t['paper']) > C.luminance(t['on-accent']) else t['on-accent']   # 3A item 6: the lighter dark label
+    L, t['accent-fill'] = C.fit_lightness(accent_C, accent_h, _lab, 7.3, False, 0.60)
     L, t['accent'] = C.fit_lightness(accent_C, accent_h, t['on-accent'], 5.0, False, 0.58)
     t['deep'] = C.lch_to_hex(max(0.11, paper_L - 0.06), paper_C, paper_h)
     t['on-deep'] = t['ink']
@@ -394,7 +398,7 @@ def dark_checks(t):
         ('accent-text on paper-2', t['accent-text'], t['paper-2'], 7), ('accent-text on accent-tint', t['accent-text'], t['accent-tint'], 7),
         ('ink on accent-tint', t['ink'], t['accent-tint'], 7),
         ('metal on paper', t['metal'], t['paper'], 7), ('metal on paper-2', t['metal'], t['paper-2'], 7),
-        ('on-accent on accent-fill', t['on-accent'], t['accent-fill'], 7), ('on-accent on accent', t['on-accent'], t['accent'], 5),
+        ('on-accent on accent-fill', t['on-accent'], t['accent-fill'], 7), ('paper on accent-fill', t['paper'], t['accent-fill'], 7), ('on-accent on accent', t['on-accent'], t['accent'], 5),
         ('on-deep on deep', t['on-deep'], t['deep'], 7), ('on-deep-soft on deep', t['on-deep-soft'], t['deep'], 7),
         ('on-deep-accent on deep', t['on-deep-accent'], t['deep'], 7),
         ('paper on ink', t['paper'], t['ink'], 7), ('on-ink-soft on ink', t['on-ink-soft'], t['ink'], 7),

@@ -21,8 +21,11 @@
         {% endfor %}
       </ol>
       <div class="index-stage" aria-hidden="true">
-        <div class="ph stage-ph">
-          {% for s in v.spaces %}<img class="stage-img{% if loop.first %} on{% endif %}" data-photo="{{ s.photo }}" src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="{{ '(min-width: 861px) 44vw, 1px'|cover(photos[s.photo], '4 / 5') }}" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async">{% endfor %}
+        {# 3A item 5: one stage box for every space photo; its ratio follows the widest photo so none is drawn past MAX_CROP #}
+        {% set ns = namespace(ph=photos[v.spaces[0].photo]) %}{% for s in v.spaces %}{% if photos[s.photo].width / photos[s.photo].height > ns.ph.width / ns.ph.height %}{% set ns.ph = photos[s.photo] %}{% endif %}{% endfor %}
+        {% set _ar = fit_ratio(ns.ph, '4 / 5') %}
+        <div class="ph stage-ph" style="--ar: {{ _ar }}">
+          {% for s in v.spaces %}<img class="stage-img{% if loop.first %} on{% endif %}" data-photo="{{ s.photo }}" src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="{{ '(min-width: 861px) 44vw, 1px'|cover(photos[s.photo], _ar) }}" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async">{% endfor %}
         </div>
         <p class="stage-cap" id="stage-cap">{{ v.spaces[0].name }}</p>
       </div>

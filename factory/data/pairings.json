@@ -133,8 +133,9 @@
     },
     {
       "id": "estate-cinzel",
+      "retired": "2026-10-23 stage 3A: Cinzel's hairlines fail the h1 stroke probe at the estate layout's mobile h1 sizes. qa.py maths, 2x, mixed case (factory/tools/cinzel_probe.py): 500 @28/32/36/44 px = 0.38/0.34/0.29/0.20 (Lindley-Scott page: 0.51 @28); 600 = 0.29/0.26/0.21/0.13; 700 = 0.24/0.19/0.15/0.08; 800 = 0.19/0.15/0.11/0.06 (FAIL > 0.25, WARN > 0.18). Clearing it needs >= 700 at >= 36 px on a 390 px screen, where a tracked caps h1 sets ~11 characters a line and reads as a slab. Retired from selection; estate keeps heritage-garalde, inscriptional-marcellus, estate-caslon.",
       "mood": "estate",
-      "dialects": ["estate"],
+      "dialects": [],
       "axes": {"formality": 92, "era": 15, "density": 55, "voice": 65, "temperature": 40},
       "display": {"family": "Cinzel", "class": "inscriptional", "weight": 500, "italic_weight": 500, "min_px": 18, "vars": null, "has_opsz": false, "tracking": "0.14em", "line_height": 1.1, "fallback": "'Trajan Pro', Georgia, serif", "case": "caps", "caps_only": true, "max_words_per_line": 4},
       "secondary": {"family": "Cormorant Garamond", "class": "garalde", "weight": 600, "italic_weight": 500, "min_px": 28, "vars": null, "has_opsz": false, "tracking": "-0.005em", "line_height": 1.1, "fallback": "Garamond, Georgia, serif", "case": "sentence", "hairline_floor_px": 56, "mobile_floor_px": 48, "hairline_note": "2D page-context probe (.factory-check/2d/probe_multi.py: antialiased, sentence case, qa.py stroke_probe maths), size 1x/2x hairline share: 48 0.20/0.19, 56 0.16/0.15 (weight 500 measured 48 0.25/0.24, 56 0.21/0.19, 64 0.17/0.16, so 2D raised it to 600). Floors = smallest probed size (40/44/48/56/64/72) with >= 0.04 margin under each qa.py fail line (1x 0.20, 2x 0.25): desktop needs 1x <= 0.16 and 2x <= 0.21, mobile (2x run) needs 2x <= 0.21."},

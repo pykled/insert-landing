@@ -131,3 +131,38 @@ def test_cover_sizes_and_fit_ratio():
     r = I.fit_ratio(land, '3 / 4')
     assert r != '3 / 4' and I.cover_factor(land, r) <= I.MAX_CROP
     assert I.fit_ratio({'width': 900, 'height': 1200}, '3 / 4') == '3 / 4'
+
+
+# --- item 6: button labels >= 7:1 in every state, no Cinzel, two facts in the first screen -------------------------
+
+def test_button_fill_holds_7_to_1_for_both_labels_in_every_dialect_palette(tmp_path):
+    from PIL import Image
+    from lib import palette as P, color as C
+    from tests import _util
+    paths = {}
+    for n, rgb in (('a', (236, 228, 205)), ('b', (64, 92, 60)), ('c', (150, 110, 70)), ('d', (40, 40, 52))):
+        paths[n] = str(tmp_path / (n + '.jpg')); Image.new('RGB', (64, 64), rgb).save(paths[n])
+    for dia in _util.data('dialects.json')['dialects']:
+        tones = dia['paper']['tones'] + (dia.get('paper_dark') or {}).get('tones', [])
+        for tone in tones:
+            for lead in paths:
+                t, report, meta = P.derive(paths, {'temperature': 40}, lead=lead, dialect=dia, tone=tone)
+                labels = [t['paper'], t.get('on-accent') or '#ffffff']
+                for lab in labels:
+                    assert C.contrast(lab, t['accent-fill']) >= 7.0, (dia['id'], tone, lead, lab, t['accent-fill'])
+
+
+def test_cinzel_is_retired_with_evidence_and_never_chosen():
+    from tests import _util
+    pair = [p for p in _util.data('pairings.json')['pairings'] if p['id'] == 'estate-cinzel'][0]
+    assert pair.get('retired') and 'hairline' in pair['retired']
+    for dia in _util.data('dialects.json')['dialects']:
+        assert 'estate-cinzel' not in [x['id'] for x in dia['pairings']]
+
+
+def test_frame_hero_puts_facts_above_the_photo(tmp_path):
+    rc, log = _build(HS, str(tmp_path / 'hs'), '--dialect', 'ranch', '--force', 'hero=frame')
+    assert rc == 0, log[-800:]
+    html = open(tmp_path / 'hs' / 'index.html').read()
+    hero = html[html.index('<section class="hero hero-frame"'):html.index('<div class="frame-below"')]
+    assert hero.index('frame-facts') < hero.index('frame-fig') and hero.count('<li><b>') >= 2
