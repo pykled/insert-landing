@@ -16,7 +16,7 @@
     </svg>
     <h2 id="crest-title" class="mo-crest-name h-label">{{ v.name }}</h2>
     <span class="mo-crest-rule" aria-hidden="true"></span>
-    {% if v.story and v.story.lead %}<p class="mo-crest-line">{{ v.story.lead }}</p>{% endif %}
+    {% if v.story and v.story.lead %}<p class="mo-crest-line" data-optional-copy>{{ v.story.lead }}</p>{% endif %}
     {% if place %}<p class="mo-crest-place">{{ place }}{% if tf.state %}, {{ tf.state }}{% endif %}</p>{% endif %}
     {% set figs = [] %}
     {% if tf.acres %}{% set _ = figs.append(tf.acres ~ ' acres') %}{% endif %}

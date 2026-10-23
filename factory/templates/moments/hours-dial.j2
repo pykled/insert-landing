@@ -24,7 +24,7 @@
         {% if d.breakdown_end %}<div><dt>Breakdown complete</dt><dd>{{ d.breakdown_end }}</dd></div>{% endif %}
       </dl>
       {% if d.included %}<p class="mo-dial-inc"><span>Included</span> {{ d.included|join(' · ') }}</p>{% endif %}
-      {% if d.requirement %}<p class="mo-dial-req">{{ d.requirement }}.</p>{% endif %}
+      {% if d.requirement %}<p class="mo-dial-req" data-optional-copy>{{ d.requirement }}.</p>{% endif %}
     </div>
     <div class="mo-dial-face">
       <div class="mo-dial-arc">

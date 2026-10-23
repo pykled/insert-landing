@@ -61,3 +61,27 @@ def test_built_css_has_visible_focus_on_inputs_and_dark_bands(tmp_path):
     assert 'outline: none' not in html.split('.field input:focus')[1][:120]
     assert '.field input:focus-visible' in html
     assert '.band-ink { --focus: var(--paper)' in html     # band-ink is the light band in dark-paper dialects
+
+
+# --- item 2: the hero deck (or any sentence) is printed once ------------------------------------------------------
+
+def test_duplicate_sentence_lint_and_optional_copy_drop():
+    from lib import lint as LINT
+    deck = 'Nine acres in Shadow Hills with a greenhouse, a barn and a flower garden.'
+    html = ('<main><section class="hero"><p class="lede">%s</p></section>'
+            '<section id="statement" data-optional-section><p class="statement-text" data-optional-copy>%s</p></section>'
+            '<section><ul><li><p>Short.</p></li></ul></section></main>') % (deck, deck)
+    assert any('printed twice' in p for p in LINT.lint_html(html))
+    out = LINT.drop_repeated_optional(html)
+    assert out.count(deck) == 1 and 'id="statement"' not in out and not LINT.duplicate_sentences(out)
+    keep = html.replace(deck, 'A different sentence that the statement section carries on its own.', 1)
+    assert 'id="statement"' in LINT.drop_repeated_optional(keep)
+
+
+@pytest.mark.parametrize('dialect', ['botanical', 'editorial'])
+def test_botanical_and_editorial_print_the_hero_deck_once(tmp_path, dialect):
+    from lib import lint as LINT
+    rc, log = _build(SH, str(tmp_path / dialect), '--dialect', dialect)
+    assert rc == 0, log[-800:]
+    html = open(tmp_path / dialect / 'index.html').read()
+    assert LINT.duplicate_sentences(html) == []

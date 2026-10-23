@@ -679,6 +679,7 @@ def main():
         fp['bottom'] = bottom or 'none'   # recorded, not weighted (lib/fingerprint.py WEIGHTS unchanged)
     ctx['build']['fingerprint_short'] = hashlib.sha1(json.dumps(fp, sort_keys=True).encode()).hexdigest()[:8]
     html = env.get_template('base.html.j2').render(**ctx)
+    html = LINT.drop_repeated_optional(html)   # 3A F10: secondary copy never repeats a sentence already on the page
     open(os.path.join(out_dir, 'index.html'), 'w').write(html)
     lint_problems = LINT.lint_html(html)   # 3A: no None/null/undefined/NaN or empty-slot gaps in text, attributes, JS, JSON-LD
     if lint_problems:

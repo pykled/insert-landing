@@ -1,13 +1,13 @@
 {#- section `statement` (editorial, modern-luxe, coastal, botanical): one serif sentence right after the hero, from
-    copy.hero_lede (else v.story.lead), with a short facts line underneath (tagline facts only, nulls omitted). Carries
+    v.story.lead (else copy.hero_lede), with a short facts line underneath (tagline facts only, nulls omitted). Carries
     the site's ornament when it is the drop cap (marker on the sentence), the sprig (slot section-head) or the wash. -#}
 {% set tf = v.tagline_facts %}
-{% set sentence = copy.hero_lede or v.story.lead %}
-<section id="statement" class="statement{% if ornament == 'watercolour-wash' %} statement-wash{% endif %}" aria-label="{{ v.short_name }} in a sentence">
+{% set sentence = copy.statement or v.story.lead or copy.hero_lede %}{# the hero already prints hero_lede; a repeat is dropped by lint.drop_repeated_optional #}
+<section id="statement" data-optional-section class="statement{% if ornament == 'watercolour-wash' %} statement-wash{% endif %}" aria-label="{{ v.short_name }} in a sentence">
   <div class="container statement-wrap">
     {% if ornament not in ('none', 'drop-cap', 'watercolour-wash') %}{% with slot='section-head' %}{% include 'ornaments/' ~ ornament ~ '.j2' ignore missing %}{% endwith %}{% endif %}
     {% if dialect and dialect.id in ('coastal', 'botanical') %}<p class="kicker reveal">{{ tf.locality }}{% if tf.region %} · {{ tf.region }}{% endif %}</p>{% endif %}
-    <p class="statement-text reveal d1"{% if ornament == 'drop-cap' %} data-ornament="drop-cap"{% endif %}>{{ sentence }}</p>
+    <p class="statement-text reveal d1" data-optional-copy{% if ornament == 'drop-cap' %} data-ornament="drop-cap"{% endif %}>{{ sentence }}</p>
     {% set facts = [] %}
     {% if tf.max_guests %}{% set _ = facts.append(('guests', tf.max_guests, 'guests', 'up to ')) %}{% endif %}
     {% if tf.acres %}{% set _ = facts.append(('acres', tf.acres, 'acres', '')) %}{% endif %}

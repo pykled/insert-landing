@@ -18,7 +18,7 @@
           <span class="jnum">{{ '%02d' % loop.index }}</span>
           <h3>{{ s.journey_step or s.name }}</h3>
           <p class="jwhere">{{ s.name }}{% if s.capacity_label %} · {{ s.capacity_label }}{% endif %}</p>
-          <p>{{ s.blurb }}</p>
+          <p class="jblurb" data-optional-copy>{{ s.blurb }}</p>
           <div class="ph jstep-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div>
         </li>
         {% endfor %}

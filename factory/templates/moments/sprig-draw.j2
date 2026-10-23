@@ -35,7 +35,7 @@
       </svg>
       <p class="kicker">{{ flora|capitalize }}{% if sp %} · {{ sp.name }}{% endif %}</p>
       <h2 id="sprig-title">{{ sp.journey_step if sp and sp.journey_step else (sp.name if sp else ph.caption) }}</h2>
-      {% if sp %}<p class="mo-sprig-text">{{ sp.blurb }}</p>
+      {% if sp %}<p class="mo-sprig-text" data-optional-copy>{{ sp.blurb }}</p>
       {% if sp.capacity_label %}<p class="mo-sprig-cap">{{ sp.capacity_label }}{% if sp.capacity_kind %}, {{ sp.capacity_kind }}{% endif %}</p>{% endif %}{% endif %}
     </div>
   </div>
