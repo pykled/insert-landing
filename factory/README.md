@@ -65,3 +65,11 @@ status refresh, cinematic blur veil): `STAGE-2D-NOTES.md`.
 Design docs: `../docs/venue-site-factory.md` (system; section 9 is the dialect layer), `../docs/venue-design-research.md`
 (research synthesis), `../docs/research/04-luxury-venue-vocabulary.md` + `05-luxury-dialects-spec.md` (dialects),
 `../docs/research/*.md` (cited source notes), `../docs/qa-calibration.md` (legibility probe calibration).
+
+## Demo pipeline (venue URL to private preview)
+`factory/new-demo.sh <venue-url> <slug>` runs intake (`intake/intake.py`: polite crawl, stated facts with source URLs,
+largest photos + scorer signals, draft + report) -> human review (`intake/curate.py` contact sheets and photo naming) ->
+`lib/schema.py` + `intake/score.py` -> `build.py --dialect auto` -> `qa.py --strict` -> `preview.py` (stages index.html +
+images under the private-previews token path; refuses without a strict QA pass or with images over 400 KB). Stage timings
+go to `data/timings.log`. Venue photos live in the gitignored `content/photos/<slug>/`. Rules, timings, what the reviewer
+checks and what is never allowed: `INTAKE.md`. Tests: `python3 -m pytest -q tests/test_intake.py`.
