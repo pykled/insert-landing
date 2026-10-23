@@ -96,7 +96,10 @@
   .lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-soft); max-width: 58ch; }
   .fine { font-size: 13.5px; color: var(--ink-faint); line-height: 1.5; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+  /* 3A F5: two-tone ring (focus colour + a halo filling the offset gap) so it reads on paper, deep bands and photos alike */
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; box-shadow: 0 0 0 3px var(--focus-halo, var(--paper)); }
+  .band-deep, .band-ink, footer.foot-mq, .panel-copy, .silent-media, .spaces-olive { --focus: {{ on_deep }}; --focus-halo: var(--deep); }
+  .band-ink { --focus: var(--paper); --focus-halo: var(--ink); }   /* band-ink is light in dark-paper dialects */
   .skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 100; transition: top .2s; text-decoration: none; }
   .skip:focus { top: 12px; }
   .section-head { max-width: 760px; margin-bottom: clamp(32px, 5vw, 60px); }
@@ -176,7 +179,8 @@
   .field { display: grid; gap: 7px; margin-bottom: 14px; }
   .field label { font-size: {{ '12px' if t.caps else '13.5px' }}; {% if t.caps %}letter-spacing: 0.16em; text-transform: uppercase;{% endif %} font-weight: {{ pair.body.medium }}; color: var(--ink-soft); }
   .field input, .field select { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: {{ field_bg }}; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 12px 14px; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; min-height: 48px; }
-  .field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .field input:focus, .field select:focus { border-color: var(--accent); }
+  .field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; box-shadow: 0 0 0 3px var(--focus-halo, var(--paper)); }
   .field input::placeholder { color: var(--ink-faint); opacity: 1; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .card .btn { width: 100%; margin-top: 6px; }

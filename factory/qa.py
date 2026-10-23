@@ -30,6 +30,7 @@ Checks, per viewport (1440x900 @2x desktop, 390x844 @2x mobile):
      FAIL; pre-dialect builds and hand-built mocks: WARN (they predate the spec).
  10. motion: under prefers-reduced-motion every .reveal is visible and nothing animates (no running animations, no
      auto-advancing [data-autoplay]); with motion on, the reveal transition is 600-1200 ms.
+ 12. focus: every Tab stop shows a focus indicator (lib/focus.py; >= 3:1 change over a 2 css px ring)
  11. template fallbacks recorded in build-meta.json (a dialect asked for a template stage 2B has not built yet):
      WARN, FAIL with --strict.
 Writes shots + qa-report.json into <dir>/qa/. Exit 1 on any problem.
@@ -46,7 +47,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from lib import fingerprint as FP, exclusions as EX, phash as PH, overflow as OV, claims as CL
+from lib import fingerprint as FP, exclusions as EX, phash as PH, overflow as OV, claims as CL, focus as FO
 
 ap = argparse.ArgumentParser()
 ap.add_argument('dir')
@@ -59,7 +60,7 @@ ap.add_argument('--content', help='content JSON (default: build-meta content_pat
 a = ap.parse_args()
 
 DIR = os.path.abspath(a.dir)
-ROOT = os.path.expanduser('~/projects/insert')
+ROOT = os.path.dirname(HERE)   # F12: the checkout this qa.py lives in, not a hard-coded path
 URL = a.url or (a.base + '/' + os.path.relpath(DIR, ROOT) + '/index.html')
 OUT = os.path.join(DIR, 'qa'); os.makedirs(OUT, exist_ok=True)
 MAN = {m['name']: m for m in json.load(open(os.path.join(DIR, 'img', 'manifest.json')))} if os.path.exists(os.path.join(DIR, 'img', 'manifest.json')) else {}
@@ -208,7 +209,9 @@ def run(pw, name, width, height, scale, mobile):
     page.on('pageerror', lambda e: errors.append('pageerror: %s' % e))
     page.on('requestfailed', lambda r: errors.append('requestfailed: %s' % r.url))
     page.on('response', lambda r: transferred.append((r.url, r.headers.get('content-length'))))
-    page.goto(URL, wait_until='load')
+    resp = page.goto(URL, wait_until='load')
+    if not resp or not resp.ok:
+        sys.exit('qa: %s returned %s; is the http.server running from %s? (or pass --url)' % (URL, resp and resp.status, ROOT))
     page.wait_for_function('document.fonts.ready.then(()=>true)'); page.wait_for_timeout(500)
     # --- fonts ---
     fams = []
@@ -293,6 +296,9 @@ def run(pw, name, width, height, scale, mobile):
     if sw > iw:
         problems.append('%s: horizontal overflow scrollWidth=%d innerWidth=%d' % (name, sw, iw))
         problems.append('  offenders: %s' % page.evaluate("""() => [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > window.innerWidth + 1).slice(0, 8).map(e => e.tagName + '.' + e.className + ' right=' + Math.round(e.getBoundingClientRect().right))"""))
+    # --- focus visibility (3A F5): Tab through every control, focused vs blurred pixels must change >= 3:1 over a 2 px ring ---
+    fp, frows = FO.check(page, name, scale)
+    problems.extend(fp); info.setdefault('focus', {})[name] = {'controls': len(frows), 'min_margin': min((r['changed'] / max(1, r['need']) for r in frows), default=0)}
     page.evaluate("document.querySelectorAll('img[loading=lazy]').forEach(i=>i.loading='eager')")
     page.evaluate("window.scrollTo(0, document.body.scrollHeight)"); page.wait_for_timeout(800)
     page.evaluate("window.scrollTo(0, 0)"); page.wait_for_timeout(300)
