@@ -2,3 +2,4 @@
 
 - step 0 triage: DONE, kept all uncommitted factory work (86 tests pass) as 578d402 (intake wedding-first) + aef2de9 (build/templates/content); previews/**, venue-shortlist.md, boards README, stonehurst-moments-test.json left uncommitted. next: item 1
 - item 1 generality + lint: DONE 2826561 (99 tests; 390-build hostile matrix clean via .factory-check/3a/matrix.py; LSH estate + HomeStead ranch build, lint clean; a/b/c previews now differ in copy only, left uncommitted). next: item 2 overflow
+- item 2 overflow: DONE da16e16 (long-word fixture fails before / passes after; proofs + 3a builds 0 offenders at 390/1440). next: item 3 invented content
