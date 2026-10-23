@@ -1,7 +1,7 @@
 <header class="site" id="top">
   <div class="container nav">
     <a class="brand" href="#top" aria-label="{{ v.name }}, home">
-      <span class="brand-word">{{ v.short_name }}<small>{{ v.tagline_facts.locality }} · {{ v.tagline_facts.region }}</small></span>
+      <span class="brand-word">{{ v.short_name }}<small>{{ v.tagline_facts.locality }} · {{ v.tagline_facts.region or v.tagline_facts.state }}</small></span>
     </a>
     <ul class="nav-links" id="nav-links">
       {% for s in sections if s.nav %}<li><a href="#{{ s.id }}">{{ s.nav }}</a></li>{% endfor %}

@@ -102,7 +102,7 @@ def copy_slots(v):
         'acres': tf['acres'], 'acres_words': wordnum(tf['acres']).capitalize(), 'acres_words_lc': wordnum(tf['acres']), 'space_count': tf['space_count'], 'space_count_words': wordnum(tf['space_count']).capitalize(), 'space_count_words_lc': wordnum(tf['space_count']),
         'max_guests': tf['max_guests'], 'space_list': space_list, 'space_list_cap': space_list[:1].upper() + space_list[1:],
         'uses_sentence': ', '.join(uses[:-1]) + ' and ' + uses[-1].lower(), 'uses_sentence_lc': (', '.join(uses[:-1]) + ' and ' + uses[-1]).lower(),
-        'rental_hours': v['day']['rental_hours'], 'spaces_per_event': v['day']['spaces_per_event'], 'spaces_per_event_lc': v['day']['spaces_per_event'][:1].lower() + v['day']['spaces_per_event'][1:],
+        'rental_hours': v['day']['rental_hours'], 'spaces_per_event': v['day']['spaces_per_event'], 'spaces_per_event_lc': (v['day']['spaces_per_event'][:1].lower() + v['day']['spaces_per_event'][1:]) if v['day'].get('spaces_per_event') else None,
     }
     vibe = v.get('vibe') or {}
     noun = TYPE_NOUNS.get(vibe.get('type'))
@@ -156,6 +156,15 @@ def resolve_copy(voice, v, overrides, cta_set=None):
     return out
 
 
+WEDDINGISH = re.compile(r'wedding|elop|ceremon|reception|vow', re.I)
+
+
+def secondary_uses(v):
+    """Wedding-first (factory/INTAKE.md): uses[0] is the headline offer; the closing uses band shows only the other,
+    non-wedding uses the venue states (empty -> no band)."""
+    return [u for u in v['tagline_facts']['uses'][1:] if not WEDDINGISH.search(u)]
+
+
 def section_plan(p, ch, v):
     """Ordered sections. Three rhythms; which one is a function of the axes, not a hard-coded per-variant list."""
     d, vo = p['density'], p['voice']
@@ -180,6 +189,8 @@ def section_plan(p, ch, v):
     else:
         order = [featured, spaces, mom, story, tour, guide, glance, faq, uses]
         rhythm = 'warm: straight to the grounds, history after'
+    if not secondary_uses(v):
+        order = [s for s in order if s is not uses]
     return order, rhythm
 
 
@@ -196,7 +207,8 @@ def jsonld(v, out_url):
         '@graph': [
             {
                 '@type': ['EventVenue', 'LocalBusiness'], '@id': v['website'] + '#venue', 'name': v['name'], 'url': v['website'],
-                'description': 'A %s-acre garden wedding and event venue in %s, %s.' % (tf['acres'], tf['locality'], tf['region']),
+                'description': '%s garden wedding and event venue in %s.' % ('A %s-acre' % tf['acres'] if tf.get('acres') is not None else 'A',
+                                                                             ', '.join(x for x in (tf['locality'], tf.get('region')) if x)),
                 'email': v['contact']['email'],
                 'address': {'@type': 'PostalAddress', 'streetAddress': v['contact']['address_line'], 'addressLocality': tf['locality'], 'addressRegion': tf['state'], 'addressCountry': 'US'},
                 'maximumAttendeeCapacity': tf['max_guests'],
@@ -244,7 +256,8 @@ def dialect_section_plan(rhythm_variant, used, v, voice_axis, resolve_section):
             sid = resolve_section(blk['id'])
             if sid:
                 order.append(S(sid, 'sections/' + sid))
-    order.append(S('uses', 'sections/uses'))
+    if secondary_uses(v):
+        order.append(S('uses', 'sections/uses'))
     return order, 'dialect %s: %s' % (rhythm_variant['id'], rhythm_variant['label'])
 
 
@@ -300,7 +313,7 @@ def main():
     if a.dialect == 'none' and not a.personality:
         ap.error('--personality is required for --dialect none')
     forced = dict(kv.split('=') for kv in a.force)
-    copy_over = {}
+    copy_over = {k: val for k, val in (v.get('copy_overrides') or {}).items() if not k.startswith('_')}   # content file's taste pass; --copy wins
     for kv in a.copy:
         k, val = kv.split('=', 1); copy_over[k] = val
 
@@ -583,7 +596,9 @@ def main():
                sections=sections, p=p, css_vars=P.css_vars(tokens), nav_style=nav_style, guide_layout=guide_layout, guide_photo='reception' if 'reception' in photos else lead,
                hero_sizes=(HERO_SIZES.get(hid) if dialect else None) or ('100vw' if hid in ('masthead', 'cinematic') else ('(min-width: 1140px) 1040px, 92vw' if hid == 'frame' else '(min-width: 861px) 46vw, 100vw')),
                spaces_by_id={s['id']: s for s in v['spaces']}, story_second='bungalow' if 'bungalow' in photos else lead, light_photos=light_photos,
-               uses_band='ink' if p['density'] >= 80 else 'deep', looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
+               uses_band='ink' if p['density'] >= 80 else 'deep', secondary_uses=secondary_uses(v),
+               secondary_uses_sentence=(lambda u: ((', '.join(u[:-1]) + ' and ' + u[-1]) if len(u) > 1 else ''.join(u)).lower().capitalize())(secondary_uses(v)),
+               uses_shoot=any(re.search(r'film|shoot|photo', u, re.I) for u in secondary_uses(v)), looks_sentence=', '.join(looks[:-1]) + ' and ' + looks[-1],
                seo={'title_tail': 'Garden Wedding Estate in %s' % v['tagline_facts']['locality'], 'description': ''},
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
                dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on, veil_blur_px=P.VEIL_BLUR_PX,

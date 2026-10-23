@@ -13,11 +13,29 @@
     "space_count": 4,
     "max_guests": 180,
     "events_per_day": 1,
-    "uses": ["Weddings", "Micro weddings", "Private events"],
+    "uses": ["Weddings", "Micro weddings"],
+    "_uses_note": "Wedding-first (2026-10-23): Weddings lead. 'Micro weddings' = the Micro Wedding Package in the 2027 overview booklet. 'Private events' removed: no crawled page or the booklet states it (the homepage says only 'one event per day'), so no non-wedding secondary line is offered.",
     "_note": "region: the site names Wilshire Peak and the San Bernardino Mountains but never a county or region, so it stays null. space_count = the four areas the About page describes as event spaces (ceremony, reception, beverage area, cottage & cabin); the site states no count. max_guests: '~180' in the overview booklet FAQ."
   },
-  "vibe": {"type": "ranch", "era": null, "words": ["rustic", "land", "romantic"],
-           "_note": "Reviewed: a family ranch homestead kept in its original feel with vintage décor (rustic), 5.5 acres under Wilshire Peak with oaks, sycamores, apple trees and a lilac field (land), and the site's own repeated word (romantic). Intake suggested rustic/land/evening. era null: the site says 'more than a hundred years ago' but gives no build year."},
+  "wedding_first": {
+    "verdict": "primary",
+    "shares": {"pages": 0.92, "headings": 0.9, "reviews": 1.0, "terms": 0.94},
+    "secondary_uses_stated": [],
+    "checked": "2026-10-23, python3 factory/intake/wedding.py homestead (14 crawled pages; wedding terms 50, other-use terms 3)"
+  },
+  "copy_overrides": {
+    "_note": "Wedding-first hero and spaces copy (applied by build.py over every voice; --copy still wins). Facts only: 5.5 acres, oaks and sycamores, string lights, one wedding a day and ~180 guests (booklet), the Cottage & Cabin.",
+    "hero_kicker": "Weddings · Oak Glen, California",
+    "hero_headline": "Ranch weddings on 5.5 acres under the oaks. <em>One wedding a day.</em>",
+    "hero_lede": "5.5 acres in Oak Glen: vows under old oaks and sycamores, dinner and dancing under string lights, for up to 180 guests.",
+    "spaces_kicker": "Your wedding day",
+    "spaces_title": "Four places, one wedding day.",
+    "spaces_lede": "Get ready in the Cottage and Cabin, say your vows under the oaks, stop at the beverage area, then dinner and dancing under the lights.",
+    "footer_blurb": "{name}. A family-owned 5.5-acre ranch wedding venue in Oak Glen, California, hosting one wedding a day.",
+    "guide_lede": "What the wedding package includes, how the wedding day runs, and how a date is held."
+  },
+  "vibe": {"type": "ranch", "era": null, "words": ["rustic", "land", "romantic"], "lead_offer": "weddings",
+           "_note": "Wedding-first: the three words describe the wedding day the site sells. Reviewed: a family ranch homestead kept in its original feel with vintage décor (rustic), 5.5 acres under Wilshire Peak with oaks, sycamores, apple trees and a lilac field (land), and the site's own repeated word (romantic). Intake suggested rustic/land/evening. era null: the site says 'more than a hundred years ago' but gives no build year."},
   "website": "https://homesteadoakglen.com/",
   "platform_note": "Showit (WordPress blog); Meta Pixel; pricing in three package PDFs behind a download, tours by appointment, no scheduler",
   "contact": {
@@ -82,7 +100,7 @@
     {
       "id": "ceremony", "name": "The Ceremony Area", "photo": "ceremony",
       "capacity": null, "capacity_label": "Capacity on request", "capacity_kind": null,
-      "use": "Open-air ceremonies",
+      "use": "Open-air wedding ceremonies",
       "blurb": "Under the spreading arms of old oaks and sycamores: a long aisle built for a grand entrance, ending at a terraced stage.",
       "features": ["Terraced stage", "Oak and sycamore canopy"],
       "journey_step": "Vows under the oaks",
@@ -91,7 +109,7 @@
     {
       "id": "reception", "name": "The Reception Area", "photo": "tables",
       "capacity": null, "capacity_label": "Capacity on request", "capacity_kind": null,
-      "use": "Outdoor dinner and dancing",
+      "use": "Wedding dinner and dancing",
       "blurb": "Dinner outdoors with the mountains in view, then dancing under string lights and stars, with the fire pit nearby for s'mores.",
       "features": ["Mountain views", "String lights", "Fire pit"],
       "journey_step": "Dinner under the lights",
@@ -109,7 +127,7 @@
     {
       "id": "cottage", "name": "The Cottage & Cabin", "photo": "oakcottage",
       "capacity": null, "capacity_label": "For the wedding party", "capacity_kind": null,
-      "use": "Getting ready",
+      "use": "Getting ready for the wedding",
       "blurb": "Two private getting-ready spaces, one for each party, far enough for a quiet moment and close to the celebration. Refrigerator, ice and microwave inside.",
       "features": ["Private", "Refrigerator, ice, microwave"],
       "journey_step": "Get ready in the Cottage and Cabin",

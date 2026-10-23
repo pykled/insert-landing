@@ -13,10 +13,28 @@
     "space_count": 3,
     "max_guests": 200,
     "events_per_day": 1,
-    "uses": ["Weddings", "Receptions", "Quinceañeras", "Film shoots"]
+    "uses": ["Weddings", "Quinceañeras", "Corporate events", "Film shoots"],
+    "_uses_note": "Wedding-first (2026-10-23): Weddings lead (wedding receptions are part of it, so 'Receptions' is no longer a separate use). Secondary lines only, each stated by the venue: quinceañeras (/quinceanera/), corporate events (/additional-services/), film shoots (/film-shoots/)."
   },
-  "vibe": {"type": "estate", "era": 1911, "words": ["heritage", "garden", "grand"], "era_source": "https://lindleyscotthouse.com/about-us/",
-           "_note": "Reviewed: a 1911 house kept close to its original state (heritage), ceremonies on the lawn among old trees on 4 acres of gardens (garden), foyer and grand staircase (grand). Intake suggested heritage/land/garden with type garden; 'land' dropped (no ranch or farmland on the site), type set to estate (a historic residence)."},
+  "wedding_first": {
+    "verdict": "primary",
+    "shares": {"pages": 0.73, "headings": 0.89, "reviews": 1.0, "terms": 0.78},
+    "secondary_uses_stated": ["Quinceañeras", "Corporate events", "Birthdays", "Anniversaries", "Fundraisers", "Film shoots"],
+    "checked": "2026-10-23, python3 factory/intake/wedding.py lindley-scott (13 crawled pages; wedding terms 72, other-use terms 20; pages led by other uses: /quinceanera/, /film-shoots/, /additional-services/)"
+  },
+  "copy_overrides": {
+    "_note": "Wedding-first hero and spaces copy (applied by build.py over every voice; --copy still wins). Facts only: 1911 house, one event per day, ceremony lawn with old oak and cypress, staircase for photos, Carriage House seats 200 and is two minutes through the gardens, weddings since 1978.",
+    "hero_kicker": "Weddings · Azusa, San Gabriel Valley",
+    "hero_headline": "Garden weddings at a 1911 house. <em>One event a day.</em>",
+    "hero_lede": "Vows on the front lawn under old oak and cypress, portraits on the grand staircase, then dinner for up to 200 in the Carriage House.",
+    "spaces_kicker": "Your wedding day",
+    "spaces_title": "Three places, one wedding day.",
+    "spaces_lede": "Get ready and take portraits in the house, marry on the front lawn, then walk two minutes through the gardens to dinner in the Carriage House.",
+    "footer_blurb": "{name}, Azusa, San Gabriel Valley. Weddings since 1978; also quinceañeras, corporate events and film shoots.",
+    "guide_lede": "What the wedding package includes, how the wedding day runs, and how a date is held."
+  },
+  "vibe": {"type": "estate", "era": 1911, "words": ["heritage", "garden", "grand"], "era_source": "https://lindleyscotthouse.com/about-us/", "lead_offer": "weddings",
+           "_note": "Wedding-first: the three words describe the wedding day the site sells (ceremony on the garden lawn, portraits on the grand staircase of the 1911 house). Reviewed: a 1911 house kept close to its original state (heritage), ceremonies on the lawn among old trees on 4 acres of gardens (garden), foyer and grand staircase (grand). Intake suggested heritage/land/garden with type garden; 'land' dropped (no ranch or farmland on the site), type set to estate (a historic residence)."},
   "website": "https://lindleyscotthouse.com/",
   "platform_note": "WordPress (Salient/WPBakery theme); contact form via Gravity Forms; no CRM or scheduler detected",
   "contact": {
@@ -85,7 +103,7 @@
     {
       "id": "lawn", "name": "The Front Lawn", "photo": "arch",
       "capacity": 200, "capacity_label": "Up to 200 seated", "capacity_kind": "ceremony, seated",
-      "use": "Ceremonies",
+      "use": "Wedding ceremonies",
       "blurb": "The ceremony lawn in front of the house: a wedding arch with the residence behind it, old trees and hedgerows around, the San Gabriel Mountains ahead.",
       "features": ["Bridal arch", "White garden chairs", "Old oak and cypress"],
       "journey_step": "Ceremony on the front lawn",
@@ -103,7 +121,7 @@
     {
       "id": "carriage", "name": "The Carriage House", "photo": "reception",
       "capacity": 200, "capacity_label": "Up to 200 seated", "capacity_kind": "seated reception",
-      "use": "Receptions",
+      "use": "Wedding receptions",
       "blurb": "Built in 2003 to match the house, a two-minute walk through the gardens from the ceremony, with a bar and its own commercial kitchen.",
       "features": ["Own commercial kitchen", "Bar", "Two minutes from the lawn"],
       "journey_step": "Dinner in the Carriage House",
