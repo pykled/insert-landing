@@ -235,7 +235,21 @@
   .night h2 em { color: var(--gilt); }
   .contact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
   .contact-col > .label { margin-bottom: 18px; }
-  .calendly-inline-widget { min-width: 280px; height: 640px; background: var(--night-2); border-radius: 2px; }
+  /* Calendly: the free plan ignores colour params and always paints white, so the calendar is mounted
+     like a printed card on an ivory mat. data-resize lets Calendly size the iframe to its content. */
+  .cal-frame { position: relative; background: var(--paper); padding: 12px; border-radius: 2px; min-height: 626px; box-shadow: 0 30px 50px -30px rgba(0, 0, 0, 0.7); }
+  .cal-frame.is-loaded { min-height: 0; }
+  .calendly-inline-widget { min-width: 280px; background: #FFFFFF; border-radius: 1px; box-shadow: 0 0 0 1px var(--linen); }
+  .calendly-inline-widget iframe { display: block; }
+  .cal-wait { position: absolute; inset: 12px; background: #FFFFFF; color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 32px 24px; text-align: center; transition: opacity 500ms var(--ease); }
+  .cal-frame.is-loaded .cal-wait { opacity: 0; visibility: hidden; transition: opacity 500ms var(--ease), visibility 0s 500ms; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 26px); gap: 14px 16px; }
+  .cal-grid i { width: 26px; height: 26px; border-radius: 50%; background: var(--paper); }
+  .cal-wait p { margin: 0; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink-soft); font-variation-settings: "opsz" 24; }
+  .cal-wait p.cal-fail { display: none; font-family: var(--sans); font-style: normal; font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 22em; }
+  .cal-fail a { color: var(--ink); font-weight: 600; text-underline-offset: 4px; }
+  .cal-frame.is-failed .cal-wait p.cal-fail { display: block; }
+  .cal-frame.is-failed .cal-wait p.cal-msg { display: none; }
   .contact-form { display: grid; gap: 22px; }
   .contact-form label { display: block; font-size: 16px; color: var(--on-night-soft); margin-bottom: 8px; }
   .contact-form input, .contact-form textarea {
@@ -301,7 +315,9 @@
     .charter-aside { grid-template-columns: 1fr; gap: 28px; }
     .standard { text-align: left; }
     .addon-card .addon-art { padding: 28px; }
-    .calendly-inline-widget { height: 680px; }
+    .cal-frame { padding: 8px; min-height: 618px; margin: 0 calc(-1 * var(--gutter) + 12px); }
+    .cal-wait { inset: 8px; }
+    .cal-grid { gap: 12px 10px; }
     .foot { grid-template-columns: 1fr; }
   }
 </style>
@@ -518,7 +534,14 @@
       <div class="contact-grid reveal">
         <div class="contact-col">
           <p class="label">Choose a time</p>
-          <div class="calendly-inline-widget" data-url="https://calendly.com/dilldjie/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1&background_color=241f18&text_color=f1eadc&primary_color=d4b98c"></div>
+          <div class="cal-frame" id="cal-frame">
+            <div class="calendly-inline-widget" data-resize="true" data-url="https://calendly.com/dilldjie/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1&hide_landing_page_details=1&background_color=ffffff&text_color=1f1a14&primary_color=5c4529"></div>
+            <div class="cal-wait">
+              <div class="cal-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <p class="cal-msg" role="status">Loading calendar…</p>
+              <p class="cal-fail" role="alert">The calendar is taking a while. <a href="https://calendly.com/dilldjie/free-consultation" target="_blank" rel="noopener">Open it in a new tab</a>, or <a href="#contact-form">email us through the form</a> and we’ll find a time.</p>
+            </div>
+          </div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
 
@@ -581,6 +604,21 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => io.observe(el));
+  })();
+
+  // Calendly: hide the placeholder once the widget reports its page; offer a fallback after 12 s
+  (() => {
+    const frame = document.getElementById('cal-frame');
+    if (!frame) return;
+    let loaded = false;
+    addEventListener('message', (e) => {
+      if (!/^https:\/\/([a-z0-9-]+\.)?calendly\.com$/.test(e.origin) || !e.data || typeof e.data.event !== 'string') return;
+      const h = e.data.event === 'calendly.page_height' ? parseInt(e.data.payload && e.data.payload.height, 10) : 0;
+      if (!loaded && (e.data.event === 'calendly.event_type_viewed' || h > 300)) {
+        loaded = true; frame.classList.remove('is-failed'); frame.classList.add('is-loaded');
+      }
+    });
+    setTimeout(() => { if (!loaded) frame.classList.add('is-failed'); }, 12000);
   })();
 
   // Analytics (suppressed on private preview copies)
