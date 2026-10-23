@@ -11,7 +11,7 @@
       <div>
         <h3 class="foot-h">Visit</h3>
         <ul>
-          <li>{{ v.contact.address_line }}</li>
+          {% if v.contact.address_line %}<li>{{ v.contact.address_line }}</li>{% endif %}
           <li>{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}</li>
           {% if v.contact.hours %}<li>{{ v.contact.hours }}</li>{% endif %}
         </ul>

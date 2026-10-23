@@ -143,3 +143,53 @@ def test_long_word_uses_band_does_not_overflow_in_any_bottom(tmp_path):
         assert rc == 0, log[-800:]
         html = open(out / 'index.html').read().replace('href="', 'data-x="')   # no network: CSS is inline, assets ignored
         assert [o for o in _overflow(html) if 'uses' in o] == [], d
+
+
+# --- item 3: nothing invented ------------------------------------------------------------------------------------
+
+from lib import claims as CL, schema as SCHEMA  # noqa: E402
+
+CONTENT_MIN = {'tagline_facts': {'max_guests': 200, 'events_per_day': None, 'acres': 4}, 'spaces': [{'capacity': 150}],
+               'contact': {'phone': '(626) 334-5215'}}
+
+
+def test_deny_list_flags_promises_and_preset_venue_words():
+    html = ('<h1>A garden for 200 at dinner.</h1><p>See the hall by appointment.</p>'
+            '<div class="hold"><b>Held for 24 hours.</b> We\'ll text you in under a minute.</div><h3>You\'re on the calendar.</h3>')
+    probs = CL.deny_list(html, CONTENT_MIN)
+    for want in ('at dinner', 'the hall', 'by appointment', 'Held for 24', "We'll text", 'in under a minute', "You're on the calendar"):
+        assert any(want.lower() in p.lower() for p in probs), want
+
+
+def test_deny_list_allows_what_the_venue_states():
+    c = dict(CONTENT_MIN, faqs=[{'q': 'Tours?', 'a': 'Tours are by appointment.'}], tagline_facts={'events_per_day': 1})
+    assert CL.deny_list('<p>Tours by appointment.</p><h1>One wedding a day.</h1>', c) == []
+
+
+def test_numbers_must_trace_to_content_or_arithmetic():
+    probs = CL.untraced_numbers('<h2>Up to 350 guests</h2><p class="lede">120 at dinner</p><dd>4 acres</dd>'
+                                '<span class="jnum">07</span><h3>Call (626) 334-5215</h3>', CONTENT_MIN)
+    assert len(probs) == 1 and '120' in probs[0]      # 350 = 200 + 150; 4 stated; 07 is a sequence label; phone is the venue's
+
+
+def test_preview_label_required_on_every_automation_surface():
+    bare = '<div class="card" id="check"><form></form></div><div class="scheduler" id="scheduler"></div><div id="guide-wrap"></div>'
+    assert len(CL.preview_labels(bare)) == 3
+    lab = '<p class="fine preview-label">%s.</p>' % CL.PREVIEW_PHRASE
+    ok = bare.replace('<form>', lab + '<form>').replace('id="scheduler">', 'id="scheduler">' + lab).replace('id="guide-wrap">', 'id="guide-wrap">' + lab)
+    assert CL.preview_labels(ok) == []
+
+
+def test_all_voices_valid_including_dialect_lines():
+    errors, _ = SCHEMA.validate_voices(json.load(open(os.path.join(FACTORY, 'data', 'voices.json'))))
+    assert errors == []
+
+
+def test_built_pages_state_nothing_the_content_lacks(tmp_path):
+    for src, dialect in ((LSH, 'auto'), (HS, 'auto'), (LSH, 'candlelit'), (HS, 'botanical'), (os.path.join(FACTORY, 'content', 'stonehurst.json'), 'ranch')):
+        out = tmp_path / ('%s-%s' % (os.path.basename(src), dialect))
+        rc, log = _build(src, str(out), '--dialect', dialect)
+        assert rc == 0, log[-800:]
+        html = open(out / 'index.html').read()
+        assert CL.check(html, json.load(open(src))) == [], (src, dialect)
+        assert 'Garden Wedding Estate' not in html or json.load(open(src)).get('vibe', {}).get('type') == 'garden'

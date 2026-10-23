@@ -1,4 +1,5 @@
 <div class="date-inline form-wrap" id="check">
+  {% with which='date' %}{% include 'partials/preview-label.j2' %}{% endwith %}
   <form id="date-form" class="date-row" novalidate aria-label="{{ copy.date_title }}">
     <div class="field">
       <label for="f-date">Event date</label>

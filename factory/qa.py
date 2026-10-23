@@ -46,7 +46,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from lib import fingerprint as FP, exclusions as EX, phash as PH, overflow as OV
+from lib import fingerprint as FP, exclusions as EX, phash as PH, overflow as OV, claims as CL
 
 ap = argparse.ArgumentParser()
 ap.add_argument('dir')
@@ -367,7 +367,7 @@ def run(pw, name, width, height, scale, mobile):
     page.click('#date-form button[type=submit]'); page.wait_for_timeout(250)
     if not page.is_visible('#date-confirm'): problems.append('%s: date confirmation not shown' % name)
     txt = page.inner_text('#date-confirm') if page.is_visible('#date-confirm') else ''
-    for want in ('Saturday, May 15', '140', 'sam@example.com', 'Held for 24 hours'):
+    for want in ('Saturday, May 15', '140', 'sam@example.com', 'Preview only'):   # 3A: a labelled preview, never a promised hold
         if want not in txt: problems.append('%s: date confirmation missing "%s"' % (name, want))
     check_contrast(page, name, 'date confirm', '#check', scale)
     page.click('#date-again'); page.wait_for_timeout(150)
@@ -385,7 +385,7 @@ def run(pw, name, width, height, scale, mobile):
         if page.is_disabled('#book'): problems.append('%s: book button still disabled after picking day + slot' % name)
         check_contrast(page, name, 'tour picked', '#scheduler', scale)
         page.click('#book'); page.wait_for_timeout(250)
-        if not page.is_visible('#tour-confirm') or 'on the calendar' not in page.inner_text('#tour-confirm'): problems.append('%s: tour confirmation not shown' % name)
+        if not page.is_visible('#tour-confirm') or 'Preview only' not in page.inner_text('#tour-confirm'): problems.append('%s: tour confirmation not shown' % name)
         check_contrast(page, name, 'tour confirm', '#scheduler', scale)
         page.click('#tour-again'); page.wait_for_timeout(150)
         if not page.is_visible('#cal'): problems.append('%s: tour scheduler did not reset' % name)
@@ -468,6 +468,12 @@ def run(pw, name, width, height, scale, mobile):
     ctx.close()
 
 
+# 3A: nothing on the page may state a venue fact or policy the content file lacks; automations are labelled previews
+if HTML and CONTENT:
+    for pr in CL.check(HTML, CONTENT):
+        problems.append('content trace: ' + pr)
+elif HTML:
+    problems.append('content trace: no content file found for this build (pass --content); invented-content checks could not run')
 with sync_playwright() as pw:
     run(pw, 'desktop', 1440, 900, 2, False)
     run(pw, 'mobile', 390, 844, 2, True)

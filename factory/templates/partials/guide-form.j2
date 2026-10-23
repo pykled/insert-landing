@@ -1,4 +1,5 @@
 <div class="guide-form-wrap form-wrap" id="guide-wrap">
+  {% with which='guide' %}{% include 'partials/preview-label.j2' %}{% endwith %}
   <form class="guide-form reveal d3 hide-done" id="guide-form" novalidate>
     <div class="field">
       <label for="g-email" class="sr-only">Email address</label>
@@ -6,11 +7,10 @@
     </div>
     <button class="btn btn-solid" type="submit">{{ copy.guide_cta }}</button>
   </form>
-  <p class="fine reveal d4 hide-done" id="guide-fine">One email, no drip sequence. A short note about dates and tours follows only if you ask.</p>
   <p class="fine err" id="guide-error" role="alert" hidden></p>
   <div class="confirm" id="guide-confirm" aria-live="polite">
     <div class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-    <h3>Guide sent.</h3>
-    <p>It's on its way to <b id="g-sent">you@email.com</b>. Check your inbox in the next minute, and the spam folder if it's shy.</p>
+    <h3>Preview only: nothing was sent.</h3>
+    <p>In the live version, the venue's pricing guide would go to <b id="g-sent">your inbox</b>.</p>
   </div>
 </div>

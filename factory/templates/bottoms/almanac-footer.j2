@@ -6,7 +6,7 @@
       <p class="al-where">{{ v.tagline_facts.locality }}, {{ v.tagline_facts.region or v.tagline_facts.state }}</p>
     </div>
     <dl class="al-foot-list">
-      <div><dt>Visit</dt><dd>{{ v.contact.address_line }}, {{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}</dd>{% if v.contact.hours %}<dd>{{ v.contact.hours }}</dd>{% endif %}</div>
+      <div><dt>Visit</dt><dd>{% if v.contact.address_line %}{{ v.contact.address_line }}{% endif %}{% if v.tagline_facts.locality not in (v.contact.address_line or '') %}{% if v.contact.address_line %}, {% endif %}{{ v.tagline_facts.locality }}, {{ v.tagline_facts.state }}{% endif %}</dd>{% if v.contact.hours %}<dd>{{ v.contact.hours }}</dd>{% endif %}</div>
       <div><dt>Write</dt>{% if v.contact.email %}<dd><a href="mailto:{{ v.contact.email }}">{{ v.contact.email }}</a></dd>{% endif %}{% if v.contact.phone %}<dd><a href="tel:{{ v.contact.phone }}">{{ v.contact.phone }}</a></dd>{% endif %}</div>
       <div><dt>Plan</dt><dd><a href="#check">{{ copy.nav_cta }}</a></dd><dd><a href="#tour">Schedule a tour</a></dd></div>
       <div><dt>Read</dt>{% for s in sections if s.nav %}<dd><a href="#{{ s.id }}">{{ s.nav }}</a></dd>{% endfor %}</div>

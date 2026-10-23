@@ -91,7 +91,7 @@
       var ok = available(date);
       var sel = selDay && isoDate(selDay) === isoDate(date);
       var cls = isoDate(date) === isoDate(today) ? ' class="today"' : '';
-      html += '<button type="button"' + cls + ' data-date="' + isoDate(date) + '"' + (ok ? '' : ' disabled') + ' aria-pressed="' + (sel ? 'true' : 'false') + '" aria-label="' + longDate(date) + (ok ? '' : ', unavailable') + '">' + d + '</button>';
+      html += '<button type="button"' + cls + ' data-date="' + isoDate(date) + '"' + (ok ? '' : ' disabled') + ' aria-pressed="' + (sel ? 'true' : 'false') + '" aria-label="' + longDate(date) + (ok ? '' : ', not offered in this preview') + '">' + d + '</button>';
     }
     calEl.innerHTML = html;
   }

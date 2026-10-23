@@ -1,5 +1,6 @@
 <div class="card form-wrap" id="check">
   <form id="date-form" novalidate>
+    {% with which='date' %}{% include 'partials/preview-label.j2' %}{% endwith %}
     <h2 class="card-title">{{ copy.date_title }}</h2>
     {% if copy.date_sub %}<p class="sub">{{ copy.date_sub }}</p>{% endif %}
     <div class="field">
