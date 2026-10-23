@@ -57,6 +57,26 @@ def caption_from_alt(alt):
     return (c[:1].upper() + c[1:]).rstrip('.') + '.'
 
 
+CAPTION_MAX_CHARS, CAPTION_MAX_WORDS = 60, 14   # spec 5: tracked caps <= 60 characters (E5); copy <= 14 words
+_CLAUSE_RE = re.compile(r',|;| - | \u2014 | (?:with|where|its|leading|between|under|beside|framed|seen|set|lit|glowing|flanked)\b')
+
+
+def short_caption(alt, explicit=None):
+    """Dialect builds: a caption that can sit in tracked caps under a photo. The content's own `caption` wins (when it fits);
+    else the alt's first clause, cut back clause by clause until it is <= 60 characters and <= 14 words. Never truncates
+    mid-phrase and never adds words: if no clause boundary fits, the caption is dropped ('') rather than shown broken."""
+    if explicit and len(explicit) <= CAPTION_MAX_CHARS and len(explicit.split()) <= CAPTION_MAX_WORDS:
+        return explicit
+    c = caption_from_alt(alt).rstrip('.')
+    fits = lambda x: len(x) + 1 <= CAPTION_MAX_CHARS and len(x.split()) <= CAPTION_MAX_WORDS
+    if not fits(c):
+        cuts = [(m.group(0).strip() in (',', ';', '-', '\u2014'), m.start()) for m in _CLAUSE_RE.finditer(c) if m.start() > 0]
+        punct = [c[:i].rstrip(' ,;') for is_p, i in cuts if is_p and fits(c[:i].rstrip(' ,;'))]
+        words = [c[:i].rstrip(' ,;') for is_p, i in cuts if fits(c[:i].rstrip(' ,;'))]
+        c = (punct or words or [''])[-1]   # the longest clause that fits, preferring a punctuation boundary
+    return c + '.' if c else ''
+
+
 TYPE_NOUNS = {'estate': 'estate', 'mansion': 'mansion', 'castle': 'castle', 'villa': 'villa', 'hacienda': 'hacienda', 'barn': 'barn',
               'ranch': 'ranch', 'vineyard': 'vineyard', 'garden': 'garden', 'glasshouse': 'glasshouse', 'resort': 'resort', 'hotel': 'hotel',
               'loft': 'loft', 'clubhouse': 'clubhouse', 'theatre': 'theatre'}   # coastal / lake / desert are settings, not nouns
@@ -504,7 +524,7 @@ def main():
         info = I.build_set(paths[n], n, role, os.path.join(out_dir, 'img'), extra_widths=extra)
         default_w = I.pick_default(info['variants'], 1800 if n == lead else 1200)
         photos[n] = {'src': 'img/%s-%d.webp' % (n, default_w), 'srcset': I.srcset(n, info['variants']), 'width': info['variants'][-1][0], 'height': info['variants'][-1][1],
-                     'alt': meta['alt'], 'focal': meta.get('focal', '50% 50%'), 'caption': caption_from_alt(meta['alt']), 'native': info['native'], 'variants': info['variants'],
+                     'alt': meta['alt'], 'focal': meta.get('focal', '50% 50%'), 'caption': short_caption(meta['alt'], meta.get('caption')) if dialect else caption_from_alt(meta['alt']), 'native': info['native'], 'variants': info['variants'],
                      'subject': meta.get('subject'), 'mono': bool(meta.get('mono')), 'flora': meta.get('flora'), 'archival': bool(meta.get('archival'))}
     # manifest for QA (native = crop size of the original, from the source manifest)
     qa_manifest = [{'name': n, 'crop': manifest[n]['crop'] if n in manifest else photos[n]['native'], 'kept_copy_size': photos[n]['native'], 'variants': photos[n]['variants'], 'source_url': manifest.get(n, {}).get('source_url')} for n in photos]

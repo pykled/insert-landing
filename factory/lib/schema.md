@@ -19,7 +19,7 @@ or a capacity; if a field is null the templates say so ("Capacity on request") o
 | `day` | object | `rental_hours`, `gates_open`, `event_end`, `breakdown_end`, `included[]`, `requirement`, `spaces_per_event`, `source` |
 | `faqs[]` | `{q, a, source}` | verbatim or lightly paraphrased from the venue's FAQ |
 | `featured_in[]` | string | plain text names only; never logo files |
-| `photos` | object | `source_dir`, `manifest` (both relative to the content file), `credit`, `items{name: {alt, focal, light, tags[], subject, mono, flora, archival, rights}}` (photo tags below) |
+| `photos` | object | `source_dir`, `manifest` (both relative to the content file), `credit`, `items{name: {alt, caption, focal, light, tags[], subject, mono, flora, archival, rights}}` (photo tags below) |
 | `vibe` | object (optional) | `type`, `era`, `words[3]`, optional `era_source`; the dialect scorer's human input (below) |
 | `preview` | object | `private` (true = noindex meta + disclaimer chip), `disclaimer`, `meta_description` |
 | `copy_overrides` | object (optional) | voice slot -> string, applied after the voice preset; the human taste pass lives here |
@@ -41,6 +41,7 @@ Per photo (`photos.items.<name>`):
 | Key | Type | Rule |
 |---|---|---|
 | `subject` | `place` \| `building` \| `grounds` \| `interior` \| `detail` \| `people` | human-tagged. The lead photo may not be `people` (exclusion 6): dialect builds stop. People count as `place` only when their box is < 10% of the frame. Missing tags are a warning (the rule cannot be checked). |
+| `caption` | string (optional) | dialect builds: the photo's caption (<= 60 characters, <= 14 words). Without it, build.py takes the alt text's longest leading clause that fits (`short_caption`); if none fits, the caption is left empty rather than cut mid-phrase. |
 | `mono` | bool | deco only: render this photo in monochrome (`grayscale(1) contrast(1.05)`), never the lead unless the venue's own site is monochrome. Adds deco +2 to the dialect score. |
 | `flora` | `olive` \| `fig` \| `fern` \| `lavender` \| `oak` \| `eucalyptus` \| null | which botanical line drawing the botanical dialect may use; enables `sprig-draw`. |
 | `archival` | bool | a historic photo; requires `rights` (a note on who granted use). Enables `then-now`; adds deco +2. |

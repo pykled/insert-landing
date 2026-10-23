@@ -76,5 +76,34 @@ def test_h1_partial_uses_declared_floors():
     assert 'clamp(56px' in css and 'clamp(48px, 10.5vw, 60px)' in css    # the 2C fallback list still applies
 
 
+# --- 3. modern-luxe strict QA: captions and small text -------------------------------------------------------------
+
+def _build_mod():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('factory_build', os.path.join(_util.FACTORY, 'build.py'))
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    return mod
+
+
+def test_short_caption_fits_tracked_caps_and_word_limit():
+    B = _build_mod()
+    for name, m in _util.content()['photos']['items'].items():
+        c = B.short_caption(m['alt'])
+        assert c and len(c) <= 60 and len(c.split()) <= 14, (name, c)
+        assert B.caption_from_alt(m['alt']).startswith(c.rstrip('.')), (name, c)   # a leading clause, never new words
+    assert B.short_caption('The Greenhouse at night, its glass walls glowing from inside, with strings of lights') == 'The Greenhouse at night.'
+    assert B.short_caption('anything long ' * 9, explicit='The barn at dusk.') == 'The barn at dusk.'
+    assert B.short_caption('x' * 90) == ''                       # no boundary fits: dropped, not cut mid-word
+
+
+def test_seat_picker_text_meets_body_floor_in_dialect_builds_only():
+    tpl = _env().get_template('moments/seat-picker.css.j2')
+    pair = PAIRINGS['luxe-tracked-sans']
+    on = tpl.render(dialect=True, pair=pair, t={}, v={}, tokens={})
+    off = tpl.render(dialect=None, pair=pair, t={}, v={}, tokens={})
+    assert '.fit-body p { color: var(--ink-soft); font-size: 16.5px' in on and '.fit-summary { margin-top: 20px; font-size: 17px' in on
+    assert '.fit-body p { color: var(--ink-soft); font-size: 14.5px' in off   # pre-dialect variant c stays byte-identical
+
+
 if __name__ == '__main__':
     sys.exit(_util.run_module(sys.modules[__name__]))

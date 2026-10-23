@@ -8,7 +8,7 @@
   .fit-slider output b { font-family: var(--display); font-weight: var(--display-weight); font-size: 44px; color: var(--ink); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-right: 6px; }
   .fit-slider input[type=range] { width: 100%; accent-color: var(--ink); height: 32px; cursor: pointer; }
   .fit-scale { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
-  .fit-summary { margin-top: 20px; font-size: 16px; color: var(--ink); min-height: 3em; }
+  .fit-summary { margin-top: 20px; font-size: {{ '17px' if dialect else '16px' }}; color: var(--ink); min-height: 3em; }
   .fit-ctl .fine { margin-top: 14px; }
   .fit-ctl { position: sticky; top: 96px; }
   .fit-list { list-style: none; border-top: 1px solid var(--ink); }
@@ -20,7 +20,7 @@
   .fit-ph { width: 96px; aspect-ratio: 1; }
   .fit-ph img { aspect-ratio: 1; transition: filter .4s; }
   .fit-body h3 { font-size: 20px; }
-  .fit-body p { color: var(--ink-soft); font-size: 14.5px; margin-top: 4px; }
+  .fit-body p { color: var(--ink-soft); font-size: {{ '16.5px' if dialect else '14.5px' }}; margin-top: 4px; }
   .fit-cap { text-align: right; }
   .fit-cap b { display: block; font-weight: {{ pair.body.medium }}; font-size: 15.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .fit-tag { display: block; font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
