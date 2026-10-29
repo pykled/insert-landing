@@ -29,7 +29,7 @@
     "_note": "Wedding-first hero and spaces copy (applied by build.py over every voice; --copy still wins). Facts only: 5.5 acres, oaks and sycamores, string lights, one wedding a day and ~180 guests (booklet), the Cottage & Cabin.",
     "hero_kicker": "Weddings · Oak Glen, California",
     "hero_headline": "Ranch weddings on 5.5 acres under the oaks. <em>One wedding a day.</em>",
-    "hero_lede": "5.5 acres in Oak Glen: vows under old oaks and sycamores, dinner and dancing under string lights, for up to 180 guests.",
+    "hero_lede": "5.5 acres in Oak Glen: vows under old oaks and sycamores, dinner and dancing under string lights, for about 180 guests.",
     "spaces_kicker": "Your wedding day",
     "spaces_title": "Four places, one wedding day.",
     "spaces_lede": "Get ready in the Cottage and Cabin, say your vows under the oaks, stop at the beverage area, then dinner and dancing under the lights.",
@@ -54,7 +54,7 @@
   "_awards_source": "https://homesteadoakglen.com/",
   "facts": [
     {"id": "family-estate", "text": "A family-owned private estate in Oak Glen, hosting one event per day in an open-air venue", "source": "https://homesteadoakglen.com/"},
-    {"id": "owners", "text": "Owners: Don and Paula Christante", "source": "https://homesteadoakglen.com/about"},
+    {"id": "owners", "text": "Owners: Don and Paula Christante", "source": "https://homesteadoakglen.com/about", "verified": "2026-10-29: the About page HTML signs its welcome 'Don and Paula Christante, Owners' (curl; readability extractors drop that line, and the site's TLS certificate had expired that day)"},
     {"id": "wilshire", "text": "More than a hundred years ago Blackie Wilshire and his family made the glen their home; pieces of the original homestead still stand", "source": "https://homesteadoakglen.com/about"},
     {"id": "acres", "text": "5.5 acres in Oak Glen, beneath Wilshire Peak and the San Bernardino Mountains", "source": "https://homesteadoakglen.com/about"},
     {"id": "trees", "text": "Oaks, sycamores, heirloom apple trees and a lilac field; the property overlooks the valley below", "source": "https://homesteadoakglen.com/about"},
@@ -95,7 +95,7 @@
   "numbers": [
     {"value": "5.5", "label": "Acres in the glen", "source": "https://homesteadoakglen.com/about"},
     {"value": "1", "label": "Wedding per day", "source": "https://homesteadoakglen.com/"},
-    {"value": "180", "label": "Guests, at most", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
+    {"value": "~180", "label": "Guests, comfortably", "source": "https://static.showit.com/file/Fuzr8xNLMVGIGTBBQ3aQfw/46084/complete_-_2027_overview_booklet_-_updated_08_17_26_1.pdf"},
     {"value": "4,734", "label": "Feet above sea level", "source": "https://homesteadoakglen.com/guests"}
   ],
   "spaces": [
@@ -178,7 +178,7 @@
       "barn":         {"alt": "A white board building with a gabled roof and a green wreath, its weathered double doors open onto potted plants, a lamp and a small table set to one side.", "caption": "Doors open at the end of the aisle", "focal": "50% 50%", "light": "day", "tags": ["building", "ceremony"], "subject": "building"},
       "stonecottage": {"alt": "A small stone cottage with a white gable and a ladder on its wall, beside a huge pale sycamore trunk, a stone fireplace and beds of shrubs and grasses.", "caption": "A stone cottage under the sycamore", "focal": "60% 55%", "light": "day", "tags": ["cottage", "garden"], "subject": "building"},
       "rockgarden":   {"alt": "A rock garden of pale boulders and shrubs, white cottages and a sycamore behind, and an old iron saw rig on the lawn.", "caption": "Boulders, cottages and an old saw", "focal": "50% 55%", "light": "day", "tags": ["garden", "grounds"], "subject": "grounds"},
-      "sawmill":      {"alt": "An antique sawmill rig with iron wheels and a big circular blade lettered Wilshire Ranch, set among grasses in front of a stone cottage and a sycamore.", "caption": "Wilshire Ranch, lettered on an old saw", "focal": "60% 60%", "light": "day", "tags": ["detail", "history"], "subject": "detail"},
+      "sawmill":      {"alt": "An antique sawmill rig with iron wheels and a big circular blade lettered Wilshire Ranch, set among grasses in front of a stone cottage and a sycamore.", "caption": "An old saw blade among the grasses", "focal": "60% 60%", "light": "day", "tags": ["detail", "history"], "subject": "detail"},
       "ivycottage":   {"alt": "A white cottage with a steep gable and a grey-green door, its porch half covered in red autumn creeper, birch trunks behind.", "caption": "A cottage in autumn", "focal": "40% 55%", "light": "day", "tags": ["cottage", "autumn"], "subject": "building"},
       "oakcottage":   {"alt": "A small cream cottage with a red door at the foot of a massive oak trunk, a weathered wood fence and stone wall in front, in deep leafy shade.", "caption": "A cottage at the foot of an oak", "focal": "60% 60%", "light": "day", "tags": ["cottage", "shade"], "subject": "building", "flora": "oak"},
       "pavilion":     {"alt": "A covered wooden pavilion on a stone base with steps, set with a sweetheart table, curtains and potted topiary, above a wide wood dance floor, green hills behind.", "caption": "The pavilion and dance floor", "focal": "50% 55%", "light": "day", "tags": ["reception", "structure"], "subject": "grounds"},
