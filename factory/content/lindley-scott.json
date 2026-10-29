@@ -44,7 +44,9 @@
     "phone_note": "Office line. The contact page also lists a cell, (626) 665-4235.",
     "address_line": "720 East Foothill Boulevard, Azusa, CA 91702",
     "address_note": "Footer and contact page.",
-    "hours": "Tours by appointment, Monday to Sunday",
+    "hours": "Open Mon–Thu by appointment only; Fri–Sun 10–11 am",
+    "hours_note": "FAQ 'Our hours of operation are: Mon-Thur by Appointment Only; Fri, Sat and Sun 10:00am - 11:00am' (re-fetched 2026-10-29). Replaces 'Tours by appointment, Monday to Sunday', which no page states (demos-CHECK 4a).",
+    "hours_source": "https://lindleyscotthouse.com/faq/",
     "source": "https://lindleyscotthouse.com/contact-us/"
   },
   "facts": [

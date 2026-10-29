@@ -293,7 +293,7 @@
     "tour_lede": "Choose a day and an hour.",
     "tour_cta": "Arrange a visit",
     "guide_kicker": "Pricing",
-    "guide_title": "The pricing guide, <em>in full.</em>",
+    "guide_title": "Pricing, <em>on request.</em>",
     "guide_lede": [
       "What is included, how the {rental_hours}-hour day runs, and how dates are held.",
       "What is included and how the day runs."
@@ -319,7 +319,7 @@
         "nav_cta": "Arrange a visit",
         "date_cta": "Ask about a date",
         "tour_cta": "Book a tour",
-        "guide_cta": "Send the guide"
+        "guide_cta": "Ask for pricing"
       },
       {
         "nav_cta": "Ask about a date",
