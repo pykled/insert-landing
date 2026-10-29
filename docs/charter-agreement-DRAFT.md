@@ -10,14 +10,14 @@ Terms follow the current offer on `venues.html` (two Charter seats, by applicati
 
 This Charter Venue Partner Agreement (the "Agreement") is made on [EFFECTIVE DATE] between:
 
-- **Insert**, [ENTITY NAME / "DBA Insert"], a [STATE] [ENTITY TYPE], address [ADDRESS], email [EMAIL] ("Insert"); and
+- **PYKLE LLC**, doing business as **Insert**, a [STATE] limited liability company, address [ADDRESS], email [EMAIL] ("Insert"); and
 - **[VENUE LEGAL NAME]**, a [STATE] [ENTITY TYPE], operating as [VENUE TRADE NAME], address [ADDRESS], email [EMAIL] ("Venue").
 
 Definitions:
 
 - **"Stack"** means the Venue Ops Stack described in Section 2.1.
 - **"Content Intake"** means the Venue delivering the materials and access listed in Exhibit A (for example: pricing and availability rules, tour calendar access, brand voice notes, FAQ answers, the Venue's payment link, review-site links, and email/SMS sending access).
-- **"Content Intake Complete"** means Insert has confirmed in writing (email suffices) that all Exhibit A items are received and usable. Insert will confirm or list what is missing within [3] business days of each delivery.
+- **"Content Intake Complete"** means Insert has confirmed in writing (email suffices) that all Exhibit A items are received and usable. Insert will confirm or list what is missing within 3 business days of each delivery.
 - **"Go-Live"** means the date on which all four Stack automations are (a) configured with the Venue's approved templates, (b) connected to the Venue's inquiry source, calendar and payment link, (c) tested end to end by Insert, and (d) switched on for real inquiries, as confirmed by Insert's written notice. If the Venue has not approved templates or has not enabled a required connection, Go-Live has not occurred.
 - **"Venue Data"** means inquiry, couple, guest, booking, calendar, pricing and message data the Venue or its customers provide, or that the Stack collects on the Venue's behalf.
 - **"Venue Content"** means the Venue's name, logos, photos, copy, templates, pricing and other materials it provides.
@@ -32,13 +32,13 @@ Definitions:
 3. **Deposit requests and reminders**: messages that send the Venue's **own** payment link and remind couples to pay.
 4. **Post-event review requests**: messages asking couples for reviews.
 
-2.2 **Support and changes.** During the Charter Period Insert provides a direct line to the builder, fixes defects in the Stack, and makes reasonable configuration changes (template wording, tour windows, reminder timing, link changes) at no additional charge. "Reasonable" means changes that take about [2] hours or less per month in total; larger requests are quoted under 2.3.
+2.2 **Support and changes.** During the Charter Period Insert provides a direct line to the builder, fixes defects in the Stack, and makes reasonable configuration changes (template wording, tour windows, reminder timing, link changes) at no additional charge. "Reasonable" means changes that take about 2 hours or less per month in total; larger requests are quoted under 2.3.
 
 2.3 **Not included (quoted separately).** Custom integrations (for example a CRM or booking system Insert has not already connected), new workflows or channels beyond the four above, bulk data migration, and anything needing new software development. Insert will quote these; neither party is obliged to proceed. **Website redesign/refresh** is a separate optional project, quoted on its own, from $2,500, under its own written agreement.
 
 2.4 **No payment processing.** Insert does **not** process, receive, hold, or transmit funds, and does not take any percentage or fee on deposits or other payments. Couples pay the Venue directly through the Venue's own payment provider and link. The Venue is responsible for its payment provider account, contracts with couples, refunds, and chargebacks.
 
-2.5 **Venue's responsibilities.** The Venue will deliver Content Intake promptly, answer reasonable questions within [5] business days, keep availability and pricing information current, keep its integrations connected, and review and approve templates.
+2.5 **Venue's responsibilities.** The Venue will deliver Content Intake promptly, answer reasonable questions within 5 business days, keep availability and pricing information current, keep its integrations connected, and review and approve templates.
 
 2.6 **Charter selection.** Seats are by application. Insert may decline an application at its discretion before signing. Two charter seats are offered; this Agreement does not guarantee the Venue a seat beyond what is stated here.
 
@@ -50,7 +50,7 @@ Definitions:
 
 3.3 **Remedy if Insert misses the Target Date.** If Go-Live has not occurred by the Target Date for reasons other than Section 3.2 or Section 15 (force majeure):
 (a) the Venue receives a day-for-day credit: the first N days of billing after Go-Live are waived, where N is the number of days Go-Live is late past the Target Date (billing already starts at Go-Live, so the credit is what gives the remedy value); and
-(b) if Go-Live has not occurred within [30] days after the Target Date, the Venue may terminate this Agreement by written notice with no liability, no minimum term, and no payment owed.
+(b) if Go-Live has not occurred within 30 days after the Target Date, the Venue may terminate this Agreement by written notice with no liability, no minimum term, and no payment owed.
 
 
 
@@ -62,11 +62,11 @@ Definitions:
 
 4.3 **Price lock.** The $300 monthly fee is locked for as long as the Venue remains a Charter Venue Partner under this Agreement without a lapse in service. Insert will not raise it. Standard pricing for later venues does not apply to the Venue. *Drafter's note: `venues.html` also lists "after the charter period" standard pricing ($3,000-$4,500 build, $500-$600/month) and says Charter Partners "keep $300 and skip the build fee." This wording could be read as the price ending after the Charter Period. This draft reads it as: standard pricing applies to future venues; Charter Partners stay at $300. Confirm and fix the website wording to match.*
 
-4.4 **Invoicing.** Insert invoices monthly in advance by email, due within [15] days. Payment by [ACH / card / check]. Late amounts bear [1]% monthly interest or the maximum allowed by law, whichever is lower, after [10] days' written notice. [Insert may pause the Stack after 30 days' non-payment and written notice.]
+4.4 **Invoicing.** Insert invoices monthly in advance by email, due within 15 days. Payment by ACH or card. Late amounts bear 1% monthly interest or the maximum allowed by law, whichever is lower, after 10 days' written notice. Insert may pause the Stack after 30 days' non-payment and written notice.
 
-4.5 **Taxes.** Fees exclude sales, use or similar taxes. If tax applies to the service, Insert will add it as a separate line item where required by law. [ATTORNEY/CPA TO CONFIRM TREATMENT.]
+4.5 **Taxes.** Fees exclude sales, use or similar taxes. If tax applies to the service, Insert will add it as a separate line item where required by law.
 
-4.6 **Refunds/credits.** Fees paid are non-refundable except as stated in this Agreement (Section 3.3, Section 5.4, Section 5.6). [Proposed: pro-rata credit for any month where the Stack is down more than [72] consecutive hours due to Insert.]
+4.6 **Refunds/credits.** Fees paid are non-refundable except as stated in this Agreement (Section 3.3, Section 5.4, Section 5.6). The Venue receives a pro-rata credit for any month where the Stack is down more than 72 consecutive hours due to Insert.
 
 4.7 **Out-of-pocket costs.** The Venue pays its own third-party accounts (payment provider, calendar, email/SMS sending accounts). Email delivery is included. If the Venue later turns on SMS under Section 6.7, carrier registration and per-message fees are passed through to the Venue at Insert's cost, with no markup, and Insert will tell the Venue the expected monthly amount before SMS is switched on.
 
@@ -82,11 +82,11 @@ Definitions:
 
 5.5 **Termination for breach.** Either party may terminate on written notice if the other materially breaches and fails to cure within 30 days of written notice (10 days for non-payment).
 
-5.6 **Termination for convenience after the Minimum Term.** After the Minimum Term, either party may terminate for any reason on **30 days' written notice**. Insert will not terminate for convenience during the Minimum Term except on [60] days' notice with a refund of prepaid fees, and a Charter Venue Partner terminated by Insert without cause keeps access to its data per Section 8.8.
+5.6 **Termination for convenience after the Minimum Term.** After the Minimum Term, either party may terminate for any reason on **30 days' written notice**. Insert will not terminate for convenience during the Minimum Term except on 60 days' notice with a refund of prepaid fees, and a Charter Venue Partner terminated by Insert without cause keeps access to its data per Section 8.8.
 
 5.7 **Effect of termination.** Fees accrue through the effective date. Section 8.8 (export and deletion) applies. Sections that by nature survive (confidentiality, IP, liability limits, indemnity, governing law, 8.8) survive.
 
-5.8 **Insert discontinues the service.** If Insert stops offering the Stack, or becomes insolvent or unable to perform, the Venue may terminate immediately, owes no further fees (including any remaining Minimum Term), and receives the export under Section 8.8. Insert will give at least [30] days' notice of a planned discontinuance where it can.
+5.8 **Insert discontinues the service.** If Insert stops offering the Stack, or becomes insolvent or unable to perform, the Venue may terminate immediately, owes no further fees (including any remaining Minimum Term), and receives the export under Section 8.8. Insert will give at least 30 days' notice of a planned discontinuance where it can.
 
 ## 6. Messaging Compliance (SMS, Email)
 
@@ -119,7 +119,7 @@ Definitions:
 
 7.3 **Human-approval option.** The Venue may choose a mode where each AI-drafted reply waits for Venue approval before sending, and may switch modes on notice. **Default mode: human approval for the first 30 days after Go-Live**, after which the Venue may switch to auto-send within the guardrails in 7.2 by written notice.
 
-7.4 **Accuracy.** AI output can be wrong. Insert will test and monitor reasonably and will correct errors it learns of, but the Venue is responsible for keeping its calendar, pricing and FAQ accurate and for reviewing a sample of sent messages at least [monthly].
+7.4 **Accuracy.** AI output can be wrong. Insert will test and monitor reasonably and will correct errors it learns of, but the Venue is responsible for keeping its calendar, pricing and FAQ accurate and for reviewing a sample of sent messages at least monthly.
 
 7.5 **No training on Venue Data.** Insert will not use Venue Data to train or fine-tune any AI model for use outside the Venue's own Stack, and will use providers whose terms do not permit them to train on Venue Data submitted through their business/API offering. [ATTORNEY/DRAFTER TO CONFIRM CURRENT PROVIDER TERMS BEFORE SIGNING.]
 
@@ -131,15 +131,15 @@ Definitions:
 
 8.3 **Limits on use.** Insert will process Venue Data only to provide the Stack to the Venue and as the Venue instructs in this Agreement or in writing. Insert will not: sell or share Venue Data (as those terms are defined in the CCPA); retain, use or disclose it outside the direct business relationship between Insert and the Venue or for any commercial purpose other than providing the Stack; combine it with data from other sources except as the CCPA allows for a service provider; or use it to market Insert's or others' services to the Venue's couples. Insert may use **aggregated, de-identified** statistics about Stack performance (such as average reply time) that do not identify the Venue, couples or individuals.
 
-8.4 **Consumer requests.** Insert will reasonably help the Venue respond to verified requests to access, delete, or correct data, and will pass along any request it receives directly within [5] business days.
+8.4 **Consumer requests.** Insert will reasonably help the Venue respond to verified requests to access, delete, or correct data, and will pass along any request it receives directly within 5 business days.
 
-8.5 **Subprocessors.** Insert uses third-party providers such as cloud hosting, email delivery, SMS delivery, scheduling/calendar, and AI model providers. Insert will keep a list of categories and, on request, names. Insert will bind each to written terms at least as protective as this Section 8 and remains responsible for their performance. Insert will give [15] days' notice of a new subprocessor; the Venue may object on reasonable data-protection grounds, and if not resolved, terminate without penalty.
+8.5 **Subprocessors.** Insert uses third-party providers such as cloud hosting, email delivery, SMS delivery, scheduling/calendar, and AI model providers. Insert will keep a list of categories and, on request, names. Insert will bind each to written terms at least as protective as this Section 8 and remains responsible for their performance. Insert will give 15 days' notice of a new subprocessor; the Venue may object on reasonable data-protection grounds, and if not resolved, terminate without penalty.
 
 8.6 **Security.** Insert will maintain reasonable administrative, technical and physical safeguards appropriate to the data, including access controls, encryption in transit, and limiting access to people who need it. Insert does not promise any system is invulnerable.
 
-8.7 **Incidents.** Insert will notify the Venue without undue delay, and in any event within [72] hours, after confirming a breach of security affecting Venue Data, with the information then known, and cooperate in notices the Venue must give.
+8.7 **Incidents.** Insert will notify the Venue without undue delay, and in any event within 72 hours, after confirming a breach of security affecting Venue Data, with the information then known, and cooperate in notices the Venue must give.
 
-8.8 **Export and deletion on exit.** Within [30] days after termination or on request, Insert will provide the Venue an export of Venue Data in a common format (CSV/JSON) at no charge, and then delete Venue Data from active systems within [30] days after export (backups within [90] days), and confirm deletion in writing, unless law requires retention.
+8.8 **Export and deletion on exit.** Within 30 days after termination or on request, Insert will provide the Venue an export of Venue Data in a common format (CSV/JSON) at no charge, and then delete Venue Data from active systems within 30 days after export (backups within 90 days), and confirm deletion in writing, unless law requires retention.
 
 8.9 **Sensitive data.** The Venue will not send Insert payment card numbers, government IDs, or health data. Payment details are handled only by the Venue's payment provider.
 
@@ -151,25 +151,25 @@ Definitions:
 
 9.2 **Insert's property.** Insert owns the software, templates, workflows, prompts, configurations, tooling, documentation and methods it uses or develops for the Stack ("Insert IP"), including improvements made in providing the services. The Venue receives a non-exclusive, non-transferable right to use the Stack during the term. Nothing transfers ownership of Insert IP. Venue-specific wording and Venue Content inside templates remain the Venue's.
 
-9.3 **No work-for-hire.** The Stack is a service, not a work made for hire for the Venue. [ATTORNEY TO CONFIRM; consider an exit licence to copies of the Venue's own templates.]
+9.3 **No work-for-hire.** The Stack is a service, not a work made for hire for the Venue. On exit, the Venue may keep a copy of its own approved template wording and Venue Content.
 
 ## 10. Confidentiality
 
-Each party will keep the other's non-public information (pricing, business plans, customer lists, technical details, and this Agreement's terms) confidential, use it only for this Agreement, and protect it with reasonable care. Exceptions: information that is public through no fault of the recipient, independently developed, already known, or rightfully received from a third party; and disclosures required by law (with notice where allowed) or to the party's lawyers, accountants and advisors bound by confidentiality. This Section lasts for [3] years after termination, and for trade secrets as long as they remain trade secrets.
+Each party will keep the other's non-public information (pricing, business plans, customer lists, technical details, and this Agreement's terms) confidential, use it only for this Agreement, and protect it with reasonable care. Exceptions: information that is public through no fault of the recipient, independently developed, already known, or rightfully received from a third party; and disclosures required by law (with notice where allowed) or to the party's lawyers, accountants and advisors bound by confidentiality. This Section lasts for 3 years after termination, and for trade secrets as long as they remain trade secrets.
 
 ## 11. Feedback and Testimonial
 
-11.1 **Candid feedback.** The Venue will join up to [3] feedback sessions (about [30] minutes each) in the first [four] months after Go-Live and give honest input on what works and what does not. Insert may use feedback to improve its products without owing the Venue anything; the Venue is not required to give favorable feedback.
+11.1 **Candid feedback.** The Venue will join up to 3 feedback sessions (about 30 minutes each) in the first four months after Go-Live and give honest input on what works and what does not. Insert may use feedback to improve its products without owing the Venue anything; the Venue is not required to give favorable feedback.
 
 11.2 **Testimonial.** Once the Stack is booking tours, the Venue will consider in good faith providing a short testimonial. The testimonial must be **true, in the Venue's own words** (or approved by the Venue), and is **not required to be positive**: the Venue's obligation is limited to the good-faith consideration and to a candid account. If the Venue publishes or allows Insert to publish the testimonial, it will state that the Venue received the build at no charge as a Charter Venue Partner, so readers know of the relationship.
 
-11.3 **Name and logo.** Insert may use the Venue's name, logo or testimonial in marketing **only with the Venue's separate written approval at that time** for the specific use. Approval may be **revoked** by written notice; Insert will stop new uses within [14] days and remove it from materials it controls (not from printed items already distributed or archived third-party copies).
+11.3 **Name and logo.** Insert may use the Venue's name, logo or testimonial in marketing **only with the Venue's separate written approval at that time** for the specific use. Approval may be **revoked** by written notice; Insert will stop new uses within 14 days and remove it from materials it controls (not from printed items already distributed or archived third-party copies).
 
 11.4 **Case study.** No case study or published metrics about the Venue without written approval of the exact text.
 
 ## 12. Non-Exclusivity
 
-Nothing in this Agreement is exclusive. Insert may serve other venues, including competitors in the same area [or: Insert will not enroll another Charter Venue Partner within [__] miles of the Venue during the Minimum Term. DECIDE]. The Venue may use other vendors and tools, subject to the Stack's technical needs.
+Nothing in this Agreement is exclusive. Insert may serve other venues, including competitors in the same area. The Venue may use other vendors and tools, subject to the Stack's technical needs.
 
 ## 13. Warranties and Disclaimers
 
@@ -204,7 +204,7 @@ The parties are independent contractors. Nothing creates employment, partnership
 
 ## 17. Governing Law and Disputes
 
-California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for [30] days. Then the state or federal courts in [COUNTY] County, California have exclusive jurisdiction, and each party consents to them. [ALTERNATIVE: JAMS/AAA arbitration or small claims first. ATTORNEY TO DECIDE.] 
+California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for 30 days. Then the state or federal courts in [COUNTY] County, California have exclusive jurisdiction, and each party consents to them. Either party may bring a claim within the small-claims limit in small claims court. 
 
 ## 18. General
 
@@ -218,7 +218,7 @@ California law governs, without regard to conflict-of-laws rules. The parties wi
 
 18.5 **Severability; waiver.** If a provision is unenforceable, the rest stays in effect and the provision is limited to what is enforceable. Failure to enforce a right is not a waiver.
 
-18.6 **Counterparts; e-signature.** May be signed in counterparts and electronically [via DocuSign / similar]. Electronic signatures are binding.
+18.6 **Counterparts; e-signature.** May be signed in counterparts and electronically via DocuSign or a similar service. Electronic signatures are binding.
 
 18.7 **Interpretation.** Headings are for convenience. "Including" means "including without limitation." Each party had a chance to consult counsel and no provision is construed against the drafter.
 
