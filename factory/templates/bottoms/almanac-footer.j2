@@ -13,8 +13,8 @@
     </dl>
     <div class="foot-bottom">
       <span>© {{ v.legal_name }}</span>
-      <a href="#">Privacy policy</a>
-      {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ v.preview.disclaimer }}</span>{% endif %}
+      <a href="{{ insert_privacy_url }}" rel="noopener">Insert privacy policy</a>
+      {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ preview_chip }}</span>{% endif %}
     </div>
   </div>
 </footer>

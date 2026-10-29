@@ -20,7 +20,9 @@ Checks, per viewport (1440x900 @2x desktop, 390x844 @2x mobile):
      binarised, eroded once; mean stroke width ~ 2 x ink / vanished-edge-ink. Fails under 1.6 CSS px.
   6. Lighthouse-style basics: title, description, lang, viewport, one h1, heading order, landmarks,
      hero fetchpriority, lazy below the fold, HTML < 120 KB, JSON-LD parses, focus-visible + reduced
-     motion rules present, tap targets >= 24 px on mobile, LCP element reported.
+     motion rules present, tap targets >= 24 px on mobile, LCP element reported. Private (noindex) previews: a visible
+     'unsolicited ... not made by or affiliated with' notice in the first viewport (>= 13 px, >= 7:1), 'unsolicited' in the
+     footer chip, no href="#" links, privacy link = Insert's policy, JSON-LD with no EventVenue/LocalBusiness/phone/email/@id.
   7. interactive flows: date check (error + success + reset), tour (open panel if needed, pick, book,
      reset), guide (invalid + valid), and the site's signature moment.
   8. diversity: fingerprint guard against every registered site (schema 2: same-dialect rule + quota); FAIL on
@@ -225,6 +227,43 @@ def run(pw, name, width, height, scale, mobile):
         if not page.evaluate('document.fonts.check(\'%d 16px "%s"\')' % (w, f)):
             problems.append('%s: web font not loaded: %s %d' % (name, f, w))
     info.setdefault('fonts', fams)
+    # --- unsolicited-preview disclosure (demos-CHECK 1, 2): private previews only ---
+    priv = page.evaluate("!!document.querySelector('meta[name=robots][content*=noindex]')")
+    if priv:
+        d = page.evaluate("""() => { window.scrollTo(0, 0); const n = document.querySelector('[data-concept-notice]');
+          const chip = [...document.querySelectorAll('footer .chip')].map(c => c.textContent).join(' | ');
+          const dead = [...document.querySelectorAll('a[href="#"]')].map(a => a.textContent.trim());
+          const priv = [...document.querySelectorAll('footer a')].filter(a => /privacy/i.test(a.textContent)).map(a => a.getAttribute('href'));
+          if (!n) return {chip, dead, priv};
+          const r = n.getBoundingClientRect(), cs = getComputedStyle(n);
+          return {chip, dead, priv, text: n.textContent, top: r.top, h: r.height, vh: innerHeight, size: parseFloat(cs.fontSize), fg: cs.color, bg: cs.backgroundColor,
+                  shown: r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && +cs.opacity > 0.99}; }""")
+        def _rgb(c): return [float(x) for x in re.findall(r'[\d.]+', c)[:3]]
+        def _lum(c):
+            c = [x / 255 for x in c]; c = [x / 12.92 if x <= 0.03928 else ((x + 0.055) / 1.055) ** 2.4 for x in c]
+            return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+        if 'text' not in d:
+            problems.append('%s: private preview has no visible unsolicited-concept notice ([data-concept-notice])' % name)
+        else:
+            if not re.search(r'unsolicited', d['text'], re.I) or not re.search(r'not made by or affiliated', d['text'], re.I):
+                problems.append('%s: concept notice must say "unsolicited" and "not made by or affiliated with": %r' % (name, d['text']))
+            if not d['shown'] or d['top'] < 0 or d['top'] + d['h'] > d['vh']:
+                problems.append('%s: concept notice not visible in the first viewport (top %.0f, h %.0f)' % (name, d['top'], d['h']))
+            if d['size'] < 13:
+                problems.append('%s: concept notice is %.1f px (< 13 px)' % (name, d['size']))
+            if 'rgba' in d['bg'] and re.search(r',\s*0\)', d['bg']):
+                problems.append('%s: concept notice has no solid background (%s)' % (name, d['bg']))
+            else:
+                l1, l2 = _lum(_rgb(d['fg'])), _lum(_rgb(d['bg'])); cr = (max(l1, l2) + 0.05) / (min(l1, l2) + 0.05)
+                info.setdefault('concept_notice', {})[name] = {'contrast': round(cr, 2), 'px': d['size']}
+                if cr < 7: problems.append('%s: concept notice contrast %.2f < 7' % (name, cr))
+        if 'unsolicited' not in d['chip'].lower():
+            problems.append('%s: footer chip does not say "unsolicited": %r' % (name, d['chip'][:120]))
+        if d['dead']:
+            problems.append('%s: dead href="#" link(s): %s' % (name, d['dead'][:5]))
+        for h in d['priv']:
+            if not (h or '').startswith('https://insert-landing-production.up.railway.app/'):
+                problems.append('%s: footer privacy link must be Insert\'s policy, got %r' % (name, h))
     # --- basics (desktop only) ---
     if not mobile:
         b = page.evaluate("""() => ({title: document.title, desc: (document.querySelector('meta[name=description]')||{}).content || '', lang: document.documentElement.lang,
@@ -252,7 +291,13 @@ def run(pw, name, width, height, scale, mobile):
         try:
             ld = [json.loads(x) for x in b['ld']]; types = [g.get('@type') for d in ld for g in d.get('@graph', [d])]
             info['jsonld_types'] = types
-            if not any('EventVenue' in (t if isinstance(t, list) else [t]) for t in types): problems.append('JSON-LD has no EventVenue')
+            flat = [x for t in types for x in (t if isinstance(t, list) else [t])]
+            if 'noindex' in b['robots']:   # demos-CHECK 7: an unaffiliated preview never claims to be the venue's own business
+                if {'EventVenue', 'LocalBusiness'} & set(flat): problems.append('JSON-LD on a private preview declares the venue as EventVenue/LocalBusiness')
+                blob = ' '.join(b['ld'])
+                if re.search(r'"(telephone|email|@id)"', blob): problems.append('JSON-LD on a private preview carries telephone/email/@id')
+                if re.search(r'"url"\s*:\s*"(?!https://insert-landing-production\.up\.railway\.app)', blob): problems.append('JSON-LD on a private preview has a url outside Insert')
+            elif 'EventVenue' not in flat: problems.append('JSON-LD has no EventVenue')
         except Exception as e:
             problems.append('JSON-LD does not parse: %s' % e)
         if ':focus-visible' not in b['css']: problems.append('no :focus-visible rule')

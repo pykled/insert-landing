@@ -46,12 +46,35 @@ HERO_SIZES = {
 
 def page_title(v):
     """3A item 4: '<Venue> | Weddings in <place>' from the content file (seo.title wins when the reviewer wrote one).
-    No concept suffix or variant id: the page itself carries the 'Concept preview by Insert' chip."""
+    No concept suffix or variant id: the page itself carries the unsolicited-concept notice and chip."""
     t = (v.get('seo') or {}).get('title')
     if t: return t
     tf = v.get('tagline_facts') or {}
     place = ', '.join(x for x in (tf.get('locality'), tf.get('state')) if x)
     return '%s | Weddings in %s' % (v['name'], place) if place else '%s | Weddings' % v['name']
+
+INSERT_SITE = 'https://insert-landing-production.up.railway.app'
+INSERT_PRIVACY_URL = INSERT_SITE + '/privacy.html'   # every page Insert builds links Insert's policy, never a venue's
+
+
+def preview_notice(v):
+    """Fix round (demos-CHECK 1): the visible line at the top of every private (unsolicited) preview."""
+    return 'An unsolicited concept by Insert, not made by or affiliated with %s.' % v['name']
+
+
+def preview_chip(v):
+    """Footer chip: always says 'unsolicited' and names the venue; the photo credit comes from the content file."""
+    credit = (v.get('photos') or {}).get('credit') or ('photography © %s' % v['name'])
+    return 'Unsolicited concept by Insert · %s · not affiliated with %s' % (credit, v['name'])
+
+
+def confirmed_press(v):
+    """demos-CHECK 3: third-party press marks only when EVERY outlet is source-confirmed in the content file, as
+    {"name": ..., "source": <url>, "confirmed": true}. Bare strings (or any unconfirmed entry) drop the whole row."""
+    items = v.get('featured_in') or []
+    ok = items and all(isinstance(f, dict) and f.get('confirmed') is True and f.get('source') and f.get('name') for f in items)
+    return [f['name'] for f in items] if ok else []
+
 
 def wordnum(n):
     try:
@@ -253,7 +276,21 @@ def _prune(x):
 
 
 def jsonld(v, out_url):
+    """Private (unsolicited) previews describe the page as Insert's concept: a WebPage by Insert *about* the venue, with no
+    @id/url at the venue's domain, no phone/email and no FAQPage in the venue's voice (demos-CHECK 7). The venue's own
+    EventVenue/LocalBusiness graph is only emitted for a non-private build (a site the venue has engaged us for)."""
     tf = v['tagline_facts']
+    if (v.get('preview') or {}).get('private'):
+        data = _prune({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            'name': 'Concept homepage for %s (unsolicited, by Insert)' % v['name'],
+            'description': (v.get('preview') or {}).get('meta_description'),
+            'creator': {'@type': 'Organization', 'name': 'Insert', 'url': INSERT_SITE},
+            'about': {'@type': 'Place', 'name': v['name'],
+                      'address': {'@type': 'PostalAddress', 'addressLocality': tf.get('locality'), 'addressRegion': tf.get('state'), 'addressCountry': 'US'}},
+        })
+        return json.dumps(data, indent=0).replace('</', '<\\/')
     places = []
     for s in v['spaces']:
         pl = {'@type': 'Place', 'name': s['name'], 'description': s['use']}
@@ -307,7 +344,7 @@ def dialect_section_plan(rhythm_variant, used, v, voice_axis, resolve_section):
             sec = roles[blk['id']]
             if sec:
                 order.append(sec)
-            if blk['id'] == 'story' and v.get('featured_in'):
+            if blk['id'] == 'story' and v.get('featured_in'):   # already reduced to confirmed_press() in main()
                 order.append(S('featured', 'sections/featured'))
             if blk['id'] == 'spaces' and used.get('gallery', 'none') != 'none':
                 order.append(S('gallery', 'sections/gallery-' + used['gallery']))
@@ -351,6 +388,8 @@ def main():
     timings = {}
 
     v = load(a.content)
+    press_in = v.get('featured_in') or []
+    v['featured_in'] = confirmed_press(v)   # demos-CHECK 3: unconfirmed press never renders
     cdir = os.path.dirname(os.path.abspath(a.content))
     dialects_doc = load(os.path.join(HERE, 'data', 'dialects.json'))
     pairings_all = [x for x in load(os.path.join(HERE, 'data', 'pairings.json'))['pairings'] if not x.get('retired')]   # 3A: retired pairings (reason in the record) are never chosen
@@ -362,6 +401,8 @@ def main():
     errs, schema_warnings = SCHEMA.validate_content(v, dialects_doc['vibe_words'])
     verrs, vwarn = SCHEMA.validate_voices(voices)
     perrs = FONTS.validate_pairings(pairings_all)
+    if press_in and not v['featured_in']:
+        schema_warnings.append('featured_in: %d outlet(s) not all source-confirmed ({name, source, confirmed: true}); press row omitted' % len(press_in))
     for w in schema_warnings:
         print('  schema warning:', w)
     if errs or verrs or perrs:
@@ -677,7 +718,8 @@ def main():
                seo={'title': page_title(v), 'description': ''},   # 3A: from vibe.type, never a preset 'Garden Wedding Estate'
                jsonld=jsonld(v, ''), build={'variant': a.variant, 'version': VERSION, 'fingerprint_short': ''},
                dialect=dialect_ctx, ornament=used_ornament, palette_mode=pal_meta.get('mode', 'light'), hero_copy_on=hero_copy_on, veil_blur_px=P.VEIL_BLUR_PX,
-               bottom=bottom, bottom_facts=bottom_facts(v) if bottom else [])
+               bottom=bottom, bottom_facts=bottom_facts(v) if bottom else [],
+               preview_notice=preview_notice(v), preview_chip=preview_chip(v), insert_privacy_url=INSERT_PRIVACY_URL)
     fp = {
         'display_family': pair['display']['family'], 'display_class': pair['display']['class'], 'body_family': pair['body']['family'],
         'accent_hue': pal_meta['accent_hue'], 'paper_temperature': pal_meta['temperature'],

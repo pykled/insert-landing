@@ -365,7 +365,7 @@ def build_draft(slug, url, pages, kept, vibe, photo_rel):
         'faqs': [{'q': f['value']['q'], 'a': f['value']['a'], 'source': f['source'], '_confidence': f['confidence']} for f in faq_f],
         'featured_in': [],
         'photos': {'source_dir': photo_rel, 'manifest': photo_rel + '/manifest.json', 'credit': ('photography © %s' % name) if name else None, 'items': items},
-        'preview': {'private': True, 'disclaimer': 'Concept preview by Insert · photography © %s · not affiliated with the venue' % (name or slug),
+        'preview': {'private': True, 'disclaimer': 'Unsolicited concept by Insert · photography © %s · not affiliated with %s' % (name or slug, name or slug),
                     'meta_description': None},
         'review': review,
         '_intake': {'crawled_at': datetime.datetime.now().isoformat(timespec='seconds'), 'start_url': url,

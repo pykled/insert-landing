@@ -7,7 +7,7 @@
 
 Refuses when: the build has no passing QA record (qa-status.json, or qa/qa-report.json with zero problems) newer than its
 index.html; an image is over 400 KB; a referenced file is missing or outside the build. Guarantees the noindex meta and the
-'Concept preview by Insert' chip in the staged copy (adds them only there when the build lacks them). The token comes from
+'Unsolicited concept by Insert' chip in the staged copy (adds them only there when the build lacks them). The token comes from
 factory/data/preview.json {"token": ...} or the single 24-hex directory under private-previews/.
 """
 import argparse, datetime, hashlib, json, os, re, shutil, sys, tempfile
@@ -21,10 +21,10 @@ from lib import images as I  # noqa: E402
 MAX_IMG = I.MAX_BYTES   # one budget: lib/images.py writes nothing larger
 SLUG = re.compile(r'^[a-z0-9][a-z0-9-]{0,60}$')
 ROBOTS = '<meta name="robots" content="noindex, nofollow">'
-CHIP_TEXT = 'Concept preview by Insert'
+CHIP_TEXT = 'Unsolicited concept by Insert'
 CHIP = ('<div data-insert-chip style="position:fixed;left:12px;bottom:12px;z-index:9999;font:12px/1.3 system-ui,sans-serif;'
         'letter-spacing:.02em;color:#2b2b2b;background:rgba(255,255,255,.88);border:1px solid rgba(0,0,0,.12);border-radius:999px;'
-        'padding:5px 11px;pointer-events:none">' + CHIP_TEXT + ' · not affiliated with the venue</div>')
+        'padding:5px 11px;pointer-events:none">' + CHIP_TEXT + ' · not made by or affiliated with the venue</div>')
 REF_PATTERNS = [r'\bsrc="([^"]+)"', r'\bsrcset="([^"]+)"', r'\bdata-src="([^"]+)"', r'\bposter="([^"]+)"',
                 r'url\(\s*[\'"]?([^\'")]+)[\'"]?\s*\)', r'<link[^>]+href="([^"]+\.(?:webp|jpe?g|png|avif|svg|ico))"',
                 r'<meta[^>]+content="([^"]+\.(?:webp|jpe?g|png|avif))"']

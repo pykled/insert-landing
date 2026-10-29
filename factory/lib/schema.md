@@ -18,10 +18,10 @@ or a capacity; if a field is null the templates say so ("Capacity on request") o
 | `journey` | object | `note` (how the order was derived from stated uses; reviewer provenance, never rendered), `steps[]` of space ids |
 | `day` | object | `rental_hours`, `gates_open`, `event_end`, `breakdown_end`, `included[]`, `requirement`, `spaces_per_event`, `source` |
 | `faqs[]` | `{q, a, source}` | verbatim or lightly paraphrased from the venue's FAQ |
-| `featured_in[]` | string | plain text names only; never logo files |
+| `featured_in[]` | object | `{name, source, confirmed: true}` per outlet, plain text names only, never logo files. The press row renders only when EVERY entry is source-confirmed; bare strings or any unconfirmed entry drop the whole row (build warns) |
 | `photos` | object | `source_dir`, `manifest` (both relative to the content file), `credit`, `items{name: {alt, caption, focal, light, tags[], subject, mono, flora, archival, rights}}` (photo tags below) |
 | `vibe` | object (optional) | `type`, `era`, `words[3]`, optional `era_source`; the dialect scorer's human input (below) |
-| `preview` | object | `private` (true = noindex meta + disclaimer chip), `disclaimer`, `meta_description` |
+| `preview` | object | `private` (true = noindex meta, the visible top notice 'An unsolicited concept by Insert, not made by or affiliated with <name>', the 'Unsolicited concept by Insert' footer chip built from `photos.credit`, and Insert-only JSON-LD), `disclaimer` (kept for reference; the chip text is built), `meta_description` |
 | `copy_overrides` | object (optional) | voice slot -> string, applied after the voice preset; the human taste pass lives here |
 
 Photo manifest (`img/real/manifest.json`, written by the crawl/convert step): `name`, `source_url`, `source_page`,

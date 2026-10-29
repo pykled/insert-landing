@@ -19,7 +19,7 @@
         <h3 class="foot-h">Explore</h3>
         <ul>
           {% for s in sections if s.nav %}<li><a href="#{{ s.id }}">{{ s.nav }}</a></li>{% endfor %}
-          <li><a href="#">Privacy policy</a></li>
+          <li><a href="{{ insert_privacy_url }}" rel="noopener">Insert privacy policy</a></li>
         </ul>
       </div>
       <div class="mq-foot-blurb">
@@ -29,7 +29,7 @@
     </div>
     <div class="foot-bottom">
       <span>© {{ v.legal_name }}</span>
-      {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ v.preview.disclaimer }}</span>{% endif %}
+      {% if v.preview.private %}<span class="chip"><i aria-hidden="true"></i>{{ preview_chip }}</span>{% endif %}
     </div>
   </div>
 </footer>

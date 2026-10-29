@@ -90,7 +90,7 @@ The reviewer writes `content/<slug>.json` from the draft. Checklist:
 takes the top dialect and the registry guard refuses a site too close to a registered one (change `--force`/`--lead`).
 `qa.py --strict` must exit 0; `preview.py --mark-qa-strict` records the pass with the index.html hash. `preview.py` copies
 only index.html and the images it references to `private-previews/<token>/demos/<slug>/`, adds the noindex meta and the
-"Concept preview by Insert" chip in the staged copy if the build lacks them, and refuses on a missing or stale QA pass, a
+"Unsolicited concept by Insert" chip in the staged copy if the build lacks them, and refuses on a missing or stale QA pass, a
 referenced file outside the build, or any image over 400 KB. `preview.py --remove <slug>` deletes it (venue declined).
 
 ## Never allowed

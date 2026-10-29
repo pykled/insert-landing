@@ -31,6 +31,7 @@
 </head>
 <body data-variant="{{ build.variant }}" data-hero="{{ ch.hero }}" data-moment="{{ ch.moment }}"{% if dialect %} data-dialect="{{ dialect.id }}" data-ornament="{{ ornament }}" data-motion="{{ t.motion_device }}" data-paper="{{ palette_mode }}" data-paper-tone="{{ t.paper_tone }}" data-photo-edge="{{ t.photo_edge }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
+{% include 'partials/preview-notice.j2' %}
 {% include 'partials/nav-' ~ nav_style ~ '.j2' %}
 {% if orn_tpl %}{% with slot='header', from_base=true %}{% include orn_tpl ignore missing %}{% endwith %}
 {% endif %}

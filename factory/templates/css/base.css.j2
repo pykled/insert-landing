@@ -269,8 +269,11 @@
   .foot-brand .brand-word { font-size: 26px; }
   .foot-brand p { margin-top: 14px; max-width: 34ch; }
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-faint); }
-  .chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; letter-spacing: 0.04em; color: var(--ink-soft); }
+  .chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink-soft); }
   .chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  /* demos-CHECK 1: unsolicited-preview notice. Ink on paper (>= 15:1 in every palette), 14 px, never hidden on mobile. */
+  .concept-notice { margin: 0; padding: 9px 20px; background: var(--ink); color: var(--paper); font-family: var(--body); font-size: 14px; line-height: 1.45; letter-spacing: 0.01em; text-align: center; }
+  .chip { line-height: 1.45; }
 
   /* faq shared */
   details { border-bottom: 1px solid var(--line); }

@@ -96,7 +96,7 @@ def test_title_is_venue_and_place_without_concept_suffix(tmp_path):
     html = open(tmp_path / 'sh' / 'index.html').read()
     title = re.search(r'<title>(.*?)</title>', html).group(1)
     assert title == 'The Stonehurst | Weddings in Shadow Hills, CA'
-    assert 'Concept preview by Insert' in html          # the in-page chip stays
+    assert 'Unsolicited concept by Insert' in html      # the in-page chip stays and says unsolicited (demos-CHECK 1)
     import build
     assert build.page_title({'name': 'X', 'seo': {'title': 'X | Garden weddings'}}) == 'X | Garden weddings'
     assert build.page_title({'name': 'X', 'tagline_facts': {'locality': None, 'state': None}}) == 'X | Weddings'
