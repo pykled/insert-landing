@@ -9,7 +9,7 @@
       <tbody>
         {% for s in v.spaces %}
         <tr id="space-{{ s.id }}">
-          <td class="td-img"><div class="ph spec-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 112px, 100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async"></div></td>
+          <td class="td-img"><div class="ph spec-ph"><img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 112px, 100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if loop.first %} fetchpriority="low"{% endif %} decoding="async"></div></td>
           <th scope="row"><span class="spec-n">{{ '%02d' % loop.index }}</span>{{ s.name }}</th>
           <td data-label="Use">{{ s.use }}</td>
           <td data-label="Capacity" class="td-cap">{{ s.capacity_label or '—' }}</td>

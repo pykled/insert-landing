@@ -9,7 +9,7 @@
       {% for s in v.spaces %}
       <article class="stack-row reveal" id="space-{{ s.id }}">
         <div class="ph stack-ph">
-          <img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="lazy" decoding="async">
+          <img src="{{ photos[s.photo].src }}" srcset="{{ photos[s.photo].srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="{{ photos[s.photo].alt }}" style="object-position: {{ photos[s.photo].focal }}" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if loop.first %} fetchpriority="low"{% endif %} decoding="async">
           {% if s.capacity_label %}<span class="cap">{{ s.capacity_label }}</span>{% endif %}
         </div>
         <div class="stack-body">

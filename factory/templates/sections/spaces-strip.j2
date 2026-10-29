@@ -10,7 +10,7 @@
       {% for s in v.spaces %}
       {% set sp = photos[s.photo] %}
       <article class="strip-item reveal{% if loop.index0 % 3 == 1 %} d1{% elif loop.index0 % 3 == 2 %} d2{% endif %}" id="space-{{ s.id }}" role="listitem">
-        <div class="ph strip-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="{{ '(min-width: 1100px) 180px, (min-width: 861px) 30vw, (min-width: 481px) 46vw, 100vw'|cover(sp, '4 / 5') }}" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async"></div>
+        <div class="ph strip-ph"><img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="{{ '(min-width: 1100px) 180px, (min-width: 861px) 30vw, (min-width: 481px) 46vw, 100vw'|cover(sp, '4 / 5') }}" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if loop.first %} fetchpriority="low"{% endif %} decoding="async"></div>
         <p class="strip-cap"><span class="strip-n">{{ '%02d' % loop.index }}</span>{{ s.capacity_label or '' }}</p>
         <h3>{{ s.name }}</h3>
         <p class="strip-use">{{ s.use }}</p>

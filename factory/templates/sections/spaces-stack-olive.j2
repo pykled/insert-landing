@@ -12,7 +12,7 @@
       {% set sp = photos[s.photo] %}
       <article class="olive-row reveal" id="space-{{ s.id }}">
         <div class="ph olive-ph">
-          <img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="lazy" decoding="async">
+          <img src="{{ sp.src }}" srcset="{{ sp.srcset }}" sizes="(min-width: 861px) 52vw, 100vw" width="{{ sp.width }}" height="{{ sp.height }}" alt="{{ sp.alt }}" style="object-position: {{ sp.focal }}" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if loop.first %} fetchpriority="low"{% endif %} decoding="async">
           {% if s.capacity_label %}<span class="cap">{{ s.capacity_label }}</span>{% endif %}
         </div>
         <div class="olive-body">
