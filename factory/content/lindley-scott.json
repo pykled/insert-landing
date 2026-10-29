@@ -13,6 +13,8 @@
     "space_count": 3,
     "max_guests": 200,
     "events_per_day": 1,
+    "events_per_day_noun": "event",
+    "events_per_day_noun_note": "FAQ: 'performs only one event per day'",
     "uses": ["Weddings", "Quinceañeras", "Corporate events", "Film shoots"],
     "_uses_note": "Wedding-first (2026-10-23): Weddings lead (wedding receptions are part of it, so 'Receptions' is no longer a separate use). Secondary lines only, each stated by the venue: quinceañeras (/quinceanera/), corporate events (/additional-services/), film shoots (/film-shoots/)."
   },

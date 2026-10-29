@@ -55,7 +55,7 @@ def test_copy_candidates_and_no_invented_facts():
     v = _util.content('stonehurst')
     voices = _util.data('voices.json')
     c = B.resolve_copy(voices['heritage'], v, {}, voices['heritage']['cta_sets'][1])
-    assert str(c['hero_headline']) == 'Nine acres. One wedding a day.'      # no era -> second candidate; numbers from content
+    assert str(c['hero_headline']) == 'Nine acres. One event a day.'        # no era -> second candidate; numbers and the venue's noun from content
     assert str(c['nav_cta']) == 'Arrange a visit'                           # CTA set 1
     assert '{' not in ''.join(str(x) for x in c.values())
     v2 = json.loads(json.dumps(v)); v2['vibe']['era'] = 1927; v2['vibe']['type'] = 'villa'

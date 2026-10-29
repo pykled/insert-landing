@@ -147,6 +147,8 @@ def copy_slots(v):
         'type_noun_lc': noun,
         'type_noun_cap': (('An ' if noun[0] in 'aeiou' else 'A ') + noun) if noun else None,
         'events_per_day_words': 'One' if epd == 1 else None, 'events_per_day_words_lc': 'one' if epd == 1 else None,   # only 'one ... a day' reads; other counts are stated elsewhere
+        # the venue's own word for what it hosts once a day ('one event a day' unless the content cites 'wedding')
+        'per_day_noun': tf.get('events_per_day_noun') or 'event',
     })
     if tf.get('acres') is None:
         for k in ('acres', 'acres_words', 'acres_words_lc'):

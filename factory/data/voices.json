@@ -33,7 +33,7 @@
         "{locality}"
       ],
       "hero_headline": [
-        "{acres_words} acres in {locality}. <em>{events_per_day_words} wedding a day.</em>",
+        "{acres_words} acres in {locality}. <em>{events_per_day_words} {per_day_noun} a day.</em>",
         "{acres_words} acres in {locality}.",
         "{name}, <em>{locality}.</em>"
       ],
@@ -97,7 +97,7 @@
         "{locality}"
       ],
       "hero_headline": [
-        "{acres_words} acres, {space_count_words_lc} spaces, <em>{events_per_day_words_lc} wedding a day.</em>",
+        "{acres_words} acres, {space_count_words_lc} spaces, <em>{events_per_day_words_lc} {per_day_noun} a day.</em>",
         "{acres_words} acres, <em>{space_count_words_lc} spaces.</em>",
         "{name}, <em>{locality}.</em>"
       ],
@@ -160,7 +160,7 @@
         "{name} · {locality}, {state}"
       ],
       "hero_headline": [
-        "{acres_words} acres. {space_count_words} spaces. <em>{events_per_day_words} event a day.</em>",
+        "{acres_words} acres. {space_count_words} spaces. <em>{events_per_day_words} {per_day_noun} a day.</em>",
         "{acres_words} acres. {space_count_words} spaces.",
         "{space_count_words} spaces in {locality}.",
         "{name}, <em>{locality}.</em>"
@@ -226,7 +226,7 @@
         "{name}, <em>{locality}.</em>"
       ],
       "hero_lede": [
-        "{space_count_words} spaces. Up to {max_guests} guests. {events_per_day_words} event a day.",
+        "{space_count_words} spaces. Up to {max_guests} guests. {events_per_day_words} {per_day_noun} a day.",
         "{space_count_words} spaces. Up to {max_guests} guests.",
         "{space_list_cap}."
       ],
@@ -263,7 +263,7 @@
     ],
     "hero_headline": [
       "{type_noun_cap} in {locality}, built {era}.",
-      "{acres_words} acres. {events_per_day_words} wedding a day.",
+      "{acres_words} acres. {events_per_day_words} {per_day_noun} a day.",
       "{name}, {locality}."
     ],
     "hero_lede": [

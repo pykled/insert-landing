@@ -13,6 +13,8 @@
     "space_count": 6,
     "max_guests": 200,
     "events_per_day": 1,
+    "events_per_day_noun": "event",
+    "events_per_day_noun_note": "FAQ: 'we only have one event a day'",
     "uses": ["Weddings", "Filming", "Private events"]
   },
   "vibe": {"type": "garden", "era": null, "words": ["lush", "garden", "romantic"],
@@ -85,7 +87,7 @@
       "id": "barn", "name": "The Barn", "photo": "barn",
       "capacity": 150, "capacity_label": "Up to 150", "capacity_kind": "seated",
       "use": "Reception, ceremony or shoot",
-      "blurb": "One of the oldest structures in this part of Los Angeles County. It greets you at the gate and anchors any event or shoot.",
+      "blurb": "One of the oldest structures in this part of Los Angeles County. It greets you as you enter the property and anchors any event or shoot.",
       "features": ["Original wood", "Three cascading chandeliers", "Natural lighting"],
       "journey_step": "Arrive at the barn",
       "source": "https://www.thestonehurst.com/rustic-barn-los-angeles"
@@ -149,9 +151,10 @@
     {"q": "What is the rental time for events?", "a": "Our standard is a 12-hour rental including breakdown. On event days the gates open at 12 PM, the event ends at 10 PM, and there are two hours for breakdown (10 PM to midnight). For additional hours or shorter time frames, send us a note.", "source": "https://www.thestonehurst.com/faq"},
     {"q": "Is a wedding or event planner required?", "a": "Yes. We require, at minimum, a partial-service planner for your event.", "source": "https://www.thestonehurst.com/faq"},
     {"q": "What is included in the rental?", "a": "Valet, a site manager, luxe restrooms and security are included in the rental.", "source": "https://www.thestonehurst.com/faq"},
-    {"q": "How do I inquire about filming and photoshoots?", "a": "For filming and photoshoots, email us and we'll come back with availability and rates for your dates.", "source": "https://www.thestonehurst.com/faq"}
+    {"q": "How do I inquire about filming and photoshoots?", "a": "For filming and photoshoots, email thestonehurst@gmail.com.", "source": "https://www.thestonehurst.com/faq"}
   ],
-  "featured_in": ["Junebug Weddings", "Loverly", "Style Me Pretty", "Vogue India", "The Knot", "Zola", "Wedding Chicks", "PartySlate"],
+  "featured_in": [],
+  "_featured_in_note": "demos-CHECK 3 (2026-10-29): the homepage 'featured in:' strip is logo images; only Junebug, Vogue, Zola and PartySlate matched as text. Third-party marks on an unaffiliated page need every outlet confirmed as {name, source, confirmed: true}; none are, so no press row.",
   "photos": {
     "source_dir": "../../previews/stonehurst/img/real",
     "manifest": "../../previews/stonehurst/img/real/manifest.json",
@@ -165,7 +168,7 @@
       "terrace":    {"alt": "The Grand Terrace from above: a wide stepped stone platform set with round dinner tables, a sweetheart table under a tree at the far end, and the dry hills of the desert garden around it.", "focal": "50% 50%", "light": "golden", "tags": ["reception", "terrace"], "subject": "grounds"},
       "bungalow":   {"alt": "The Bungalow: a dark-painted mid-century cottage with a stone porch and steps, ivy at the door and a wedding dress hanging on the porch beam, seen through leaves.", "focal": "50% 50%", "light": "day", "tags": ["bungalow", "detail"], "subject": "building"},
       "reception":  {"alt": "Inside the Greenhouse set for dinner: long linen tables with gold cutlery and small bud vases, wooden cross-back chairs, exposed brick walls and white drapery across the beams.", "focal": "50% 50%", "light": "day", "tags": ["reception", "interior", "tables"], "subject": "interior"},
-      "stonepath":  {"alt": "A hand-laid cobblestone path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.", "focal": "50% 50%", "light": "day", "tags": ["detail", "stone", "portrait"], "subject": "detail"}
+      "stonepath":  {"alt": "A stone-paved path between walls of ivy and bamboo, leading to a stone archway with an iron scroll gate and sunlit grounds beyond.", "focal": "50% 50%", "light": "day", "tags": ["detail", "stone", "portrait"], "subject": "detail"}
     }
   },
   "preview": {

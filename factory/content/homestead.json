@@ -13,6 +13,8 @@
     "space_count": 4,
     "max_guests": 180,
     "events_per_day": 1,
+    "events_per_day_noun": "wedding",
+    "events_per_day_noun_note": "booklet FAQ: 'only 1 wedding per day'",
     "uses": ["Weddings", "Micro weddings"],
     "_uses_note": "Wedding-first (2026-10-23): Weddings lead. 'Micro weddings' = the Micro Wedding Package in the 2027 overview booklet. 'Private events' removed: no crawled page or the booklet states it (the homepage says only 'one event per day'), so no non-wedding secondary line is offered.",
     "_note": "region: the site names Wilshire Peak and the San Bernardino Mountains but never a county or region, so it stays null. space_count = the four areas the About page describes as event spaces (ceremony, reception, beverage area, cottage & cabin); the site states no count. max_guests: '~180' in the overview booklet FAQ."
