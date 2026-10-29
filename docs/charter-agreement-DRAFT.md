@@ -49,10 +49,10 @@ Definitions:
 3.2 **Venue-caused delay.** The Target Date extends day for day for any period the Venue has not approved templates, not granted access, or not answered a request needed to proceed.
 
 3.3 **Remedy if Insert misses the Target Date.** If Go-Live has not occurred by the Target Date for reasons other than Section 3.2 or Section 15 (force majeure):
-(a) the billing start date (Section 4.2) moves back one day for each day of delay (no charge accrues during delay, which is already true because billing starts at Go-Live; the day-for-day credit is applied as a **free-month credit**, meaning the first [N] days of billing after Go-Live are waived, one day for each day late); and
+(a) the Venue receives a day-for-day credit: the first N days of billing after Go-Live are waived, where N is the number of days Go-Live is late past the Target Date (billing already starts at Go-Live, so the credit is what gives the remedy value); and
 (b) if Go-Live has not occurred within [30] days after the Target Date, the Venue may terminate this Agreement by written notice with no liability, no minimum term, and no payment owed.
 
-*Drafter's note: the offer says billing starts at go-live, so a pure "delay billing" remedy has no value on its own. Dillon requested a day-for-day delay; the credit version above makes it real. Confirm the intent with the attorney.*
+
 
 ## 4. Fees, Invoicing and Payment
 
@@ -60,15 +60,15 @@ Definitions:
 
 4.2 **Monthly fee.** **$300 per month**, starting on the date of Go-Live (the "Billing Start Date"). No fee is owed before Go-Live, including at signing.
 
-4.3 **Price lock.** The $300 monthly fee is locked for as long as the Venue remains a Charter Venue Partner under this Agreement without a lapse in service. Insert will not raise it. *Drafter's note: `venues.html` also lists "after the charter period" standard pricing ($3,000-$4,500 build, $500-$600/month) and says Charter Partners "keep $300 and skip the build fee." This wording could be read as the price ending after the Charter Period. This draft reads it as: standard pricing applies to future venues; Charter Partners stay at $300. Confirm and fix the website wording to match.*
+4.3 **Price lock.** The $300 monthly fee is locked for as long as the Venue remains a Charter Venue Partner under this Agreement without a lapse in service. Insert will not raise it. Standard pricing for later venues does not apply to the Venue. *Drafter's note: `venues.html` also lists "after the charter period" standard pricing ($3,000-$4,500 build, $500-$600/month) and says Charter Partners "keep $300 and skip the build fee." This wording could be read as the price ending after the Charter Period. This draft reads it as: standard pricing applies to future venues; Charter Partners stay at $300. Confirm and fix the website wording to match.*
 
 4.4 **Invoicing.** Insert invoices monthly in advance by email, due within [15] days. Payment by [ACH / card / check]. Late amounts bear [1]% monthly interest or the maximum allowed by law, whichever is lower, after [10] days' written notice. [Insert may pause the Stack after 30 days' non-payment and written notice.]
 
 4.5 **Taxes.** Fees exclude sales, use or similar taxes. If tax applies to the service, Insert will add it as a separate line item where required by law. [ATTORNEY/CPA TO CONFIRM TREATMENT.]
 
-4.6 **Refunds/credits.** Fees paid are non-refundable except as stated in this Agreement (Section 3.3, Section 5.3, Section 5.4). [Proposed: pro-rata credit for any month where the Stack is down more than [72] consecutive hours due to Insert.]
+4.6 **Refunds/credits.** Fees paid are non-refundable except as stated in this Agreement (Section 3.3, Section 5.4, Section 5.6). [Proposed: pro-rata credit for any month where the Stack is down more than [72] consecutive hours due to Insert.]
 
-4.7 **Out-of-pocket costs.** The Venue pays its own third-party accounts (payment provider, calendar, email/SMS sending accounts). If SMS carrier registration or message fees apply, they are [passed through at cost / included]. [DECIDE.]
+4.7 **Out-of-pocket costs.** The Venue pays its own third-party accounts (payment provider, calendar, email/SMS sending accounts). Email delivery is included. If the Venue later turns on SMS under Section 6.7, carrier registration and per-message fees are passed through to the Venue at Insert's cost, with no markup, and Insert will tell the Venue the expected monthly amount before SMS is switched on.
 
 ## 5. Term, Minimum, and Termination
 
@@ -76,7 +76,7 @@ Definitions:
 
 5.2 **Before Go-Live.** Either party may terminate before Go-Live by written notice with no payment owed, except the Venue returns or deletes Insert materials and Insert deletes Venue Data (Section 8.8).
 
-5.3 **Early exit by the Venue during the Minimum Term.** The Venue may end the Agreement early. In that case the Venue owes the monthly fee for the remainder of the Minimum Term, **except** that no further fees are owed if the Venue terminates for Insert's uncured material breach (Section 5.5), for missed Go-Live (Section 3.3(b)), or under Section 5.6 (Insert's insolvency or discontinuance). *Drafter's note: a lawyer should confirm this early-termination amount is enforceable as a liquidated amount, not a penalty. A softer alternative is 50% of remaining fees.*
+5.3 **Early exit by the Venue during the Minimum Term.** The Venue may end the Agreement early. In that case the Venue owes the monthly fee for the remainder of the Minimum Term, **except** that no further fees are owed if the Venue terminates for Insert's uncured material breach (Section 5.5), for missed Go-Live (Section 3.3(b)), or under Section 5.8 (Insert discontinues the service or becomes insolvent). *Drafter's note: a lawyer should confirm this early-termination amount is enforceable as a liquidated amount, not a penalty. A softer alternative is 50% of remaining fees.*
 
 5.4 **Insert fails to deliver.** If Insert materially fails to deliver the Stack as described and does not fix it within 30 days of written notice, the Venue may terminate with no minimum, owes nothing further, and receives a refund of fees paid for any period in which the Stack was materially non-functional.
 
@@ -85,6 +85,8 @@ Definitions:
 5.6 **Termination for convenience after the Minimum Term.** After the Minimum Term, either party may terminate for any reason on **30 days' written notice**. Insert will not terminate for convenience during the Minimum Term except on [60] days' notice with a refund of prepaid fees, and a Charter Venue Partner terminated by Insert without cause keeps access to its data per Section 8.8.
 
 5.7 **Effect of termination.** Fees accrue through the effective date. Section 8.8 (export and deletion) applies. Sections that by nature survive (confidentiality, IP, liability limits, indemnity, governing law, 8.8) survive.
+
+5.8 **Insert discontinues the service.** If Insert stops offering the Stack, or becomes insolvent or unable to perform, the Venue may terminate immediately, owes no further fees (including any remaining Minimum Term), and receives the export under Section 8.8. Insert will give at least [30] days' notice of a planned discontinuance where it can.
 
 ## 6. Messaging Compliance (SMS, Email)
 
@@ -105,15 +107,17 @@ Definitions:
 
 6.4 **Laws.** Each party will comply with laws applicable to its role, including the federal Telephone Consumer Protection Act (47 U.S.C. § 227), the CAN-SPAM Act and FTC CAN-SPAM Rule, and California law. Insert gives no legal advice about messaging law; the Venue should consult its own counsel about its marketing practices.
 
+6.7 **Email only at launch.** The Stack sends **email only** unless and until the Venue and Insert switch on SMS for that Venue in writing. Before SMS is switched on: (a) the carrier registration in Section 6.1 must be approved; (b) the Venue must approve the SMS consent wording; and (c) the Venue must confirm the expected fees under Section 4.7. The one exception is a single reply sent to a person who has just texted the Venue's number, which responds to their own message. Nothing in the four automations requires SMS.
+
 6.5 **Response-time figures are targets.** The "40 to 60 seconds" reply time shown in marketing materials is a **design target** under normal conditions, not a guarantee or service level. Delivery depends on third parties (email/SMS carriers, the Venue's accounts, internet outages) and the couple's device. Insert makes no commitment on delivery, deliverability, response rate, or bookings.
 
 ## 7. AI-Generated Replies
 
-7.1 **Disclosure.** The Stack uses AI tools to draft or personalize some replies. Insert will configure messages so that they do not state or imply a human wrote a specific message where that would be false, and will add a disclosure line if the Venue or applicable law requires one. [ATTORNEY TO ADVISE ON DISCLOSURE.]
+7.1 **Disclosure.** The Stack uses AI tools to draft or personalize some replies. Insert will configure messages so that they do not state or imply a human wrote a specific message where that would be false, and will add a short line to AI-drafted messages (for example, "Sent by [Venue]'s assistant") unless the Venue is in human-approval mode and a person reviews each message before it sends.
 
 7.2 **Guardrails.** Unless the Venue directs otherwise, AI replies are limited to: acknowledging the inquiry, confirming date availability from the Venue's calendar, sharing information in the Venue's approved FAQ, and offering the tour link. The Stack is configured **not** to: quote prices or discounts not in the approved pricing, make promises about contract terms, give legal/medical/safety advice, hold or release dates other than as the Venue configured, or reply to messages flagged as complaints or distress; those are routed to the Venue.
 
-7.3 **Human-approval option.** The Venue may choose a mode where each AI-drafted reply waits for Venue approval before sending, and may switch modes on notice. Default mode: [AUTO-SEND within guardrails / HUMAN APPROVAL] for the first [30] days.
+7.3 **Human-approval option.** The Venue may choose a mode where each AI-drafted reply waits for Venue approval before sending, and may switch modes on notice. **Default mode: human approval for the first 30 days after Go-Live**, after which the Venue may switch to auto-send within the guardrails in 7.2 by written notice.
 
 7.4 **Accuracy.** AI output can be wrong. Insert will test and monitor reasonably and will correct errors it learns of, but the Venue is responsible for keeping its calendar, pricing and FAQ accurate and for reviewing a sample of sent messages at least [monthly].
 
@@ -157,7 +161,7 @@ Each party will keep the other's non-public information (pricing, business plans
 
 11.1 **Candid feedback.** The Venue will join up to [3] feedback sessions (about [30] minutes each) in the first [four] months after Go-Live and give honest input on what works and what does not. Insert may use feedback to improve its products without owing the Venue anything; the Venue is not required to give favorable feedback.
 
-11.2 **Testimonial.** Once the Stack is booking tours, the Venue will consider in good faith providing a short testimonial. The testimonial must be **true, in the Venue's own words** (or approved by the Venue), and is **not required to be positive**: the Venue's obligation is limited to the good-faith consideration and to a candid account. [ATTORNEY: confirm this meets FTC endorsement guidance and does not make the free build look like payment for a positive review.]
+11.2 **Testimonial.** Once the Stack is booking tours, the Venue will consider in good faith providing a short testimonial. The testimonial must be **true, in the Venue's own words** (or approved by the Venue), and is **not required to be positive**: the Venue's obligation is limited to the good-faith consideration and to a candid account. If the Venue publishes or allows Insert to publish the testimonial, it will state that the Venue received the build at no charge as a Charter Venue Partner, so readers know of the relationship.
 
 11.3 **Name and logo.** Insert may use the Venue's name, logo or testimonial in marketing **only with the Venue's separate written approval at that time** for the specific use. Approval may be **revoked** by written notice; Insert will stop new uses within [14] days and remove it from materials it controls (not from printed items already distributed or archived third-party copies).
 
@@ -179,7 +183,7 @@ Nothing in this Agreement is exclusive. Insert may serve other venues, including
 
 14.2 **No indirect damages.** NEITHER PARTY IS LIABLE FOR LOST PROFITS, LOST BOOKINGS, LOST REVENUE, OR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, EVEN IF ADVISED OF THEIR POSSIBILITY.
 
-14.3 **Carve-outs.** Sections 14.1 and 14.2 do not limit: (a) liability that cannot be limited by law, including fraud, gross negligence or willful misconduct (California Civil Code § 1668); (b) a party's indemnity obligations in 14.4; (c) breach of confidentiality; (d) the Venue's obligation to pay fees due; or (e) [Insert's liability for a data breach caused by its failure to maintain Section 8.6 safeguards, subject to a separate cap of [$__]]. [ATTORNEY TO SET.]
+14.3 **Carve-outs.** Sections 14.1 and 14.2 do not limit: (a) liability that cannot be limited by law, including fraud, gross negligence or willful misconduct (California Civil Code § 1668); (b) the Venue's indemnity obligations in 14.4 (Insert's indemnity obligations are subject to the cap in 14.6); (c) breach of confidentiality; (d) the Venue's obligation to pay fees due; or (e) Insert's liability for a data breach caused by its failure to maintain Section 8.6 safeguards, which is subject to a separate cap of **$10,000**.
 
 14.4 **Indemnities (mild).**
 - *Venue* will defend and pay damages finally awarded against Insert from a third-party claim that Venue Content infringes rights, or that the Venue sent or instructed messages to a person without the consent the Venue was responsible for under Section 6.
@@ -187,6 +191,8 @@ Nothing in this Agreement is exclusive. Insert may serve other venues, including
 - The indemnified party must give prompt notice, allow the indemnifying party to control the defense, and reasonably cooperate; the indemnifying party will not settle in a way that admits fault or imposes obligations on the other without consent.
 
 14.5 *Drafter's note: TCPA exposure is statutory per message and can exceed the cap; see lawyer questions. This draft keeps the consent responsibility with the party able to control it, but an attorney should decide whether 14.1 applies to indemnity claims.*
+
+14.6 **Cap on Insert's indemnity.** Insert's total liability under its indemnities in 14.4 will not exceed **$10,000**, except for liability that cannot be limited by law.
 
 ## 15. Force Majeure
 
@@ -198,7 +204,7 @@ The parties are independent contractors. Nothing creates employment, partnership
 
 ## 17. Governing Law and Disputes
 
-California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for [30] days. Then the state or federal courts in [COUNTY] County, California have exclusive jurisdiction, and each party consents to them. [ALTERNATIVE: JAMS/AAA arbitration or small claims first. ATTORNEY TO DECIDE.] The prevailing party in a legal action may recover reasonable attorneys' fees [OPTIONAL].
+California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for [30] days. Then the state or federal courts in [COUNTY] County, California have exclusive jurisdiction, and each party consents to them. [ALTERNATIVE: JAMS/AAA arbitration or small claims first. ATTORNEY TO DECIDE.] 
 
 ## 18. General
 
