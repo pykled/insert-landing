@@ -171,6 +171,8 @@ def check_contrast(page, name, state, root=None, scale=2):
         contrast_rows.append({'view': name, 'state': state, 'el': n['el'], 'text': n['text'], 'size': n['size'], 'weight': n['weight'], 'min': round(worst, 2), 'p10': round(p10, 2), 'need': need})
         if worst < need:
             problems.append('%s [%s] contrast %.2f < %.1f (%spx/%d) %s "%s"' % (name, state, worst, need, n['size'], n['weight'], n['el'], n['text']))
+        elif re.search(r'concept-notice|span\.chip', n['el']) and worst < 7.0:   # demos-CHECK 1: the disclosure is never low-contrast
+            problems.append('%s [%s] unsolicited-preview disclosure contrast %.2f < 7 %s' % (name, state, worst, n['el']))
         elif not large and worst < 7.0:
             warnings.append('%s [%s] contrast %.2f < 7 (%spx/%d) %s "%s"' % (name, state, worst, n['size'], n['weight'], n['el'], n['text']))
 

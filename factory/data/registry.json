@@ -657,7 +657,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/homestead",
-    "built": "2026-10-23T16:37:31",
+    "built": "2026-10-29T15:58:56",
     "personality": {
      "formality": 52.5,
      "scale": 65.0,
@@ -714,7 +714,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/lindley-scott",
-    "built": "2026-10-23T16:37:35",
+    "built": "2026-10-29T15:59:41",
     "personality": {
      "formality": 85.0,
      "scale": 70.0,
@@ -744,7 +744,6 @@
      "hero",
      "statement",
      "story",
-     "featured",
      "spaces",
      "sprig-draw",
      "tour",
@@ -772,7 +771,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/stonehurst",
-    "built": "2026-10-23T16:37:44",
+    "built": "2026-10-29T16:00:30",
     "personality": {
      "formality": 65.0,
      "scale": 52.5,
