@@ -657,7 +657,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/homestead",
-    "built": "2026-10-29T15:58:56",
+    "built": "2026-10-29T16:10:32",
     "personality": {
      "formality": 52.5,
      "scale": 65.0,
@@ -714,7 +714,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/lindley-scott",
-    "built": "2026-10-29T15:59:41",
+    "built": "2026-10-29T16:11:17",
     "personality": {
      "formality": 85.0,
      "scale": 70.0,
@@ -771,7 +771,7 @@
    },
    "meta": {
     "path": ".factory-check/demos/stonehurst",
-    "built": "2026-10-29T16:00:30",
+    "built": "2026-10-29T16:12:05",
     "personality": {
      "formality": 65.0,
      "scale": 52.5,
