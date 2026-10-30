@@ -1,6 +1,6 @@
 # Insert charter venue outreach pack
 
-Prepared 2026-10-23 from previews/venue-shortlist.md (verification pass same day). **Nothing has been sent.** Public info only. Working link today is https://insert-landing-production.up.railway.app/venues (useinsert.com does not resolve yet). Do not claim clients, testimonials, results or a live product beyond the /venues page and mockups.
+Prepared 2026-10-23, finalized 2026-10-30 from previews/venue-shortlist.md (verification pass same day). **Nothing has been sent.** Public info only. Working link today is https://insert-landing-production.up.railway.app/venues (useinsert.com does not resolve yet). Do not claim clients, testimonials, results or a live product beyond the /venues page and mockups.
 
 Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; backups = Lindley-Scott, Revery. Walnut Grove is out (see the end).
 
@@ -10,7 +10,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 2. Founding venues lock $300 a month, billing starts only when the site goes live, with a 6-month minimum.
 3. It is by application, we are picking a few venues first, and we would like yours to be one.
 
-(Memory notes elsewhere mention a $250/mo founding retainer and a 1% Stripe Connect fee. Confirm which price you are quoting before any call.)
+**Price is settled (2026-10-29): $300/month locked, 6-month minimum, no build charge, billing from go-live, no percentage of deposits.** Older notes about $250/mo or a 1% fee are obsolete. Launch is **email only** (no texting). Agreement: docs/charter-agreement-DRAFT.md (PYKLE LLC, draft, not lawyer-reviewed); one-pager: docs/charter-one-pager.md.
 
 ---
 
@@ -39,7 +39,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 >
 > I read your site closely. The three 2027 packages are PDFs without prices on the page, and tours are by appointment with no way to book one. A couple looking late in the evening has to wait to learn what a Saturday costs.
 >
-> I made a private homepage sketch using only your own words: {{PREVIEW_LINK}}. It is a sketch, not a finished site. A little about what we're doing is at {{WEBSITE}}.
+> I made a private homepage sketch using only your own words: https://insert-landing-production.up.railway.app/private-previews/2d32be7dda6d361dd89ffdfd/demos/homestead/. It is a sketch, not a finished site. A little about what we're doing is at https://insert-landing-production.up.railway.app/venues.
 >
 > Could I send a short walkthrough, or would a 15-minute call this week be easier? No obligation either way.
 >
@@ -58,10 +58,10 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 > Dillon, Insert
 
 **(f) Pre-send checklist.**
-- [ ] A HomeStead preview exists at {{PREVIEW_LINK}}, private (noindex, not on a public path); if not, replace that line with "May I send a private preview?"
+- [x] The HomeStead demo (ranch) is live, private (noindex) and passed Checker r2 (2026-10-29).
 - [ ] Sender address confirmed (not the personal Gmail unless Dillon says so), send via the approved send script.
 - [ ] Preview uses only text from their site; no their-photos without permission.
-- [ ] No claim of clients, results or a live product. {{WEBSITE}} is the Railway link, not useinsert.com.
+- [ ] No claim of clients, results or a live product. https://insert-landing-production.up.railway.app/venues is the Railway link, not useinsert.com.
 - [ ] Phone/email re-checked on the live site that day.
 - [ ] Dillon has approved this specific send (external email is approve-first).
 
@@ -90,7 +90,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 >
 > I'm Dillon, from Insert. We build websites and booking steps for wedding venues, and I'm choosing a few to start with. If Nancy is the right person for this, please pass it along.
 >
-> Stonehurst has six spaces and one event a day, but the homepage doesn't say what a rental includes, the rules are on the FAQ page, and tours are requested by email. I made a private sketch of a homepage that puts the spaces, the rules and a date request up front, using only your own words: {{PREVIEW_LINK}}. More about what we're doing: {{WEBSITE}}.
+> Stonehurst has six spaces and one event a day, but the homepage doesn't say what a rental includes, the rules are on the FAQ page, and tours are requested by email. I made a private sketch of a homepage that puts the spaces, the rules and a date request up front, using only your own words: https://insert-landing-production.up.railway.app/private-previews/2d32be7dda6d361dd89ffdfd/demos/stonehurst/. More about what we're doing: https://insert-landing-production.up.railway.app/venues.
 >
 > May I send a short walkthrough, or would a 15-minute call work? No obligation.
 >
@@ -109,11 +109,11 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 > Dillon, Insert
 
 **(f) Pre-send checklist.**
-- [ ] Choose the variant from previews/stonehurst-variants (a/b/c) and confirm it loads at {{PREVIEW_LINK}} under the private token path.
+- [x] The Stonehurst demo (botanical) is live, private (noindex) and passed Checker r2 (2026-10-29).
 - [ ] Do not quote the old Knot 4.9/146 figure; it is unverified.
 - [ ] Do not call Nancy the owner in the email unless confirmed (reviews disagree: Nancy and John).
 - [ ] Confirm sender address and approve-first rule (external email).
-- [ ] No claims of clients, results or a live product; {{WEBSITE}} = Railway link.
+- [ ] No claims of clients, results or a live product; https://insert-landing-production.up.railway.app/venues = Railway link.
 - [ ] Preview text only from their site.
 
 ---
@@ -141,7 +141,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 >
 > I'm Dillon, from Insert. We build websites and booking steps for wedding venues, and I'm choosing a few to start with. If Diane is the right person for this, please pass it along.
 >
-> The house has been hosting weddings since 1978, and the weddings page is a single sentence. Capacity, hours and the deposit are on other pages or not at all, and a couple has to fill in a long form to ask a first question. I made a private homepage sketch from the text already on your site: {{PREVIEW_LINK}}. More about what we're doing: {{WEBSITE}}.
+> The house has been hosting weddings since 1978, and the weddings page is a single sentence. Capacity, hours and the deposit are on other pages or not at all, and a couple has to fill in a long form to ask a first question. I made a private homepage sketch from the text already on your site: https://insert-landing-production.up.railway.app/private-previews/2d32be7dda6d361dd89ffdfd/demos/lindley-scott/. More about what we're doing: https://insert-landing-production.up.railway.app/venues.
 >
 > May I send a short walkthrough, or would a 15-minute call work? No obligation.
 >
@@ -161,7 +161,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 
 **(f) Pre-send checklist.**
 - [ ] Ruling made on in-house catering (shortlist section (d)).
-- [ ] previews/lindley-scott-house/index.html is served privately at {{PREVIEW_LINK}}; it uses placeholder image blocks, no venue photos.
+- [x] The Lindley-Scott demo (estate) is live, private (noindex) and passed Checker r2 (2026-10-29). Still open: ruling on in-house catering (see this section).
 - [ ] The old draft in outreach-notes.md says the form is "three clicks deep": that is wrong (it is in the main nav). Use the new draft above.
 - [ ] Sender address and approve-first rule confirmed. No claims of clients, results or a live product.
 - [ ] Do not address Diane by name in the greeting unless confirmed.
@@ -191,7 +191,7 @@ Order of approach (from the shortlist): charter pair = HomeStead + Stonehurst; b
 >
 > I'm Dillon, from Insert. We build websites and booking steps for wedding venues, and I'm choosing a few to start with.
 >
-> The Revery works as both a wedding venue and a daylight photo studio, but the site has one inquiry form for everything, rates are by email, and the phone number differs between pages. I made a private homepage sketch that gives weddings and shoots separate paths, using only your own text: {{PREVIEW_LINK}}. More about what we're doing: {{WEBSITE}}.
+> The Revery works as both a wedding venue and a daylight photo studio, but the site has one inquiry form for everything, rates are by email, and the phone number differs between pages. I made a private homepage sketch that gives weddings and shoots separate paths, using only your own text: {{PREVIEW_LINK}}. More about what we're doing: https://insert-landing-production.up.railway.app/venues.
 >
 > May I send a short walkthrough, or would a 15-minute call work? No obligation.
 >
