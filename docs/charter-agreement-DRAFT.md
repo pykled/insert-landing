@@ -10,7 +10,7 @@ Terms follow the current offer on `venues.html` (two Charter seats, by applicati
 
 This Charter Venue Partner Agreement (the "Agreement") is made on [EFFECTIVE DATE] between:
 
-- **PYKLE LLC**, doing business as **Insert**, a [STATE] limited liability company, address [ADDRESS], email [EMAIL] ("Insert"); and
+- **PYKLE LLC**, doing business as **Insert**, a California limited liability company, address 2108 N St, Ste N, Sacramento, CA 95816, email dilldjie@gmail.com ("Insert"); and
 - **[VENUE LEGAL NAME]**, a [STATE] [ENTITY TYPE], operating as [VENUE TRADE NAME], address [ADDRESS], email [EMAIL] ("Venue").
 
 Definitions:
@@ -121,7 +121,7 @@ Definitions:
 
 7.4 **Accuracy.** AI output can be wrong. Insert will test and monitor reasonably and will correct errors it learns of, but the Venue is responsible for keeping its calendar, pricing and FAQ accurate and for reviewing a sample of sent messages at least monthly.
 
-7.5 **No training on Venue Data.** Insert will not use Venue Data to train or fine-tune any AI model for use outside the Venue's own Stack, and will use providers whose terms do not permit them to train on Venue Data submitted through their business/API offering. [ATTORNEY/DRAFTER TO CONFIRM CURRENT PROVIDER TERMS BEFORE SIGNING.]
+7.5 **No training on Venue Data.** Insert will not use Venue Data to train or fine-tune any AI model for use outside the Venue's own Stack, and will use providers whose terms do not permit them to train on Venue Data submitted through their business/API offering. Insert will run the Stack only on commercial or API offerings (not consumer chat accounts), which by default are not used to train models under the provider's published terms (checked 2026-10-30).
 
 ## 8. Data Protection
 
@@ -204,7 +204,7 @@ The parties are independent contractors. Nothing creates employment, partnership
 
 ## 17. Governing Law and Disputes
 
-California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for 30 days. Then the state or federal courts in [COUNTY] County, California have exclusive jurisdiction, and each party consents to them. Either party may bring a claim within the small-claims limit in small claims court. 
+California law governs, without regard to conflict-of-laws rules. The parties will first try to resolve disputes by good-faith discussion for 30 days. Then the state or federal courts in Los Angeles County, California have exclusive jurisdiction, and each party consents to them. Either party may bring a claim within the small-claims limit in small claims court. 
 
 ## 18. General
 
